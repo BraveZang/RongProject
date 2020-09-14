@@ -2,10 +2,14 @@
 //  AppDelegate.m
 //  RongPenProject
 //
-//  Created by ZTX on 2020/9/12.
+//  Created by zanghui on 2020/9/12.
 //
 
 #import "AppDelegate.h"
+#import <UMCommon/UMCommon.h>
+//#import <AlipaySDK/AlipaySDK.h>
+#import <UMShare/UMShare.h>
+#import "TabarVC.h"
 
 @interface AppDelegate ()
 
@@ -15,25 +19,75 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    //    // AppDelegate 进行全局设置
+    if (@available(iOS 11.0, *)) {
+        [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+    }
+   
+    //下面两行代码主要是防止加载大分辨率图片时内存暴涨crash
+    [SDImageCache sharedImageCache].config.shouldCacheImagesInMemory = NO;//缓存图片不放入内存
+      //sd中可点击diskCacheReadingOptions跳转到这个属性，提示设置为NSDataReadingMappedIfSafe可提高性能
+    [SDImageCache sharedImageCache].config.diskCacheReadingOptions = NSDataReadingMappedIfSafe;
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    TabarVC *vc=[[TabarVC alloc]init];
+    self.window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
+    
+
+    
     return YES;
 }
 
+#pragma mark - 生命周期
+- (void)applicationWillEnterForeground:(UIApplication *)application{
+    NSLog(@"状态** 将要进入前台");
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"loginBackVideo" object:nil];
 
-#pragma mark - UISceneSession lifecycle
 
-
-- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {
-    // Called when a new scene session is being created.
-    // Use this method to select a configuration to create the new scene with.
-    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
 }
+- (void)applicationDidBecomeActive:(UIApplication *)application{
+    NSLog(@"状态** 已经活跃");
+//    [[NSNotificationCenter defaultCenter]postNotificationName:@"loginBackVideo" object:nil];
+
+}
+- (void)applicationWillResignActive:(UIApplication *)application{
+    NSLog(@"状态** 将要进入后台");
+
+}
+- (void)applicationDidEnterBackground:(UIApplication *)application{
+    NSLog(@"状态** 已经进入后台");
+}
+- (void)applicationWillTerminate:(UIApplication *)application{
+    NSLog(@"状态** 将要退出程序");
+}
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options {
+    BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url options:options];
+    if (!result) {
 
 
-- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {
-    // Called when the user discards a scene session.
-    // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+        if ([url.host isEqualToString:@"safepay"]) {
+           //  支付跳转支付宝钱包进行支付，处理支付结果
+//            [[AlipaySDK defaultService] processOrderWithPaymentResult:url
+//                                                      standbyCallback:^(NSDictionary *resultDic) {
+//                                                          NSLog(@"result = %@", resultDic);
+//                                [[AlipayManager sharedManager] managerStandbyCallback:resultDic];
+//
+//                                                      }];
+
+            // 授权跳转支付宝钱包进行支付，处理支付结果
+//            [[AlipaySDK defaultService] processAuth_V2Result:url
+//                                             standbyCallback:^(NSDictionary *resultDic) {
+//                                                 NSLog(@"result = %@", resultDic);
+//                                [[AlipayManager sharedManager] processAuthStandbyCallback:resultDic];
+//
+//
+//                                             }];
+        }
+    }
+    return result;
 }
 
 

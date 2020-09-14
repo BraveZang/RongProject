@@ -1,0 +1,111 @@
+//
+//  PrefixHeader.pch
+//  RongPenProject
+//
+//  Created by zanghui  on 2020/9/14.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#pragma mark - 预处理头文件
+
+#import "DZBaseViewController.h"
+#import "AppDelegate.h"
+#import "MTool.h"
+#import "User.h"
+
+#pragma mark - 工具类头文件
+
+#import "FrameDefine.h"
+#import "MTool.h"
+#import "DZTools.h"
+#import "NetManager.h"
+#import "NetManager+UPRequest.h"
+#import "UIView+UIViewRect.h"
+#import "UIView+.h"
+#import "NSString+Font.h"
+#import "DZNetworkingTool.h"
+#import "NSString+URL.h"
+#import "NSObject+AutoProperty.h"
+#pragma mark - 第三方库
+
+#import <AFNetworking/AFNetworking.h>
+#import <MJExtension/MJExtension.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+#import "UIImageView+WebCache.h"
+#import <MJRefresh/MJRefresh.h>
+#import "SDWebImageManager.h"
+#import "IQKeyboardManager.h"
+
+
+#pragma mark - 请求地址
+#define kDomainUrl @""
+#define kIMageUrl @""
+
+
+//1. 颜色类
+//导航背景颜色
+#define NavBgColor UIColorFromRGB(0xFFFFFF)
+
+//导航标题颜色
+#define NavTitleColor UIColorFromRGB(0x282828)
+
+//页面通用背景颜色
+#define ViewBackgroundColor UIColorFromRGB(0xF5F5F5)
+#define TITLECOLOR   RGBCOLOR(224, 101, 24)
+#define LINECOLOR   RGBCOLOR(210, 210, 210)
+
+
+//颜色设置函数
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#define RGBCOLOR(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+// 颜色值RGB
+#define RGBA(r,g,b,a)                       [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+//-- 以下都是系统获取到的，而不是需要配置的
+
+//IOS版本
+#define IOS8 [[[UIDevice currentDevice] systemVersion]floatValue]>=8.0
+#define iOS7Later ([UIDevice currentDevice].systemVersion.floatValue >= 7.0f)
+#define iOS8Later ([UIDevice currentDevice].systemVersion.floatValue >= 8.0f)
+#define iOS9Later ([UIDevice currentDevice].systemVersion.floatValue >= 9.0f)
+#define iOS11Later ([UIDevice currentDevice].systemVersion.floatValue >= 11.0f)
+#define iOS12Later ([UIDevice currentDevice].systemVersion.floatValue >= 12.0f)
+
+//导航栏的高度
+#define NavBarHeight 44
+
+//屏幕宽度
+#define ScreenWidth ([[UIScreen mainScreen] bounds].size.width)
+
+//屏幕高度
+#define ScreenHeight ([[UIScreen mainScreen] bounds].size.height)
+
+//获取状态栏的高度
+#define StatusBarHight  [[UIApplication sharedApplication] statusBarFrame].size.height
+
+//获取导航栏+状态栏的高度
+#define NavAndStatusBarHight  (NavBarHeight+StatusBarHight)
+
+//全面屏的iphone
+#define IS_IPhoneX_All ([UIScreen mainScreen].bounds.size.height == 812 || [UIScreen mainScreen].bounds.size.height == 896)
+
+//底部安全区域
+#define SafeAreaBottomHeight (IS_IPhoneX_All ? 34 : 0)
+
+//顶部安全区域
+#define SafeAreaTopHeight (IS_IPhoneX_All  ? 88 : 64)
+
+//根据750计算适合的比例
+#define FitRealValue(value) ((value)*ScreenWidth/750.0)
+//左边距
+#define  LeftMargin 15
+
+
+
+#if DEBUG
+#define NSLog(FORMAT, ...) fprintf(stderr,"\nfunction:%s line:%d content:%s\n", __FUNCTION__, __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+#else
+#define NSLog(FORMAT, ...) nil
+#endif
+#endif /* PrefixHeader_pch */
