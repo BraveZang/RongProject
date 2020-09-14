@@ -67,13 +67,5 @@
 -(void)NewsendPOSTRequestToServerWithURL:(NSString *)urlString postData:(NSMutableDictionary *)dataDict;
 
 
-/**
- 新新请求接口   别问我为什么  两个服务器  后台是大哥
-
- @param urlString 地址
- @param dataDict 参数
- */
--(void)NewNewsendPOSTRequestToServerWithURL:(NSString *)urlString postData:(NSMutableDictionary *)dataDict;
-
 
 @end

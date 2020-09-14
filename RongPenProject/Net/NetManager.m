@@ -31,7 +31,7 @@
 }
 
 /**
- 木库所有接口统一调用此请求方法
+所有接口统一调用此请求方法
  
  @param urlString 地址
  @param dataDict 参数
