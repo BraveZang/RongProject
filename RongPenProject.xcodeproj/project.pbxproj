@@ -52,6 +52,18 @@
 		C6473FB0250F4BF200BDE73F /* PracticeIndexVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473FAF250F4BF200BDE73F /* PracticeIndexVC.m */; };
 		C6473FB9250F4C6500BDE73F /* MainIndexVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473FB8250F4C6500BDE73F /* MainIndexVC.m */; };
 		C6473FBC250F4CB300BDE73F /* TabarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473FBB250F4CB300BDE73F /* TabarVC.m */; };
+		C6473FC7250F531A00BDE73F /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C6473FBF250F531A00BDE73F /* AlipaySDK.bundle */; };
+		C6473FC8250F531A00BDE73F /* APOrderInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473FC0250F531A00BDE73F /* APOrderInfo.m */; };
+		C6473FC9250F531A00BDE73F /* APAuthInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473FC1250F531A00BDE73F /* APAuthInfo.m */; };
+		C6473FCA250F531A00BDE73F /* AlipayManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473FC4250F531A00BDE73F /* AlipayManager.m */; };
+		C6473FCB250F531A00BDE73F /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6473FC6250F531A00BDE73F /* AlipaySDK.framework */; };
+		C6473FCD250F559900BDE73F /* libz.1.1.3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C6473FCC250F559900BDE73F /* libz.1.1.3.tbd */; };
+		C6473FCF250F55A300BDE73F /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C6473FCE250F55A300BDE73F /* libc++.tbd */; };
+		C6473FD1250F55AE00BDE73F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6473FD0250F55AE00BDE73F /* Security.framework */; };
+		C6473FD3250F55BA00BDE73F /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6473FD2250F55BA00BDE73F /* CoreMotion.framework */; };
+		C6473FD5250F55C300BDE73F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6473FD4250F55C300BDE73F /* CFNetwork.framework */; };
+		C6473FD7250F55CE00BDE73F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6473FD6250F55CE00BDE73F /* CoreTelephony.framework */; };
+		C6473FD9250F55D600BDE73F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6473FD8250F55D500BDE73F /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -162,6 +174,21 @@
 		C6473FB8250F4C6500BDE73F /* MainIndexVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainIndexVC.m; sourceTree = "<group>"; };
 		C6473FBA250F4CB300BDE73F /* TabarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabarVC.h; sourceTree = "<group>"; };
 		C6473FBB250F4CB300BDE73F /* TabarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabarVC.m; sourceTree = "<group>"; };
+		C6473FBF250F531A00BDE73F /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		C6473FC0250F531A00BDE73F /* APOrderInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APOrderInfo.m; sourceTree = "<group>"; };
+		C6473FC1250F531A00BDE73F /* APAuthInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APAuthInfo.m; sourceTree = "<group>"; };
+		C6473FC2250F531A00BDE73F /* AlipayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlipayManager.h; sourceTree = "<group>"; };
+		C6473FC3250F531A00BDE73F /* APOrderInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APOrderInfo.h; sourceTree = "<group>"; };
+		C6473FC4250F531A00BDE73F /* AlipayManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlipayManager.m; sourceTree = "<group>"; };
+		C6473FC5250F531A00BDE73F /* APAuthInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APAuthInfo.h; sourceTree = "<group>"; };
+		C6473FC6250F531A00BDE73F /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		C6473FCC250F559900BDE73F /* libz.1.1.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
+		C6473FCE250F55A300BDE73F /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		C6473FD0250F55AE00BDE73F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		C6473FD2250F55BA00BDE73F /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		C6473FD4250F55C300BDE73F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		C6473FD6250F55CE00BDE73F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		C6473FD8250F55D500BDE73F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +196,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6473FD9250F55D600BDE73F /* SystemConfiguration.framework in Frameworks */,
+				C6473FD7250F55CE00BDE73F /* CoreTelephony.framework in Frameworks */,
+				C6473FD5250F55C300BDE73F /* CFNetwork.framework in Frameworks */,
+				C6473FD3250F55BA00BDE73F /* CoreMotion.framework in Frameworks */,
+				C6473FD1250F55AE00BDE73F /* Security.framework in Frameworks */,
+				C6473FCF250F55A300BDE73F /* libc++.tbd in Frameworks */,
+				C6473FCD250F559900BDE73F /* libz.1.1.3.tbd in Frameworks */,
 				5B91F9DDF90ABF2DAF97DFF1 /* libPods-RongPenProject.a in Frameworks */,
+				C6473FCB250F531A00BDE73F /* AlipaySDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +251,7 @@
 		27271CE2250D129A00B4E382 /* RongPenProject */ = {
 			isa = PBXGroup;
 			children = (
+				C6473FBD250F52EE00BDE73F /* ThirdParts */,
 				C6473F1F250F42AF00BDE73F /* User */,
 				C6473F18250F412000BDE73F /* Net */,
 				C6473F16250F3F6C00BDE73F /* Tool */,
@@ -256,6 +292,13 @@
 		3EFF77ABFA9BA09B050587A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C6473FD8250F55D500BDE73F /* SystemConfiguration.framework */,
+				C6473FD6250F55CE00BDE73F /* CoreTelephony.framework */,
+				C6473FD4250F55C300BDE73F /* CFNetwork.framework */,
+				C6473FD2250F55BA00BDE73F /* CoreMotion.framework */,
+				C6473FD0250F55AE00BDE73F /* Security.framework */,
+				C6473FCE250F55A300BDE73F /* libc++.tbd */,
+				C6473FCC250F559900BDE73F /* libz.1.1.3.tbd */,
 				734F546AAD119F22F0363EEB /* libPods-RongPenProject.a */,
 			);
 			name = Frameworks;
@@ -591,6 +634,29 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		C6473FBD250F52EE00BDE73F /* ThirdParts */ = {
+			isa = PBXGroup;
+			children = (
+				C6473FBE250F531A00BDE73F /* Alipay */,
+			);
+			path = ThirdParts;
+			sourceTree = "<group>";
+		};
+		C6473FBE250F531A00BDE73F /* Alipay */ = {
+			isa = PBXGroup;
+			children = (
+				C6473FBF250F531A00BDE73F /* AlipaySDK.bundle */,
+				C6473FC0250F531A00BDE73F /* APOrderInfo.m */,
+				C6473FC1250F531A00BDE73F /* APAuthInfo.m */,
+				C6473FC2250F531A00BDE73F /* AlipayManager.h */,
+				C6473FC3250F531A00BDE73F /* APOrderInfo.h */,
+				C6473FC4250F531A00BDE73F /* AlipayManager.m */,
+				C6473FC5250F531A00BDE73F /* APAuthInfo.h */,
+				C6473FC6250F531A00BDE73F /* AlipaySDK.framework */,
+			);
+			path = Alipay;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -695,6 +761,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6473FC7250F531A00BDE73F /* AlipaySDK.bundle in Resources */,
 				27271CF3250D129B00B4E382 /* LaunchScreen.storyboard in Resources */,
 				27271CF0250D129B00B4E382 /* Assets.xcassets in Resources */,
 				C6473F10250F3D5F00BDE73F /* Podfile in Resources */,
@@ -771,6 +838,7 @@
 				C6473F62250F44A400BDE73F /* NSObject+AutoProperty.m in Sources */,
 				C6473F22250F42B700BDE73F /* User.m in Sources */,
 				C6473F90250F44C700BDE73F /* DZTools.m in Sources */,
+				C6473FC8250F531A00BDE73F /* APOrderInfo.m in Sources */,
 				C6473F1E250F425800BDE73F /* MTool.m in Sources */,
 				C6473F83250F44BD00BDE73F /* NSString+Font.m in Sources */,
 				27271CEB250D129A00B4E382 /* ViewController.m in Sources */,
@@ -790,6 +858,7 @@
 				C6473F7C250F44B800BDE73F /* UIView+.m in Sources */,
 				C6473F7A250F44B800BDE73F /* UIView+UIViewRect.m in Sources */,
 				C6473F1B250F416E00BDE73F /* NetManager.m in Sources */,
+				C6473FC9250F531A00BDE73F /* APAuthInfo.m in Sources */,
 				27271CE5250D129A00B4E382 /* AppDelegate.m in Sources */,
 				C6473F91250F44C700BDE73F /* DZNetworkingTool.m in Sources */,
 				C6473F9B250F45E700BDE73F /* LoginVC.m in Sources */,
@@ -801,6 +870,7 @@
 				C6473F5D250F449B00BDE73F /* MKSearchBar.m in Sources */,
 				C6473F97250F453400BDE73F /* NetManager+UPRequest.m in Sources */,
 				C6473F7B250F44B800BDE73F /* UIView+Corner.m in Sources */,
+				C6473FCA250F531A00BDE73F /* AlipayManager.m in Sources */,
 				C6473F79250F44B800BDE73F /* UIButton+Code.m in Sources */,
 				C6473F92250F44C700BDE73F /* DZBaseViewController.m in Sources */,
 			);
@@ -907,7 +977,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -959,7 +1029,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -973,6 +1043,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BS2MU66C48;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RongPenProject/ThirdParts/Alipay",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RongPenProject/prefix.pch";
 				INFOPLIST_FILE = RongPenProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -991,6 +1066,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BS2MU66C48;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RongPenProject/ThirdParts/Alipay",
+				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RongPenProject/prefix.pch";
 				INFOPLIST_FILE = RongPenProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

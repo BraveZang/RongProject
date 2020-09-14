@@ -29,7 +29,6 @@
     }
     return self;
 }
-
 /**
 所有接口统一调用此请求方法
  
@@ -83,12 +82,6 @@
     
     
 }
-
-
-
-
-
-
 - (void)uploadWithUrl:(NSString *)url body:(NSDictionary *)body imageData:(NSData *)data{
     
     if ([MTool getNetWorkStatus] == AFNetworkReachabilityStatusNotReachable) {//无网络

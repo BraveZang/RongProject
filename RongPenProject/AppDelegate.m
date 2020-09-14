@@ -7,7 +7,8 @@
 
 #import "AppDelegate.h"
 #import <UMCommon/UMCommon.h>
-//#import <AlipaySDK/AlipaySDK.h>
+#import "AlipayManager.h"
+#import <AlipaySDK/AlipaySDK.h>
 #import <UMShare/UMShare.h>
 #import "TabarVC.h"
 
@@ -70,21 +71,21 @@
 
         if ([url.host isEqualToString:@"safepay"]) {
            //  支付跳转支付宝钱包进行支付，处理支付结果
-//            [[AlipaySDK defaultService] processOrderWithPaymentResult:url
-//                                                      standbyCallback:^(NSDictionary *resultDic) {
-//                                                          NSLog(@"result = %@", resultDic);
-//                                [[AlipayManager sharedManager] managerStandbyCallback:resultDic];
-//
-//                                                      }];
+            [[AlipaySDK defaultService] processOrderWithPaymentResult:url
+                                                      standbyCallback:^(NSDictionary *resultDic) {
+                                                          NSLog(@"result = %@", resultDic);
+                                [[AlipayManager sharedManager] managerStandbyCallback:resultDic];
 
-            // 授权跳转支付宝钱包进行支付，处理支付结果
-//            [[AlipaySDK defaultService] processAuth_V2Result:url
-//                                             standbyCallback:^(NSDictionary *resultDic) {
-//                                                 NSLog(@"result = %@", resultDic);
-//                                [[AlipayManager sharedManager] processAuthStandbyCallback:resultDic];
-//
-//
-//                                             }];
+                                                      }];
+
+//             授权跳转支付宝钱包进行支付，处理支付结果
+            [[AlipaySDK defaultService] processAuth_V2Result:url
+                                             standbyCallback:^(NSDictionary *resultDic) {
+                                                 NSLog(@"result = %@", resultDic);
+                                [[AlipayManager sharedManager] processAuthStandbyCallback:resultDic];
+
+
+                                             }];
         }
     }
     return result;
