@@ -38,8 +38,6 @@
 		C6473F7C250F44B800BDE73F /* UIView+.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473F73250F44B800BDE73F /* UIView+.m */; };
 		C6473F7D250F44B800BDE73F /* UIView+IDCard.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473F75250F44B800BDE73F /* UIView+IDCard.m */; };
 		C6473F7E250F44B800BDE73F /* ReLayoutButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473F77250F44B800BDE73F /* ReLayoutButton.m */; };
-		C6473F83250F44BD00BDE73F /* NSString+Font.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473F80250F44BD00BDE73F /* NSString+Font.m */; };
-		C6473F84250F44BD00BDE73F /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473F81250F44BD00BDE73F /* NullSafe.m */; };
 		C6473F90250F44C700BDE73F /* DZTools.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473F87250F44C700BDE73F /* DZTools.m */; };
 		C6473F91250F44C700BDE73F /* DZNetworkingTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473F8B250F44C700BDE73F /* DZNetworkingTool.m */; };
 		C6473F92250F44C700BDE73F /* DZBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473F8C250F44C700BDE73F /* DZBaseViewController.m */; };
@@ -64,6 +62,8 @@
 		C6473FD5250F55C300BDE73F /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6473FD4250F55C300BDE73F /* CFNetwork.framework */; };
 		C6473FD7250F55CE00BDE73F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6473FD6250F55CE00BDE73F /* CoreTelephony.framework */; };
 		C6473FD9250F55D600BDE73F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6473FD8250F55D500BDE73F /* SystemConfiguration.framework */; };
+		C6473FDE2511A6A000BDE73F /* NSString+Font.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473FDB2511A6A000BDE73F /* NSString+Font.m */; };
+		C6473FDF2511A6A000BDE73F /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473FDC2511A6A000BDE73F /* NullSafe.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,9 +147,6 @@
 		C6473F76250F44B800BDE73F /* UIView+UIViewRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIViewRect.h"; sourceTree = "<group>"; };
 		C6473F77250F44B800BDE73F /* ReLayoutButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReLayoutButton.m; sourceTree = "<group>"; };
 		C6473F78250F44B800BDE73F /* UIView+Corner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Corner.h"; sourceTree = "<group>"; };
-		C6473F80250F44BD00BDE73F /* NSString+Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Font.m"; sourceTree = "<group>"; };
-		C6473F81250F44BD00BDE73F /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
-		C6473F82250F44BD00BDE73F /* NSString+Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Font.h"; sourceTree = "<group>"; };
 		C6473F86250F44C700BDE73F /* DZNetworkingTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZNetworkingTool.h; sourceTree = "<group>"; };
 		C6473F87250F44C700BDE73F /* DZTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZTools.m; sourceTree = "<group>"; };
 		C6473F88250F44C700BDE73F /* DZBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DZBaseViewController.h; sourceTree = "<group>"; };
@@ -189,6 +186,9 @@
 		C6473FD4250F55C300BDE73F /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		C6473FD6250F55CE00BDE73F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		C6473FD8250F55D500BDE73F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C6473FDB2511A6A000BDE73F /* NSString+Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Font.m"; sourceTree = "<group>"; };
+		C6473FDC2511A6A000BDE73F /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
+		C6473FDD2511A6A000BDE73F /* NSString+Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Font.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,8 +316,8 @@
 		C6473F16250F3F6C00BDE73F /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				C6473FDA2511A6A000BDE73F /* NullSafe */,
 				C6473F85250F44C700BDE73F /* DZTools */,
-				C6473F7F250F44BD00BDE73F /* NullSafe */,
 				C6473F6C250F44B800BDE73F /* UIView+UIViewRect */,
 				C6473F67250F44B200BDE73F /* FrameTool */,
 				C6473F63250F44A900BDE73F /* NSStringTool */,
@@ -442,17 +442,6 @@
 				C6473F78250F44B800BDE73F /* UIView+Corner.h */,
 			);
 			path = "UIView+UIViewRect";
-			sourceTree = "<group>";
-		};
-		C6473F7F250F44BD00BDE73F /* NullSafe */ = {
-			isa = PBXGroup;
-			children = (
-				C6473F80250F44BD00BDE73F /* NSString+Font.m */,
-				C6473F81250F44BD00BDE73F /* NullSafe.m */,
-				C6473F82250F44BD00BDE73F /* NSString+Font.h */,
-			);
-			name = NullSafe;
-			path = ../../../jiyouhui2020/jiyouhui2020/Libs/Tools/NullSafe;
 			sourceTree = "<group>";
 		};
 		C6473F85250F44C700BDE73F /* DZTools */ = {
@@ -657,6 +646,16 @@
 			path = Alipay;
 			sourceTree = "<group>";
 		};
+		C6473FDA2511A6A000BDE73F /* NullSafe */ = {
+			isa = PBXGroup;
+			children = (
+				C6473FDB2511A6A000BDE73F /* NSString+Font.m */,
+				C6473FDC2511A6A000BDE73F /* NullSafe.m */,
+				C6473FDD2511A6A000BDE73F /* NSString+Font.h */,
+			);
+			path = NullSafe;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -837,10 +836,11 @@
 				C6473F4A250F442200BDE73F /* UIAlertView+RWBlock.m in Sources */,
 				C6473F62250F44A400BDE73F /* NSObject+AutoProperty.m in Sources */,
 				C6473F22250F42B700BDE73F /* User.m in Sources */,
+				C6473FDE2511A6A000BDE73F /* NSString+Font.m in Sources */,
 				C6473F90250F44C700BDE73F /* DZTools.m in Sources */,
 				C6473FC8250F531A00BDE73F /* APOrderInfo.m in Sources */,
+				C6473FDF2511A6A000BDE73F /* NullSafe.m in Sources */,
 				C6473F1E250F425800BDE73F /* MTool.m in Sources */,
-				C6473F83250F44BD00BDE73F /* NSString+Font.m in Sources */,
 				27271CEB250D129A00B4E382 /* ViewController.m in Sources */,
 				C6473F7E250F44B800BDE73F /* ReLayoutButton.m in Sources */,
 				C6473F93250F44C700BDE73F /* DZNavigationController.m in Sources */,
@@ -865,7 +865,6 @@
 				C6473F5A250F449B00BDE73F /* UIImage+CZHExtension.m in Sources */,
 				27271CF6250D129B00B4E382 /* main.m in Sources */,
 				C6473FA4250F4B7E00BDE73F /* ReadIndexVC.m in Sources */,
-				C6473F84250F44BD00BDE73F /* NullSafe.m in Sources */,
 				C6473F25250F433200BDE73F /* LoadingView.m in Sources */,
 				C6473F5D250F449B00BDE73F /* MKSearchBar.m in Sources */,
 				C6473F97250F453400BDE73F /* NetManager+UPRequest.m in Sources */,
