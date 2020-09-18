@@ -18,5 +18,5 @@ pod 'UMCShare/UI'
 pod 'UMCCommon'
 pod 'UMCSecurityPlugins'
 pod 'UMCCommonLog'
-#pod 'AlipaySDK-iOS'
+pod 'iOSDFULibrary'
 end

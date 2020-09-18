@@ -15,6 +15,8 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - ARChromeActivity (1.0.5)
+  - iOSDFULibrary (4.7.2):
+    - ZIPFoundation (= 0.9.11)
   - IQKeyboardManager (6.5.5)
   - KINWebBrowser (1.3.2):
     - ARChromeActivity (= 1.0.5)
@@ -39,9 +41,11 @@ PODS:
   - UMCShare/UI (6.9.10):
     - UMCCommon
     - UMCShare/Core
+  - ZIPFoundation (0.9.11)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.2.1)
+  - iOSDFULibrary
   - IQKeyboardManager
   - KINWebBrowser
   - MBProgressHUD (~> 1.0.0)
@@ -58,6 +62,7 @@ SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
     - AFNetworking
     - ARChromeActivity
+    - iOSDFULibrary
     - IQKeyboardManager
     - KINWebBrowser
     - MBProgressHUD
@@ -70,10 +75,12 @@ SPEC REPOS:
     - UMCCommonLog
     - UMCSecurityPlugins
     - UMCShare
+    - ZIPFoundation
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   ARChromeActivity: 821c7849b566f49583987468733a896fee35aa4d
+  iOSDFULibrary: 213608bf93ace7f9d6582453a9498ec384642f97
   IQKeyboardManager: 3a8b9e603f8b0eeaf5f096a1f2b2cfcf121992ef
   KINWebBrowser: 27aa857a2aa39063ed102cca781d130b679d205f
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
@@ -86,7 +93,8 @@ SPEC CHECKSUMS:
   UMCCommonLog: 9b7ddde5d14a52fc1986ba5ac3121b8b2f433638
   UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
   UMCShare: a4a95fbdd61ecce5b6751d8c9ed9b519e80fcbc9
+  ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
 
-PODFILE CHECKSUM: 330a5ada98831d3c12702bcfe9b9b1b92f6cb3e0
+PODFILE CHECKSUM: e941101cdd0862464a42beda71041157a5d6b782
 
 COCOAPODS: 1.9.2

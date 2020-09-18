@@ -1,0 +1,6 @@
+framework module SmartPenSDK {
+  umbrella header "SmartPenSDK.h"
+
+  export *
+  module * { export * }
+}

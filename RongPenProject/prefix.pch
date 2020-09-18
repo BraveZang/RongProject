@@ -38,6 +38,8 @@
 #import "SDWebImageManager.h"
 #import "IQKeyboardManager.h"
 
+#import <SmartPenSDK/SmartPenSDK.h>
+
 
 #pragma mark - 请求地址
 #define kDomainUrl @""

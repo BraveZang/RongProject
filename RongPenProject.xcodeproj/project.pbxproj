@@ -64,6 +64,9 @@
 		C6473FD9250F55D600BDE73F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6473FD8250F55D500BDE73F /* SystemConfiguration.framework */; };
 		C6473FDE2511A6A000BDE73F /* NSString+Font.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473FDB2511A6A000BDE73F /* NSString+Font.m */; };
 		C6473FDF2511A6A000BDE73F /* NullSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473FDC2511A6A000BDE73F /* NullSafe.m */; };
+		C6473FE1251232C900BDE73F /* SmartPenSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6473FE0251232C900BDE73F /* SmartPenSDK.framework */; };
+		C6473FE4251233F800BDE73F /* data_008.txt in Resources */ = {isa = PBXBuildFile; fileRef = C6473FE3251233F800BDE73F /* data_008.txt */; };
+		C64740022514823100BDE73F /* swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64740012514823100BDE73F /* swift.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -189,6 +192,10 @@
 		C6473FDB2511A6A000BDE73F /* NSString+Font.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Font.m"; sourceTree = "<group>"; };
 		C6473FDC2511A6A000BDE73F /* NullSafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NullSafe.m; sourceTree = "<group>"; };
 		C6473FDD2511A6A000BDE73F /* NSString+Font.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Font.h"; sourceTree = "<group>"; };
+		C6473FE0251232C900BDE73F /* SmartPenSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SmartPenSDK.framework; sourceTree = "<group>"; };
+		C6473FE3251233F800BDE73F /* data_008.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = data_008.txt; sourceTree = "<group>"; };
+		C64740002514823000BDE73F /* RongPenProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RongPenProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		C64740012514823100BDE73F /* swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = swift.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6473FE1251232C900BDE73F /* SmartPenSDK.framework in Frameworks */,
 				C6473FD9250F55D600BDE73F /* SystemConfiguration.framework in Frameworks */,
 				C6473FD7250F55CE00BDE73F /* CoreTelephony.framework in Frameworks */,
 				C6473FD5250F55C300BDE73F /* CFNetwork.framework in Frameworks */,
@@ -251,6 +259,7 @@
 		27271CE2250D129A00B4E382 /* RongPenProject */ = {
 			isa = PBXGroup;
 			children = (
+				C6473FE2251233F800BDE73F /* data */,
 				C6473FBD250F52EE00BDE73F /* ThirdParts */,
 				C6473F1F250F42AF00BDE73F /* User */,
 				C6473F18250F412000BDE73F /* Net */,
@@ -267,6 +276,8 @@
 				27271CF4250D129B00B4E382 /* Info.plist */,
 				27271CF5250D129B00B4E382 /* main.m */,
 				C6473F17250F40B300BDE73F /* prefix.pch */,
+				C64740012514823100BDE73F /* swift.swift */,
+				C64740002514823000BDE73F /* RongPenProject-Bridging-Header.h */,
 			);
 			path = RongPenProject;
 			sourceTree = "<group>";
@@ -626,6 +637,7 @@
 		C6473FBD250F52EE00BDE73F /* ThirdParts */ = {
 			isa = PBXGroup;
 			children = (
+				C6473FE0251232C900BDE73F /* SmartPenSDK.framework */,
 				C6473FBE250F531A00BDE73F /* Alipay */,
 			);
 			path = ThirdParts;
@@ -654,6 +666,14 @@
 				C6473FDD2511A6A000BDE73F /* NSString+Font.h */,
 			);
 			path = NullSafe;
+			sourceTree = "<group>";
+		};
+		C6473FE2251233F800BDE73F /* data */ = {
+			isa = PBXGroup;
+			children = (
+				C6473FE3251233F800BDE73F /* data_008.txt */,
+			);
+			path = data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -724,6 +744,7 @@
 				TargetAttributes = {
 					27271CDF250D129A00B4E382 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1140;
 					};
 					27271CFA250D129C00B4E382 = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -760,6 +781,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6473FE4251233F800BDE73F /* data_008.txt in Resources */,
 				C6473FC7250F531A00BDE73F /* AlipaySDK.bundle in Resources */,
 				27271CF3250D129B00B4E382 /* LaunchScreen.storyboard in Resources */,
 				27271CF0250D129B00B4E382 /* Assets.xcassets in Resources */,
@@ -868,6 +890,7 @@
 				C6473F25250F433200BDE73F /* LoadingView.m in Sources */,
 				C6473F5D250F449B00BDE73F /* MKSearchBar.m in Sources */,
 				C6473F97250F453400BDE73F /* NetManager+UPRequest.m in Sources */,
+				C64740022514823100BDE73F /* swift.swift in Sources */,
 				C6473F7B250F44B800BDE73F /* UIView+Corner.m in Sources */,
 				C6473FCA250F531A00BDE73F /* AlipayManager.m in Sources */,
 				C6473F79250F44B800BDE73F /* UIButton+Code.m in Sources */,
@@ -1041,11 +1064,13 @@
 			baseConfigurationReference = 3B3E854C642D402E917025C5 /* Pods-RongPenProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BS2MU66C48;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RongPenProject/ThirdParts/Alipay",
+					"$(PROJECT_DIR)/RongPenProject/ThirdParts",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RongPenProject/prefix.pch";
 				INFOPLIST_FILE = RongPenProject/Info.plist;
@@ -1055,6 +1080,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = none.RongPenProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RongPenProject/RongPenProject-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1064,11 +1092,13 @@
 			baseConfigurationReference = 4F016F8EAF0DEAAB1D7AECE0 /* Pods-RongPenProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BS2MU66C48;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RongPenProject/ThirdParts/Alipay",
+					"$(PROJECT_DIR)/RongPenProject/ThirdParts",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RongPenProject/prefix.pch";
 				INFOPLIST_FILE = RongPenProject/Info.plist;
@@ -1078,6 +1108,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = none.RongPenProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RongPenProject/RongPenProject-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1085,6 +1117,7 @@
 		27271D13250D129C00B4E382 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RongPenProjectTests/Info.plist;
@@ -1104,6 +1137,7 @@
 		27271D14250D129C00B4E382 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RongPenProjectTests/Info.plist;
@@ -1123,6 +1157,7 @@
 		27271D16250D129C00B4E382 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RongPenProjectUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1140,6 +1175,7 @@
 		27271D17250D129C00B4E382 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = RongPenProjectUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

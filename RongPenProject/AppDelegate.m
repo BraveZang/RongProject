@@ -63,6 +63,8 @@
 }
 - (void)applicationWillTerminate:(UIApplication *)application{
     NSLog(@"状态** 将要退出程序");
+    [[PenCommAgent getInstance]transferOfflineData:NO];
+
 }
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *, id> *)options {
     BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url options:options];

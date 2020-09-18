@@ -1,0 +1,6 @@
+module Pods_RongPenProject {
+  umbrella header "Pods-RongPenProject-umbrella.h"
+
+  export *
+  module * { export * }
+}
