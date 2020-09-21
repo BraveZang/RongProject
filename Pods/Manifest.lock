@@ -29,6 +29,8 @@ PODS:
     - NJKWebViewProgress/ProgressView (= 0.2.3)
   - NJKWebViewProgress/Core (0.2.3)
   - NJKWebViewProgress/ProgressView (0.2.3)
+  - SDCycleScrollView (1.75):
+    - SDWebImage (>= 4.0.0)
   - SDWebImage (4.4.8):
     - SDWebImage/Core (= 4.4.8)
   - SDWebImage/Core (4.4.8)
@@ -52,6 +54,7 @@ DEPENDENCIES:
   - MJExtension
   - MJRefresh
   - NJKWebViewProgress
+  - SDCycleScrollView
   - SDWebImage (~> 4.4.2)
   - UMCCommon
   - UMCCommonLog
@@ -69,6 +72,7 @@ SPEC REPOS:
     - MJExtension
     - MJRefresh
     - NJKWebViewProgress
+    - SDCycleScrollView
     - SDWebImage
     - TUSafariActivity
     - UMCCommon
@@ -87,6 +91,7 @@ SPEC CHECKSUMS:
   MJExtension: d9b9c74cbdeb724c1e9ecbb157b318276e62e876
   MJRefresh: 53e3e3219f204425ee6d3e62e8733d3295944cd6
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
+  SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
   SDWebImage: 783af2c3fa36291a250030c4752ee370a9a51d13
   TUSafariActivity: afc55a00965377939107ce4fdc7f951f62454546
   UMCCommon: f455f92c125342e360d6ad9eafe484945351eeb5
@@ -95,6 +100,6 @@ SPEC CHECKSUMS:
   UMCShare: a4a95fbdd61ecce5b6751d8c9ed9b519e80fcbc9
   ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
 
-PODFILE CHECKSUM: e941101cdd0862464a42beda71041157a5d6b782
+PODFILE CHECKSUM: eedd19410dcc96f7aa1057e1087123799c265023
 
 COCOAPODS: 1.9.2
