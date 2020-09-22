@@ -47,7 +47,7 @@
     [self.rightImgBtn addTarget:self action:@selector(showRightAction) forControlEvents:UIControlEventTouchUpInside];
     [self createUI];
     [self initTableView];
-   
+    
 }
 - (BOOL)prefersStatusBarHidden
 
@@ -76,8 +76,8 @@
 
 - (void)showRightAction
 {
-     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
-     [window addSubview:self.rightslidingmenuview];
+    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+    [window addSubview:self.rightslidingmenuview];
 }
 #pragma mark - tableview
 -(void)initTableView{
@@ -124,7 +124,11 @@
         cell = [[ConfirmIndexCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
     }
-    tableView.rowHeight=FitRealValue(280);
+    float cellH=FitRealValue(280);
+    if (IS_IPAD) {
+        cellH=cellH*2/3;
+    }
+    tableView.rowHeight=cellH;
     if (indexPath.section==0) {
         [cell.img setImage:[UIImage imageNamed:@"tingxie"]];
         cell.titleLab.text=@"听写练习";
@@ -140,7 +144,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-  
+    
     
 }
 @end

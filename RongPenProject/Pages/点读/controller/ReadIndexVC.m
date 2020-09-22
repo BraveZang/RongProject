@@ -101,6 +101,9 @@
 -(void)CreatcycleScrollView{
     
     float heardViewH=FitRealValue(360);
+    if (IS_IPAD) {
+        heardViewH=heardViewH*2/3;
+    }
     NSArray*imgary=@[@"detailViewDefaultGaussImage",@"detailViewDefaultGaussImage"];
     self.topAdScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(LeftMargin,0,ScreenWidth-LeftMargin*2,heardViewH) imageNamesGroup:imgary ];
     self.topAdScrollView.delegate = self;
@@ -143,8 +146,12 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    
-    return FitRealValue(100);
+    if (IS_IPAD) {
+        return FitRealValue(100)*2/3;
+    }
+    else{
+        return FitRealValue(100);
+    }
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
@@ -154,22 +161,26 @@
 }
 - (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView*topView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, FitRealValue(100))];
+    float topViewH=FitRealValue(100);
+    if (IS_IPAD) {
+        topViewH= FitRealValue(100)*2/3;
+    }
+    UIView*topView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,topViewH)];
     topView.backgroundColor=[UIColor whiteColor];
     
-    UILabel*nameLab=[MTool quickCreateLabelWithleft:30*SCREEN_WIDTH/750 top:0 width:30 heigh:FitRealValue(100) title:@"英语"];
+    UILabel*nameLab=[MTool quickCreateLabelWithleft:30*SCREEN_WIDTH/750 top:0 width:30 heigh:topViewH title:@"英语"];
     nameLab.font=[UIFont systemFontOfSize:14];
     nameLab.textColor=[MTool colorWithHexString:@"#212121"];
     [topView addSubview:nameLab];
     
-    UILabel*titleLab=[MTool quickCreateLabelWithleft:nameLab.right+20*SCREEN_WIDTH/750 top:0 width:SCREEN_WIDTH/750*200 heigh:FitRealValue(100) title:@""];
+    UILabel*titleLab=[MTool quickCreateLabelWithleft:nameLab.right+20*SCREEN_WIDTH/750 top:0 width:SCREEN_WIDTH/750*200 heigh:topViewH title:@""];
     titleLab.font=[UIFont systemFontOfSize:12];
     titleLab.text = self.titleTestArray[section];
     titleLab.textColor=[MTool colorWithHexString:@"#888888"];
     [topView addSubview:titleLab];
     //添加点击事件
     self.cellRightBtn= [UIButton buttonWithType:UIButtonTypeCustom];
-    self.cellRightBtn.frame = CGRectMake(0, 0, SCREEN_WIDTH, 90*SCREEN_WIDTH/750);
+    self.cellRightBtn.frame = CGRectMake(0, 0, SCREEN_WIDTH, topViewH);
     self.cellRightBtn.tag = 100+section;
     [self.cellRightBtn setImageEdgeInsets:UIEdgeInsetsMake(10, SCREEN_WIDTH-(30+34)*SCREEN_WIDTH/750, FitRealValue(30), FitRealValue(30))];
     [self.cellRightBtn setImage:[UIImage imageNamed:@"cellright"] forState:UIControlStateNormal];
@@ -185,7 +196,7 @@
 
 - (void)viewBtnClick:(UIButton *)btn{
     NSString *string = [NSString stringWithFormat:@"%ld",btn.tag - 100];//点击哪个section
-//    [btn setImage:[UIImage imageNamed:@"attend_ico_up"] forState:UIControlStateNormal];
+    //    [btn setImage:[UIImage imageNamed:@"attend_ico_up"] forState:UIControlStateNormal];
     
     if (self.selectedArr.count==0){
         [self.selectedArr addObject:string];//为空添加展示cell
