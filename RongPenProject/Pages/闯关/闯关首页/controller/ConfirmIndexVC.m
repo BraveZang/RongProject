@@ -8,6 +8,7 @@
 #import "ConfirmIndexVC.h"
 #import "ConfirmIndexCell.h"
 #import "RightSlidingMenuView.h"
+#import "DictationListVC.h"
 
 @interface ConfirmIndexVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
 
@@ -108,7 +109,12 @@
     return 12;
     
 }
-
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    UIView*view=[[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 12)];
+    view.backgroundColor=[UIColor clearColor];
+    return view;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     
     
@@ -144,7 +150,11 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    
+    if (indexPath.section==0) {
+        DictationListVC*vc=[DictationListVC new];
+        vc.hidesBottomBarWhenPushed=YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     
 }
 @end

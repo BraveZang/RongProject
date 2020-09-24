@@ -86,6 +86,15 @@
 		C647404E2518B17C00BDE73F /* RightSlidingMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = C647404D2518B17C00BDE73F /* RightSlidingMenuView.m */; };
 		C64740512518BD6D00BDE73F /* RightSlidingMenuViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C64740502518BD6D00BDE73F /* RightSlidingMenuViewCell.m */; };
 		C64740552518CD8E00BDE73F /* UIButton+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = C64740542518CD8E00BDE73F /* UIButton+Ex.m */; };
+		C6497BBE251C3B49006463B4 /* MainMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C6497BBD251C3B49006463B4 /* MainMessageVC.m */; };
+		C6497BC1251C3D55006463B4 /* MainMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6497BC0251C3D55006463B4 /* MainMessageCell.m */; };
+		C6497BC4251C3DC3006463B4 /* MessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6497BC2251C3DC3006463B4 /* MessageModel.m */; };
+		C6497BCB251C440D006463B4 /* DictationListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C6497BCA251C440D006463B4 /* DictationListVC.m */; };
+		C6497BCE251C71BE006463B4 /* DictationListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6497BCD251C71BE006463B4 /* DictationListCell.m */; };
+		C6497BD1251C7E17006463B4 /* CheckpointListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C6497BD0251C7E17006463B4 /* CheckpointListVC.m */; };
+		C6497BD4251C7E45006463B4 /* CheckpointListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6497BD3251C7E45006463B4 /* CheckpointListCell.m */; };
+		C6497BD8251C828E006463B4 /* HYBStarEvaluationView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6497BD7251C828E006463B4 /* HYBStarEvaluationView.m */; };
+		C6497BDB251C8701006463B4 /* CheckpointResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C6497BDA251C8701006463B4 /* CheckpointResultVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -248,6 +257,24 @@
 		C64740502518BD6D00BDE73F /* RightSlidingMenuViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RightSlidingMenuViewCell.m; sourceTree = "<group>"; };
 		C64740532518CD8E00BDE73F /* UIButton+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Ex.h"; sourceTree = "<group>"; };
 		C64740542518CD8E00BDE73F /* UIButton+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Ex.m"; sourceTree = "<group>"; };
+		C6497BBC251C3B49006463B4 /* MainMessageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMessageVC.h; sourceTree = "<group>"; };
+		C6497BBD251C3B49006463B4 /* MainMessageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainMessageVC.m; sourceTree = "<group>"; };
+		C6497BBF251C3D55006463B4 /* MainMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMessageCell.h; sourceTree = "<group>"; };
+		C6497BC0251C3D55006463B4 /* MainMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMessageCell.m; sourceTree = "<group>"; };
+		C6497BC2251C3DC3006463B4 /* MessageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageModel.m; sourceTree = "<group>"; };
+		C6497BC3251C3DC3006463B4 /* MessageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageModel.h; sourceTree = "<group>"; };
+		C6497BC9251C440D006463B4 /* DictationListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DictationListVC.h; sourceTree = "<group>"; };
+		C6497BCA251C440D006463B4 /* DictationListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DictationListVC.m; sourceTree = "<group>"; };
+		C6497BCC251C71BE006463B4 /* DictationListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DictationListCell.h; sourceTree = "<group>"; };
+		C6497BCD251C71BE006463B4 /* DictationListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DictationListCell.m; sourceTree = "<group>"; };
+		C6497BCF251C7E17006463B4 /* CheckpointListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckpointListVC.h; sourceTree = "<group>"; };
+		C6497BD0251C7E17006463B4 /* CheckpointListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckpointListVC.m; sourceTree = "<group>"; };
+		C6497BD2251C7E45006463B4 /* CheckpointListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckpointListCell.h; sourceTree = "<group>"; };
+		C6497BD3251C7E45006463B4 /* CheckpointListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckpointListCell.m; sourceTree = "<group>"; };
+		C6497BD6251C828E006463B4 /* HYBStarEvaluationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HYBStarEvaluationView.h; sourceTree = "<group>"; };
+		C6497BD7251C828E006463B4 /* HYBStarEvaluationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HYBStarEvaluationView.m; sourceTree = "<group>"; };
+		C6497BD9251C8701006463B4 /* CheckpointResultVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckpointResultVC.h; sourceTree = "<group>"; };
+		C6497BDA251C8701006463B4 /* CheckpointResultVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckpointResultVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -588,6 +615,7 @@
 			isa = PBXGroup;
 			children = (
 				C64740172518A74C00BDE73F /* 闯关首页 */,
+				C6497BC5251C4388006463B4 /* 听写练习 */,
 			);
 			path = "闯关";
 			sourceTree = "<group>";
@@ -605,9 +633,8 @@
 		C6473FA1250F4B4200BDE73F /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
-				C6473FB6250F4C5400BDE73F /* model */,
-				C6473FB5250F4C5000BDE73F /* view */,
-				C6473FB4250F4C4A00BDE73F /* controller */,
+				C6497BB7251C3ADF006463B4 /* MainIndex */,
+				C6497BB8251C3B09006463B4 /* MainMessage */,
 			);
 			path = "我的";
 			sourceTree = "<group>";
@@ -721,6 +748,7 @@
 		C6473FBD250F52EE00BDE73F /* ThirdParts */ = {
 			isa = PBXGroup;
 			children = (
+				C6497BD5251C828E006463B4 /* HYBStarEvaluationView */,
 				C647400325188DB600BDE73F /* Category */,
 				C6473FE0251232C900BDE73F /* SmartPenSDK.framework */,
 				C6473FBE250F531A00BDE73F /* Alipay */,
@@ -791,6 +819,103 @@
 				C64740542518CD8E00BDE73F /* UIButton+Ex.m */,
 			);
 			path = Button;
+			sourceTree = "<group>";
+		};
+		C6497BB7251C3ADF006463B4 /* MainIndex */ = {
+			isa = PBXGroup;
+			children = (
+				C6473FB5250F4C5000BDE73F /* view */,
+				C6473FB4250F4C4A00BDE73F /* controller */,
+				C6473FB6250F4C5400BDE73F /* model */,
+			);
+			path = MainIndex;
+			sourceTree = "<group>";
+		};
+		C6497BB8251C3B09006463B4 /* MainMessage */ = {
+			isa = PBXGroup;
+			children = (
+				C6497BBB251C3B24006463B4 /* controller */,
+				C6497BBA251C3B1F006463B4 /* view */,
+				C6497BB9251C3B19006463B4 /* model */,
+			);
+			path = MainMessage;
+			sourceTree = "<group>";
+		};
+		C6497BB9251C3B19006463B4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				C6497BC3251C3DC3006463B4 /* MessageModel.h */,
+				C6497BC2251C3DC3006463B4 /* MessageModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		C6497BBA251C3B1F006463B4 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				C6497BBF251C3D55006463B4 /* MainMessageCell.h */,
+				C6497BC0251C3D55006463B4 /* MainMessageCell.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		C6497BBB251C3B24006463B4 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				C6497BBC251C3B49006463B4 /* MainMessageVC.h */,
+				C6497BBD251C3B49006463B4 /* MainMessageVC.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		C6497BC5251C4388006463B4 /* 听写练习 */ = {
+			isa = PBXGroup;
+			children = (
+				C6497BC8251C43D5006463B4 /* model */,
+				C6497BC7251C43C6006463B4 /* view */,
+				C6497BC6251C43BB006463B4 /* controller  */,
+			);
+			path = "听写练习";
+			sourceTree = "<group>";
+		};
+		C6497BC6251C43BB006463B4 /* controller  */ = {
+			isa = PBXGroup;
+			children = (
+				C6497BC9251C440D006463B4 /* DictationListVC.h */,
+				C6497BCA251C440D006463B4 /* DictationListVC.m */,
+				C6497BCF251C7E17006463B4 /* CheckpointListVC.h */,
+				C6497BD0251C7E17006463B4 /* CheckpointListVC.m */,
+				C6497BD9251C8701006463B4 /* CheckpointResultVC.h */,
+				C6497BDA251C8701006463B4 /* CheckpointResultVC.m */,
+			);
+			path = "controller ";
+			sourceTree = "<group>";
+		};
+		C6497BC7251C43C6006463B4 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				C6497BCC251C71BE006463B4 /* DictationListCell.h */,
+				C6497BCD251C71BE006463B4 /* DictationListCell.m */,
+				C6497BD2251C7E45006463B4 /* CheckpointListCell.h */,
+				C6497BD3251C7E45006463B4 /* CheckpointListCell.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		C6497BC8251C43D5006463B4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		C6497BD5251C828E006463B4 /* HYBStarEvaluationView */ = {
+			isa = PBXGroup;
+			children = (
+				C6497BD6251C828E006463B4 /* HYBStarEvaluationView.h */,
+				C6497BD7251C828E006463B4 /* HYBStarEvaluationView.m */,
+			);
+			path = HYBStarEvaluationView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -977,9 +1102,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C64740552518CD8E00BDE73F /* UIButton+Ex.m in Sources */,
+				C6497BCE251C71BE006463B4 /* DictationListCell.m in Sources */,
 				C6473FB0250F4BF200BDE73F /* PracticeIndexVC.m in Sources */,
 				C6473F4A250F442200BDE73F /* UIAlertView+RWBlock.m in Sources */,
 				C6473F62250F44A400BDE73F /* NSObject+AutoProperty.m in Sources */,
+				C6497BD1251C7E17006463B4 /* CheckpointListVC.m in Sources */,
 				C6473F22250F42B700BDE73F /* User.m in Sources */,
 				C6473FDE2511A6A000BDE73F /* NSString+Font.m in Sources */,
 				C6473F90250F44C700BDE73F /* DZTools.m in Sources */,
@@ -989,8 +1116,12 @@
 				C6473F1E250F425800BDE73F /* MTool.m in Sources */,
 				27271CEB250D129A00B4E382 /* ViewController.m in Sources */,
 				C6473F7E250F44B800BDE73F /* ReLayoutButton.m in Sources */,
+				C6497BDB251C8701006463B4 /* CheckpointResultVC.m in Sources */,
+				C6497BBE251C3B49006463B4 /* MainMessageVC.m in Sources */,
 				C6473F93250F44C700BDE73F /* DZNavigationController.m in Sources */,
+				C6497BD4251C7E45006463B4 /* CheckpointListCell.m in Sources */,
 				C64740512518BD6D00BDE73F /* RightSlidingMenuViewCell.m in Sources */,
+				C6497BCB251C440D006463B4 /* DictationListVC.m in Sources */,
 				C6473FB9250F4C6500BDE73F /* MainIndexVC.m in Sources */,
 				C6168BBB2519A54D001EF850 /* MainSetVC.m in Sources */,
 				C6168BC12519ADAA001EF850 /* MainFanKuiVC.m in Sources */,
@@ -1010,18 +1141,21 @@
 				C6473F7C250F44B800BDE73F /* UIView+.m in Sources */,
 				C6473F7A250F44B800BDE73F /* UIView+UIViewRect.m in Sources */,
 				C6473F1B250F416E00BDE73F /* NetManager.m in Sources */,
+				C6497BC4251C3DC3006463B4 /* MessageModel.m in Sources */,
 				C6473FC9250F531A00BDE73F /* APAuthInfo.m in Sources */,
 				27271CE5250D129A00B4E382 /* AppDelegate.m in Sources */,
 				C6473F91250F44C700BDE73F /* DZNetworkingTool.m in Sources */,
 				C6473F9B250F45E700BDE73F /* LoginVC.m in Sources */,
 				C6473F5A250F449B00BDE73F /* UIImage+CZHExtension.m in Sources */,
 				27271CF6250D129B00B4E382 /* main.m in Sources */,
+				C6497BC1251C3D55006463B4 /* MainMessageCell.m in Sources */,
 				C6473FA4250F4B7E00BDE73F /* ReadIndexVC.m in Sources */,
 				C6168BC42519AE6F001EF850 /* MainFanKuiCell.m in Sources */,
 				C6473F25250F433200BDE73F /* LoadingView.m in Sources */,
 				C6473F5D250F449B00BDE73F /* MKSearchBar.m in Sources */,
 				C6473F97250F453400BDE73F /* NetManager+UPRequest.m in Sources */,
 				C64740022514823100BDE73F /* swift.swift in Sources */,
+				C6497BD8251C828E006463B4 /* HYBStarEvaluationView.m in Sources */,
 				C6168BBE2519A617001EF850 /* MainSetCell.m in Sources */,
 				C647400B25188DB600BDE73F /* UIViewController+Present.m in Sources */,
 				C6473F7B250F44B800BDE73F /* UIView+Corner.m in Sources */,

@@ -40,7 +40,7 @@ typedef enum : NSUInteger{
 @property (strong, nonatomic)  NSString                     *nickname;
 @property (nonatomic, strong)  UITextView                   *tv_result;
 @property (nonatomic, strong)  UITextField                  *tf_timeout;
-@property (nonatomic,assign)   NSInteger                    loginType;//0 账号密码  1手机登录
+@property (nonatomic, assign)  NSInteger                    loginType;//0 账号密码  1手机登录
 @property (nonatomic, strong)  NSString                     *passWorldStr;
 
 @end
@@ -55,7 +55,6 @@ typedef enum : NSUInteger{
     self.leftImgBtn.hidden=NO;
     [self.leftImgBtn setImage:[UIImage imageNamed:@"close_login"] forState:UIControlStateNormal];
     self.loginType=0;
-    
     self.nameTexF.delegate=self;
     self.passTexF.delegate=self;
     self.codeTexF.delegate=self;
@@ -63,14 +62,12 @@ typedef enum : NSUInteger{
     [self createUI];
     [self.view addSubview:self.leftImgBtn];
 
-
 }
 
 - (void)pop{
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
-    
 }
 
 -(void)createUI{

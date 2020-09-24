@@ -56,7 +56,7 @@
 
 //页面通用背景颜色
 #define ViewBackgroundColor UIColorFromRGB(0xF5F5F5)
-#define TITLECOLOR   RGBCOLOR(224, 101, 24)
+#define TITLECOLOR   RGBCOLOR(246, 85, 85)
 #define LINECOLOR   RGBCOLOR(210, 210, 210)
 
 

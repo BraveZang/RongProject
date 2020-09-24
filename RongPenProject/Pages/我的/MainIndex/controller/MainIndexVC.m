@@ -9,6 +9,7 @@
 #import "LoginVC.h"
 #import "MainSetVC.h"
 #import "MainFanKuiVC.h"
+#import "MainMessageVC.h"
 
 @interface MainIndexVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
 
@@ -26,22 +27,6 @@
 @implementation MainIndexVC
 
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[UIImage new]];
-    self.navigationItem.leftBarButtonItem=nil;
-    
-}
-
-- (void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:nil];
-    
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createHeardView];
@@ -149,6 +134,8 @@
     [myMssage setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [myMssage setImage:[UIImage imageNamed:@"mymessage"] forState:UIControlStateNormal];
     myMssage.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [myMssage addTarget:self action:@selector(messageBtnClick) forControlEvents:UIControlEventTouchUpInside];
+
     [myMssage setTitleEdgeInsets:UIEdgeInsetsMake(myMssage.imageView.frame.size.height ,-myMssage.imageView.frame.size.width, 0.0,0.0)];
     if (@available(iOS 13.0, *)) {
         
@@ -187,6 +174,12 @@
     LoginVC*vc=[LoginVC new];
     vc.hidesBottomBarWhenPushed=YES;
     [self presentViewController:vc animated:YES completion:nil];
+}
+-(void)messageBtnClick{
+    
+    MainMessageVC*vc=[MainMessageVC new];
+    vc.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 #pragma mark UITableViewDataSource
 - (void)initTableView {
