@@ -7,6 +7,7 @@
 
 #import "LoginVC.h"
 #import "UIButton+Code.h"
+#import "forgetPassVC.h"
 
 typedef enum : NSUInteger{
     Accountlogin,//账号登录
@@ -23,14 +24,23 @@ typedef enum : NSUInteger{
 @property (strong,nonatomic)   UIButton                     *codeButton;
 @property (strong,nonatomic)   UIView                       *codeView;
 @property (strong,nonatomic)   UIButton                     *loginBtn;
+@property (strong,nonatomic)   UIButton                     *youkeBtn;
+@property (strong,nonatomic)   UIButton                     *bottomBtn;
+@property (strong,nonatomic)   UIButton                     *forgetPassBtn;
+
+
 @property (nonatomic,strong)   NetManager                   *net;
 @property (strong,nonatomic)   UIButton                     *typeButton;
 @property (strong,nonatomic)   UIButton                     *agreeButton;
+@property (strong,nonatomic)   UIButton                     *agreeButton1;
+@property (strong,nonatomic)   UILabel                      *bottomLab;
+@property (strong,nonatomic)   UILabel                      *bigTitle;
+@property (strong,nonatomic)   UILabel                      *smallTitle;
+
 @property (strong, nonatomic)  NSString                     *nickname;
 @property (nonatomic, strong)  UITextView                   *tv_result;
 @property (nonatomic, strong)  UITextField                  *tf_timeout;
-@property (nonatomic,assign)   NSInteger                    loginType;//0 账号密码  1手机登录
-@property (nonatomic, strong)  NSString                     *openidStr;
+@property (nonatomic, assign)  NSInteger                    loginType;//0 账号密码  1手机登录
 @property (nonatomic, strong)  NSString                     *passWorldStr;
 
 @end
@@ -45,7 +55,6 @@ typedef enum : NSUInteger{
     self.leftImgBtn.hidden=NO;
     [self.leftImgBtn setImage:[UIImage imageNamed:@"close_login"] forState:UIControlStateNormal];
     self.loginType=0;
-    
     self.nameTexF.delegate=self;
     self.passTexF.delegate=self;
     self.codeTexF.delegate=self;
@@ -53,14 +62,12 @@ typedef enum : NSUInteger{
     [self createUI];
     [self.view addSubview:self.leftImgBtn];
 
-
 }
 
 - (void)pop{
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
-    
 }
 
 -(void)createUI{
@@ -69,17 +76,19 @@ typedef enum : NSUInteger{
     bgview.backgroundColor=[UIColor blackColor];
     bgview.alpha=0.5;
     
-    UILabel*bigTitle=[[UILabel alloc]initWithFrame:CGRectMake(20, FitRealValue(72), ScreenWidth-40, FitRealValue(24))];
+    UILabel*bigTitle=[[UILabel alloc]initWithFrame:CGRectMake(20, FitRealValue(144), ScreenWidth-40, FitRealValue(48))];
     bigTitle.text=@"欢迎使用点读产品";
     bigTitle.font=[UIFont boldSystemFontOfSize:24];
     bigTitle.textColor=[MTool colorWithHexString:@"#212121"];
-    [self.view addSubview:bigTitle];
+    self.bigTitle=bigTitle;
+    [self.view addSubview:self.bigTitle];
     
-    UILabel*smallTitle=[[UILabel alloc]initWithFrame:CGRectMake(20,bigTitle.bottom+FitRealValue(10), ScreenWidth-40, FitRealValue(12))];
+    UILabel*smallTitle=[[UILabel alloc]initWithFrame:CGRectMake(20,bigTitle.bottom+FitRealValue(20), ScreenWidth-40, FitRealValue(24))];
     smallTitle.text=@"未注册过的手机号将自动创建账号";
     smallTitle.font=[UIFont systemFontOfSize:12];
     smallTitle.textColor=[MTool colorWithHexString:@"#4E4E4E"];
-    [self.view addSubview:smallTitle];
+    self.smallTitle=smallTitle;
+    [self.view addSubview:self.smallTitle];
     
     UIView *leftView1 = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 44)];
     leftView1.backgroundColor=[UIColor clearColor];
@@ -89,7 +98,7 @@ typedef enum : NSUInteger{
     leftView3.backgroundColor=[UIColor clearColor];
     
     
-    self.nameTexF=[[UITextField alloc]initWithFrame:CGRectMake(45, smallTitle.bottom+FitRealValue(52), ScreenWidth-90, 44)];
+    self.nameTexF=[[UITextField alloc]initWithFrame:CGRectMake(30, smallTitle.bottom+FitRealValue(104), ScreenWidth-60, 44)];
     self.nameTexF.delegate=self;
     self.nameTexF.leftViewMode = UITextFieldViewModeAlways;
     self.nameTexF.leftView = leftView1;
@@ -100,7 +109,7 @@ typedef enum : NSUInteger{
     self.nameTexF.cornerRadius=20;
     [self.view addSubview:self.nameTexF];
     
-    self.codeView=[[UIView alloc]initWithFrame:CGRectMake(45, self.nameTexF.bottom+20, ScreenWidth-90, 44)];
+    self.codeView=[[UIView alloc]initWithFrame:CGRectMake(30, self.nameTexF.bottom+20, ScreenWidth-60, 44)];
     self.codeView.backgroundColor=[UIColor whiteColor];
     self.codeView.cornerRadius=20;
     [self.view addSubview:self.codeView];
@@ -114,8 +123,12 @@ typedef enum : NSUInteger{
     self.codeTexF.textColor=[UIColor blackColor];
     [self.codeView addSubview:self.codeTexF];
     
+    UIView*lineView1=[[UIView alloc]initWithFrame:CGRectMake(20, self.nameTexF.bottom, ScreenWidth-40,0.5)];
+    lineView1.backgroundColor=[MTool colorWithHexString:@"#B3B3B3"];
+    [self.view addSubview:lineView1];
+    
     self.codeButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    self.codeButton.frame=CGRectMake(ScreenWidth-90-80, 5, 60, 34);
+    self.codeButton.frame=CGRectMake(ScreenWidth-FitRealValue(150)-60, 5, FitRealValue(150), 34);
     [self.codeButton setTitleColor:[MTool colorWithHexString:@"#B3B3B3"] forState:UIControlStateNormal];
     [self.codeButton setTitle:@"获取验证码" forState:UIControlStateNormal];
     self.codeButton.backgroundColor=[UIColor clearColor];
@@ -123,7 +136,7 @@ typedef enum : NSUInteger{
     [self.codeButton addTarget:self action:@selector(animationCode:) forControlEvents:UIControlEventTouchUpInside];
     [self.codeView addSubview:self.codeButton];
     
-    self.passTexF=[[UITextField alloc]initWithFrame:CGRectMake(45, self.nameTexF.bottom+20, ScreenWidth-90, 44)];
+    self.passTexF=[[UITextField alloc]initWithFrame:CGRectMake(30, self.nameTexF.bottom+20, ScreenWidth-60, 44)];
     self.passTexF.delegate=self;
     self.passTexF.leftViewMode = UITextFieldViewModeAlways;
     self.passTexF.leftView = leftView3;
@@ -134,18 +147,37 @@ typedef enum : NSUInteger{
     self.passTexF.hidden=YES;
     [self.view addSubview:self.passTexF];
     
+    UIView*lineView2=[[UIView alloc]initWithFrame:CGRectMake(20, self.passTexF.bottom, ScreenWidth-40, 0.3)];
+    lineView2.backgroundColor=[MTool colorWithHexString:@"#B3B3B3"];
+    [self.view addSubview:lineView2];
     
+    
+    UILabel*agreeLab=[[UILabel alloc]initWithFrame:CGRectMake(20,lineView2.bottom+FitRealValue(24) , 12*13, FitRealValue(14))];
+    agreeLab.textColor=[MTool colorWithHexString:@"#888888"];
+    agreeLab.text=@"登录荣知教育代表您已同意";
+    agreeLab.font=[UIFont systemFontOfSize:12];
+    [self.view addSubview:agreeLab];
+
     self.agreeButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    self.agreeButton.frame=CGRectMake(0,self.passTexF.bottom+FitRealValue(30), ScreenWidth, 20);
+    self.agreeButton.frame=CGRectMake(agreeLab.right-20,lineView2.bottom+FitRealValue(26), 12*13, FitRealValue(14));
     [self.agreeButton setBackgroundColor:[UIColor clearColor]];
-    [self.agreeButton setTitle:@"登录/注册即视为同意《注册服务协议》" forState:UIControlStateNormal];
+    [self.agreeButton setTitle:@"荣知教育用户服务协议" forState:UIControlStateNormal];
     self.agreeButton.titleLabel.font=[UIFont systemFontOfSize:12];
-    [self.agreeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.agreeButton setTitleColor:[MTool colorWithHexString:@"#F65555"]forState:UIControlStateNormal];
     [self.agreeButton addTarget:self action:@selector(clickAgreement:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.agreeButton];
     
+    self.agreeButton1=[UIButton buttonWithType:UIButtonTypeCustom];
+    self.agreeButton1.frame=CGRectMake(agreeLab.right-20,self.agreeButton.bottom+FitRealValue(24), 12*13, FitRealValue(14));
+    [self.agreeButton1 setBackgroundColor:[UIColor clearColor]];
+    [self.agreeButton1 setTitle:@"荣知教育用户隐私政策" forState:UIControlStateNormal];
+    self.agreeButton1.titleLabel.font=[UIFont systemFontOfSize:12];
+    [self.agreeButton1 setTitleColor:[MTool colorWithHexString:@"#F65555"] forState:UIControlStateNormal];
+    [self.agreeButton1 addTarget:self action:@selector(clickAgreement:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.agreeButton1];
+    
     self.loginBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    self.loginBtn.frame=CGRectMake(45, self.passTexF.bottom+20, ScreenWidth-90, 44);
+    self.loginBtn.frame=CGRectMake(30, self.agreeButton1.bottom+FitRealValue(70), ScreenWidth-60, 44);
     [self.loginBtn setBackgroundColor:[MTool colorWithHexString:@"#FF6E1D"]];
     [self.loginBtn setTitle:@"登录" forState:UIControlStateNormal];
     self.loginBtn.titleLabel.font=[UIFont systemFontOfSize:16];
@@ -154,21 +186,56 @@ typedef enum : NSUInteger{
     [self.loginBtn addTarget:self action:@selector(loginButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.loginBtn];
     
+    self.forgetPassBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    self.forgetPassBtn.frame=CGRectMake(ScreenWidth-FitRealValue(200),  self.loginBtn.bottom+FitRealValue(20), FitRealValue(120), 34);
+    [self.forgetPassBtn setTitleColor:[MTool colorWithHexString:@"#B3B3B3"] forState:UIControlStateNormal];
+    [self.forgetPassBtn setTitle:@"忘记密码" forState:UIControlStateNormal];
+    self.forgetPassBtn.backgroundColor=[UIColor clearColor];
+    self.forgetPassBtn.titleLabel.font=[UIFont systemFontOfSize:12];
+    self.forgetPassBtn.hidden=YES;
+    [self.forgetPassBtn addTarget:self action:@selector(forgetPassClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.forgetPassBtn];
+    
+    
+    self.youkeBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    self.youkeBtn.frame=CGRectMake(45, self.loginBtn.bottom+FitRealValue(30), ScreenWidth-90, 44);
+    [self.youkeBtn setTitle:@"游客登录" forState:UIControlStateNormal];
+    self.youkeBtn.titleLabel.font=[UIFont systemFontOfSize:14];
+    [self.youkeBtn setTitleColor:[MTool colorWithHexString:@"#FF5E5E"]forState:UIControlStateNormal];
+    [self.youkeBtn addTarget:self action:@selector(loginButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.youkeBtn];
+    
+    
+    
+    UIView*bottomLineView=[[UIView alloc]initWithFrame:CGRectMake((ScreenWidth-FitRealValue(450))/2,ScreenHeight-SafeAreaBottomHeight-FitRealValue(140), FitRealValue(450), 0.5)];
+    bottomLineView.backgroundColor=[MTool colorWithHexString:@"##B3B3B3"];
+    [self.view addSubview:bottomLineView];
+    
+    UILabel*bottomLab=[[UILabel alloc]initWithFrame:CGRectMake((ScreenWidth-FitRealValue(170))/2,ScreenHeight-SafeAreaBottomHeight-FitRealValue(154),FitRealValue(170), FitRealValue(28))];
+    bottomLab.textColor=[MTool colorWithHexString:@"#B3B3B3"];
+    bottomLab.text=@"密码登录";
+    bottomLab.backgroundColor=[UIColor whiteColor];
+    bottomLab.textAlignment=NSTextAlignmentCenter;
+    bottomLab.font=[UIFont systemFontOfSize:14];
+    self.bottomLab=bottomLab;
+    [self.view addSubview:self.bottomLab];
+    
+    
     self.typeButton=[UIButton buttonWithType:UIButtonTypeCustom];
-    self.typeButton.frame=CGRectMake(ScreenWidth-120, self.loginBtn.bottom+20,80, 30);
-    [self.typeButton setBackgroundColor:[UIColor clearColor]];
-    [self.typeButton setTitle:@"密码登录" forState:UIControlStateNormal];
-    self.typeButton.titleLabel.font=[UIFont systemFontOfSize:14];
-    [self.typeButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.typeButton.frame=CGRectMake((ScreenWidth-FitRealValue(132))/2, bottomLineView.bottom, FitRealValue(132), FitRealValue(132));
+    [self.typeButton setImage:[UIImage imageNamed:@"logintypeimg"] forState:UIControlStateNormal];
+    [self.typeButton setTitleColor:[MTool colorWithHexString:@"#FF5E5E"]forState:UIControlStateNormal];
     [self.typeButton addTarget:self action:@selector(choseType:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.typeButton];
     
-   
-
-
-    
 }
+#pragma mark === buttonclick ===
 
+-(void)forgetPassClick:(UIButton*)sender{
+    
+    forgetPassVC*vc=[forgetPassVC new];
+    [self presentViewController:vc animated:YES completion:nil];
+}
 - (void)animationCode:(UIButton *)sender {
     
     
@@ -203,16 +270,28 @@ typedef enum : NSUInteger{
     sender.selected = !sender.selected;
     if (sender.selected==YES) {
         self.loginType=1;
-        [self.typeButton setTitle:@"验证码登录" forState:UIControlStateNormal];
+        [self.typeButton setImage:[UIImage imageNamed:@"logincodeimg"] forState:UIControlStateNormal];
+        self.bottomLab.text=@"验证码登录";
+        self.youkeBtn.hidden=YES;
         self.passTexF.hidden=NO;
         self.codeView.hidden=YES;
+        self.smallTitle.hidden=YES;
+        self.bigTitle.text=@"账号密码登录";
+         self.forgetPassBtn.hidden=NO;
         
     }
     else{
         self.loginType=0;
-        [self.typeButton setTitle:@"密码登录" forState:UIControlStateNormal];
+        [self.typeButton setImage:[UIImage imageNamed:@"logintypeimg"] forState:UIControlStateNormal];
+        self.bottomLab.text=@"密码登录";
+        self.youkeBtn.hidden=NO;
         self.passTexF.hidden=YES;
         self.codeView.hidden=NO;
+        self.smallTitle.hidden=NO;
+        self.bigTitle.text=@"欢迎使用点读产品";
+        self.forgetPassBtn.hidden=YES;
+
+
         
     }
 }

@@ -28,10 +28,10 @@
 
 -(void)addChildViewControllers{
     
-    [self addChildViewController:[[ReadIndexVC alloc] init] title:@"点读" imageName:@"main_read" selectedImageName:@"main_recommend_s"];
-    [self addChildViewController:[[ConfirmIndexVC alloc] init] title:@"闯关" imageName:@"main_cat" selectedImageName:@"main_cat_s"];
-    [self addChildViewController:[[PracticeIndexVC alloc] init] title:@"练习" imageName:@"main_product" selectedImageName:@"main_product_s"];
-    [self addChildViewController:[[MainIndexVC alloc] init] title:@"我的" imageName:@"main_ehome" selectedImageName:@"main_ehome_s"];
+    [self addChildViewController:[[ReadIndexVC alloc] init] title:@"点读" imageName:@"ReadIndex" selectedImageName:@"ReadIndex_s"];
+    [self addChildViewController:[[ConfirmIndexVC alloc] init] title:@"闯关" imageName:@"ConfirmIndex" selectedImageName:@"ConfirmIndex_s"];
+    [self addChildViewController:[[PracticeIndexVC alloc] init] title:@"练习" imageName:@"PracticeIndex_s" selectedImageName:@"main_product_s"];
+    [self addChildViewController:[[MainIndexVC alloc] init] title:@"我的" imageName:@"main" selectedImageName:@"main_s"];
 }
 
 
