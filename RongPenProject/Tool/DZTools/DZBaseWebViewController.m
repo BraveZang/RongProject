@@ -41,7 +41,7 @@
     _webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, SafeAreaTopHeight, ScreenWidth, ScreenHeight-SafeAreaTopHeight-SafeAreaBottomHeight)];
     _webView.delegate = self;
     _webView.scrollView.delegate = self;
-    _webView.backgroundColor = [UIColor clearColor];
+    _webView.backgroundColor = [UIColor redColor];
     [self.view addSubview: _webView];
     
     _progressProxy = [[NJKWebViewProgress alloc] init];

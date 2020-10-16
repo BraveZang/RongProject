@@ -48,9 +48,14 @@
             [delegate requestStart:self];
         }
     }
+    NSMutableDictionary *requestDic=[NSMutableDictionary dictionary];
+    [requestDic setObject:urlString forKey:@"head"];
+    [requestDic setObject:dataDict forKey:@"field"];
     
-    NSData *postData = [NSData dataWithData:[NSJSONSerialization dataWithJSONObject:dataDict options:NSJSONWritingPrettyPrinted error:nil]];
+    NSData *postData = [NSData dataWithData:[NSJSONSerialization dataWithJSONObject:requestDic options:NSJSONWritingPrettyPrinted error:nil]];
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    manager.responseSerializer= [AFHTTPResponseSerializer serializer];
+    
     NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:string parameters:nil error:nil];
     request.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -67,7 +72,8 @@
         if (!error) {
             if (weakDelegate) {
                 if ([weakDelegate respondsToSelector:@selector(requestDidFinished:result:)]) {
-                    [weakDelegate requestDidFinished:weakSelf result:responseObject];
+                    NSMutableDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                    [weakDelegate requestDidFinished:weakSelf result:dic];
                 }
             }
         } else {

@@ -43,7 +43,9 @@
 
 
 #pragma mark - 请求地址
-#define kDomainUrl @""
+#define kDomainUrl @"http://39.98.227.235/Api/index/index"
+//#define kDomainUrl @"http://39.98.227.235/api/test"
+
 #define kIMageUrl @""
 
 

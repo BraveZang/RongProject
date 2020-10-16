@@ -10,8 +10,13 @@
 
 @interface User : NSObject<NSCoding>
 
-@property (nonatomic, strong) NSString *uname;
-@property (nonatomic, strong) NSString *icon;
+@property (nonatomic, strong) NSString *uid;
+@property (nonatomic, strong) NSString *nickname;
+@property (nonatomic, strong) NSString *mobile;
+@property (nonatomic, strong) NSString *sex;
+@property (nonatomic, strong) NSString *age;
+@property (nonatomic, strong) NSString *grade;
+@property (nonatomic, strong) NSString *avatar;
 
 
 + (void)saveUser:(User *)user;

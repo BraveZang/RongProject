@@ -6,6 +6,13 @@
 //
 
 #import "forgetPassVC.h"
+#import "UIButton+Code.h"
+
+typedef enum : NSUInteger{
+    Submit,//提交
+    Accountsmscaptcha,//获取验证码
+    Login_repwdjy,//忘记密码-验证码校验
+}requestIdEnum;
 
 @interface forgetPassVC ()<UITextFieldDelegate,NetManagerDelegate>
 
@@ -15,6 +22,8 @@
 @property (strong,nonatomic)   UIButton                     *codeButton;
 @property (strong,nonatomic)   UIView                       *codeView;
 @property (strong,nonatomic)   UIButton                     *loginBtn;
+@property (nonatomic,strong)   NetManager                   *net;
+@property (nonatomic,strong)   NSString                     *uidStr;
 
 @end
 
@@ -103,10 +112,109 @@
     [self.loginBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.loginBtn addTarget:self action:@selector(loginButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.loginBtn];
-     
-    
-   
 }
 
+
+- (void)animationCode:(UIButton *)sender {
+    
+    
+    if (self.nameTexF.text.length==0) {
+        [DZTools showNOHud:@"请输入手机号" delay:2.0];
+        
+        return;
+    }
+    if (![MTool isValidateMobile:self.nameTexF.text]) {
+        [DZTools showNOHud:@"手机号格式错误" delay:2.0];
+        
+        return;
+    }
+    [sender setCountdown:60 WithStartString:@"" WithEndString:@"获取验证码"];
+    self.net.requestId=Accountsmscaptcha;
+    [self.net login_sendWithMobile:self.nameTexF.text Action:@"findpwd"];
+    
+    
+    
+}
+- (void)loginButtonPressed:(UIButton *)sender {
+    
+    if (self.nameTexF.text.length==0) {
+        [DZTools showNOHud:@"请输入手机号" delay:2.0];
+        
+        return;
+    }
+    if (![MTool isValidateMobile:self.nameTexF.text]) {
+        [DZTools showNOHud:@"手机号格式错误" delay:2.0];
+        
+        return;
+    }
+    if (self.codeTexF.text.length==0) {
+        [DZTools showNOHud:@"请输入验证码" delay:2.0];
+        
+        return;
+    }
+    self.net.requestId=Login_repwdjy;
+    [self.net login_repwdjyWithMobile:self.nameTexF.text Yan:self.codeTexF.text];
+    
+    
+}
+-(void)SubmitClick{
+    
+    self.net.requestId=Submit;
+    [self.net login_repwddoWithUid:self.uidStr Newpwd: self.passTexF.text];
+    
+}
+#pragma mark === NetManagerDelegate ===
+
+- (void)requestDidFinished:(NetManager *)request result:(NSMutableDictionary *)result{
+    NSDictionary*headDic=result[@"head"];
+    if ([headDic[@"res_code"]intValue]!=0002) {
+        
+        [DZTools showNOHud:headDic[@"res_msg"] delay:2];
+        return;
+    }
+    else{
+        NSDictionary*bodyDic=result[@"body"];
+        switch (request.requestId) {
+            case Submit:{
+                [DZTools showOKHud:headDic[@"res_msg"] delay:2];
+                User *user = [User mj_objectWithKeyValues:bodyDic];
+                [User saveUser:user];
+                [self dismissViewControllerAnimated:YES completion:nil];
+                
+            }
+                break;
+            case Login_repwdjy:{
+                self.uidStr=bodyDic[@"uid"];
+                [self SubmitClick];
+                
+            }
+                break;
+            case Accountsmscaptcha:{
+                
+                [DZTools showNOHud:headDic[@"res_msg"] delay:2];
+                
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }
+}
+- (void)requestError:(NetManager *)request error:(NSError*)error{
+    
+}
+
+- (void)requestStart:(NetManager *)request{
+    
+}
+
+- (NetManager *)net{
+    if (!_net) {
+        self.net = [[NetManager alloc] init];
+        _net.delegate = self;
+    }
+    return _net;
+}
 
 @end

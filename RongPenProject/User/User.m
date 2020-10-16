@@ -19,12 +19,6 @@ MJExtensionCodingImplementation
 + (void)saveUser:(User *)user{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:[NSKeyedArchiver archivedDataWithRootObject:user] forKey:@"userInfo"];
-//    if (!user.skey) {
-//       user.skey= [defaults objectForKey:Skey];
-//    }
-//    if (user.uid.length>0) {
-//        [defaults setObject:user.uid forKey:UserID];
-//       }
     [defaults synchronize];
 }
 
@@ -37,20 +31,10 @@ MJExtensionCodingImplementation
 + (void)deleUser{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:nil forKey:@"userInfo"];
-//    [defaults setValue:nil forKey:UserID];
-//    [defaults setValue:nil forKey:Token];
     [defaults synchronize];
 }
 
-//+ (NSString *)getUserID {
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    return [defaults objectForKey:UserID];
-//}
-//
-//+ (NSString *)getToken {
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    return [defaults objectForKey:Token];
-//}
+
 
 
 

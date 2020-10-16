@@ -8,6 +8,7 @@
 #import "LoginVC.h"
 #import "UIButton+Code.h"
 #import "forgetPassVC.h"
+#import "WebViewViewController.h"
 
 typedef enum : NSUInteger{
     Accountlogin,//账号登录
@@ -160,6 +161,7 @@ typedef enum : NSUInteger{
 
     self.agreeButton=[UIButton buttonWithType:UIButtonTypeCustom];
     self.agreeButton.frame=CGRectMake(agreeLab.right-20,lineView2.bottom+FitRealValue(26), 12*13, FitRealValue(14));
+    self.agreeButton.tag=100;
     [self.agreeButton setBackgroundColor:[UIColor clearColor]];
     [self.agreeButton setTitle:@"荣知教育用户服务协议" forState:UIControlStateNormal];
     self.agreeButton.titleLabel.font=[UIFont systemFontOfSize:12];
@@ -169,6 +171,7 @@ typedef enum : NSUInteger{
     
     self.agreeButton1=[UIButton buttonWithType:UIButtonTypeCustom];
     self.agreeButton1.frame=CGRectMake(agreeLab.right-20,self.agreeButton.bottom+FitRealValue(24), 12*13, FitRealValue(14));
+    self.agreeButton1.tag=101;
     [self.agreeButton1 setBackgroundColor:[UIColor clearColor]];
     [self.agreeButton1 setTitle:@"荣知教育用户隐私政策" forState:UIControlStateNormal];
     self.agreeButton1.titleLabel.font=[UIFont systemFontOfSize:12];
@@ -250,8 +253,8 @@ typedef enum : NSUInteger{
         return;
     }
     [sender setCountdown:60 WithStartString:@"" WithEndString:@"获取验证码"];
-//    self.net.requestId=Accountsmscaptcha;
-//    [self.net accountsmscaptchaWithUname:self.nameTexF.text];
+    self.net.requestId=Accountsmscaptcha;
+    [self.net login_sendWithMobile:self.nameTexF.text Action:@""];
     
     
     
@@ -306,11 +309,10 @@ typedef enum : NSUInteger{
         if (self.codeTexF.text.length==0) {
             [DZTools showNOHud:@"请输入验证码" delay:2.0];
             
-            
             return;
         }else{
-//            self.net.requestId=Accountsmslogin;
-//            [self.net accountSmsloginWithOpenid:nil phone:self.nameTexF.text smscaptcha:self.codeTexF.text];
+            self.net.requestId=Accountsmslogin;
+            [self.net login_indexWithMobile:self.nameTexF.text Yan:self.codeTexF.text];
         }
         
     }else{
@@ -320,8 +322,8 @@ typedef enum : NSUInteger{
             return;
         }
         
-//        self.net.requestId=Accountsmslogin;
-//        [self.net accountloginWithUname:self.nameTexF.text Passwd:self.passTexF.text];
+        self.net.requestId=Accountlogin;
+        [self.net login_pwdloginWithMobile:self.nameTexF.text Password:self.passTexF.text];
         
     }
     
@@ -350,16 +352,22 @@ typedef enum : NSUInteger{
 }
 
 - (void)clickAgreement:(UIButton *)sender {
-    //    BLWebViewController *webVC = [[BLWebViewController alloc]init];
-    //    webVC.title = @"用户协议";
-    //    if (appIsForVest) {
-    //        webVC.url = [NSURL URLWithString:@"http://www.yunyingyue.com/web/zhj/xiyi.html"];
-    //    } else {
-    //    webVC.url = [NSURL URLWithString:[NSString stringWithFormat:@"%@serviceProvision.html?app=%@",HTMLSTR,APPID]];
-    //    }
-    //     webVC.url = [NSURL URLWithString:[NSString stringWithFormat:XIEYIURL]];
-    //
-    //    [self.navigationController pushViewController:webVC animated:YES];
+    
+    if (sender.tag==100) {
+        
+        WebViewViewController *webVC = [[WebViewViewController alloc]init];
+        webVC.urlStr = @"http://api.bclc.com.cn/agreement/UserAgreement.html";
+        webVC.titleStr=@"荣知教育用户服务协议";
+        [self presentViewController:webVC animated:YES completion:nil];
+        
+    }
+    else{
+        WebViewViewController *webVC = [[WebViewViewController alloc]init];
+        webVC.urlStr = @"http://api.bclc.com.cn/agreement/PrivacyAgreement.html";
+        webVC.titleStr=@" 荣知教育用户隐私政策";
+        [self presentViewController:webVC animated:YES completion:nil];
+    }
+    
 }
 
 
@@ -382,20 +390,37 @@ typedef enum : NSUInteger{
 #pragma mark === NetManagerDelegate ===
 
 - (void)requestDidFinished:(NetManager *)request result:(NSMutableDictionary *)result{
-    if ([result[@"code"]intValue]!=200) {
+    NSDictionary*headDic=result[@"head"];
+    if ([headDic[@"res_code"]intValue]!=0002) {
         
-        [DZTools showNOHud:result[@"msg"] delay:2];
+        [DZTools showNOHud:headDic[@"res_msg"] delay:2];
         return;
     }
     else{
+        NSDictionary*bodyDic=result[@"body"];
         switch (request.requestId) {
             case Accountlogin:{
+                [DZTools showOKHud:headDic[@"res_msg"] delay:2];
+                User *user = [User mj_objectWithKeyValues:bodyDic];
+                [User saveUser:user];
+                [self dismissViewControllerAnimated:YES completion:nil];
+
+            }
+                break;
+            case Accountsmscaptcha:{
                 
-                [DZTools showOKHud:result[@"msg"] delay:2];
+               [DZTools showNOHud:headDic[@"res_msg"] delay:2];
                 
             }
                 break;
-        
+            case Accountsmslogin:{
+                [DZTools showOKHud:headDic[@"res_msg"] delay:2];
+                User *user = [User mj_objectWithKeyValues:bodyDic];
+                [User saveUser:user];
+                [self dismissViewControllerAnimated:YES completion:nil];
+
+            }
+                break;
                 
             default:
                 break;

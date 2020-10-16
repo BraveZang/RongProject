@@ -14,6 +14,7 @@ pod 'KINWebBrowser'
 pod 'SDWebImage','~> 4.4.2'
 pod 'IQKeyboardManager'
 pod 'SDCycleScrollView'
+pod 'NJKWebViewProgress'
 
 
 pod 'UMCShare/UI'

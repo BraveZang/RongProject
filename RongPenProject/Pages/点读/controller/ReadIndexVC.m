@@ -8,6 +8,7 @@
 #import "ReadIndexVC.h"
 #import "LoginVC.h"
 #import "SDCycleScrollView.h"//广告轮播图
+#import "ShopIndexVC.h"
 
 @interface ReadIndexVC ()<NetManagerDelegate,SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
@@ -31,7 +32,7 @@
     self.leftImgBtn.frame=CGRectMake(0, SafeAreaTopHeight-64+(64-15)/2, 80, 30);
     [self.leftImgBtn setTitle:@" 智能笔" forState:UIControlStateNormal];
     [self.leftImgBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [self.rightImgBtn addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.leftImgBtn addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
     
     
     [self.leftImgBtn setImage:[UIImage imageNamed:@"pen_s"] forState:UIControlStateNormal];
@@ -76,6 +77,16 @@
     //    }];
     
 }
+
+#pragma mark - buttonClick
+
+-(void)rightAction{
+    
+    ShopIndexVC*vc=[ShopIndexVC new];
+    vc.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 #pragma mark - CreatcycleScrollView
 -(void)CreatcycleScrollView{
     
