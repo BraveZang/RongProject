@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A4A35FB7-FBEA-4FF6-B101-C8A9D52D77A6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RongPenProject/Pages/&#x767b;&#x5f55;&#x6ce8;&#x518c;/LoginVC.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "418"
-            endingLineNumber = "418"
-            landmarkName = "-requestDidFinished:result:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "14D516FA-E9DD-4E46-835F-000CC5BCE181"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -87,96 +71,96 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "743DC62B-97F0-45BB-9A8D-01E6799DF02B"
+            uuid = "4C19C019-496D-48D9-A85F-635DE09D7236"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RongPenProject/Pages/&#x5546;&#x57ce;/ShopInfo/view/HaveBuyView.m"
+            filePath = "RongPenProject/Tool/DZTools/DZNetworkingTool.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "-CreateUI"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "+postWithUrl:params:success:failed:IsNeedHub:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DC804798-EEE0-4BD4-957D-DDB92451FFEF"
+            uuid = "8E2BB39C-6F86-4C11-8EE5-5FB59B6EA4FE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RongPenProject/Pages/&#x5546;&#x57ce;/ShopInfo/controller/ShopInfoVC.m"
+            filePath = "RongPenProject/Tool/DZTools/DZNetworkingTool.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "276"
-            endingLineNumber = "276"
-            landmarkName = "-requestDidFinished:result:"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "+postWithUrl:params:success:failed:IsNeedHub:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "920963CC-1A72-4103-AB61-1BEB840D2391"
+            uuid = "480FB6A9-1169-4F65-8906-D340E958CD31"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RongPenProject/Pages/&#x5546;&#x57ce;/ShopInfo/view/HaveBuyView.m"
+            filePath = "RongPenProject/Tool/DZTools/DZNetworkingTool.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
-            landmarkName = "-sureClick"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "+postWithUrl:params:success:failed:IsNeedHub:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4085D24D-98ED-41DA-80BF-5D2BA7286D3B"
+            uuid = "6DE1FCC2-0730-49C6-8483-DB28EDF9383E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RongPenProject/Pages/&#x5546;&#x57ce;/ShopInfo/controller/ShopInfoVC.m"
+            filePath = "RongPenProject/Pages/&#x5546;&#x57ce;/ConfirmOrder/view/AddressPickerView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "248"
-            endingLineNumber = "248"
-            landmarkName = "-requestDidFinished:result:"
+            startingLineNumber = "296"
+            endingLineNumber = "296"
+            landmarkName = "-loadAddressData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FA5848EF-BCFB-4CB1-8143-EB0F65C943B7"
+            uuid = "03B9D46C-24D4-4DAE-A14C-DC2EF73BC47F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RongPenProject/Pages/&#x5546;&#x57ce;/ShopInfo/controller/ShopInfoVC.m"
+            filePath = "RongPenProject/Pages/&#x5546;&#x57ce;/ConfirmOrder/view/AddressPickerView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
-            landmarkName = "-buyBtnClick"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
+            landmarkName = "-loadAddressData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2C4F9161-2545-45C4-8543-DAB2B2C99CC7"
+            uuid = "F1E1BCBF-B932-4598-B726-39B2D7A17BFA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RongPenProject/Pages/&#x5546;&#x57ce;/ShopInfo/controller/ShopInfoVC.m"
+            filePath = "RongPenProject/Pages/&#x5546;&#x57ce;/ConfirmOrder/view/AddressPickerView.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "242"
-            endingLineNumber = "242"
-            landmarkName = "-getOrdersn"
+            startingLineNumber = "290"
+            endingLineNumber = "290"
+            landmarkName = "-loadAddressData"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

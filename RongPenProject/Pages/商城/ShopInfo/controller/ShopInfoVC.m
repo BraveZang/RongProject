@@ -10,6 +10,8 @@
 #import "ShopInfoModel.h"
 #import "HaveBuyView.h"
 #import "ShopInfoCell.h"
+#import "ConfirmOrderVC.h"
+
 
 @interface ShopInfoVC ()<UIWebViewDelegate,NetManagerDelegate,UITableViewDelegate,UITableViewDataSource,SDCycleScrollViewDelegate>
 
@@ -275,9 +277,13 @@
          if (request.requestId==1002) {//
              NSString*idStr=bodyDic[@"id"];
              NSString*ordersnStr=bodyDic[@"ordersn"];
-
              
-         }
+             ConfirmOrderVC*vc=[ConfirmOrderVC new];
+             vc.idStr=idStr;
+             vc.ordersnStr=ordersnStr;
+             [self.navigationController pushViewController:vc animated:vc];
+
+        }
     }
 }
 - (void)requestError:(NetManager *)request error:(NSError*)error{

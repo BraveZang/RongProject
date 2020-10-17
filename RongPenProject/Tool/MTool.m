@@ -1257,7 +1257,7 @@ static AFNetworkReachabilityStatus NOW_NETWORK_STATUS;
  * @param   fileName plist名
  * @param   dataArray array
  */
-+ (void)pushArrayToPlist:(NSMutableArray *)dataArray fileName:(NSString *)fileName {
++ (void)pushArrayToPlist:(NSArray *)dataArray fileName:(NSString *)fileName {
     //获取应用程序沙盒的Documents目录
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
     NSString *plistPath = [paths objectAtIndex:0];
@@ -1268,8 +1268,8 @@ static AFNetworkReachabilityStatus NOW_NETWORK_STATUS;
     [dataArray writeToFile:filename atomically:YES];
     
     //    //那怎么证明我的数据写入了呢？读出来看看
-    //    NSMutableArray *data1 = [[NSMutableArray alloc] initWithContentsOfFile:filename];
-    //    NSLog(@"%@", data1);
+        NSArray *data1 = [[NSArray alloc] initWithContentsOfFile:filename];
+        NSLog(@"%@", data1);
 }
 
 

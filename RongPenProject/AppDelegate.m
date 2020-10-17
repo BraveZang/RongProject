@@ -12,7 +12,9 @@
 #import <UMShare/UMShare.h>
 #import "TabarVC.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<NetManagerDelegate>
+
+@property (nonatomic, strong) NetManager                  *net;
 
 @end
 
@@ -26,11 +28,13 @@
         [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
     }
    
+    
     //下面两行代码主要是防止加载大分辨率图片时内存暴涨crash
     [SDImageCache sharedImageCache].config.shouldCacheImagesInMemory = NO;//缓存图片不放入内存
       //sd中可点击diskCacheReadingOptions跳转到这个属性，提示设置为NSDataReadingMappedIfSafe可提高性能
     [SDImageCache sharedImageCache].config.diskCacheReadingOptions = NSDataReadingMappedIfSafe;
     
+    [self getAreaUrlData];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     TabarVC *vc=[[TabarVC alloc]init];
@@ -94,4 +98,45 @@
 }
 
 
+-(void)getAreaUrlData{
+    
+    self.net.requestId=1001;
+    [self.net main_areaWithNoParam];
+}
+
+- (void)requestDidFinished:(NetManager *)request result:(NSMutableDictionary *)result{
+    
+    NSDictionary*heardDic=result[@"head"];
+    NSArray*bodAry=result[@"body"];
+    
+    if ([heardDic[@"res_code"]intValue]!=0002) {
+        
+        [DZTools showNOHud:result[@"res_msg"] delay:2];
+        return;
+    }
+    else{
+        if (request.requestId==1001) {//
+            [MTool pushArrayToPlist:bodAry fileName:@"Areaaaaaaaa"];
+     
+        }
+        if (request.requestId==1002) {//
+            
+        }
+    }
+}
+- (void)requestError:(NetManager *)request error:(NSError*)error{
+    
+}
+
+- (void)requestStart:(NetManager *)request{
+    
+}
+
+- (NetManager *)net{
+    if (!_net) {
+        self.net = [[NetManager alloc] init];
+        _net.delegate = self;
+    }
+    return _net;
+}
 @end

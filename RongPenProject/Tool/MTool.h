@@ -295,7 +295,7 @@
  * @param   fileName plist名
  * @param   dataArray array
  */
-+ (void)pushArrayToPlist:(NSMutableArray *)dataArray fileName:(NSString *)fileName;
++ (void)pushArrayToPlist:(NSArray *)dataArray fileName:(NSString *)fileName;
 
 
 

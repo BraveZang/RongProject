@@ -17,8 +17,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) UILabel             *gradeLab;
 @property(nonatomic,strong) UILabel             *subjectsLab;
 @property(nonatomic,strong) UILabel             *moneyLab;
+@property(nonatomic,strong) UILabel             *markLab;
 @property(nonatomic,strong) UIView              *bottomView;
 @property(strong,nonatomic) PPNumberButton      *numberBtn;
+@property(nonatomic,strong) NSDictionary        *dic;
+
+
+@property (nonatomic, copy) void(^colorBlock)(NSArray*ary);
+
+@property (nonatomic, copy) void(^numberBlock)(NSNumber* num);
 
 
 

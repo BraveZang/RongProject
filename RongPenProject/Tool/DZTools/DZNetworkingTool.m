@@ -120,7 +120,9 @@
     if (isNeed) {
         //        [DZTools showHud];
     }
-    [[DZNetworkingTool sharedManager] POST:url
+    
+    NSString *urlStr =[NSString stringWithFormat:@"%@/%@",kDomainUrl,url];
+    [[DZNetworkingTool sharedManager] POST:urlStr
                                 parameters:params
                                   progress:nil
                                    success:^(NSURLSessionDataTask *_Nonnull task, id _Nullable responseObject) {

@@ -36,6 +36,15 @@
 		C62DCC0B2535D0CF00410FCE /* ConfirmOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC0A2535D0CF00410FCE /* ConfirmOrderVC.m */; };
 		C62DCC112535D5DD00410FCE /* ConfirmOrderVCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC102535D5DD00410FCE /* ConfirmOrderVCCell.m */; };
 		C62DCC152535D96400410FCE /* PPNumberButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC142535D96400410FCE /* PPNumberButton.m */; };
+		C62DCC37253A8BF900410FCE /* ShopQROrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC36253A8BF900410FCE /* ShopQROrderVC.m */; };
+		C62DCC3A253A8C4800410FCE /* ShopQROrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC39253A8C4800410FCE /* ShopQROrderCell.m */; };
+		C62DCC3D253AA10900410FCE /* Shop_qrorderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC3C253AA10800410FCE /* Shop_qrorderModel.m */; };
+		C62DCC40253AA3C100410FCE /* PriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC3F253AA3C100410FCE /* PriceCell.m */; };
+		C62DCC43253AA4A000410FCE /* PayCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC42253AA4A000410FCE /* PayCell.m */; };
+		C62DCC46253AD2B600410FCE /* AddAdressVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC45253AD2B600410FCE /* AddAdressVC.m */; };
+		C62DCC4A253AD39C00410FCE /* address.txt in Resources */ = {isa = PBXBuildFile; fileRef = C62DCC47253AD39C00410FCE /* address.txt */; };
+		C62DCC4B253AD39C00410FCE /* AddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC48253AD39C00410FCE /* AddressPickerView.m */; };
+		C62DCC4E253AD43300410FCE /* AddAdressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC4C253AD43300410FCE /* AddAdressCell.m */; };
 		C6473F10250F3D5F00BDE73F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C6473F0F250F3D5F00BDE73F /* Podfile */; };
 		C6473F1B250F416E00BDE73F /* NetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473F19250F416E00BDE73F /* NetManager.m */; };
 		C6473F1E250F425800BDE73F /* MTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473F1D250F425800BDE73F /* MTool.m */; };
@@ -183,6 +192,23 @@
 		C62DCC102535D5DD00410FCE /* ConfirmOrderVCCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmOrderVCCell.m; sourceTree = "<group>"; };
 		C62DCC132535D96400410FCE /* PPNumberButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNumberButton.h; sourceTree = "<group>"; };
 		C62DCC142535D96400410FCE /* PPNumberButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNumberButton.m; sourceTree = "<group>"; };
+		C62DCC35253A8BF900410FCE /* ShopQROrderVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopQROrderVC.h; sourceTree = "<group>"; };
+		C62DCC36253A8BF900410FCE /* ShopQROrderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopQROrderVC.m; sourceTree = "<group>"; };
+		C62DCC38253A8C4800410FCE /* ShopQROrderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopQROrderCell.h; sourceTree = "<group>"; };
+		C62DCC39253A8C4800410FCE /* ShopQROrderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopQROrderCell.m; sourceTree = "<group>"; };
+		C62DCC3B253AA10800410FCE /* Shop_qrorderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shop_qrorderModel.h; sourceTree = "<group>"; };
+		C62DCC3C253AA10800410FCE /* Shop_qrorderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shop_qrorderModel.m; sourceTree = "<group>"; };
+		C62DCC3E253AA3C100410FCE /* PriceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PriceCell.h; sourceTree = "<group>"; };
+		C62DCC3F253AA3C100410FCE /* PriceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PriceCell.m; sourceTree = "<group>"; };
+		C62DCC41253AA4A000410FCE /* PayCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayCell.h; sourceTree = "<group>"; };
+		C62DCC42253AA4A000410FCE /* PayCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayCell.m; sourceTree = "<group>"; };
+		C62DCC44253AD2B600410FCE /* AddAdressVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAdressVC.h; sourceTree = "<group>"; };
+		C62DCC45253AD2B600410FCE /* AddAdressVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddAdressVC.m; sourceTree = "<group>"; };
+		C62DCC47253AD39C00410FCE /* address.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = address.txt; sourceTree = "<group>"; };
+		C62DCC48253AD39C00410FCE /* AddressPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressPickerView.m; sourceTree = "<group>"; };
+		C62DCC49253AD39C00410FCE /* AddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressPickerView.h; sourceTree = "<group>"; };
+		C62DCC4C253AD43300410FCE /* AddAdressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAdressCell.m; sourceTree = "<group>"; };
+		C62DCC4D253AD43300410FCE /* AddAdressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAdressCell.h; sourceTree = "<group>"; };
 		C6473F0F250F3D5F00BDE73F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C6473F17250F40B300BDE73F /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefix.pch; sourceTree = "<group>"; };
 		C6473F19250F416E00BDE73F /* NetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetManager.m; sourceTree = "<group>"; };
@@ -476,6 +502,8 @@
 			children = (
 				C62DCC092535D0CF00410FCE /* ConfirmOrderVC.h */,
 				C62DCC0A2535D0CF00410FCE /* ConfirmOrderVC.m */,
+				C62DCC44253AD2B600410FCE /* AddAdressVC.h */,
+				C62DCC45253AD2B600410FCE /* AddAdressVC.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -485,6 +513,8 @@
 			children = (
 				C62DCC062535CF7B00410FCE /* AddressModel.h */,
 				C62DCC052535CF7B00410FCE /* AddressModel.m */,
+				C62DCC3B253AA10800410FCE /* Shop_qrorderModel.h */,
+				C62DCC3C253AA10800410FCE /* Shop_qrorderModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -496,6 +526,15 @@
 				C62DCC032535CEB400410FCE /* ShopAdressCell..m */,
 				C62DCC0F2535D5DD00410FCE /* ConfirmOrderVCCell.h */,
 				C62DCC102535D5DD00410FCE /* ConfirmOrderVCCell.m */,
+				C62DCC3E253AA3C100410FCE /* PriceCell.h */,
+				C62DCC3F253AA3C100410FCE /* PriceCell.m */,
+				C62DCC41253AA4A000410FCE /* PayCell.h */,
+				C62DCC42253AA4A000410FCE /* PayCell.m */,
+				C62DCC47253AD39C00410FCE /* address.txt */,
+				C62DCC49253AD39C00410FCE /* AddressPickerView.h */,
+				C62DCC48253AD39C00410FCE /* AddressPickerView.m */,
+				C62DCC4D253AD43300410FCE /* AddAdressCell.h */,
+				C62DCC4C253AD43300410FCE /* AddAdressCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -507,6 +546,41 @@
 				C62DCC142535D96400410FCE /* PPNumberButton.m */,
 			);
 			path = PPNumberButton;
+			sourceTree = "<group>";
+		};
+		C62DCC31253A8B9F00410FCE /* Shop_qrorder */ = {
+			isa = PBXGroup;
+			children = (
+				C62DCC34253A8BD900410FCE /* controller */,
+				C62DCC33253A8BD400410FCE /* view */,
+				C62DCC32253A8BCE00410FCE /* model */,
+			);
+			path = Shop_qrorder;
+			sourceTree = "<group>";
+		};
+		C62DCC32253A8BCE00410FCE /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		C62DCC33253A8BD400410FCE /* view */ = {
+			isa = PBXGroup;
+			children = (
+				C62DCC38253A8C4800410FCE /* ShopQROrderCell.h */,
+				C62DCC39253A8C4800410FCE /* ShopQROrderCell.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		C62DCC34253A8BD900410FCE /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				C62DCC35253A8BF900410FCE /* ShopQROrderVC.h */,
+				C62DCC36253A8BF900410FCE /* ShopQROrderVC.m */,
+			);
+			path = controller;
 			sourceTree = "<group>";
 		};
 		C6473F16250F3F6C00BDE73F /* Tool */ = {
@@ -1015,6 +1089,7 @@
 		C6497C0625318DAD006463B4 /* 商城 */ = {
 			isa = PBXGroup;
 			children = (
+				C62DCC31253A8B9F00410FCE /* Shop_qrorder */,
 				C62DCC082535D0B000410FCE /* ConfirmOrder */,
 				C6497C142531A4A6006463B4 /* ShopInfo */,
 				C6497C0725318DBA006463B4 /* ShopIndex */,
@@ -1205,6 +1280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C62DCC4A253AD39C00410FCE /* address.txt in Resources */,
 				C6473FE4251233F800BDE73F /* data_008.txt in Resources */,
 				C6473FC7250F531A00BDE73F /* AlipaySDK.bundle in Resources */,
 				27271CF3250D129B00B4E382 /* LaunchScreen.storyboard in Resources */,
@@ -1288,18 +1364,23 @@
 				C6497C0525315A1A006463B4 /* WebViewViewController.m in Sources */,
 				C6473FB0250F4BF200BDE73F /* PracticeIndexVC.m in Sources */,
 				C6473F4A250F442200BDE73F /* UIAlertView+RWBlock.m in Sources */,
+				C62DCC3A253A8C4800410FCE /* ShopQROrderCell.m in Sources */,
 				C62DCC112535D5DD00410FCE /* ConfirmOrderVCCell.m in Sources */,
 				C62DCC042535CEB400410FCE /* ShopAdressCell..m in Sources */,
 				C62DCC0B2535D0CF00410FCE /* ConfirmOrderVC.m in Sources */,
+				C62DCC4E253AD43300410FCE /* AddAdressCell.m in Sources */,
 				C6473F62250F44A400BDE73F /* NSObject+AutoProperty.m in Sources */,
 				C6497BD1251C7E17006463B4 /* CheckpointListVC.m in Sources */,
 				C6473F22250F42B700BDE73F /* User.m in Sources */,
 				C6473FDE2511A6A000BDE73F /* NSString+Font.m in Sources */,
+				C62DCC37253A8BF900410FCE /* ShopQROrderVC.m in Sources */,
 				C6473F90250F44C700BDE73F /* DZTools.m in Sources */,
+				C62DCC43253AA4A000410FCE /* PayCell.m in Sources */,
 				C6473FC8250F531A00BDE73F /* APOrderInfo.m in Sources */,
 				C6473FDF2511A6A000BDE73F /* NullSafe.m in Sources */,
 				C647404E2518B17C00BDE73F /* RightSlidingMenuView.m in Sources */,
 				C6473F1E250F425800BDE73F /* MTool.m in Sources */,
+				C62DCC40253AA3C100410FCE /* PriceCell.m in Sources */,
 				27271CEB250D129A00B4E382 /* ViewController.m in Sources */,
 				C6473F7E250F44B800BDE73F /* ReLayoutButton.m in Sources */,
 				C6497BDB251C8701006463B4 /* CheckpointResultVC.m in Sources */,
@@ -1313,7 +1394,9 @@
 				C6473FB9250F4C6500BDE73F /* MainIndexVC.m in Sources */,
 				C6168BBB2519A54D001EF850 /* MainSetVC.m in Sources */,
 				C6168BC12519ADAA001EF850 /* MainFanKuiVC.m in Sources */,
+				C62DCC3D253AA10900410FCE /* Shop_qrorderModel.m in Sources */,
 				C6497C0D25318DF1006463B4 /* ShopIndexVC.m in Sources */,
+				C62DCC46253AD2B600410FCE /* AddAdressVC.m in Sources */,
 				C6473FBC250F4CB300BDE73F /* TabarVC.m in Sources */,
 				C647400A25188DB600BDE73F /* UIViewController+NoSlideBack.m in Sources */,
 				C6473F7D250F44B800BDE73F /* UIView+IDCard.m in Sources */,
@@ -1344,6 +1427,7 @@
 				C6473FA4250F4B7E00BDE73F /* ReadIndexVC.m in Sources */,
 				C6168BC42519AE6F001EF850 /* MainFanKuiCell.m in Sources */,
 				C6473F25250F433200BDE73F /* LoadingView.m in Sources */,
+				C62DCC4B253AD39C00410FCE /* AddressPickerView.m in Sources */,
 				C6473F5D250F449B00BDE73F /* MKSearchBar.m in Sources */,
 				C6473F97250F453400BDE73F /* NetManager+UPRequest.m in Sources */,
 				C64740022514823100BDE73F /* swift.swift in Sources */,

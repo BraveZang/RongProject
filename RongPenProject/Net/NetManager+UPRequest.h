@@ -113,5 +113,26 @@ login_setgread
  **/
 - (void)Shop_buyWithUid:(NSString *)uid Total:(NSString *)total Goods:(NSArray *)goods;
 
+/**
+ 确认订单 Shop_qrorder
+ uid 当前会员id
+ id 立即购买-确定 返回的订单id
+ ordersn 订单号
+ **/
+- (void)Shop_qrorderWithUid:(NSString *)uid Id:(NSString *)id  Ordersn:(NSString *)ordersn;
+
+/**
+ 地址添加 Member_addresstj
+ uid 当前会员id
+ name 姓名
+ mobile 手机号
+ sheng 省份id
+ shi 市id
+ qu 区id
+ address 详细地址
+ defaults 不为空则为默认
+ **/
+- (void)Member_addresstjWithUid:(NSString *)uid Name:(NSString *)name  Mobile:(NSString *)mobile  Sheng:(NSString *)sheng  Shi:(NSString *)shi  Qu:(NSString *)qu  Address:(NSString *)address  Defaults:(NSString *)defaults;
+
 @end
 

@@ -11,6 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ConfirmOrderVC : DZBaseViewController
 
+@property(nonatomic,strong)NSString*idStr;
+@property(nonatomic,strong)NSString*ordersnStr;
+
 @end
 
 NS_ASSUME_NONNULL_END
