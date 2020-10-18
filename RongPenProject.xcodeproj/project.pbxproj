@@ -583,6 +583,13 @@
 			path = controller;
 			sourceTree = "<group>";
 		};
+		C62DCC4F253C15F200410FCE /* MainCourse */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MainCourse;
+			sourceTree = "<group>";
+		};
 		C6473F16250F3F6C00BDE73F /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -800,6 +807,7 @@
 		C6473FA1250F4B4200BDE73F /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
+				C62DCC4F253C15F200410FCE /* MainCourse */,
 				C6497BB7251C3ADF006463B4 /* MainIndex */,
 				C6497BB8251C3B09006463B4 /* MainMessage */,
 			);
