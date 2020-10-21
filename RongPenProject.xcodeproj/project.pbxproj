@@ -45,6 +45,14 @@
 		C62DCC4A253AD39C00410FCE /* address.txt in Resources */ = {isa = PBXBuildFile; fileRef = C62DCC47253AD39C00410FCE /* address.txt */; };
 		C62DCC4B253AD39C00410FCE /* AddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC48253AD39C00410FCE /* AddressPickerView.m */; };
 		C62DCC4E253AD43300410FCE /* AddAdressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC4C253AD43300410FCE /* AddAdressCell.m */; };
+		C62DCC55253C17DA00410FCE /* MainCourseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC54253C17DA00410FCE /* MainCourseVC.m */; };
+		C62DCC58253C1A0300410FCE /* MCPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC56253C1A0300410FCE /* MCPageView.m */; };
+		C62DCC5B253C1C9800410FCE /* MainCoursePageOneVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC5A253C1C9800410FCE /* MainCoursePageOneVC.m */; };
+		C62DCC5E253C1D7E00410FCE /* CourseVideoCollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC5D253C1D7E00410FCE /* CourseVideoCollCell.m */; };
+		C62DCC61253C268500410FCE /* CourseVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC60253C268500410FCE /* CourseVideoModel.m */; };
+		C62DCC64253C275500410FCE /* MainCoursePageTowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC63253C275500410FCE /* MainCoursePageTowVC.m */; };
+		C62DCC67253C278B00410FCE /* MainCoursePageThreeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC66253C278B00410FCE /* MainCoursePageThreeVC.m */; };
+		C62DCC6A253C2BBD00410FCE /* GoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC69253C2BBD00410FCE /* GoodsModel.m */; };
 		C6473F10250F3D5F00BDE73F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C6473F0F250F3D5F00BDE73F /* Podfile */; };
 		C6473F1B250F416E00BDE73F /* NetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473F19250F416E00BDE73F /* NetManager.m */; };
 		C6473F1E250F425800BDE73F /* MTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473F1D250F425800BDE73F /* MTool.m */; };
@@ -209,6 +217,22 @@
 		C62DCC49253AD39C00410FCE /* AddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressPickerView.h; sourceTree = "<group>"; };
 		C62DCC4C253AD43300410FCE /* AddAdressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAdressCell.m; sourceTree = "<group>"; };
 		C62DCC4D253AD43300410FCE /* AddAdressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAdressCell.h; sourceTree = "<group>"; };
+		C62DCC53253C17DA00410FCE /* MainCourseVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainCourseVC.h; sourceTree = "<group>"; };
+		C62DCC54253C17DA00410FCE /* MainCourseVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainCourseVC.m; sourceTree = "<group>"; };
+		C62DCC56253C1A0300410FCE /* MCPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCPageView.m; sourceTree = "<group>"; };
+		C62DCC57253C1A0300410FCE /* MCPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCPageView.h; sourceTree = "<group>"; };
+		C62DCC59253C1C9800410FCE /* MainCoursePageOneVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainCoursePageOneVC.h; sourceTree = "<group>"; };
+		C62DCC5A253C1C9800410FCE /* MainCoursePageOneVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainCoursePageOneVC.m; sourceTree = "<group>"; };
+		C62DCC5C253C1D7E00410FCE /* CourseVideoCollCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseVideoCollCell.h; sourceTree = "<group>"; };
+		C62DCC5D253C1D7E00410FCE /* CourseVideoCollCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseVideoCollCell.m; sourceTree = "<group>"; };
+		C62DCC5F253C268500410FCE /* CourseVideoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseVideoModel.h; sourceTree = "<group>"; };
+		C62DCC60253C268500410FCE /* CourseVideoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseVideoModel.m; sourceTree = "<group>"; };
+		C62DCC62253C275500410FCE /* MainCoursePageTowVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainCoursePageTowVC.h; sourceTree = "<group>"; };
+		C62DCC63253C275500410FCE /* MainCoursePageTowVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainCoursePageTowVC.m; sourceTree = "<group>"; };
+		C62DCC65253C278B00410FCE /* MainCoursePageThreeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainCoursePageThreeVC.h; sourceTree = "<group>"; };
+		C62DCC66253C278B00410FCE /* MainCoursePageThreeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainCoursePageThreeVC.m; sourceTree = "<group>"; };
+		C62DCC68253C2BBD00410FCE /* GoodsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsModel.h; sourceTree = "<group>"; };
+		C62DCC69253C2BBD00410FCE /* GoodsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsModel.m; sourceTree = "<group>"; };
 		C6473F0F250F3D5F00BDE73F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C6473F17250F40B300BDE73F /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefix.pch; sourceTree = "<group>"; };
 		C6473F19250F416E00BDE73F /* NetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetManager.m; sourceTree = "<group>"; };
@@ -586,8 +610,48 @@
 		C62DCC4F253C15F200410FCE /* MainCourse */ = {
 			isa = PBXGroup;
 			children = (
+				C62DCC52253C17C300410FCE /* view */,
+				C62DCC51253C17BB00410FCE /* model */,
+				C62DCC50253C17AE00410FCE /* controller  */,
 			);
 			path = MainCourse;
+			sourceTree = "<group>";
+		};
+		C62DCC50253C17AE00410FCE /* controller  */ = {
+			isa = PBXGroup;
+			children = (
+				C62DCC53253C17DA00410FCE /* MainCourseVC.h */,
+				C62DCC54253C17DA00410FCE /* MainCourseVC.m */,
+				C62DCC59253C1C9800410FCE /* MainCoursePageOneVC.h */,
+				C62DCC5A253C1C9800410FCE /* MainCoursePageOneVC.m */,
+				C62DCC62253C275500410FCE /* MainCoursePageTowVC.h */,
+				C62DCC63253C275500410FCE /* MainCoursePageTowVC.m */,
+				C62DCC65253C278B00410FCE /* MainCoursePageThreeVC.h */,
+				C62DCC66253C278B00410FCE /* MainCoursePageThreeVC.m */,
+			);
+			path = "controller ";
+			sourceTree = "<group>";
+		};
+		C62DCC51253C17BB00410FCE /* model */ = {
+			isa = PBXGroup;
+			children = (
+				C62DCC5F253C268500410FCE /* CourseVideoModel.h */,
+				C62DCC60253C268500410FCE /* CourseVideoModel.m */,
+				C62DCC68253C2BBD00410FCE /* GoodsModel.h */,
+				C62DCC69253C2BBD00410FCE /* GoodsModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		C62DCC52253C17C300410FCE /* view */ = {
+			isa = PBXGroup;
+			children = (
+				C62DCC57253C1A0300410FCE /* MCPageView.h */,
+				C62DCC56253C1A0300410FCE /* MCPageView.m */,
+				C62DCC5C253C1D7E00410FCE /* CourseVideoCollCell.h */,
+				C62DCC5D253C1D7E00410FCE /* CourseVideoCollCell.m */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		C6473F16250F3F6C00BDE73F /* Tool */ = {
@@ -1374,12 +1438,15 @@
 				C6473F4A250F442200BDE73F /* UIAlertView+RWBlock.m in Sources */,
 				C62DCC3A253A8C4800410FCE /* ShopQROrderCell.m in Sources */,
 				C62DCC112535D5DD00410FCE /* ConfirmOrderVCCell.m in Sources */,
+				C62DCC5B253C1C9800410FCE /* MainCoursePageOneVC.m in Sources */,
+				C62DCC58253C1A0300410FCE /* MCPageView.m in Sources */,
 				C62DCC042535CEB400410FCE /* ShopAdressCell..m in Sources */,
 				C62DCC0B2535D0CF00410FCE /* ConfirmOrderVC.m in Sources */,
 				C62DCC4E253AD43300410FCE /* AddAdressCell.m in Sources */,
 				C6473F62250F44A400BDE73F /* NSObject+AutoProperty.m in Sources */,
 				C6497BD1251C7E17006463B4 /* CheckpointListVC.m in Sources */,
 				C6473F22250F42B700BDE73F /* User.m in Sources */,
+				C62DCC61253C268500410FCE /* CourseVideoModel.m in Sources */,
 				C6473FDE2511A6A000BDE73F /* NSString+Font.m in Sources */,
 				C62DCC37253A8BF900410FCE /* ShopQROrderVC.m in Sources */,
 				C6473F90250F44C700BDE73F /* DZTools.m in Sources */,
@@ -1390,9 +1457,12 @@
 				C6473F1E250F425800BDE73F /* MTool.m in Sources */,
 				C62DCC40253AA3C100410FCE /* PriceCell.m in Sources */,
 				27271CEB250D129A00B4E382 /* ViewController.m in Sources */,
+				C62DCC67253C278B00410FCE /* MainCoursePageThreeVC.m in Sources */,
+				C62DCC64253C275500410FCE /* MainCoursePageTowVC.m in Sources */,
 				C6473F7E250F44B800BDE73F /* ReLayoutButton.m in Sources */,
 				C6497BDB251C8701006463B4 /* CheckpointResultVC.m in Sources */,
 				C6497BBE251C3B49006463B4 /* MainMessageVC.m in Sources */,
+				C62DCC55253C17DA00410FCE /* MainCourseVC.m in Sources */,
 				C6473F93250F44C700BDE73F /* DZNavigationController.m in Sources */,
 				C6497BD4251C7E45006463B4 /* CheckpointListCell.m in Sources */,
 				C64740512518BD6D00BDE73F /* RightSlidingMenuViewCell.m in Sources */,
@@ -1417,6 +1487,7 @@
 				C62DCBFE25359B7F00410FCE /* HaveBuyCell.m in Sources */,
 				C6473F6B250F44B200BDE73F /* UIButton+Code.m in Sources */,
 				C6497C1325319C67006463B4 /* ShopIndexModel.m in Sources */,
+				C62DCC6A253C2BBD00410FCE /* GoodsModel.m in Sources */,
 				C6473F66250F44A900BDE73F /* NSString+URL.m in Sources */,
 				C6497C1A2531A4DB006463B4 /* ShopInfoVC.m in Sources */,
 				C6473F5B250F449B00BDE73F /* UIView+CZHExtension.m in Sources */,
@@ -1436,6 +1507,7 @@
 				C6168BC42519AE6F001EF850 /* MainFanKuiCell.m in Sources */,
 				C6473F25250F433200BDE73F /* LoadingView.m in Sources */,
 				C62DCC4B253AD39C00410FCE /* AddressPickerView.m in Sources */,
+				C62DCC5E253C1D7E00410FCE /* CourseVideoCollCell.m in Sources */,
 				C6473F5D250F449B00BDE73F /* MKSearchBar.m in Sources */,
 				C6473F97250F453400BDE73F /* NetManager+UPRequest.m in Sources */,
 				C64740022514823100BDE73F /* swift.swift in Sources */,

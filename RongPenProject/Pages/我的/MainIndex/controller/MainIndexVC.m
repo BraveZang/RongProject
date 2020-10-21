@@ -10,6 +10,7 @@
 #import "MainSetVC.h"
 #import "MainFanKuiVC.h"
 #import "MainMessageVC.h"
+#import "MainCourseVC.h"
 
 @interface MainIndexVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
 
@@ -93,6 +94,8 @@
     UIButton*myCourse=[UIButton buttonWithType:UIButtonTypeCustom];
     myCourse.frame=CGRectMake(FitRealValue(80), lineView1.bottom, btnW, btnH);
     [myCourse setTitle:@"我的课程" forState:UIControlStateNormal];
+    [myCourse addTarget:self action:@selector(myCourseBtnClick) forControlEvents:UIControlEventTouchUpInside];
+
     myCourse.titleLabel.font=[UIFont systemFontOfSize:14];
     //    myCourse.titleLabel.textAlignment=NSTextAlignmentCenter;
     [myCourse setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -180,6 +183,12 @@
     MainMessageVC*vc=[MainMessageVC new];
     vc.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:vc animated:YES];
+}
+-(void)myCourseBtnClick{
+    MainCourseVC*vc=[MainCourseVC new];
+    vc.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:vc animated:YES];
+    
 }
 #pragma mark UITableViewDataSource
 - (void)initTableView {

@@ -128,6 +128,37 @@ login_setgread
 
 #pragma mark - 我的
 
+/**
+ 我的课程(录播课程、直播课程) 参数 Course_index
+ 参数：
+ page 分页 默认1
+ type 录播、直播
+ **/
+- (void)Course_indexWithPage:(NSString *)page Type:(NSString *)type{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    
+    if (page)[mutabDic setObject:page forKey:@"page"];
+    if (type)[mutabDic setObject:type forKey:@"type"];
+     [self sendPOSTRequestToServerWithURL:@"Course_index" postData:mutabDic];
+}
+
+/**
+ 已购课程 参数
+ 参数：
+ uid 当前会员id
+ page 分页 默认1
+ **/
+- (void)Course_orderlistWithPage:(NSString *)page Uid:(NSString *)uid{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    
+    if (page)[mutabDic setObject:page forKey:@"page"];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+     [self sendPOSTRequestToServerWithURL:@"Course_orderlist" postData:mutabDic];
+}
+
+#pragma mark - 商城
 
 /**
  商城

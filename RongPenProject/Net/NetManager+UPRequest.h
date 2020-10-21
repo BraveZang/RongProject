@@ -88,7 +88,21 @@ login_setgread
 
 #pragma mark - 我的
 
+/**
+ 我的课程(录播课程、直播课程) 参数 Course_index
+ 参数：
+ page 分页 默认1
+ type 录播、直播
+ **/
+- (void)Course_indexWithPage:(NSString *)page Type:(NSString *)type;
 
+/**
+ 已购课程 参数
+ 参数：
+ uid 当前会员id
+ page 分页 默认1
+ **/
+- (void)Course_orderlistWithPage:(NSString *)page Uid:(NSString *)uid;
 #pragma mark - 商城
 
 /**
