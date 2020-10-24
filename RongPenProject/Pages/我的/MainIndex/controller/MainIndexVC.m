@@ -22,17 +22,35 @@
 @property (nonatomic, strong)  UIButton             *loginBtn;
 @property (nonatomic, strong)  UIButton             *editorBtn;
 @property (nonatomic, strong)  UIImageView          *heardImg;
+@property (nonatomic, strong)  NetManager           *net;
 
 @end
 
 @implementation MainIndexVC
 
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self getUrlRenewing];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    }
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    if (@available(iOS 13.0, *)) {
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDarkContent;
+    } else {
+        [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
+    }
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createHeardView];
     [self createFooterView];
     [self  initTableView];
+    [self getUrlRenewing];
     
 }
 
@@ -96,7 +114,7 @@
     myCourse.frame=CGRectMake(FitRealValue(80), lineView1.bottom, btnW, btnH);
     [myCourse setTitle:@"我的课程" forState:UIControlStateNormal];
     [myCourse addTarget:self action:@selector(myCourseBtnClick) forControlEvents:UIControlEventTouchUpInside];
-
+    
     myCourse.titleLabel.font=[UIFont systemFontOfSize:14];
     //    myCourse.titleLabel.textAlignment=NSTextAlignmentCenter;
     [myCourse setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -139,7 +157,7 @@
     [myMssage setImage:[UIImage imageNamed:@"mymessage"] forState:UIControlStateNormal];
     myMssage.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
     [myMssage addTarget:self action:@selector(messageBtnClick) forControlEvents:UIControlEventTouchUpInside];
-
+    
     [myMssage setTitleEdgeInsets:UIEdgeInsetsMake(myMssage.imageView.frame.size.height ,-myMssage.imageView.frame.size.width, 0.0,0.0)];
     if (@available(iOS 13.0, *)) {
         
@@ -263,4 +281,56 @@
     }
     
 }
+
+-(void)getUrlRenewing{
+    
+    self.net.requestId = 1001;
+    [self.net login_renewingWithUid:[User getUserID]];
+    
+}
+#pragma mark === NetManagerDelegate ===
+
+- (void)requestDidFinished:(NetManager *)request result:(NSMutableDictionary *)result{
+    NSDictionary*code=result[@"head"];
+    if ([code[@"res_code"]intValue]!=0002) {
+        
+        [DZTools showNOHud:code[@"res_msg"] delay:2];
+        return;
+    }
+    else{
+        if (request.requestId == 1001) {
+            NSDictionary*bodyDic=result[@"body"];
+            User *user = [User mj_objectWithKeyValues:bodyDic];
+            [User saveUser:user];
+            [self.heardImg sd_setImageWithURL:[NSURL URLWithString: user.avatar] placeholderImage:[UIImage imageNamed:@"defaultimg"]];
+            self.nameLabel.text=user.nickname;
+            [self.tableView reloadData];
+            
+        }
+        else if (request.requestId == 1002) {
+            
+        }
+        
+        
+    }
+    
+}
+
+- (void)requestError:(NetManager *)request error:(NSError*)error{
+    
+}
+
+- (void)requestStart:(NetManager *)request{
+    
+}
+- (NetManager *)net{
+    if (!_net) {
+        self.net = [[NetManager alloc] init];
+        _net.delegate = self;
+    }
+    return _net;
+}
+
+
+
 @end

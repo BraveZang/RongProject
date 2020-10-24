@@ -9,7 +9,6 @@
 @interface MainInfoCell()
 
 @property (nonatomic, strong) UILabel       *titleLabel;
-@property (nonatomic, strong) UILabel       *contentLabel;
 @property (nonatomic, strong) UITextField   *contentTextField;
 @property (nonatomic, strong) UILabel       *alertLabel;
 

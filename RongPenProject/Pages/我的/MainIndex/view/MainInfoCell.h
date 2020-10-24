@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MainInfoCell : UITableViewCell
 @property (nonatomic, strong) InfoModel       *model;
-
+@property (nonatomic, strong) UILabel         *contentLabel;
 @end
 
 NS_ASSUME_NONNULL_END

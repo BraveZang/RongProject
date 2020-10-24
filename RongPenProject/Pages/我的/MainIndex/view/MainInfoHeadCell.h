@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MainInfoHeadCell : UITableViewCell
 @property (nonatomic, strong) InfoModel       *model;
-@property (nonatomic, strong) UIImageView       *headView;
+@property (nonatomic, strong) UIImageView     *headView;
 
 @end
 

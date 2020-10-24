@@ -9,8 +9,8 @@
 #import "WebViewViewController.h"
 #import <WebKit/WebKit.h>
 
-@interface WebViewViewController ()<WKUIDelegate>
-@property (nonatomic, strong) WKWebView *webView;
+@interface WebViewViewController ()<UIWebViewDelegate>
+@property (nonatomic, strong) UIWebView *webView;
 
 @end
 
@@ -25,15 +25,17 @@
     self.toptitle.text=self.titleStr;
     NSURL *url = [NSURL URLWithString:self.urlStr];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    self.webView=[[WKWebView alloc]initWithFrame:CGRectMake(0, SafeAreaTopHeight, ScreenWidth, ScreenHeight-SafeAreaTopHeight-SafeAreaBottomHeight)];
-    self.webView.UIDelegate=self;
+    self.webView=[[UIWebView alloc]initWithFrame:CGRectMake(0, SafeAreaTopHeight, ScreenWidth, ScreenHeight-SafeAreaTopHeight-SafeAreaBottomHeight)];
+    self.webView.delegate=self;
     /* 加载服务器url的方法*/
     [self.webView loadRequest:request];
     [self.view addSubview:self.webView];
 }
 
 -(void)setUrlStr:(NSString *)urlStr{
+    
     _urlStr=urlStr;
+    _urlStr = [_urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 -(void)setTitleStr:(NSString *)titleStr{
     _titleStr=titleStr;

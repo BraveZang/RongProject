@@ -123,7 +123,7 @@
     controller.allowsEditing = YES;
     controller.navigationBar.translucent=NO;
     controller.delegate = self;
-    //    controller.modalPresentationStyle = UIModalPresentationFullScreen;
+    controller.modalPresentationStyle = UIModalPresentationFullScreen;
     controller.hidesBottomBarWhenPushed=YES;
     if (@available(iOS 13, *)) {
         UIScrollView.appearance.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentAutomatic;

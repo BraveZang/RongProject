@@ -18,17 +18,13 @@
 #import "ZRInfoPickerView.h"
 @interface MainInfoSettingVC ()<UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,NetManagerDelegate>
 
-@property(nonatomic, strong) UITableView             *infoTable;
-@property(nonatomic, copy)  NSArray                  *dataArray;
-
-@property (nonatomic, strong) NetManager                *net;
-
-@property (nonatomic, strong) UIImage                 *headIMG;
-
-@property (nonatomic, strong) ZRInfoPickerView        *zrPickerView;
-
-/// 修改信息类型    1=性别  2=年级 3=年龄
-@property (nonatomic, assign) NSInteger                 zrpickerViwType;
+@property (nonatomic, strong) UITableView              *infoTable;
+@property (nonatomic,   copy) NSArray                  *dataArray;
+@property (nonatomic, strong) NetManager               *net;
+@property (nonatomic, strong) UIImage                  *headIMG;
+@property (nonatomic, strong) ZRInfoPickerView         *zrPickerView;
+// 修改信息类型    1=性别  2=年级 3=年龄
+@property (nonatomic, assign) NSInteger                zrpickerViwType;
 @end
 
 @implementation MainInfoSettingVC
@@ -39,7 +35,6 @@
     self.toptitle.hidden=NO;
     self.toptitle.text=@"个人信息";
     self.leftImgBtn.hidden=NO;
-//    self.view.backgroundColor= [UIColor colorWithHexColorString:@"F3F5F8"];
     [self creatUI];
 }
 
@@ -47,31 +42,24 @@
     
     [super viewWillAppear:animated];
     [self getData];
-    
     [self.infoTable reloadData];
 }
-
-
 - (void)creatUI{
-    
     
     self.infoTable = [[UITableView alloc]initWithFrame:CGRectMake(0, SafeAreaTopHeight, KSCREEN_WIDTH, KSCREEN_HEIGHT - SafeAreaTopHeight) style:UITableViewStyleGrouped];
     _infoTable.delegate=self;
     _infoTable.dataSource=self;
-//    _infoTable.separatorColor = [UIColor colorWithHexColorString:@"F2F2F2"];
+    //    _infoTable.separatorColor = [UIColor colorWithHexColorString:@"F2F2F2"];
     _infoTable.backgroundColor = [UIColor colorWithHexColorString:@"F3F5F8"];
     _infoTable.separatorStyle = UITableViewCellSelectionStyleNone;
     [self.view addSubview:_infoTable];
     
 }
-
-
 - (void)getData{
     
     User *userModel = [User getUser];
-    
     InfoModel * model1 = [[InfoModel alloc] initWithTitle:@"头像" Content:userModel.avatar andalert:@"请选择"];
-    InfoModel * model2 = [[InfoModel alloc] initWithTitle:@"昵称" Content:userModel.nickname andalert:@"请选择"];
+    InfoModel * model2 = [[InfoModel alloc] initWithTitle:@"昵称" Content:userModel.nickname andalert:@"为自己定个昵称吧"];
     
     NSString * sex = @"";
     if ([userModel.sex isEqualToString:@"1"]) {
@@ -81,13 +69,10 @@
     }else{
         sex = @"未设置";
     }
-    
     InfoModel * model3 = [[InfoModel alloc] initWithTitle:@"性别" Content:sex andalert:@"请选择"];
-
     InfoModel * model4 = [[InfoModel alloc] initWithTitle:@"年级" Content:[MTool getGradeNameWithGradeCode:userModel.grade] andalert:@"请选择"];
     InfoModel * model5 = [[InfoModel alloc] initWithTitle:@"年龄" Content:[NSString stringWithFormat:@"%@岁",userModel.age] andalert:@"请选择"];
     InfoModel * model6 = [[InfoModel alloc] initWithTitle:@"设置密码" Content:@"" andalert:@""];
-
     self.dataArray = @[@[model1,model2,model3],@[model4,model5,model6]];
     
     
@@ -101,7 +86,7 @@
 #pragma mark - UITableViewDelegate,UITableViewDataSource
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-
+    
     return nil;
 }
 
@@ -138,12 +123,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     //头像
+    User*user=[User getUser];
     if (indexPath.row == 0 && indexPath.section == 0) {
         MainInfoHeadCell * cell = [tableView dequeueReusableCellWithIdentifier:INFOHEAD_CELL];
         if (!cell) {
             cell = [[MainInfoHeadCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:INFOHEAD_CELL];
         }
-//        cell.model = _dataArray[0][0];
+        //        cell.model = _dataArray[0][0];
+        [cell.headView sd_setImageWithURL:[NSURL URLWithString: user.avatar] placeholderImage:[UIImage imageNamed:@"defaultimg"]];
         return cell;
     }
     //信息
@@ -205,9 +192,9 @@
         }else{
             //设置密码
         }
-       
+        
     }
-
+    
 }
 #pragma mark === NetManagerDelegate ===
 
@@ -317,15 +304,16 @@
     
     
     // 跳转到相机或相册页面
-    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    UIImagePickerController *controller = [[UIImagePickerController alloc] init];
     
-    imagePickerController.delegate = self;
-    
-    imagePickerController.allowsEditing = YES;
-    
-    imagePickerController.sourceType = sourceType;
-    
-    [self presentViewController:imagePickerController animated:YES completion:^{}];
+    controller.navigationBar.translucent=NO;
+    controller.delegate = self;
+    controller.allowsEditing = YES;
+    controller.modalPresentationStyle = UIModalPresentationFullScreen;
+    if (@available(iOS 13, *)) {
+        UIScrollView.appearance.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentAutomatic;
+    }
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 
@@ -366,8 +354,8 @@
         
     }
     self.headIMG = theImage;
-   
-//    //上传图片
+    
+    //    //上传图片
     [self uploadImage:theImage];
     [picker dismissViewControllerAnimated:YES completion:nil];
     
@@ -380,19 +368,19 @@
     User *user = [User getUser];
     self.net.requestId = 1001;
     [self.net member_userHeaderEditWithUid:[User getUserID] Avatar:imageData NicName:user.nickname Grade:user.grade Age:user.age andSex:user.sex];
-
-
+    
+    
     
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

@@ -24,9 +24,7 @@
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
-    
-    
-}
+    }
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:animated];
@@ -41,13 +39,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-  
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.topview=[[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, SafeAreaTopHeight)];
     self.topview.backgroundColor=[UIColor whiteColor];
     self.topview.hidden=YES;
-       [self.view addSubview:self.topview];
+    [self.view addSubview:self.topview];
     
     self.image = [UIImage imageNamed:@"back"];
     self.image = [ self.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -57,13 +55,13 @@
     self.lineview=[[UIView alloc]initWithFrame:CGRectMake(0, SafeAreaTopHeight-1, ScreenWidth, 1)];
     self.lineview.backgroundColor=LINECOLOR;
     self.lineview.hidden=YES;
-      [self.view addSubview:self.lineview];
+    [self.view addSubview:self.lineview];
     
     self.leftImgBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     self.leftImgBtn.frame=CGRectMake(10, SafeAreaTopHeight-64+(64-15)/2, 45, 30);
     [self.leftImgBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-     self.leftImgBtn.hidden=YES;
-     self.leftImgBtn.titleLabel.font=[UIFont systemFontOfSize:14];
+    self.leftImgBtn.hidden=YES;
+    self.leftImgBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [self.leftImgBtn addTarget:self action:@selector(backItemClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.leftImgBtn];
     
