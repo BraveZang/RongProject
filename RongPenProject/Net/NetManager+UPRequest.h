@@ -104,6 +104,63 @@ login_setgread
 #pragma mark - 首页
 
 
+#pragma mark - 闯关听写
+
+/// 获取教辅列表
+/// @param uid 用户id
+- (void)getMain_buybookWithUid:(NSString *)uid;
+
+/// 切换教材
+/// @param uid 用户id
+- (void)Pass_indexbookWithUid:(NSString *)uid;
+
+/// 闯关提交结果
+/// @param uid 用户id
+/// @param bookid 教辅id
+/// @param unitid 单元id
+/// @param gqid 关卡id
+- (void)Pass_txresultWithUid:(NSString *)uid andBookId:(NSString *)bookid Unitid:(NSString *)unitid andGqid:(NSString *)gqid;
+
+/// 获取闯关听写-单元列表
+/// @param uid 用户id
+/// @param bookid 教辅id
+- (void)Pass_txWithUid:(NSString *)uid andBookId:(NSString *)bookid;
+
+/// 闯关听写-关卡列表
+/// @param uid 用户id
+/// @param bookid 教辅id
+/// @param unitid 单元id
+- (void)Pass_gqlistWithUid:(NSString *)uid andBookId:(NSString *)bookid andUnitid:(NSString *)unitid;
+
+
+/// 闯关听写-关卡详情
+/// @param uid 用户id
+/// @param bookid 教辅id
+/// @param unitid 单元id
+/// @param gqid 关卡id
+- (void)Pass_gqinfoWithUid:(NSString *)uid andBookId:(NSString *)bookid Unitid:(NSString *)unitid andGqid:(NSString *)gqid;
+
+#pragma mark - 闯关中英互译
+
+/// 获取闯关中英互译-单元列表
+/// @param uid 用户id
+/// @param bookid 教辅id
+- (void)Pass_cntoenWithUid:(NSString *)uid andBookId:(NSString *)bookid;
+
+/// 闯关中英互译-关卡列表
+/// @param uid 用户id
+/// @param bookid 教辅id
+/// @param unitid 单元id
+- (void)Pass_cntoenlistWithUid:(NSString *)uid andBookId:(NSString *)bookid andUnitid:(NSString *)unitid;
+
+
+/// 闯关中英互译-关卡详情
+/// @param uid 用户id
+/// @param bookid 教辅id
+/// @param unitid 单元id
+/// @param gqid 关卡id
+- (void)Pass_cntoeninfoWithUid:(NSString *)uid andBookId:(NSString *)bookid Unitid:(NSString *)unitid andGqid:(NSString *)gqid;
+
 
 
 #pragma mark - 我的

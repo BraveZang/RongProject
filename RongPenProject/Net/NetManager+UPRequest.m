@@ -166,6 +166,125 @@ login_setgread
 
 
 
+#pragma mark - 闯关听写
+
+/// 获取教辅列表
+/// @param uid 用户id
+- (void)getMain_buybookWithUid:(NSString *)uid{
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    [self sendPOSTRequestToServerWithURL:@"Main_buy" postData:mutabDic];
+}
+
+/// 切换教材
+/// @param uid 用户id
+- (void)Pass_indexbookWithUid:(NSString *)uid{
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    [self sendPOSTRequestToServerWithURL:@"Pass_index" postData:mutabDic];
+}
+
+
+
+/// 闯关提交结果
+/// @param uid 用户id
+/// @param bookid 教辅id
+/// @param unitid 单元id
+/// @param gqid 关卡id
+- (void)Pass_txresultWithUid:(NSString *)uid andBookId:(NSString *)bookid Unitid:(NSString *)unitid andGqid:(NSString *)gqid{
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (bookid)[mutabDic setObject:bookid forKey:@"bookid"];
+    if (unitid)[mutabDic setObject:unitid forKey:@"unitid"];
+    if (gqid)[mutabDic setObject:gqid forKey:@"gqid"];
+
+    [self sendPOSTRequestToServerWithURL:@"Pass_txresult" postData:mutabDic];
+}
+
+
+/// 获取闯关听写-单元列表
+/// @param uid 用户id
+/// @param bookid 教辅id
+- (void)Pass_txWithUid:(NSString *)uid andBookId:(NSString *)bookid{
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (bookid)[mutabDic setObject:bookid forKey:@"bookid"];
+
+    [self sendPOSTRequestToServerWithURL:@"Pass_tx" postData:mutabDic];
+}
+
+/// 闯关听写-关卡列表
+/// @param uid 用户id
+/// @param bookid 教辅id
+/// @param unitid 单元id
+- (void)Pass_gqlistWithUid:(NSString *)uid andBookId:(NSString *)bookid andUnitid:(NSString *)unitid{
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (bookid)[mutabDic setObject:bookid forKey:@"bookid"];
+    if (unitid)[mutabDic setObject:unitid forKey:@"unitid"];
+
+    [self sendPOSTRequestToServerWithURL:@"Pass_gqlist" postData:mutabDic];
+}
+
+
+/// 闯关听写-关卡详情
+/// @param uid 用户id
+/// @param bookid 教辅id
+/// @param unitid 单元id
+/// @param gqid 关卡id
+- (void)Pass_gqinfoWithUid:(NSString *)uid andBookId:(NSString *)bookid Unitid:(NSString *)unitid andGqid:(NSString *)gqid{
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (bookid)[mutabDic setObject:bookid forKey:@"bookid"];
+    if (unitid)[mutabDic setObject:unitid forKey:@"unitid"];
+    if (gqid)[mutabDic setObject:gqid forKey:@"gqid"];
+
+    [self sendPOSTRequestToServerWithURL:@"Pass_gqinfo" postData:mutabDic];
+}
+
+#pragma mark - 闯关中英互译
+
+/// 获取闯关中英互译-单元列表
+/// @param uid 用户id
+/// @param bookid 教辅id
+- (void)Pass_cntoenWithUid:(NSString *)uid andBookId:(NSString *)bookid{
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (bookid)[mutabDic setObject:bookid forKey:@"bookid"];
+
+    [self sendPOSTRequestToServerWithURL:@"Pass_cntoen" postData:mutabDic];
+}
+
+/// 闯关中英互译-关卡列表
+/// @param uid 用户id
+/// @param bookid 教辅id
+/// @param unitid 单元id
+- (void)Pass_cntoenlistWithUid:(NSString *)uid andBookId:(NSString *)bookid andUnitid:(NSString *)unitid{
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (bookid)[mutabDic setObject:bookid forKey:@"bookid"];
+    if (unitid)[mutabDic setObject:unitid forKey:@"unitid"];
+
+    [self sendPOSTRequestToServerWithURL:@"Pass_cntoenlist" postData:mutabDic];
+}
+
+
+/// 闯关中英互译-关卡详情
+/// @param uid 用户id
+/// @param bookid 教辅id
+/// @param unitid 单元id
+/// @param gqid 关卡id
+- (void)Pass_cntoeninfoWithUid:(NSString *)uid andBookId:(NSString *)bookid Unitid:(NSString *)unitid andGqid:(NSString *)gqid{
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (bookid)[mutabDic setObject:bookid forKey:@"bookid"];
+    if (unitid)[mutabDic setObject:unitid forKey:@"unitid"];
+    if (gqid)[mutabDic setObject:gqid forKey:@"gqid"];
+
+    [self sendPOSTRequestToServerWithURL:@"Pass_cntoeninfo" postData:mutabDic];
+}
+
+
 
 #pragma mark - 我的
 
