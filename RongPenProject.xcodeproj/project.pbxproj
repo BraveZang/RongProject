@@ -143,6 +143,7 @@
 		C679200A254455AC005822C0 /* MessageDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6792009254455AC005822C0 /* MessageDetailCell.m */; };
 		C679200D25445F46005822C0 /* MessageDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C679200C25445F46005822C0 /* MessageDetailModel.m */; };
 		C67920102544678B005822C0 /* MainCourseDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C679200F2544678B005822C0 /* MainCourseDetailVC.m */; };
+		C679201325446863005822C0 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C679201225446863005822C0 /* BannerModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -418,6 +419,8 @@
 		C679200C25445F46005822C0 /* MessageDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageDetailModel.m; sourceTree = "<group>"; };
 		C679200E2544678B005822C0 /* MainCourseDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainCourseDetailVC.h; sourceTree = "<group>"; };
 		C679200F2544678B005822C0 /* MainCourseDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainCourseDetailVC.m; sourceTree = "<group>"; };
+		C679201125446863005822C0 /* BannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
+		C679201225446863005822C0 /* BannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1027,6 +1030,8 @@
 		C6473FB3250F4C4000BDE73F /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C679201125446863005822C0 /* BannerModel.h */,
+				C679201225446863005822C0 /* BannerModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1563,6 +1568,7 @@
 				C6497BCB251C440D006463B4 /* DictationListVC.m in Sources */,
 				C67920102544678B005822C0 /* MainCourseDetailVC.m in Sources */,
 				04C098902543B197005685DA /* MainInfoSettingVC.m in Sources */,
+				C679201325446863005822C0 /* BannerModel.m in Sources */,
 				C679200D25445F46005822C0 /* MessageDetailModel.m in Sources */,
 				C6473FB9250F4C6500BDE73F /* MainIndexVC.m in Sources */,
 				C6168BBB2519A54D001EF850 /* MainSetVC.m in Sources */,
