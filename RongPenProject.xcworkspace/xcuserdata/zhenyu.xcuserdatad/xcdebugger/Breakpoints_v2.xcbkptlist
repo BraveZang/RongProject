@@ -263,16 +263,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "75937C96-B12D-4406-84B1-2954EE1282BD"
+            uuid = "7A529224-B5E5-4764-B03A-37A9E04D60D3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RongPenProject/Pages/&#x6211;&#x7684;/MainMessage/view/MainMessageCell.m"
+            filePath = "RongPenProject/Pages/&#x6211;&#x7684;/MainMessage/controller/MessageInfoDetailVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "-setModel:"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "-requestDidFinished:result:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

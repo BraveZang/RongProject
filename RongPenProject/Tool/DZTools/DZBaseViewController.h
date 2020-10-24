@@ -11,12 +11,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DZBaseViewController : UIViewController
-@property(nonatomic,strong)UIImage *image;
-@property(nonatomic,strong)UIView*lineview;
-@property(nonatomic,strong)UIButton*leftImgBtn;
-@property(nonatomic,strong)UIButton*rightImgBtn;
-@property(nonatomic,strong)UIView*topview;
-@property(nonatomic,strong)UILabel*toptitle;
+@property(nonatomic,strong) UIImage                       *image;
+@property(nonatomic,strong) UIView                        *lineview;
+@property(nonatomic,strong) UIButton                      *leftImgBtn;
+@property(nonatomic,strong) UIButton                      *rightImgBtn;
+@property(nonatomic,strong) UIView                        *topview;
+@property(nonatomic,strong) UILabel                       *toptitle;
+@property(nonatomic,strong) UIView                        *noDataView;
+@property(nonatomic,strong) UILabel                       *noDataLab;
+@property(nonatomic,strong) UIImageView                   *noDataImage;
 
 //- (void)backItemClicked;
 // 设置UINvigationBar 左右键方法

@@ -30,7 +30,7 @@
     
     self.contentLab=[[UILabel alloc]initWithFrame:CGRectMake(10,0, ScreenWidth-40,viewH/3*2)];
     self.contentLab.font=[UIFont systemFontOfSize:12];
-    self.contentLab.numberOfLines=0
+    self.contentLab.numberOfLines=0;
     self.contentLab.textColor=[MTool colorWithHexString:@"333333"];
     [self addSubview:self.contentLab];
     

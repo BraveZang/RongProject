@@ -97,18 +97,23 @@
     
     NSString*ketStr=self.allAry[indexPath.row];
     NSString*typeStr;
+    NSString*titleStr;
+
     if ([ketStr isEqualToString:@"buy"]) {
         typeStr=@"1";
+        titleStr=@"购买提醒";
     }
     else if ([ketStr isEqualToString:@"class"]) {
         typeStr=@"2";
+        titleStr=@"上课提醒";
     }
     else{
         typeStr=@"3";
-
+        titleStr=@"系统消息";
     }
     MessageInfoDetailVC*vc=[MessageInfoDetailVC new];
     vc.typeStr=typeStr;
+    vc.titleStr=titleStr;
     [self.navigationController pushViewController:vc animated:YES];
     
 }

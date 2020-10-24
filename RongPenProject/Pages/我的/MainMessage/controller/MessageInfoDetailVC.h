@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MessageInfoDetailVC : DZBaseViewController
 
 @property(nonatomic,strong)NSString*typeStr;
+@property(nonatomic,strong)NSString*titleStr;
+
 @end
 
 NS_ASSUME_NONNULL_END

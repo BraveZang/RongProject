@@ -21,13 +21,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.leftImgBtn.hidden=NO;
+    self.toptitle.hidden=NO;
+    self.toptitle.text=self.titleStr;
     [self initTableView];
+    [self getMessageDetailUrl];
     
 }
 
 -(void)setTypeStr:(NSString *)typeStr{
     
     _typeStr=typeStr;
+}
+-(void)setTitleStr:(NSString *)titleStr{
+    _titleStr=titleStr;
 }
 #pragma mark UITableViewDataSource
 - (void)initTableView {
@@ -45,6 +52,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
+    if (self.allAry.count == 0) {
+        self.noDataLab.text=@"暂无信息";
+        UIView *backgroundImageView = self.noDataView;
+        self.tableView.backgroundView = backgroundImageView;
+        self.tableView.backgroundView.contentMode = UIViewContentModeCenter;
+    } else {
+        self.tableView.backgroundView = nil;
+    }
     return self.allAry.count;
     
 }
@@ -109,8 +124,8 @@
     [self.net Message_infoWithUid:[User getUserID] andType:self.typeStr];
 }
 - (void)requestDidFinished:(NetManager *)request result:(NSMutableDictionary *)result{
+    
     NSDictionary*code=result[@"head"];
-    NSDictionary*body=result[@"body"];
     if ([code[@"res_code"]intValue]!=0002) {
         
         [DZTools showNOHud:code[@"res_msg"] delay:2];
@@ -118,8 +133,7 @@
     }
     else{
         if (self.net.requestId==1001) {
-            self.allDic=body;
-            self.allAry=[self.allDic allKeys];
+            self.allAry=result[@"body"];
             [self.tableView reloadData];
         }
     }

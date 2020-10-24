@@ -76,6 +76,19 @@
     self.toptitle.textAlignment=NSTextAlignmentCenter;
     [self.view addSubview:self.toptitle];
     self.toptitle.hidden=YES;
+    
+    //无数据时候的显示
+    self.noDataView=[[UIView alloc]initWithFrame:CGRectMake(0,0, SCREEN_WIDTH, SCREEN_HEIGHT- SafeAreaTopHeight-SafeAreaBottomHeight-300*SCREEN_WIDTH/750)];
+    self.noDataView.backgroundColor=[UIColor whiteColor];
+    self.noDataImage=[[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-136*SCREEN_WIDTH/750)/2, 300*SCREEN_WIDTH/750, 136*SCREEN_WIDTH/750, 150*SCREEN_WIDTH/750)];
+    [self.noDataImage setImage:[UIImage imageNamed:@"JYH_nodataimg"]];
+    [self.noDataView addSubview: self.noDataImage];
+    
+    self.noDataLab=[MTool quickCreateLabelWithleft:0 top:self.noDataView.bottom-200 width:SCREEN_WIDTH heigh:50*SCREEN_WIDTH/750 title:@"该条件下没有任何信息"];
+    self.noDataLab.textAlignment=NSTextAlignmentCenter;
+    self.noDataLab.font=[UIFont systemFontOfSize:14];
+    self.noDataLab.textColor=[MTool colorWithHexString:@"999999"];
+    [ self.noDataView addSubview:self.noDataLab];
 }
 - (void)backItemClicked
 {
