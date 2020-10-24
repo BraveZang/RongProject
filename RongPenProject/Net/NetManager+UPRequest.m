@@ -173,7 +173,7 @@ login_setgread
 - (void)getMain_buybookWithUid:(NSString *)uid{
     NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
     if (uid)[mutabDic setObject:uid forKey:@"uid"];
-    [self sendPOSTRequestToServerWithURL:@"Main_buy" postData:mutabDic];
+    [self sendPOSTRequestToServerWithURL:@"main_buybook" postData:mutabDic];
 }
 
 /// 切换教材
