@@ -10,7 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BannerModel : NSObject
-
+@property (nonatomic, strong) NSString      *imgurl;
+@property (nonatomic, strong) NSString      *link;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -9,6 +9,10 @@
 #import "LoginVC.h"
 #import "SDCycleScrollView.h"//广告轮播图
 #import "ShopIndexVC.h"
+#import "MainBookModel.h"
+#import "UnitModel.h"
+#import "BannerModel.h"
+#import "ReadInfoVC.h"
 @interface ReadIndexVC ()<NetManagerDelegate,SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) SDCycleScrollView                *topAdScrollView;//广告轮播控件
@@ -18,6 +22,15 @@
 @property (nonatomic,strong) NSMutableArray                   *selectedArr;//存储需要展开的cell组
 @property (nonatomic,strong) NSMutableArray                   *listDataAry;//存储需要展开的cell组
 @property (nonatomic,strong) UIButton                         *cellRightBtn;
+
+@property(nonatomic,strong)   NetManager                        *net;
+@property(nonatomic,strong)   NetManager                        *bannerNet;
+
+
+
+@property (nonatomic, strong) NSArray                           *bookList;
+@property (nonatomic, strong) NSArray                           *bannerList;
+
 @end
 
 @implementation ReadIndexVC
@@ -47,22 +60,31 @@
     [self.rightImgBtn layoutButtonWithEdgeInsetsStyle:TYButtonEdgeInsetsStyleRight imageTitleSpace:2];
     [self.rightImgBtn addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
     
-    [self initData];
-    [self CreatcycleScrollView];
+//    [self CreatcycleScrollView];
     [self initableviewView];
     
-}
--(void)initData{
     
-    self.titleTestArray = [NSArray arrayWithObjects:@"一年级test", @"二年级test",@"三年级test",@"四年级test",@"五年级test",nil];
+    
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self getData];
+}
+
+- (void)getData{
+    self.net.requestId = 1001;
+    [self.net getMain_buybookWithUid:[User getUserID]];
+    
+    //
+    [self.bannerNet main_banner];
+}
+
+
+#pragma mark - tableview
+-(void)initableviewView{
     
     self.selectedArr =[NSMutableArray arrayWithCapacity:0];
     self.listDataAry =[NSMutableArray arrayWithCapacity:0];
-    [self.listDataAry addObjectsFromArray:self.titleTestArray];
-    
-}
-#pragma mark - tableview
--(void)initableviewView{
     
     self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0,SafeAreaTopHeight,  ScreenWidth, ScreenHeight-SafeAreaBottomHeight-SafeAreaTopHeight-49) style:UITableViewStylePlain];
     self.tableView.delegate=self;
@@ -81,6 +103,8 @@
     //    }];
     
 }
+
+
 
 #pragma mark - buttonClick
 
@@ -123,7 +147,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     
-    return self.titleTestArray.count;
+    return self.bookList.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
@@ -131,7 +155,9 @@
     NSInteger num ;
     //如果selectedArr不包含section，该分组返回number为0；
     if ([self.selectedArr containsObject:sectionStr]) {
-        
+        MainBookModel * model = self.bookList[section];
+
+        self.listDataAry = [NSMutableArray arrayWithArray:model.unitlist];
         num = self.listDataAry.count ;
     }else{
         num = 0;
@@ -169,7 +195,8 @@
     
     UILabel*titleLab=[MTool quickCreateLabelWithleft:nameLab.right+20*SCREEN_WIDTH/750 top:0 width:SCREEN_WIDTH/750*200 heigh:topViewH title:@""];
     titleLab.font=[UIFont systemFontOfSize:12];
-    titleLab.text = self.titleTestArray[section];
+    MainBookModel * model = self.bookList[section];
+    titleLab.text = model.goodsname;
     titleLab.textColor=[MTool colorWithHexString:@"#888888"];
     [topView addSubview:titleLab];
     //添加点击事件
@@ -193,6 +220,7 @@
     //    [btn setImage:[UIImage imageNamed:@"attend_ico_up"] forState:UIControlStateNormal];
     
     if (self.selectedArr.count==0){
+        
         [self.selectedArr addObject:string];//为空添加展示cell
         self.tableView.scrollEnabled=YES;
     }
@@ -231,11 +259,93 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
     }
-    cell.textLabel.text=self.listDataAry[indexPath.row];
+    cell.backgroundColor = [UIColor colorWithHexColorString:@"F3F5F8"];
+    UnitModel * unitModel = self.listDataAry[indexPath.row];
+
+    cell.textLabel.text=unitModel.name;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"123");
+    ReadInfoVC*vc=[ReadInfoVC new];
+    vc.unitModel = self.listDataAry[indexPath.row];
+    NSInteger seletedSection = [self.selectedArr[0] intValue];
+    vc.bookModel = self.bookList[seletedSection];
+    vc.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
+
+
+#pragma mark === NetManagerDelegate ===
+
+- (void)requestDidFinished:(NetManager *)request result:(NSMutableDictionary *)result{
+    NSDictionary*code=result[@"head"];
+    if ([code[@"res_code"]intValue]!=0002) {
+        
+        [DZTools showNOHud:code[@"res_msg"] delay:2];
+        return;
+    }
+    else{
+        
+        if (request == _bannerNet) {
+            //轮播图
+            NSArray * dataArray = result[@"body"];
+            self.bannerList = [BannerModel mj_objectArrayWithKeyValuesArray:dataArray];
+            //组装图片数组
+            NSMutableArray * imageArray = [[NSMutableArray alloc] initWithCapacity:_bannerList.count];
+            for (NSInteger i = 0; i < _bannerList.count; i++) {
+                BannerModel * model = _bannerList[i];
+                [imageArray addObject:model.imgurl];
+            }
+            self.topAdScrollView.imageURLStringsGroup = imageArray;
+        }else if (request == _net) {
+//            if (self.net.requestId==1001) {
+                //辅材列表
+                NSArray * dataArray = result[@"body"];
+                self.bookList = [MainBookModel mj_objectArrayWithKeyValuesArray:dataArray];
+                [self.tableView reloadData];
+//            }
+        }
+        
+        
+        
+    }
+    
+}
+
+- (void)requestError:(NetManager *)request error:(NSError*)error{
+    
+}
+
+- (void)requestStart:(NetManager *)request{
+    
+}
+
+#pragma mark  -lazy
+- (NetManager *)net{
+    if (!_net) {
+        self.net = [[NetManager alloc] init];
+        _net.delegate = self;
+    }
+    return _net;
+}
+
+- (NetManager *)bannerNet{
+    if (!_bannerNet) {
+        _bannerNet = [[NetManager alloc] init];
+        _bannerNet.delegate = self;
+    }
+    return _bannerNet;
+}
+
+- (NSArray *)bookList{
+    if (!_bookList) {
+        _bookList = [[NSArray alloc] init];
+    }
+    return _bookList;
+}
+
+
+
+
 @end

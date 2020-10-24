@@ -128,7 +128,7 @@ login_setgread
 /// 获取教辅详情页
 /// @param uid 用户id
 /// @param bookid 教辅id
-- (void)getMain_jfinfoWithUid:(NSString *)uid andBookId:(NSString *)bookid;
+- (void)getMain_jfinfoWithUid:(NSString *)uid Unitid:(NSString *)unitid andBookId:(NSString *)bookid;
 
 
 #pragma mark - 闯关听写

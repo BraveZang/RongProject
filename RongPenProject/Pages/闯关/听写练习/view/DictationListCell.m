@@ -53,7 +53,6 @@
     self.contentLab.textColor=[MTool colorWithHexString:@"#F65555"];
     [bgView addSubview:self.contentLab];
     
-    
     _progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(LeftMargin, self.contentLab.bottom+20,viewW-LeftMargin*2-playH, 14)];
     
     //滑轮左边颜色，如果设置了左边的图片就不会显示

@@ -6,10 +6,14 @@
 //
 
 #import "DZBaseViewController.h"
-
+#import "UnitModel.h"
+#import "MainBookModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ReadInfoVC : DZBaseViewController
+
+@property (nonatomic, strong) UnitModel         *unitModel;
+@property (nonatomic, strong) MainBookModel     *bookModel;
 
 @end
 

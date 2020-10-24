@@ -12,6 +12,12 @@
 		044589C82544599C00C5AE74 /* gkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044589C72544599C00C5AE74 /* gkModel.m */; };
 		044589D0254459A600C5AE74 /* UnitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044589CD254459A500C5AE74 /* UnitModel.m */; };
 		044589D1254459A600C5AE74 /* MainBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044589CE254459A600C5AE74 /* MainBookModel.m */; };
+		044589FB2544A73A00C5AE74 /* DDAVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 044589FA2544A73A00C5AE74 /* DDAVPlayer.m */; };
+		04458A002544A74C00C5AE74 /* MapDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044589FC2544A74B00C5AE74 /* MapDataModel.m */; };
+		04458A012544A74C00C5AE74 /* MapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044589FE2544A74C00C5AE74 /* MapModel.m */; };
+		04458A042544A75800C5AE74 /* ReadInfoFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04458A022544A75800C5AE74 /* ReadInfoFooterView.m */; };
+		04458A072544A76400C5AE74 /* ReadInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04458A052544A76400C5AE74 /* ReadInfoModel.m */; };
+		04458A0A2544A78000C5AE74 /* UIView+ST.m in Sources */ = {isa = PBXBuildFile; fileRef = 04458A092544A78000C5AE74 /* UIView+ST.m */; };
 		04C098902543B197005685DA /* MainInfoSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0988F2543B197005685DA /* MainInfoSettingVC.m */; };
 		04C098942543B289005685DA /* MainInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098932543B289005685DA /* MainInfoModel.m */; };
 		04C098972543B2E2005685DA /* MainInfoHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098962543B2E2005685DA /* MainInfoHeadCell.m */; };
@@ -186,6 +192,18 @@
 		044589CD254459A500C5AE74 /* UnitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitModel.m; sourceTree = "<group>"; };
 		044589CE254459A600C5AE74 /* MainBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainBookModel.m; sourceTree = "<group>"; };
 		044589CF254459A600C5AE74 /* MainBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainBookModel.h; sourceTree = "<group>"; };
+		044589F92544A73A00C5AE74 /* DDAVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAVPlayer.h; sourceTree = "<group>"; };
+		044589FA2544A73A00C5AE74 /* DDAVPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAVPlayer.m; sourceTree = "<group>"; };
+		044589FC2544A74B00C5AE74 /* MapDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapDataModel.m; sourceTree = "<group>"; };
+		044589FD2544A74B00C5AE74 /* MapModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapModel.h; sourceTree = "<group>"; };
+		044589FE2544A74C00C5AE74 /* MapModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapModel.m; sourceTree = "<group>"; };
+		044589FF2544A74C00C5AE74 /* MapDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDataModel.h; sourceTree = "<group>"; };
+		04458A022544A75800C5AE74 /* ReadInfoFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadInfoFooterView.m; sourceTree = "<group>"; };
+		04458A032544A75800C5AE74 /* ReadInfoFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadInfoFooterView.h; sourceTree = "<group>"; };
+		04458A052544A76400C5AE74 /* ReadInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadInfoModel.m; sourceTree = "<group>"; };
+		04458A062544A76400C5AE74 /* ReadInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadInfoModel.h; sourceTree = "<group>"; };
+		04458A082544A78000C5AE74 /* UIView+ST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ST.h"; sourceTree = "<group>"; };
+		04458A092544A78000C5AE74 /* UIView+ST.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ST.m"; sourceTree = "<group>"; };
 		04C0988E2543B197005685DA /* MainInfoSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainInfoSettingVC.h; sourceTree = "<group>"; };
 		04C0988F2543B197005685DA /* MainInfoSettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainInfoSettingVC.m; sourceTree = "<group>"; };
 		04C098922543B289005685DA /* MainInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainInfoModel.h; sourceTree = "<group>"; };
@@ -776,8 +794,12 @@
 		C6473F16250F3F6C00BDE73F /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				044589F92544A73A00C5AE74 /* DDAVPlayer.h */,
+				044589FA2544A73A00C5AE74 /* DDAVPlayer.m */,
 				04C098A42543B7A6005685DA /* UIColor+Extend.h */,
 				04C098A52543B7A7005685DA /* UIColor+Extend.m */,
+				04458A082544A78000C5AE74 /* UIView+ST.h */,
+				04458A092544A78000C5AE74 /* UIView+ST.m */,
 				04C098A22543B67A005685DA /* ZRAlertController.h */,
 				04C098A12543B67A005685DA /* ZRAlertController.m */,
 				C6168BC52519B4A9001EF850 /* HDragView */,
@@ -1075,6 +1097,8 @@
 		C6473FB2250F4C3B00BDE73F /* view */ = {
 			isa = PBXGroup;
 			children = (
+				04458A032544A75800C5AE74 /* ReadInfoFooterView.h */,
+				04458A022544A75800C5AE74 /* ReadInfoFooterView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1084,6 +1108,12 @@
 			children = (
 				C679201125446863005822C0 /* BannerModel.h */,
 				C679201225446863005822C0 /* BannerModel.m */,
+				044589FF2544A74C00C5AE74 /* MapDataModel.h */,
+				044589FC2544A74B00C5AE74 /* MapDataModel.m */,
+				044589FD2544A74B00C5AE74 /* MapModel.h */,
+				044589FE2544A74C00C5AE74 /* MapModel.m */,
+				04458A062544A76400C5AE74 /* ReadInfoModel.h */,
+				04458A052544A76400C5AE74 /* ReadInfoModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1670,6 +1700,7 @@
 				044589D1254459A600C5AE74 /* MainBookModel.m in Sources */,
 				C647400A25188DB600BDE73F /* UIViewController+NoSlideBack.m in Sources */,
 				C6473F7D250F44B800BDE73F /* UIView+IDCard.m in Sources */,
+				04458A042544A75800C5AE74 /* ReadInfoFooterView.m in Sources */,
 				C647400C25188DB600BDE73F /* UIView+Toast.m in Sources */,
 				C6473FAA250F4BB900BDE73F /* ConfirmIndexVC.m in Sources */,
 				C6473F94250F44C700BDE73F /* DZBaseWebViewController.m in Sources */,
@@ -1690,6 +1721,7 @@
 				C6473F7C250F44B800BDE73F /* UIView+.m in Sources */,
 				04C098A32543B67A005685DA /* ZRAlertController.m in Sources */,
 				C6473F7A250F44B800BDE73F /* UIView+UIViewRect.m in Sources */,
+				04458A072544A76400C5AE74 /* ReadInfoModel.m in Sources */,
 				C6473F1B250F416E00BDE73F /* NetManager.m in Sources */,
 				C6497BC4251C3DC3006463B4 /* MessageModel.m in Sources */,
 				C6473FC9250F531A00BDE73F /* APAuthInfo.m in Sources */,
@@ -1704,11 +1736,13 @@
 				C6473FA4250F4B7E00BDE73F /* ReadIndexVC.m in Sources */,
 				C6168BC42519AE6F001EF850 /* MainFanKuiCell.m in Sources */,
 				C6473F25250F433200BDE73F /* LoadingView.m in Sources */,
+				04458A012544A74C00C5AE74 /* MapModel.m in Sources */,
 				C62DCC4B253AD39C00410FCE /* AddressPickerView.m in Sources */,
 				C62DCC5E253C1D7E00410FCE /* CourseVideoCollCell.m in Sources */,
 				044241222542B02600E066FE /* ZRPickerView.m in Sources */,
 				C645CD502544A15700AD8E4C /* VideoCourseRangeCell.m in Sources */,
 				C6473F5D250F449B00BDE73F /* MKSearchBar.m in Sources */,
+				04458A0A2544A78000C5AE74 /* UIView+ST.m in Sources */,
 				C6473F97250F453400BDE73F /* NetManager+UPRequest.m in Sources */,
 				C64740022514823100BDE73F /* swift.swift in Sources */,
 				C6497BD8251C828E006463B4 /* HYBStarEvaluationView.m in Sources */,
@@ -1721,9 +1755,11 @@
 				C6473FCA250F531A00BDE73F /* AlipayManager.m in Sources */,
 				C6473F79250F44B800BDE73F /* UIButton+Code.m in Sources */,
 				C679202B25447812005822C0 /* WKVideoListCell.m in Sources */,
+				04458A002544A74C00C5AE74 /* MapDataModel.m in Sources */,
 				C6497C1025319458006463B4 /* ShopIndexCell.m in Sources */,
 				C6168BD12519B4A9001EF850 /* HDragItemListView.m in Sources */,
 				C62DCC072535CF7B00410FCE /* AddressModel.m in Sources */,
+				044589FB2544A73A00C5AE74 /* DDAVPlayer.m in Sources */,
 				C647400F25188F3700BDE73F /* forgetPassVC.m in Sources */,
 				04C098942543B289005685DA /* MainInfoModel.m in Sources */,
 				C6473F92250F44C700BDE73F /* DZBaseViewController.m in Sources */,

@@ -174,7 +174,9 @@ login_setgread
 
 /// 获取轮播图
 - (void)main_banner{
-    [self sendPOSTRequestToServerWithURL:@"main_banner" postData:nil];
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+
+    [self sendPOSTRequestToServerWithURL:@"main_banner" postData:mutabDic];
 
 }
 
@@ -190,9 +192,10 @@ login_setgread
 /// 获取教辅详情页
 /// @param uid 用户id
 /// @param bookid 教辅id
-- (void)getMain_jfinfoWithUid:(NSString *)uid andBookId:(NSString *)bookid{
+- (void)getMain_jfinfoWithUid:(NSString *)uid Unitid:(NSString *)unitid andBookId:(NSString *)bookid{
     NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
     if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (unitid)[mutabDic setObject:unitid forKey:@"unitid"];
     if (bookid)[mutabDic setObject:bookid forKey:@"bookid"];
 
     [self sendPOSTRequestToServerWithURL:@"main_jfinfo" postData:mutabDic];

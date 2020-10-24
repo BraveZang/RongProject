@@ -79,8 +79,14 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.bookList.count;
-    
+    if (_type == 1) {
+        //教辅
+        return self.bookList.count;
+    }else if (_type == 2) {
+        //单元
+        return self.unitList.count;
+    }
+    return 0;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
@@ -112,16 +118,36 @@
         cell.yellowView.hidden=NO;
     }
     tableView.rowHeight=FitRealValue(60);
-    MainBookModel * model = self.bookList[indexPath.row];
-    cell.name.text=model.goodsname;
+    
+    if (_type == 1) {
+        //教辅
+        MainBookModel * model = self.bookList[indexPath.row];
+        cell.name.text=model.goodsname;
+    }else if (_type == 2) {
+        //单元
+        UnitModel * model = self.unitList[indexPath.row];
+        cell.name.text=model.name;
+    }
+    
+    
     return cell;
         
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (self.seletedBookblock) {
-        self.seletedBookblock(self.bookList[indexPath.row]);
+    if (_type == 1) {
+        //教辅
+        if (self.seletedBookblock) {
+            self.seletedBookblock(self.bookList[indexPath.row]);
+        }
+    }else if (_type == 2) {
+        //单元
+        if (self.seletedUnitblock) {
+            self.seletedUnitblock(self.unitList[indexPath.row]);
+        }
     }
+    
+    
     
     [self removeFromSuperview];
     

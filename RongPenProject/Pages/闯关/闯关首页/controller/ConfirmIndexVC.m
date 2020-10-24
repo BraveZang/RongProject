@@ -82,6 +82,7 @@
 - (RightSlidingMenuView *)rightslidingmenuview {
     if (!_rightslidingmenuview) {
         _rightslidingmenuview = [[RightSlidingMenuView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+        _rightslidingmenuview.type = 1;
         _rightslidingmenuview.seletedBookblock = ^(MainBookModel * _Nonnull bookModel) {
             self.currentBookModel = bookModel;
             [self updateBook];
