@@ -6,10 +6,12 @@
 //
 
 #import "DZBaseViewController.h"
-
+#import "MainBookModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DictationListVC : DZBaseViewController
+
+@property (nonatomic, strong) MainBookModel     *bookModel;
 
 @end
 

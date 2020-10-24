@@ -7,7 +7,6 @@
 
 #import "RightSlidingMenuView.h"
 #import "RightSlidingMenuViewCell.h"
-
 @interface RightSlidingMenuView()<UITableViewDelegate,UITableViewDataSource>
 {
     NSInteger _selectIndex;
@@ -80,7 +79,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 4;
+    return self.bookList.count;
     
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -113,12 +112,16 @@
         cell.yellowView.hidden=NO;
     }
     tableView.rowHeight=FitRealValue(60);
-    cell.name.text=[NSString stringWithFormat:@"测试%ld",indexPath.row];
+    MainBookModel * model = self.bookList[indexPath.row];
+    cell.name.text=model.goodsname;
     return cell;
         
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (self.seletedBookblock) {
+        self.seletedBookblock(self.bookList[indexPath.row]);
+    }
     
     [self removeFromSuperview];
     

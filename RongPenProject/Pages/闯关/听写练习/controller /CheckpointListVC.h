@@ -6,10 +6,13 @@
 //
 
 #import "DZBaseViewController.h"
+#import "UnitModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CheckpointListVC : DZBaseViewController
+@property (nonatomic, strong) UnitModel     *unitModel;
+
 
 @end
 

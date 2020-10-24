@@ -73,12 +73,14 @@
             if (weakDelegate) {
                 if ([weakDelegate respondsToSelector:@selector(requestDidFinished:result:)]) {
                     NSMutableDictionary * dic = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingAllowFragments error:nil];
+                    NSLog(@"返回数据%@",dic);
                     [weakDelegate requestDidFinished:weakSelf result:dic];
                 }
             }
         } else {
             if (weakDelegate) {
                 if ([weakDelegate respondsToSelector:@selector(requestError:error:)]) {
+                    NSLog(@"请求错误返回数据%@",error);
                     [weakDelegate requestError:weakSelf error:error];
                 }
             }

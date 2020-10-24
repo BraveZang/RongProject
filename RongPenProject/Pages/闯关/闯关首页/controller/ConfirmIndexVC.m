@@ -9,13 +9,17 @@
 #import "ConfirmIndexCell.h"
 #import "RightSlidingMenuView.h"
 #import "DictationListVC.h"
-
+#import "MainBookModel.h"
 @interface ConfirmIndexVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
 
 @property(nonatomic,strong)   UILabel                           *topLab;
 @property(nonatomic,strong)   UITableView                       *tableview;
 @property(nonatomic,strong)   RightSlidingMenuView              *rightslidingmenuview;
 @property(nonatomic,strong)   NetManager                        *net;
+
+
+@property (nonatomic, strong) NSArray                           *bookList;
+@property (nonatomic, strong) MainBookModel                     *currentBookModel;
 @end
 
 @implementation ConfirmIndexVC
@@ -25,6 +29,7 @@
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     
+    [self getDataList];
     
 }
 - (void)viewWillDisappear:(BOOL)animated{
@@ -37,6 +42,9 @@
     }
     
 }
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,12 +64,28 @@
     
     return YES;//隐藏为YES，显示为NO
     
-}  
+}
+
+#pragma mark - Data
+
+- (void)getDataList{
+    self.net.requestId = 1001;
+    [self.net getMain_buybookWithUid:[User getUserID]];
+}
+
+- (void)updateBook{
+    self.topLab.text= self.currentBookModel.goodsname;
+}
+
 #pragma mark - Getter
 
 - (RightSlidingMenuView *)rightslidingmenuview {
     if (!_rightslidingmenuview) {
         _rightslidingmenuview = [[RightSlidingMenuView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
+        _rightslidingmenuview.seletedBookblock = ^(MainBookModel * _Nonnull bookModel) {
+            self.currentBookModel = bookModel;
+            [self updateBook];
+        };
     }
     return _rightslidingmenuview;
 }
@@ -72,8 +96,9 @@
     self.topLab.font=[UIFont systemFontOfSize:FitRealValue(24)];
     self.topLab.textColor=[MTool colorWithHexString:@"#212121"];
     [self.view addSubview:self.topLab];
-    self.topLab.text=@"测试 三年级上（新概念）";
 }
+
+
 
 - (void)showRightAction
 {
@@ -152,9 +177,62 @@
     
     if (indexPath.section==0) {
         DictationListVC*vc=[DictationListVC new];
+        vc.bookModel = self.currentBookModel;
         vc.hidesBottomBarWhenPushed=YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
     
 }
+
+#pragma mark === NetManagerDelegate ===
+
+- (void)requestDidFinished:(NetManager *)request result:(NSMutableDictionary *)result{
+    NSDictionary*code=result[@"head"];
+    if ([code[@"res_code"]intValue]!=0002) {
+        
+        [DZTools showNOHud:code[@"res_msg"] delay:2];
+        return;
+    }
+    else{
+        
+        if (self.net.requestId==1001) {
+            //辅材列表
+            NSArray * dataArray = result[@"body"];
+
+            self.bookList = [MainBookModel mj_objectArrayWithKeyValuesArray:dataArray];
+            if (_bookList.count > 0) {
+                self.currentBookModel = _bookList[0];
+                self.rightslidingmenuview.bookList = self.bookList;
+            }
+            [self updateBook];
+        }
+        if (self.net.requestId==1003) {//编辑地址
+            [DZTools showOKHud:code[@"res_msg"] delay:2];
+        }
+        if (self.net.requestId==1004) {//删除地址
+        }
+        if (self.net.requestId==1002) {
+            
+           
+        }
+    }
+    
+}
+
+- (void)requestError:(NetManager *)request error:(NSError*)error{
+    
+}
+
+- (void)requestStart:(NetManager *)request{
+    
+}
+- (NetManager *)net{
+    if (!_net) {
+        self.net = [[NetManager alloc] init];
+        _net.delegate = self;
+    }
+    return _net;
+}
+
+
 @end

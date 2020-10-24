@@ -6,15 +6,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "UnitModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface DictationListCell : UITableViewCell
 
-@property (strong,nonatomic) UILabel               *titleLab;
-@property (strong,nonatomic) UILabel               *contentLab;
-@property (strong,nonatomic) UIButton              *playBtn;
-@property (nonatomic,strong) UIProgressView        *progressView;
+@property (strong,nonatomic) UnitModel               *unitModle;
 
 @end
 

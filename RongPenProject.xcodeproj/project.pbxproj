@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0442411F2542B00900E066FE /* AreaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442411E2542B00900E066FE /* AreaModel.m */; };
 		044241222542B02600E066FE /* ZRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 044241212542B02600E066FE /* ZRPickerView.m */; };
+		044589C82544599C00C5AE74 /* gkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044589C72544599C00C5AE74 /* gkModel.m */; };
+		044589D0254459A600C5AE74 /* UnitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044589CD254459A500C5AE74 /* UnitModel.m */; };
+		044589D1254459A600C5AE74 /* MainBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044589CE254459A600C5AE74 /* MainBookModel.m */; };
 		04C098902543B197005685DA /* MainInfoSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0988F2543B197005685DA /* MainInfoSettingVC.m */; };
 		04C098942543B289005685DA /* MainInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098932543B289005685DA /* MainInfoModel.m */; };
 		04C098972543B2E2005685DA /* MainInfoHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098962543B2E2005685DA /* MainInfoHeadCell.m */; };
@@ -162,6 +165,12 @@
 		0442411E2542B00900E066FE /* AreaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaModel.m; sourceTree = "<group>"; };
 		044241202542B02500E066FE /* ZRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRPickerView.h; sourceTree = "<group>"; };
 		044241212542B02600E066FE /* ZRPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRPickerView.m; sourceTree = "<group>"; };
+		044589C62544599C00C5AE74 /* gkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gkModel.h; sourceTree = "<group>"; };
+		044589C72544599C00C5AE74 /* gkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gkModel.m; sourceTree = "<group>"; };
+		044589CC254459A500C5AE74 /* UnitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitModel.h; sourceTree = "<group>"; };
+		044589CD254459A500C5AE74 /* UnitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitModel.m; sourceTree = "<group>"; };
+		044589CE254459A600C5AE74 /* MainBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainBookModel.m; sourceTree = "<group>"; };
+		044589CF254459A600C5AE74 /* MainBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainBookModel.h; sourceTree = "<group>"; };
 		04C0988E2543B197005685DA /* MainInfoSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainInfoSettingVC.h; sourceTree = "<group>"; };
 		04C0988F2543B197005685DA /* MainInfoSettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainInfoSettingVC.m; sourceTree = "<group>"; };
 		04C098922543B289005685DA /* MainInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainInfoModel.h; sourceTree = "<group>"; };
@@ -983,6 +992,10 @@
 		C6473FAD250F4BCC00BDE73F /* model */ = {
 			isa = PBXGroup;
 			children = (
+				044589CF254459A600C5AE74 /* MainBookModel.h */,
+				044589CE254459A600C5AE74 /* MainBookModel.m */,
+				044589CC254459A500C5AE74 /* UnitModel.h */,
+				044589CD254459A500C5AE74 /* UnitModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1205,6 +1218,8 @@
 		C6497BC8251C43D5006463B4 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				044589C62544599C00C5AE74 /* gkModel.h */,
+				044589C72544599C00C5AE74 /* gkModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1495,6 +1510,7 @@
 				C6497BCE251C71BE006463B4 /* DictationListCell.m in Sources */,
 				C6497C0525315A1A006463B4 /* WebViewViewController.m in Sources */,
 				C6473FB0250F4BF200BDE73F /* PracticeIndexVC.m in Sources */,
+				044589C82544599C00C5AE74 /* gkModel.m in Sources */,
 				C6473F4A250F442200BDE73F /* UIAlertView+RWBlock.m in Sources */,
 				C62DCC3A253A8C4800410FCE /* ShopQROrderCell.m in Sources */,
 				C62DCC112535D5DD00410FCE /* ConfirmOrderVCCell.m in Sources */,
@@ -1513,6 +1529,7 @@
 				C62DCC61253C268500410FCE /* CourseVideoModel.m in Sources */,
 				C679200A254455AC005822C0 /* MessageDetailCell.m in Sources */,
 				C6473FDE2511A6A000BDE73F /* NSString+Font.m in Sources */,
+				044589D0254459A600C5AE74 /* UnitModel.m in Sources */,
 				C62DCC37253A8BF900410FCE /* ShopQROrderVC.m in Sources */,
 				C6473F90250F44C700BDE73F /* DZTools.m in Sources */,
 				C62DCC43253AA4A000410FCE /* PayCell.m in Sources */,
@@ -1542,6 +1559,7 @@
 				C6497C0D25318DF1006463B4 /* ShopIndexVC.m in Sources */,
 				C62DCC46253AD2B600410FCE /* AddAdressVC.m in Sources */,
 				C6473FBC250F4CB300BDE73F /* TabarVC.m in Sources */,
+				044589D1254459A600C5AE74 /* MainBookModel.m in Sources */,
 				C647400A25188DB600BDE73F /* UIViewController+NoSlideBack.m in Sources */,
 				C6473F7D250F44B800BDE73F /* UIView+IDCard.m in Sources */,
 				C647400C25188DB600BDE73F /* UIView+Toast.m in Sources */,
@@ -1768,7 +1786,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BS2MU66C48;
+				DEVELOPMENT_TEAM = 2W93QV6U6C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RongPenProject/ThirdParts/Alipay",
@@ -1780,7 +1798,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = none.RongPenProject;
+				PRODUCT_BUNDLE_IDENTIFIER = none.RongPenProject1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RongPenProject/RongPenProject-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1796,7 +1814,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BS2MU66C48;
+				DEVELOPMENT_TEAM = 2W93QV6U6C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RongPenProject/ThirdParts/Alipay",
@@ -1808,7 +1826,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = none.RongPenProject;
+				PRODUCT_BUNDLE_IDENTIFIER = none.RongPenProject1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RongPenProject/RongPenProject-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

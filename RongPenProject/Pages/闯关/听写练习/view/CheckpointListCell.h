@@ -7,14 +7,13 @@
 
 #import <UIKit/UIKit.h>
 #import "HYBStarEvaluationView.h"
-
+#import "gkModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CheckpointListCell : UITableViewCell
 
-@property (strong,nonatomic) UILabel               *titleLab;
-@property (strong,nonatomic) UIButton              *playBtn;
-@property (strong,nonatomic) UIButton              *timeBtn;
+@property (strong,nonatomic) gkModel               *model;
+
 @property (strong, nonatomic)HYBStarEvaluationView *starView;
 
 

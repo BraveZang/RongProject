@@ -8,11 +8,13 @@
 #import "CheckpointListVC.h"
 #import "CheckpointListCell.h"
 #import "CheckpointResultVC.h"
-
+#import "gkModel.h"
 @interface CheckpointListVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
 
 @property (nonatomic, strong)  UITableView          *tableView;
 
+@property(nonatomic,strong)   NetManager                        *net;
+@property (nonatomic, strong) NSArray                           *gkList;
 @end
 
 @implementation CheckpointListVC
@@ -24,6 +26,14 @@
     self.leftImgBtn.hidden=NO;
     [self initTableView];
 }
+
+
+- (void)setUnitModel:(UnitModel *)unitModel{
+    _unitModel = unitModel;
+    //测试数据 待调整
+    [self.net Pass_gqlistWithUid:[User getUserID] andBookId:unitModel.bookid andUnitid:unitModel.unitid];
+}
+
 
 #pragma mark UITableViewDataSource
 - (void)initTableView {
@@ -45,7 +55,7 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return self.gkList.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -76,6 +86,7 @@
         cell = [[CheckpointListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    cell.model = self.gkList[indexPath.section];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -84,4 +95,53 @@
     CheckpointResultVC*vc=[CheckpointResultVC new];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+
+#pragma mark === NetManagerDelegate ===
+
+- (void)requestDidFinished:(NetManager *)request result:(NSMutableDictionary *)result{
+    NSDictionary*code=result[@"head"];
+    if ([code[@"res_code"]intValue]!=0002) {
+        
+        [DZTools showNOHud:code[@"res_msg"] delay:2];
+        return;
+    }
+    else{
+        
+        //辅材列表
+        NSArray * dataArray = result[@"body"];
+
+        self.gkList = [gkModel mj_objectArrayWithKeyValuesArray:dataArray];
+        
+        [self.tableView reloadData];
+        
+       
+    }
+    
+}
+
+- (void)requestError:(NetManager *)request error:(NSError*)error{
+    
+}
+
+- (void)requestStart:(NetManager *)request{
+    
+}
+
+#pragma mark -lazy
+- (NetManager *)net{
+    if (!_net) {
+        self.net = [[NetManager alloc] init];
+        _net.delegate = self;
+    }
+    return _net;
+}
+
+- (NSArray *)gkList{
+    if (!_gkList) {
+        _gkList = [[NSArray alloc] init];
+    }
+    return _gkList;
+}
+
 @end
