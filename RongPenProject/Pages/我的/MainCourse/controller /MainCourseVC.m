@@ -11,6 +11,7 @@
 #import "MainCoursePageThreeVC.h"
 #import "MainCoursePageTowVC.h"
 #import "WebViewViewController.h"
+#import "MainCourseDetailVC.h"
 
 @interface MainCourseVC ()
 
@@ -39,6 +40,12 @@
     NSMutableArray *controllers = [NSMutableArray array];
     
     MainCoursePageOneVC*vc1=[MainCoursePageOneVC new];
+    vc1.tiemClickBlock = ^(CourseVideoModel * _Nonnull model) {
+        MainCourseDetailVC*vc=[MainCourseDetailVC new];
+        vc.idStr=model.id;
+        vc.typeStr=model.type;
+        [self.navigationController pushViewController:vc animated:YES];
+    };
     [controllers addObject:vc1];
     [titles addObject:@"录播课程"];
     

@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MainCourseDetailVC : DZBaseViewController
 
+@property(nonatomic,strong)NSString *typeStr;
+@property(nonatomic,strong)NSString *idStr;
 @end
 
 NS_ASSUME_NONNULL_END

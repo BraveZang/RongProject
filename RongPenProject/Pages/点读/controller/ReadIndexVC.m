@@ -234,4 +234,8 @@
     cell.textLabel.text=self.listDataAry[indexPath.row];
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"123");
+}
 @end

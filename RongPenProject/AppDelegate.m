@@ -34,7 +34,7 @@
       //sd中可点击diskCacheReadingOptions跳转到这个属性，提示设置为NSDataReadingMappedIfSafe可提高性能
     [SDImageCache sharedImageCache].config.diskCacheReadingOptions = NSDataReadingMappedIfSafe;
     
-    [self getAreaUrlData];
+//    [self getAreaUrlData];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     TabarVC *vc=[[TabarVC alloc]init];
