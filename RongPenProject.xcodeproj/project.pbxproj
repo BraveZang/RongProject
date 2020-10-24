@@ -144,6 +144,8 @@
 		C679200D25445F46005822C0 /* MessageDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C679200C25445F46005822C0 /* MessageDetailModel.m */; };
 		C67920102544678B005822C0 /* MainCourseDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C679200F2544678B005822C0 /* MainCourseDetailVC.m */; };
 		C679201325446863005822C0 /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C679201225446863005822C0 /* BannerModel.m */; };
+		C679201625446FC8005822C0 /* ReadInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C679201525446FC8005822C0 /* ReadInfoVC.m */; };
+		C679201925446FE2005822C0 /* ReadTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C679201825446FE2005822C0 /* ReadTestVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -421,6 +423,10 @@
 		C679200F2544678B005822C0 /* MainCourseDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainCourseDetailVC.m; sourceTree = "<group>"; };
 		C679201125446863005822C0 /* BannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
 		C679201225446863005822C0 /* BannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
+		C679201425446FC8005822C0 /* ReadInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReadInfoVC.h; sourceTree = "<group>"; };
+		C679201525446FC8005822C0 /* ReadInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReadInfoVC.m; sourceTree = "<group>"; };
+		C679201725446FE2005822C0 /* ReadTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReadTestVC.h; sourceTree = "<group>"; };
+		C679201825446FE2005822C0 /* ReadTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReadTestVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1016,6 +1022,10 @@
 			children = (
 				C6473FA2250F4B7E00BDE73F /* ReadIndexVC.h */,
 				C6473FA3250F4B7E00BDE73F /* ReadIndexVC.m */,
+				C679201425446FC8005822C0 /* ReadInfoVC.h */,
+				C679201525446FC8005822C0 /* ReadInfoVC.m */,
+				C679201725446FE2005822C0 /* ReadTestVC.h */,
+				C679201825446FE2005822C0 /* ReadTestVC.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1571,10 +1581,12 @@
 				C679201325446863005822C0 /* BannerModel.m in Sources */,
 				C679200D25445F46005822C0 /* MessageDetailModel.m in Sources */,
 				C6473FB9250F4C6500BDE73F /* MainIndexVC.m in Sources */,
+				C679201925446FE2005822C0 /* ReadTestVC.m in Sources */,
 				C6168BBB2519A54D001EF850 /* MainSetVC.m in Sources */,
 				C6168BC12519ADAA001EF850 /* MainFanKuiVC.m in Sources */,
 				C62DCC3D253AA10900410FCE /* Shop_qrorderModel.m in Sources */,
 				C6497C0D25318DF1006463B4 /* ShopIndexVC.m in Sources */,
+				C679201625446FC8005822C0 /* ReadInfoVC.m in Sources */,
 				C62DCC46253AD2B600410FCE /* AddAdressVC.m in Sources */,
 				C6473FBC250F4CB300BDE73F /* TabarVC.m in Sources */,
 				044589D1254459A600C5AE74 /* MainBookModel.m in Sources */,
