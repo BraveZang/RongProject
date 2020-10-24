@@ -172,9 +172,12 @@ login_setgread
 }
 #pragma mark - 首页
 
+/// 获取轮播图
+- (void)main_banner{
+    [self sendPOSTRequestToServerWithURL:@"main_banner" postData:nil];
 
+}
 
-#pragma mark - 闯关听写
 
 /// 获取教辅列表
 /// @param uid 用户id
@@ -183,6 +186,23 @@ login_setgread
     if (uid)[mutabDic setObject:uid forKey:@"uid"];
     [self sendPOSTRequestToServerWithURL:@"main_buybook" postData:mutabDic];
 }
+
+/// 获取教辅详情页
+/// @param uid 用户id
+/// @param bookid 教辅id
+- (void)getMain_jfinfoWithUid:(NSString *)uid andBookId:(NSString *)bookid{
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (bookid)[mutabDic setObject:bookid forKey:@"bookid"];
+
+    [self sendPOSTRequestToServerWithURL:@"main_jfinfo" postData:mutabDic];
+}
+
+
+
+#pragma mark - 闯关听写
+
+
 
 /// 切换教材
 /// @param uid 用户id

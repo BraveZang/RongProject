@@ -117,13 +117,23 @@ login_setgread
 
 
 #pragma mark - 首页
-
-
-#pragma mark - 闯关听写
+/// 获取轮播图
+- (void)main_banner;
 
 /// 获取教辅列表
 /// @param uid 用户id
 - (void)getMain_buybookWithUid:(NSString *)uid;
+
+
+/// 获取教辅详情页
+/// @param uid 用户id
+/// @param bookid 教辅id
+- (void)getMain_jfinfoWithUid:(NSString *)uid andBookId:(NSString *)bookid;
+
+
+#pragma mark - 闯关听写
+
+
 
 /// 切换教材
 /// @param uid 用户id
