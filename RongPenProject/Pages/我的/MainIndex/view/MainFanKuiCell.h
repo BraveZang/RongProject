@@ -13,10 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong,nonatomic) UILabel               *tagLab;
 @property (strong,nonatomic) UILabel               *titleLab;
+@property (strong,nonatomic) UILabel               *contentLab;
 @property (strong,nonatomic) UIView                *sexView;
 @property (strong,nonatomic) UIButton              *womanBtn;
 @property (strong,nonatomic) UIButton              *manBtn;
 @property (strong,nonatomic) UITextView            *describeView;
+@property (nonatomic, strong) void(^Block)(NSString*sexStr);
+
 @end
 
 NS_ASSUME_NONNULL_END

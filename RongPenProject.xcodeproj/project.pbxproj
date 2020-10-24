@@ -136,6 +136,8 @@
 		C6497C1025319458006463B4 /* ShopIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6497C0F25319458006463B4 /* ShopIndexCell.m */; };
 		C6497C1325319C67006463B4 /* ShopIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6497C1225319C67006463B4 /* ShopIndexModel.m */; };
 		C6497C1A2531A4DB006463B4 /* ShopInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C6497C192531A4DB006463B4 /* ShopInfoVC.m */; };
+		C67920072544532D005822C0 /* MessageInfoDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C67920062544532D005822C0 /* MessageInfoDetailVC.m */; };
+		C679200A254455AC005822C0 /* MessageDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6792009254455AC005822C0 /* MessageDetailCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -397,6 +399,10 @@
 		C6497C1225319C67006463B4 /* ShopIndexModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopIndexModel.m; sourceTree = "<group>"; };
 		C6497C182531A4DB006463B4 /* ShopInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopInfoVC.h; sourceTree = "<group>"; };
 		C6497C192531A4DB006463B4 /* ShopInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopInfoVC.m; sourceTree = "<group>"; };
+		C67920052544532D005822C0 /* MessageInfoDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageInfoDetailVC.h; sourceTree = "<group>"; };
+		C67920062544532D005822C0 /* MessageInfoDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageInfoDetailVC.m; sourceTree = "<group>"; };
+		C6792008254455AC005822C0 /* MessageDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageDetailCell.h; sourceTree = "<group>"; };
+		C6792009254455AC005822C0 /* MessageDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageDetailCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1145,6 +1151,8 @@
 			children = (
 				C6497BBF251C3D55006463B4 /* MainMessageCell.h */,
 				C6497BC0251C3D55006463B4 /* MainMessageCell.m */,
+				C6792008254455AC005822C0 /* MessageDetailCell.h */,
+				C6792009254455AC005822C0 /* MessageDetailCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1154,6 +1162,8 @@
 			children = (
 				C6497BBC251C3B49006463B4 /* MainMessageVC.h */,
 				C6497BBD251C3B49006463B4 /* MainMessageVC.m */,
+				C67920052544532D005822C0 /* MessageInfoDetailVC.h */,
+				C67920062544532D005822C0 /* MessageInfoDetailVC.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -1501,6 +1511,7 @@
 				C6497BD1251C7E17006463B4 /* CheckpointListVC.m in Sources */,
 				C6473F22250F42B700BDE73F /* User.m in Sources */,
 				C62DCC61253C268500410FCE /* CourseVideoModel.m in Sources */,
+				C679200A254455AC005822C0 /* MessageDetailCell.m in Sources */,
 				C6473FDE2511A6A000BDE73F /* NSString+Font.m in Sources */,
 				C62DCC37253A8BF900410FCE /* ShopQROrderVC.m in Sources */,
 				C6473F90250F44C700BDE73F /* DZTools.m in Sources */,
@@ -1573,6 +1584,7 @@
 				C6168BBE2519A617001EF850 /* MainSetCell.m in Sources */,
 				C647400B25188DB600BDE73F /* UIViewController+Present.m in Sources */,
 				04C098A02543B436005685DA /* InfoModel.m in Sources */,
+				C67920072544532D005822C0 /* MessageInfoDetailVC.m in Sources */,
 				C6473F7B250F44B800BDE73F /* UIView+Corner.m in Sources */,
 				C62DCC152535D96400410FCE /* PPNumberButton.m in Sources */,
 				C6473FCA250F531A00BDE73F /* AlipayManager.m in Sources */,

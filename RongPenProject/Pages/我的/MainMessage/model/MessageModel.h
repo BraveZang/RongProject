@@ -11,19 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MessageModel : NSObject
-
-@property(nonatomic,strong)NSString     *conversationType;
-@property(nonatomic,strong)NSString     *id;
-@property(nonatomic,strong)NSDictionary *lastMessage;
-@property(nonatomic,strong)NSString     *receivedTime;
-@property(nonatomic,strong)NSString     *sentTime;
-@property(nonatomic,strong)NSString     *targetId;
-@property(nonatomic,strong)NSString     *unreadCount;
-
-
-
-
-
+@property(nonatomic,strong)NSString     *title;
+@property(nonatomic,strong)NSString     *content;
+@property(nonatomic,strong)NSString     *unread;
 
 @end
 

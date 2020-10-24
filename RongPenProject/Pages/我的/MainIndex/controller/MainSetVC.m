@@ -7,10 +7,12 @@
 
 #import "MainSetVC.h"
 #import "MainSetCell.h"
-
+#import "WebViewViewController.h"
 @interface MainSetVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
 
 @property (nonatomic, strong)  UITableView          *tableView;
+@property (nonatomic, strong)  NetManager           *net;
+
 @end
 
 @implementation MainSetVC
@@ -80,7 +82,7 @@
             cell.titleLab.text=@"最新版本";
             cell.contentLab.text=@"当前已是最新版本";
             cell.contentLab.hidden=NO;
-
+            
         }
         if (indexPath.row==1) {
             cell.titleLab.text=@"清除缓存";
@@ -113,8 +115,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section==0) {
         if (indexPath.row==0) {
-//            cell.titleLab.text=@"版本更新";
-//            cell.contentLab.text=@"当前已是最新版本";
+            //            cell.titleLab.text=@"版本更新";
+            //            cell.contentLab.text=@"当前已是最新版本";
             
         }
         if (indexPath.row==1) {
@@ -122,17 +124,19 @@
             
         }
         if (indexPath.row==2) {
-          
             
+            [self getmember_aboutWithNoParamUrl];
         }
     }
     else{
         if (indexPath.row==0) {
             
+            [self clickAgreementWithUrlStr:@"http://api.bclc.com.cn/agreement/UserAgreement.html" TitleStr:@"荣知教育用户协议"];
             
         }
         if (indexPath.row==1) {
-           
+            
+            [self clickAgreementWithUrlStr:@"http://api.bclc.com.cn/agreement/PrivacyAgreement.html" TitleStr:@"荣知教育隐私协议"];
             
         }
     }
@@ -150,7 +154,7 @@
             [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
         }
     }
-//    [self.view makeToast:@"清除緩存成功"]
+    //    [self.view makeToast:@"清除緩存成功"]
     [MTool showText:@"清除緩存成功"];
     [self.tableView reloadData];
 }
@@ -176,6 +180,61 @@
     }
     return 0;
 }
+//member_aboutWithNoParam
+-(void)getmember_aboutWithNoParamUrl{
+    self.net.requestId=1001;
+    [self.net member_aboutWithNoParam];
+    
+}
 
+
+- (void)clickAgreementWithUrlStr:(NSString *)urlStr TitleStr:(NSString *)title{
+    
+    WebViewViewController *webVC = [[WebViewViewController alloc]init];
+    webVC.urlStr =urlStr;
+    webVC.titleStr=title;
+    [self presentViewController:webVC animated:YES completion:nil];
+    
+}
+#pragma mark === NetManagerDelegate ===
+
+- (void)requestDidFinished:(NetManager *)request result:(NSMutableDictionary *)result{
+    NSDictionary*code=result[@"head"];
+    if ([code[@"res_code"]intValue]!=0002) {
+        
+        [DZTools showNOHud:code[@"res_msg"] delay:2];
+        return;
+    }
+    else{
+        if (request.requestId == 1001) {
+            NSDictionary*bodyDic=result[@"body"];
+            NSString*urlStr=bodyDic[@"url"];
+            [self clickAgreementWithUrlStr:urlStr TitleStr:@"关于我们"];
+            
+            
+        }
+        else if (request.requestId == 1002) {
+            
+        }
+        
+        
+    }
+    
+}
+
+- (void)requestError:(NetManager *)request error:(NSError*)error{
+    
+}
+
+- (void)requestStart:(NetManager *)request{
+    
+}
+- (NetManager *)net{
+    if (!_net) {
+        self.net = [[NetManager alloc] init];
+        _net.delegate = self;
+    }
+    return _net;
+}
 
 @end

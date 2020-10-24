@@ -81,7 +81,16 @@ login_setgread
 /// @param sex 性别
 - (void)member_usereditWithUid:(NSString *)uid Avatar:(NSString *)avatar NicName:(NSString *)nickname Grade:(NSString *)grade Age:(NSString *)age andSex:(NSString *)sex;
 
-
+/*问题反馈 member_feedback
+ 参数：
+ uid 会员uid
+ mobile 联系电话
+ weixin 微信号码
+ type 反馈类型：遇到问题、提出建议
+ image 问题截图
+ content 问题描述
+ */
+- (void)member_feedbackWithUid:(NSString *)uid Mobile:(NSString *)mobile Weixin:(NSString *)weixin Type:(NSString *)type Image:(NSString *)image Content:(NSString *)content;
 /// 编辑会员头像
 /// @param uid 用户id
 /// @param avatar 头像
@@ -91,6 +100,12 @@ login_setgread
 /// @param sex 性别
 - (void)member_userHeaderEditWithUid:(NSString *)uid Avatar:(NSData *)avatar NicName:(NSString *)nickname Grade:(NSString *)grade Age:(NSString *)age andSex:(NSString *)sex;
 
+
+
+/*关于我们 member_about
+参数：
+*/
+- (void)member_aboutWithNoParam;
 
 /**
  获取地区

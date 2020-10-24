@@ -12,6 +12,9 @@
 #import "MainMessageVC.h"
 #import "MainCourseVC.h"
 #import "MainInfoSettingVC.h"
+#import "WebViewViewController.h"
+
+
 @interface MainIndexVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
 
 @property (nonatomic, strong)  UITableView          *tableView;
@@ -269,6 +272,12 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    if (indexPath.row==1) {
+        WebViewViewController *webVC = [[WebViewViewController alloc]init];
+        webVC.urlStr = @"http://api.bclc.com.cn/agreement/TheCancellation.html";
+        webVC.titleStr=@"账号注销";
+        [self presentViewController:webVC animated:YES completion:nil];
+    }
     if (indexPath.row==2) {
         MainSetVC*vc=[MainSetVC new];
         vc.hidesBottomBarWhenPushed=YES;
@@ -304,6 +313,10 @@
             [User saveUser:user];
             [self.heardImg sd_setImageWithURL:[NSURL URLWithString: user.avatar] placeholderImage:[UIImage imageNamed:@"defaultimg"]];
             self.nameLabel.text=user.nickname;
+            self.classLabel.text=[NSString stringWithFormat:@"%@年级",user.grade];
+            self.nameLabel.hidden=NO;
+            self.classLabel.hidden=NO;
+            self.loginBtn.hidden=YES;
             [self.tableView reloadData];
             
         }

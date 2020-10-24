@@ -35,10 +35,17 @@ typedef enum : NSUInteger{
     self.topview.hidden=NO;
     self.toptitle.hidden=NO;
     self.toptitle.text=@"忘记密码";
+    if (self.viewTag==100) {
+    self.toptitle.text=@"重置密码";
+    }
     self.lineview.hidden=NO;
     self.leftImgBtn.hidden=NO;
     [self createUI];
     
+}
+-(void)setViewTag:(NSInteger)viewTag{
+    
+    _viewTag=viewTag;
 }
 -(void)createUI{
     

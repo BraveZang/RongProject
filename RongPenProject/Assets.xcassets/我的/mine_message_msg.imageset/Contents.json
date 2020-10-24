@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "编组 2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "touxiang-2.png",
+      "filename" : "编组 2@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "编组 2@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

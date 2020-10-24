@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface forgetPassVC : DZBaseViewController
 
+@property(nonatomic,assign)NSInteger viewTag;
 @end
 
 NS_ASSUME_NONNULL_END

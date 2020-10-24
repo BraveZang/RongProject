@@ -16,6 +16,8 @@
 #import "User.h"
 #import "InfoModel.h"
 #import "ZRInfoPickerView.h"
+#import "forgetPassVC.h"
+
 @interface MainInfoSettingVC ()<UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,NetManagerDelegate>
 
 @property (nonatomic, strong) UITableView              *infoTable;
@@ -191,6 +193,10 @@
             [self.zrPickerView showZRInfoPickerView];
         }else{
             //设置密码
+            
+            forgetPassVC*vc=[[forgetPassVC alloc]init];
+            vc.viewTag=100;
+            [self.navigationController pushViewController:vc animated:YES];
         }
         
     }
@@ -253,13 +259,13 @@
             weakSelf.net.requestId = 1001;
             if (weakSelf.zrpickerViwType == 1) {
                 //性别  1.男  0女
-                [weakSelf.net member_usereditWithUid:[User getUserID] Avatar:user.avatar NicName:user.nickname Grade:user.grade Age:user.age andSex:[selectDataStr isEqualToString:@"男"]?@"1":@"0"];
+                [weakSelf.net member_usereditWithUid:[User getUserID] Avatar:nil NicName:user.nickname Grade:user.grade Age:user.age andSex:[selectDataStr isEqualToString:@"男"]?@"1":@"0"];
             }else if (weakSelf.zrpickerViwType == 2) {
                 //年级
-                [weakSelf.net member_usereditWithUid:[User getUserID] Avatar:user.avatar NicName:user.nickname Grade:[MTool getGradeCodeWithGradeName:selectDataStr] Age:user.age andSex:user.sex];
+                [weakSelf.net member_usereditWithUid:[User getUserID] Avatar:nil NicName:user.nickname Grade:[MTool getGradeCodeWithGradeName:selectDataStr] Age:user.age andSex:user.sex];
             }else if (weakSelf.zrpickerViwType == 3) {
                 //年龄
-                [weakSelf.net member_usereditWithUid:[User getUserID] Avatar:user.avatar NicName:user.nickname Grade:user.grade Age:selectDataStr andSex:user.sex];
+                [weakSelf.net member_usereditWithUid:[User getUserID] Avatar:nil NicName:user.nickname Grade:user.grade Age:selectDataStr andSex:user.sex];
             }
         };
         [self.view addSubview:_zrPickerView];
@@ -363,11 +369,13 @@
 
 #pragma mark - 上传图片
 - (void)uploadImage:(UIImage *)image{
-    NSData *imageData = UIImageJPEGRepresentation(image, 0.1);
+    NSData *data = [MTool imageCompressToData:image];
+    NSString *encodedImageStr =[data base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+    NSString*imgStr=[MTool removeSpaceAndNewline:encodedImageStr];
     //上传参数
     User *user = [User getUser];
     self.net.requestId = 1001;
-    [self.net member_userHeaderEditWithUid:[User getUserID] Avatar:imageData NicName:user.nickname Grade:user.grade Age:user.age andSex:user.sex];
+    [self.net member_usereditWithUid:[User getUserID] Avatar:imgStr NicName:user.nickname Grade:user.grade Age:user.age andSex:user.sex];
     
     
     

@@ -36,29 +36,36 @@
     self.tagLab.hidden=YES;
     [self addSubview:self.tagLab];
     
-    self.titleLab=[[UILabel alloc]initWithFrame:CGRectMake(self.tagLab.right, 0,viewW-LeftMargin,viewH)];
+    self.titleLab=[[UILabel alloc]initWithFrame:CGRectMake(self.tagLab.right, 0,FitRealValue(150),viewH)];
     self.titleLab.font=[UIFont boldSystemFontOfSize:14];
     self.titleLab.textColor=[MTool colorWithHexString:@"#212121"];
     [self addSubview:self.titleLab];
     
-    self.sexView=[[UIView alloc]initWithFrame:CGRectMake(self.titleLab.right+FitRealValue(120), 0, viewW-(self.titleLab.right+FitRealValue(120)-60), viewH)];
+    self.contentLab=[[UILabel alloc]initWithFrame:CGRectMake(self.titleLab.right, 0,viewW-LeftMargin-self.titleLab.right,viewH)];
+    self.contentLab.font=[UIFont boldSystemFontOfSize:14];
+    self.contentLab.textColor=[MTool colorWithHexString:@"#212121"];
+    [self addSubview:self.contentLab];
+    
+    self.sexView=[[UIView alloc]initWithFrame:CGRectMake(self.titleLab.right+FitRealValue(80), 0, viewW-(self.titleLab.right+FitRealValue(80)-60), viewH)];
     self.sexView.backgroundColor=[UIColor whiteColor];
     self.sexView.hidden=YES;
     [self addSubview:self.sexView];
     
     self.manBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    self.manBtn.frame=CGRectMake(0,0, 50, viewH);
+    self.manBtn.frame=CGRectMake(0,0, 100, viewH);
+    self.manBtn.tag=100;
     [self.manBtn setImage:[UIImage imageNamed:@"sex_s"] forState:UIControlStateNormal];
-    [self.manBtn addTarget:self action:@selector(manbtnclick) forControlEvents:UIControlEventTouchUpInside];
+    [self.manBtn addTarget:self action:@selector(sexClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.manBtn setTitle:@"  遇到问题" forState:UIControlStateNormal];
     [self.manBtn setTitleColor:[MTool colorWithHexString:@"#555555"] forState:UIControlStateNormal];
     self.manBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [ self.sexView addSubview:self.manBtn];
     
     self.womanBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    self.womanBtn.frame=CGRectMake(self.manBtn.right+20,0, 50, viewH);
-    [self.womanBtn setImage:[UIImage imageNamed:@"unselect"] forState:UIControlStateNormal];
-    [self.womanBtn addTarget:self action:@selector(womanbtnbtnclick) forControlEvents:UIControlEventTouchUpInside];
+    self.womanBtn.frame=CGRectMake(self.manBtn.right+20,0, 100, viewH);
+    [self.womanBtn setImage:[UIImage imageNamed:@"sex_"] forState:UIControlStateNormal];
+    self.manBtn.tag=101;
+    [self.womanBtn addTarget:self action:@selector(sexClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.womanBtn setTitle:@"  提出建议" forState:UIControlStateNormal];
     [self.womanBtn setTitleColor:[MTool colorWithHexString:@"666666"] forState:UIControlStateNormal];
     self.womanBtn.titleLabel.font=[UIFont systemFontOfSize:14];
@@ -72,5 +79,23 @@
     [self addSubview:self.describeView];
 
 }
+-(void)sexClick:(UIButton*)sender{
+    
+    if (sender.tag==100) {
+        [self.manBtn setImage:[UIImage imageNamed:@"sex_s"] forState:UIControlStateNormal];
+        [self.womanBtn setImage:[UIImage imageNamed:@"sex_"] forState:UIControlStateNormal];
+        self.Block(@"遇到问题");
+        
+    }
+    else{
+        [self.manBtn setImage:[UIImage imageNamed:@"sex_"] forState:UIControlStateNormal];
+        [self.womanBtn setImage:[UIImage imageNamed:@"sex_s"] forState:UIControlStateNormal];
+        self.Block(@"提出建议");
+
+    }
+    
+}
+
+
 
 @end

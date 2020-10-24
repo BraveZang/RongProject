@@ -129,28 +129,36 @@ login_setgread
     [self sendPOSTRequestToServerWithURL:@"member_useredit" postData:mutabDic];
 }
 
-/// 编辑会员头像
-/// @param uid 用户id
-/// @param avatar 头像
-/// @param nickname 昵称
-/// @param grade 班级
-/// @param age 年龄
-/// @param sex 性别
-- (void)member_userHeaderEditWithUid:(NSString *)uid Avatar:(NSData *)avatar NicName:(NSString *)nickname Grade:(NSString *)grade Age:(NSString *)age andSex:(NSString *)sex{
+/*问题反馈 member_feedback
+ 参数：
+ uid 会员uid
+ mobile 联系电话
+ weixin 微信号码
+ type 反馈类型：遇到问题、提出建议
+ image 问题截图
+ content 问题描述
+ */
+- (void)member_feedbackWithUid:(NSString *)uid Mobile:(NSString *)mobile Weixin:(NSString *)weixin Type:(NSString *)type Image:(NSString *)image Content:(NSString *)content{
     NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
     if (uid)[mutabDic setObject:uid forKey:@"uid"];
-    if (avatar)[mutabDic setObject:avatar forKey:@"avatar"];
-    if (nickname)[mutabDic setObject:nickname forKey:@"nickname"];
-    if (grade)[mutabDic setObject:grade forKey:@"grade"];
-    if (age)[mutabDic setObject:age forKey:@"age"];
-    if (sex)[mutabDic setObject:sex forKey:@"sex"];
-    
-    [self uploadWithUrl:@"member_useredit" body:mutabDic imageData:avatar];
-//    [self sendPOSTRequestToServerWithURL:@"" postData:mutabDic];
+    if (mobile)[mutabDic setObject:mobile forKey:@"mobile"];
+    if (weixin)[mutabDic setObject:weixin forKey:@"weixin"];
+    if (type)[mutabDic setObject:type forKey:@"type"];
+    if (image)[mutabDic setObject:image forKey:@"image"];
+    if (content)[mutabDic setObject:content forKey:@"content"];
+    [self sendPOSTRequestToServerWithURL:@"member_feedback" postData:mutabDic];
 }
 
 
-
+/*关于我们 member_about
+参数：
+*/
+- (void)member_aboutWithNoParam{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    [self sendPOSTRequestToServerWithURL:@"member_about" postData:mutabDic];
+    
+}
 
 /**
  获取地区

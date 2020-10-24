@@ -48,25 +48,59 @@
     self.contentLab.text=@"暂无通知";
     [self addSubview:self.contentLab];
     
-    self.timeLab=[[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-30*SCREEN_WIDTH/750-100, 0, 100, imgH)];
-    self.timeLab.font=[UIFont systemFontOfSize:12];
+//    self.timeLab=[[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-30*SCREEN_WIDTH/750-100, 0, 100, imgH)];
+//    self.timeLab.font=[UIFont systemFontOfSize:12];
+//    self.timeLab.textAlignment=NSTextAlignmentRight;
+//    self.timeLab.textColor=[MTool colorWithHexString:@"666666"];
+//    self.timeLab.text=@"2020-5-28";
+//    [self addSubview:self.timeLab];
+    
+    
+    self.timeLab=[[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-LeftMargin-12, (viewH-12)/2, 12, 12)];
+    self.timeLab.font=[UIFont systemFontOfSize:9];
     self.timeLab.textAlignment=NSTextAlignmentRight;
-    self.timeLab.textColor=[MTool colorWithHexString:@"666666"];
-    self.timeLab.text=@"2020-5-28";
+    self.timeLab.textColor=[MTool colorWithHexString:@"#DF2518"];
+    self.timeLab.cornerRadius=6;
+    self.timeLab.hidden=YES;
     [self addSubview:self.timeLab];
     
     
 }
 -(void)setModel:(MessageModel *)model{
     _model=model;
-    if ([model.lastMessage[@"type"] isEqualToString:@"image"]==YES) {
-        self.contentLab.text=@"[图片]";
+    float viewH=120*SCREEN_WIDTH/750;
+    float imgH=80*SCREEN_WIDTH/750;
+    if (IS_IPAD) {
+        viewH=viewH*2/3;
+        imgH=imgH*2/3;
+    }
+    if ([model.title isEqualToString:@"购买提醒"]) {
+        [self.heardImg setImage:[UIImage imageNamed:@"mine_message_buy"]];
+    }
+    else  if ([model.title isEqualToString:@"上课提醒"]){
+        
+        [self.heardImg setImage:[UIImage imageNamed:@"mine_message_fw"]];
+        
     }
     else{
-        self.contentLab.text=model.lastMessage[@"content"];
+        [self.heardImg setImage:[UIImage imageNamed:@"mine_message_msg"]];
+        
     }
-    //    self.timeLab.text=[MTool distanceTimeWithBeforeTime:[MessageModel.receivedTime integerValue]/1000];
-    self.timeLab.text=[DZTools compareCurrentTime:model.receivedTime];
+    self.nameLab.text=model.title;
+    if (model.content.length>0) {
+        
+        self.contentLab.text=model.content;
+    }
+    if ([model.unread intValue]>0) {
+        self.timeLab.hidden=NO;
+        self.timeLab.text=model.unread;
+    }
+    if ([model.unread intValue]>9) {
+        self.timeLab.hidden=NO;
+        self.timeLab.text=model.unread;
+        self.timeLab.frame=CGRectMake(SCREEN_WIDTH-LeftMargin-20, (viewH-12)/2, 20, 12);
+    }
+
     
 }
 

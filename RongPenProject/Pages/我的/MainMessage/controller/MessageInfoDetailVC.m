@@ -1,44 +1,34 @@
 //
-//  MainMessageVC.m
+//  MessageInfoDetailVCViewController.m
 //  RongPenProject
 //
-//  Created by zanghui  on 2020/9/24.
+//  Created by 路面机械网  on 2020/10/24.
 //
 
-#import "MainMessageVC.h"
-#import "MainMessageCell.h"
 #import "MessageInfoDetailVC.h"
+#import "MessageDetailCell.h"
 
-@interface MainMessageVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
+@interface MessageInfoDetailVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
 
 @property(nonatomic, strong)   UITableView               *tableView;
 @property(nonatomic, strong)   NetManager                *net;
 @property(nonatomic, strong)   NSDictionary              *allDic;
 @property(nonatomic, strong)   NSArray                   *allAry;
 
-
-
 @end
 
-@implementation MainMessageVC
+@implementation MessageInfoDetailVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.toptitle.hidden=NO;
-    self.toptitle.text=@"消息";
-    self.leftImgBtn.hidden=NO;
-    
     [self initTableView];
-    [self getUserMessageData];
-
+    
 }
 
-- (void)getUserMessageData{
-    User*user=[User getUser];
-    self.net.requestId=1001;
-    [self.net Message_indexWithUid:user.uid];
+-(void)setTypeStr:(NSString *)typeStr{
+    
+    _typeStr=typeStr;
 }
-
 #pragma mark UITableViewDataSource
 - (void)initTableView {
     self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0,SafeAreaTopHeight, SCREEN_WIDTH, SCREEN_HEIGHT-SafeAreaBottomHeight) style:UITableViewStylePlain];
@@ -46,15 +36,6 @@
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
     self.tableView.tableFooterView=[UIView new];
-    //    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^(void) {
-    //           NSLog(@"下拉刷新");
-    //           [self refresh];
-    //       }];
-    //       self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-    //           NSLog(@"上拉加载更多");
-    //           [self loadMore];
-    //       }];
-    
     [self.view addSubview:self.tableView];
 }
 
@@ -69,14 +50,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"MainMessageCell";
-    MainMessageCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    static NSString *cellIdentifier = @"MessageDetailCell";
+    MessageDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
-        cell = [[MainMessageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[MessageDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    NSString*ketStr=self.allAry[indexPath.row];
-    NSDictionary*dic=[self.allDic objectForKey:ketStr];
-    cell.model=[MessageModel mj_objectWithKeyValues:dic];
+
     return cell;
     
 }
@@ -124,6 +103,11 @@
 
 #pragma mark === NetManagerDelegate ===
 
+-(void)getMessageDetailUrl{
+    
+    self.net.requestId=1001;
+    [self.net Message_infoWithUid:[User getUserID] andType:self.typeStr];
+}
 - (void)requestDidFinished:(NetManager *)request result:(NSMutableDictionary *)result{
     NSDictionary*code=result[@"head"];
     NSDictionary*body=result[@"body"];
@@ -156,6 +140,4 @@
     }
     return _net;
 }
-
-
 @end
