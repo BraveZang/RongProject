@@ -89,20 +89,9 @@
     
 }
 - (void)uploadWithUrl:(NSString *)url body:(NSDictionary *)body imageData:(NSData *)data{
-    
-    if ([MTool getNetWorkStatus] == AFNetworkReachabilityStatusNotReachable) {//无网络
-        [MTool showMessage:@"网络不畅，请检查您的网络" inView:nil];
-        return;
-    }
-    
-    [self addLoadingView];
-    
     NSString *string = kDomainUrl;
     
     string = [string stringByAppendingString:url];
-    
-    
-    
     __weak typeof(self) weakSelf = self;
     __weak typeof(delegate) weakDelegate = delegate;
     

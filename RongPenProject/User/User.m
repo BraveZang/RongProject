@@ -28,6 +28,14 @@ MJExtensionCodingImplementation
     return user;
 }
 
+
++ (NSString *)getUserID{
+    User *user = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"]];
+    return user.uid;
+}
+
+
+
 + (void)deleUser{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setValue:nil forKey:@"userInfo"];

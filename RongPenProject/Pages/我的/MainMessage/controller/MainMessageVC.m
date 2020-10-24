@@ -11,7 +11,7 @@
 @interface MainMessageVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
 
 @property(nonatomic, strong)   UITableView       *tableView;
-
+@property (nonatomic, strong) NetManager                *net;
 @end
 
 @implementation MainMessageVC
@@ -21,8 +21,16 @@
     self.toptitle.hidden=NO;
     self.toptitle.text=@"消息";
     self.leftImgBtn.hidden=NO;
+    
+    [self getUserMessageData];
     [self initTableView];
 }
+
+- (void)getUserMessageData{
+    User*user=[User getUser];
+    [self.net Message_indexWithUid:user.uid];
+}
+
 #pragma mark UITableViewDataSource
 - (void)initTableView {
     self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0,SafeAreaTopHeight, SCREEN_WIDTH, SCREEN_HEIGHT-SafeAreaBottomHeight) style:UITableViewStylePlain];
@@ -92,6 +100,50 @@
     return 0;
 }
 
+
+#pragma mark === NetManagerDelegate ===
+
+- (void)requestDidFinished:(NetManager *)request result:(NSMutableDictionary *)result{
+    NSDictionary*code=result[@"head"];
+    if ([code[@"res_code"]intValue]!=0002) {
+        
+        [DZTools showNOHud:code[@"res_msg"] delay:2];
+        return;
+    }
+    else{
+        if (self.net.requestId==1001) {//新增地址
+            [DZTools showOKHud:code[@"res_msg"] delay:2];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        if (self.net.requestId==1003) {//编辑地址
+            [DZTools showOKHud:code[@"res_msg"] delay:2];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        if (self.net.requestId==1004) {//删除地址
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+        if (self.net.requestId==1002) {
+            
+           
+        }
+    }
+    
+}
+
+- (void)requestError:(NetManager *)request error:(NSError*)error{
+    
+}
+
+- (void)requestStart:(NetManager *)request{
+    
+}
+- (NetManager *)net{
+    if (!_net) {
+        self.net = [[NetManager alloc] init];
+        _net.delegate = self;
+    }
+    return _net;
+}
 
 
 @end

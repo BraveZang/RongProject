@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0442411F2542B00900E066FE /* AreaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442411E2542B00900E066FE /* AreaModel.m */; };
+		044241222542B02600E066FE /* ZRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 044241212542B02600E066FE /* ZRPickerView.m */; };
+		04C098902543B197005685DA /* MainInfoSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0988F2543B197005685DA /* MainInfoSettingVC.m */; };
+		04C098942543B289005685DA /* MainInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098932543B289005685DA /* MainInfoModel.m */; };
+		04C098972543B2E2005685DA /* MainInfoHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098962543B2E2005685DA /* MainInfoHeadCell.m */; };
+		04C0989A2543B313005685DA /* MainInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098992543B313005685DA /* MainInfoCell.m */; };
+		04C098A02543B436005685DA /* InfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0989E2543B436005685DA /* InfoModel.m */; };
+		04C098A32543B67A005685DA /* ZRAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098A12543B67A005685DA /* ZRAlertController.m */; };
+		04C098A62543B7A7005685DA /* UIColor+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098A52543B7A7005685DA /* UIColor+Extend.m */; };
+		04C098A92543C380005685DA /* ZRInfoPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098A82543C380005685DA /* ZRInfoPickerView.m */; };
 		27271CE5250D129A00B4E382 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27271CE4250D129A00B4E382 /* AppDelegate.m */; };
 		27271CEB250D129A00B4E382 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27271CEA250D129A00B4E382 /* ViewController.m */; };
 		27271CEE250D129A00B4E382 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27271CEC250D129A00B4E382 /* Main.storyboard */; };
@@ -146,6 +156,26 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0442411D2542B00900E066FE /* AreaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaModel.h; sourceTree = "<group>"; };
+		0442411E2542B00900E066FE /* AreaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaModel.m; sourceTree = "<group>"; };
+		044241202542B02500E066FE /* ZRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRPickerView.h; sourceTree = "<group>"; };
+		044241212542B02600E066FE /* ZRPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRPickerView.m; sourceTree = "<group>"; };
+		04C0988E2543B197005685DA /* MainInfoSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainInfoSettingVC.h; sourceTree = "<group>"; };
+		04C0988F2543B197005685DA /* MainInfoSettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainInfoSettingVC.m; sourceTree = "<group>"; };
+		04C098922543B289005685DA /* MainInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainInfoModel.h; sourceTree = "<group>"; };
+		04C098932543B289005685DA /* MainInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainInfoModel.m; sourceTree = "<group>"; };
+		04C098952543B2E2005685DA /* MainInfoHeadCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainInfoHeadCell.h; sourceTree = "<group>"; };
+		04C098962543B2E2005685DA /* MainInfoHeadCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainInfoHeadCell.m; sourceTree = "<group>"; };
+		04C098982543B313005685DA /* MainInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainInfoCell.h; sourceTree = "<group>"; };
+		04C098992543B313005685DA /* MainInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainInfoCell.m; sourceTree = "<group>"; };
+		04C0989E2543B436005685DA /* InfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoModel.m; sourceTree = "<group>"; };
+		04C0989F2543B436005685DA /* InfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoModel.h; sourceTree = "<group>"; };
+		04C098A12543B67A005685DA /* ZRAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRAlertController.m; sourceTree = "<group>"; };
+		04C098A22543B67A005685DA /* ZRAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRAlertController.h; sourceTree = "<group>"; };
+		04C098A42543B7A6005685DA /* UIColor+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extend.h"; sourceTree = "<group>"; };
+		04C098A52543B7A7005685DA /* UIColor+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extend.m"; sourceTree = "<group>"; };
+		04C098A72543C380005685DA /* ZRInfoPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZRInfoPickerView.h; sourceTree = "<group>"; };
+		04C098A82543C380005685DA /* ZRInfoPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZRInfoPickerView.m; sourceTree = "<group>"; };
 		27271CE0250D129A00B4E382 /* RongPenProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RongPenProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27271CE3250D129A00B4E382 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		27271CE4250D129A00B4E382 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -404,6 +434,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04C098912543B260005685DA /* model */ = {
+			isa = PBXGroup;
+			children = (
+				04C0989F2543B436005685DA /* InfoModel.h */,
+				04C0989E2543B436005685DA /* InfoModel.m */,
+				04C098922543B289005685DA /* MainInfoModel.h */,
+				04C098932543B289005685DA /* MainInfoModel.m */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		27271CD7250D129A00B4E382 = {
 			isa = PBXGroup;
 			children = (
@@ -535,6 +576,8 @@
 		C62DCC0D2535D0E400410FCE /* model */ = {
 			isa = PBXGroup;
 			children = (
+				0442411D2542B00900E066FE /* AreaModel.h */,
+				0442411E2542B00900E066FE /* AreaModel.m */,
 				C62DCC062535CF7B00410FCE /* AddressModel.h */,
 				C62DCC052535CF7B00410FCE /* AddressModel.m */,
 				C62DCC3B253AA10800410FCE /* Shop_qrorderModel.h */,
@@ -559,6 +602,8 @@
 				C62DCC48253AD39C00410FCE /* AddressPickerView.m */,
 				C62DCC4D253AD43300410FCE /* AddAdressCell.h */,
 				C62DCC4C253AD43300410FCE /* AddAdressCell.m */,
+				044241202542B02500E066FE /* ZRPickerView.h */,
+				044241212542B02600E066FE /* ZRPickerView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -657,6 +702,10 @@
 		C6473F16250F3F6C00BDE73F /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				04C098A42543B7A6005685DA /* UIColor+Extend.h */,
+				04C098A52543B7A7005685DA /* UIColor+Extend.m */,
+				04C098A22543B67A005685DA /* ZRAlertController.h */,
+				04C098A12543B67A005685DA /* ZRAlertController.m */,
 				C6168BC52519B4A9001EF850 /* HDragView */,
 				C64740522518CD8400BDE73F /* Button */,
 				C6473FDA2511A6A000BDE73F /* NullSafe */,
@@ -669,6 +718,8 @@
 				C6473F44250F442200BDE73F /* MAlertView */,
 				C6473F1C250F425700BDE73F /* MTool.h */,
 				C6473F1D250F425800BDE73F /* MTool.m */,
+				04C098A72543C380005685DA /* ZRInfoPickerView.h */,
+				04C098A82543C380005685DA /* ZRInfoPickerView.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -962,6 +1013,9 @@
 				C6168BBA2519A54D001EF850 /* MainSetVC.m */,
 				C6168BBF2519ADAA001EF850 /* MainFanKuiVC.h */,
 				C6168BC02519ADAA001EF850 /* MainFanKuiVC.m */,
+				04C0988E2543B197005685DA /* MainInfoSettingVC.h */,
+				04C0988F2543B197005685DA /* MainInfoSettingVC.m */,
+				04C098912543B260005685DA /* model */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -973,15 +1027,12 @@
 				C6168BBD2519A617001EF850 /* MainSetCell.m */,
 				C6168BC22519AE6F001EF850 /* MainFanKuiCell.h */,
 				C6168BC32519AE6F001EF850 /* MainFanKuiCell.m */,
+				04C098952543B2E2005685DA /* MainInfoHeadCell.h */,
+				04C098962543B2E2005685DA /* MainInfoHeadCell.m */,
+				04C098982543B313005685DA /* MainInfoCell.h */,
+				04C098992543B313005685DA /* MainInfoCell.m */,
 			);
 			path = view;
-			sourceTree = "<group>";
-		};
-		C6473FB6250F4C5400BDE73F /* model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = model;
 			sourceTree = "<group>";
 		};
 		C6473FBD250F52EE00BDE73F /* ThirdParts */ = {
@@ -1066,7 +1117,6 @@
 			children = (
 				C6473FB5250F4C5000BDE73F /* view */,
 				C6473FB4250F4C4A00BDE73F /* controller */,
-				C6473FB6250F4C5400BDE73F /* model */,
 			);
 			path = MainIndex;
 			sourceTree = "<group>";
@@ -1439,9 +1489,13 @@
 				C62DCC3A253A8C4800410FCE /* ShopQROrderCell.m in Sources */,
 				C62DCC112535D5DD00410FCE /* ConfirmOrderVCCell.m in Sources */,
 				C62DCC5B253C1C9800410FCE /* MainCoursePageOneVC.m in Sources */,
+				04C098972543B2E2005685DA /* MainInfoHeadCell.m in Sources */,
 				C62DCC58253C1A0300410FCE /* MCPageView.m in Sources */,
+				04C0989A2543B313005685DA /* MainInfoCell.m in Sources */,
 				C62DCC042535CEB400410FCE /* ShopAdressCell..m in Sources */,
+				04C098A62543B7A7005685DA /* UIColor+Extend.m in Sources */,
 				C62DCC0B2535D0CF00410FCE /* ConfirmOrderVC.m in Sources */,
+				04C098A92543C380005685DA /* ZRInfoPickerView.m in Sources */,
 				C62DCC4E253AD43300410FCE /* AddAdressCell.m in Sources */,
 				C6473F62250F44A400BDE73F /* NSObject+AutoProperty.m in Sources */,
 				C6497BD1251C7E17006463B4 /* CheckpointListVC.m in Sources */,
@@ -1469,6 +1523,7 @@
 				C62DCBF82535818900410FCE /* ShopInfoModel.m in Sources */,
 				C62DCC012535AC1B00410FCE /* ShopInfoCell.m in Sources */,
 				C6497BCB251C440D006463B4 /* DictationListVC.m in Sources */,
+				04C098902543B197005685DA /* MainInfoSettingVC.m in Sources */,
 				C6473FB9250F4C6500BDE73F /* MainIndexVC.m in Sources */,
 				C6168BBB2519A54D001EF850 /* MainSetVC.m in Sources */,
 				C6168BC12519ADAA001EF850 /* MainFanKuiVC.m in Sources */,
@@ -1481,6 +1536,7 @@
 				C647400C25188DB600BDE73F /* UIView+Toast.m in Sources */,
 				C6473FAA250F4BB900BDE73F /* ConfirmIndexVC.m in Sources */,
 				C6473F94250F44C700BDE73F /* DZBaseWebViewController.m in Sources */,
+				0442411F2542B00900E066FE /* AreaModel.m in Sources */,
 				C6473F4C250F442200BDE73F /* MAlertView.m in Sources */,
 				C6473F5C250F449B00BDE73F /* NSString+CZHExtension.m in Sources */,
 				C6168BD82519B4A9001EF850 /* HDragItem.m in Sources */,
@@ -1493,6 +1549,7 @@
 				C6473F5B250F449B00BDE73F /* UIView+CZHExtension.m in Sources */,
 				C6473F5E250F449B00BDE73F /* CZHTagsView.m in Sources */,
 				C6473F7C250F44B800BDE73F /* UIView+.m in Sources */,
+				04C098A32543B67A005685DA /* ZRAlertController.m in Sources */,
 				C6473F7A250F44B800BDE73F /* UIView+UIViewRect.m in Sources */,
 				C6473F1B250F416E00BDE73F /* NetManager.m in Sources */,
 				C6497BC4251C3DC3006463B4 /* MessageModel.m in Sources */,
@@ -1508,12 +1565,14 @@
 				C6473F25250F433200BDE73F /* LoadingView.m in Sources */,
 				C62DCC4B253AD39C00410FCE /* AddressPickerView.m in Sources */,
 				C62DCC5E253C1D7E00410FCE /* CourseVideoCollCell.m in Sources */,
+				044241222542B02600E066FE /* ZRPickerView.m in Sources */,
 				C6473F5D250F449B00BDE73F /* MKSearchBar.m in Sources */,
 				C6473F97250F453400BDE73F /* NetManager+UPRequest.m in Sources */,
 				C64740022514823100BDE73F /* swift.swift in Sources */,
 				C6497BD8251C828E006463B4 /* HYBStarEvaluationView.m in Sources */,
 				C6168BBE2519A617001EF850 /* MainSetCell.m in Sources */,
 				C647400B25188DB600BDE73F /* UIViewController+Present.m in Sources */,
+				04C098A02543B436005685DA /* InfoModel.m in Sources */,
 				C6473F7B250F44B800BDE73F /* UIView+Corner.m in Sources */,
 				C62DCC152535D96400410FCE /* PPNumberButton.m in Sources */,
 				C6473FCA250F531A00BDE73F /* AlipayManager.m in Sources */,
@@ -1522,6 +1581,7 @@
 				C6168BD12519B4A9001EF850 /* HDragItemListView.m in Sources */,
 				C62DCC072535CF7B00410FCE /* AddressModel.m in Sources */,
 				C647400F25188F3700BDE73F /* forgetPassVC.m in Sources */,
+				04C098942543B289005685DA /* MainInfoModel.m in Sources */,
 				C6473F92250F44C700BDE73F /* DZBaseViewController.m in Sources */,
 				C647401225189E4B00BDE73F /* ConfirmIndexCell.m in Sources */,
 				C62DCBFB2535974100410FCE /* HaveBuyView.m in Sources */,
@@ -1696,7 +1756,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BS2MU66C48;
+				DEVELOPMENT_TEAM = J8Z4RFGTV8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RongPenProject/ThirdParts/Alipay",
@@ -1724,7 +1784,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BS2MU66C48;
+				DEVELOPMENT_TEAM = J8Z4RFGTV8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RongPenProject/ThirdParts/Alipay",

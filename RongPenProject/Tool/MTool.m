@@ -246,6 +246,124 @@ static AFNetworkReachabilityStatus NOW_NETWORK_STATUS;
     return textSize;
 }
 
+#pragma mark -用户信息设置
+
+/// 获取年级列表
++ (NSArray *)getGradeList{
+    
+    return @[@"一年级",@"二年级",@"三年级",@"四年级",@"五年级",@"六年级",@"初一",@"初二",@"初三",@"高一",@"高二",@"高三"];
+}
+
+/// 根据年级编码获取年级名字
++ (NSString *)getGradeNameWithGradeCode:(NSString *)gradeCode{
+    if ([gradeCode isEqualToString:@"1"]) {
+        return @"一年级";
+    }else if ([gradeCode isEqualToString:@"2"]) {
+        return @"二年级";
+    }else if ([gradeCode isEqualToString:@"3"]) {
+        return @"三年级";
+    }else if ([gradeCode isEqualToString:@"4"]) {
+        return @"四年级";
+    }else if ([gradeCode isEqualToString:@"5"]) {
+        return @"五年级";
+    }else if ([gradeCode isEqualToString:@"6"]) {
+        return @"六年级";
+    }else if ([gradeCode isEqualToString:@"7"]) {
+        return @"初一";
+    }else if ([gradeCode isEqualToString:@"8"]) {
+        return @"初二";
+    }else if ([gradeCode isEqualToString:@"9"]) {
+        return @"初三";
+    }else if ([gradeCode isEqualToString:@"10"]) {
+        return @"高一";
+    }else if ([gradeCode isEqualToString:@"11"]) {
+        return @"高二";
+    }else if ([gradeCode isEqualToString:@"12"]) {
+        return @"高三";
+    }
+    else {
+        return @"未设置";
+    }
+}
+
+/// 根据年级名字获取年级编码
++ (NSString *)getGradeCodeWithGradeName:(NSString *)gradeName{
+    if ([gradeName isEqualToString:@"一年级"]) {
+        return @"1";
+    }else if ([gradeName isEqualToString:@"二年级"]) {
+        return @"2";
+    }else if ([gradeName isEqualToString:@"三年级"]) {
+        return @"3";
+    }else if ([gradeName isEqualToString:@"四年级"]) {
+        return @"4";
+    }else if ([gradeName isEqualToString:@"五年级"]) {
+        return @"5";
+    }else if ([gradeName isEqualToString:@"六年级"]) {
+        return @"6";
+    }else if ([gradeName isEqualToString:@"初一"]) {
+        return @"7";
+    }else if ([gradeName isEqualToString:@"初二"]) {
+        return @"8";
+    }else if ([gradeName isEqualToString:@"初三"]) {
+        return @"9";
+    }else if ([gradeName isEqualToString:@"高一"]) {
+        return @"10";
+    }else if ([gradeName isEqualToString:@"高二"]) {
+        return @"11";
+    }else if ([gradeName isEqualToString:@"高三"]) {
+        return @"12";
+    }
+    else {
+        return @"0";
+    }
+}
+
+
+
+
+
+
+#pragma mark - 版本号
+
+
+/// 获取本地版本号
++ (NSString *)getAppVersion{
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *app_Version  = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    return app_Version;
+}
+
+/// 获取线上版本号
++ (NSString *)getNewestVersion{
+    NSString * newestVersion = [[NSUserDefaults standardUserDefaults] valueForKey:@"newestVersion"];
+    return newestVersion;
+}
+/**
+ 保存线上版本号到本地
+ 
+ @param newestVersion 线上版本号
+ */
++(void)saveNewestVersion:(NSString *)newestVersion{
+    [[NSUserDefaults standardUserDefaults] setObject:newestVersion forKey:@"newestVersion"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+
++ (BOOL)versionCompareOldStr:(NSString *)first andNewStr: (NSString *)second{
+    
+    if ([first compare:second options:NSNumericSearch] == NSOrderedDescending)
+    {
+        return NO;
+    }else if ([first compare:second options:NSNumericSearch] == NSOrderedSame)
+    {
+        return NO;
+    }else{
+        return YES;
+    }
+    
+}
+
+
 #pragma mark - 压缩图片
 
 + (NSData *)imageCompressToData:(UIImage *)image{
@@ -1638,23 +1756,23 @@ static AFNetworkReachabilityStatus NOW_NETWORK_STATUS;
  * @param   text 文字
  * @param   showTime 显示时间
  */
-//+ (void)showText:(NSString *)text showTime:(NSInteger)showTime{
-//    
-//    UIView *view = [[UIApplication sharedApplication].windows firstObject];
-//    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-//    hud.userInteractionEnabled = NO;
-//    hud.mode = MBProgressHUDModeText;
-//    
-//    hud.label.text = text;
-//    hud.label.numberOfLines = 0;
-//    hud.label.textColor = [UIColor whiteColor];
-//    hud.label.font = [UIFont systemFontOfSize:20];
-//    
-////    这个是提示框的背景View
-//    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
-//    hud.bezelView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.68];
-//    [hud hideAnimated:YES afterDelay:showTime];
-//}
++ (void)showText:(NSString *)text showTime:(NSInteger)showTime{
+    
+    UIView *view = [[UIApplication sharedApplication].windows firstObject];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    hud.userInteractionEnabled = NO;
+    hud.mode = MBProgressHUDModeText;
+    
+    hud.label.text = text;
+    hud.label.numberOfLines = 0;
+    hud.label.textColor = [UIColor whiteColor];
+    hud.label.font = [UIFont systemFontOfSize:20];
+    
+//    这个是提示框的背景View
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.bezelView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.68];
+    [hud hideAnimated:YES afterDelay:showTime];
+}
 
 
 
@@ -1662,9 +1780,9 @@ static AFNetworkReachabilityStatus NOW_NETWORK_STATUS;
  * @brief   提示框展示纯文字类型
  * @param   text 文字
  */
-//+ (void)showText:(NSString *)text{
-//    [self showText:text showTime:2];
-//}
++ (void)showText:(NSString *)text{
+    [self showText:text showTime:2];
+}
 
 
 

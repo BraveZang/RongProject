@@ -56,6 +56,44 @@
  把大长串的数字做单位处理
  **/
 
+#pragma mark -用户信息设置
+
+/// 获取年级列表
++ (NSArray *)getGradeList;
+
+/// 根据年级编码获取年级名字
++ (NSString *)getGradeNameWithGradeCode:(NSString *)gradeCode;
+/// 根据年级名字获取年级编码
++ (NSString *)getGradeCodeWithGradeName:(NSString *)gradeName;
+
+#pragma mark - 版本号
+
+/// 获取本地版本号
++ (NSString *)getAppVersion;
+
+/// 获取线上版本号
++ (NSString *)getNewestVersion;
+/**
+ 保存线上版本号到本地
+ 
+ @param newestVersion 线上版本号
+ */
++(void)saveNewestVersion:(NSString *)newestVersion;
+
+/**
+ 版本号比较
+
+ @param first 老版本
+ @param second 新版本
+ @return 比较结果
+ */
++ (BOOL)versionCompareOldStr:(NSString *)first andNewStr: (NSString *)second;
+
+
+
+
+
+
 +(NSString *)changeAsset:(NSString *)amountStr;
 #pragma mark - 压缩图片
 

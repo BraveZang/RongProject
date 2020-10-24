@@ -72,6 +72,26 @@ login_setgread
 - (void)login_renewingWithUid:(NSString *)uid;
 
 
+/// 编辑会员信息
+/// @param uid 用户id
+/// @param avatar 头像
+/// @param nickname 昵称
+/// @param grade 班级
+/// @param age 年龄
+/// @param sex 性别
+- (void)member_usereditWithUid:(NSString *)uid Avatar:(NSString *)avatar NicName:(NSString *)nickname Grade:(NSString *)grade Age:(NSString *)age andSex:(NSString *)sex;
+
+
+/// 编辑会员头像
+/// @param uid 用户id
+/// @param avatar 头像
+/// @param nickname 昵称
+/// @param grade 班级
+/// @param age 年龄
+/// @param sex 性别
+- (void)member_userHeaderEditWithUid:(NSString *)uid Avatar:(NSData *)avatar NicName:(NSString *)nickname Grade:(NSString *)grade Age:(NSString *)age andSex:(NSString *)sex;
+
+
 /**
  获取地区
  main_area
@@ -103,6 +123,18 @@ login_setgread
  page 分页 默认1
  **/
 - (void)Course_orderlistWithPage:(NSString *)page Uid:(NSString *)uid;
+
+
+/// 我的消息
+/// @param uid 用户id
+- (void)Message_indexWithUid:(NSString *)uid;
+
+
+/// 消息详情
+/// @param uid 用户id
+/// @param type type 类型 1.购买消息 2.上课提醒 3.系统消息
+- (void)Message_infoWithUid:(NSString *)uid andType:(NSString *)type;
+
 #pragma mark - 商城
 
 /**

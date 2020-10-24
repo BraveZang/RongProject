@@ -19,21 +19,23 @@
 }
 -(void)createUI{
     
-    float viewW=ScreenWidth;
+    float viewW=(ScreenWidth-LeftMargin*2)/2;
     float viewH=FitRealValue(110);
     if (IS_IPAD) {
         viewH=viewH*2/3;
     }
-    self.titleLab=[[UILabel alloc]initWithFrame:CGRectMake(LeftMargin, 0,viewW-LeftMargin,viewH)];
+    self.titleLab=[[UILabel alloc]initWithFrame:CGRectMake(LeftMargin, 0,viewW,viewH)];
     self.titleLab.font=[UIFont boldSystemFontOfSize:14];
+//    _titleLab.backgroundColor = [UIColor greenColor];
     self.titleLab.textColor=[MTool colorWithHexString:@"#212121"];
-    [self addSubview:self.titleLab];
+    [self.contentView addSubview:self.titleLab];
     
-    self.contentLab=[[UILabel alloc]initWithFrame:CGRectMake(ScreenWidth-40, 0,viewW-LeftMargin,viewH)];
+    self.contentLab=[[UILabel alloc]initWithFrame:CGRectMake(_titleLab.right, 0,viewW -30,viewH)];
     self.contentLab.font=[UIFont boldSystemFontOfSize:12];
     self.contentLab.textAlignment=NSTextAlignmentRight;
+//    self.contentLab.backgroundColor = [UIColor redColor];
     self.contentLab.textColor=[MTool colorWithHexString:@"#888888"];
-    [self addSubview:self.contentLab];
+    [self.contentView addSubview:self.contentLab];
 }
 
 @end

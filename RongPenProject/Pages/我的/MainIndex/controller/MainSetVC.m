@@ -73,16 +73,20 @@
     if (cell == nil) {
         cell = [[MainSetCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     if (indexPath.section==0) {
         if (indexPath.row==0) {
-            cell.titleLab.text=@"版本更新";
+            cell.titleLab.text=@"最新版本";
             cell.contentLab.text=@"当前已是最新版本";
-            
+            cell.contentLab.hidden=NO;
+
         }
         if (indexPath.row==1) {
             cell.titleLab.text=@"清除缓存";
-            cell.contentLab.text=@"当前缓存234M";
+            cell.contentLab.hidden=NO;
+            float size_m = [self cacheFilesSize]/(1000*1000);
+            cell.contentLab.text = [NSString stringWithFormat:@"%.2fM",size_m];
             
         }
         if (indexPath.row==2) {
@@ -105,4 +109,73 @@
     }
     return cell;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==0) {
+        if (indexPath.row==0) {
+//            cell.titleLab.text=@"版本更新";
+//            cell.contentLab.text=@"当前已是最新版本";
+            
+        }
+        if (indexPath.row==1) {
+            [self qingchuhuancunClick];
+            
+        }
+        if (indexPath.row==2) {
+          
+            
+        }
+    }
+    else{
+        if (indexPath.row==0) {
+            
+            
+        }
+        if (indexPath.row==1) {
+           
+            
+        }
+    }
+}
+
+#pragma ---cache
+- (void)qingchuhuancunClick{
+    NSString *cachPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask, YES) objectAtIndex:0];
+    NSArray *files = [[NSFileManager defaultManager] subpathsAtPath:cachPath];
+    NSLog(@"files :%lu",(unsigned long)[files count]);
+    for (NSString *p in files) {
+        NSError *error;
+        NSString *path = [cachPath stringByAppendingPathComponent:p];
+        if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
+            [[NSFileManager defaultManager] removeItemAtPath:path error:&error];
+        }
+    }
+//    [self.view makeToast:@"清除緩存成功"]
+    [MTool showText:@"清除緩存成功"];
+    [self.tableView reloadData];
+}
+
+- (float)cacheFilesSize{
+    NSString *cachPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory,NSUserDomainMask, YES) objectAtIndex:0];
+    NSFileManager *manager = [NSFileManager defaultManager];
+    //    SFun_Log(@"cachPath = %@",cachPath);
+    if (![manager fileExistsAtPath:cachPath]) return 0;
+    NSEnumerator *childFilesEnumerator = [[manager subpathsAtPath:cachPath] objectEnumerator];
+    NSString *fileName;
+    long long folderSize = 0;
+    while ((fileName = [childFilesEnumerator nextObject]) != nil){
+        NSString *fileAbsolutePath = [cachPath stringByAppendingPathComponent:fileName];
+        folderSize += [self fileSizeAtPath:fileAbsolutePath];
+    }
+    return folderSize;
+}
+- (long long) fileSizeAtPath:(NSString *) filePath{
+    NSFileManager *manager = [NSFileManager defaultManager];
+    if ([manager fileExistsAtPath:filePath]){
+        return [[manager attributesOfItemAtPath:filePath error:nil] fileSize];
+    }
+    return 0;
+}
+
+
 @end

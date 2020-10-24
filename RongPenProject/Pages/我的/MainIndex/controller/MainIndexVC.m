@@ -11,7 +11,7 @@
 #import "MainFanKuiVC.h"
 #import "MainMessageVC.h"
 #import "MainCourseVC.h"
-
+#import "MainInfoSettingVC.h"
 @interface MainIndexVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
 
 @property (nonatomic, strong)  UITableView          *tableView;
@@ -84,6 +84,7 @@
     self.editorBtn.frame=CGRectMake(ScreenWidth-FitRealValue(120), imgY, FitRealValue(120), imgH);
     [self.editorBtn setTitle:@"编辑" forState:UIControlStateNormal];
     self.editorBtn.titleLabel.font=[UIFont systemFontOfSize:14];
+    [_editorBtn addTarget:self action:@selector(setInfoClick) forControlEvents:UIControlEventTouchUpInside];
     [self.editorBtn setTitleColor:[MTool colorWithHexString:@"#FF8181"] forState:UIControlStateNormal];
     [self.headerView addSubview:self.editorBtn];
     
@@ -190,6 +191,12 @@
     [self.navigationController pushViewController:vc animated:YES];
     
 }
+- (void)setInfoClick{
+    MainInfoSettingVC*vc=[MainInfoSettingVC new];
+    vc.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 #pragma mark UITableViewDataSource
 - (void)initTableView {
     self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-SafeAreaBottomHeight-49) style:UITableViewStylePlain];

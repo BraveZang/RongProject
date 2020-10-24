@@ -9,7 +9,6 @@
 #import "LoginVC.h"
 #import "SDCycleScrollView.h"//广告轮播图
 #import "ShopIndexVC.h"
-
 @interface ReadIndexVC ()<NetManagerDelegate,SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) SDCycleScrollView                *topAdScrollView;//广告轮播控件
@@ -23,8 +22,13 @@
 
 @implementation ReadIndexVC
 
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     self.topview.hidden=NO;
     self.toptitle.hidden=NO;
     self.rightImgBtn.hidden=NO;

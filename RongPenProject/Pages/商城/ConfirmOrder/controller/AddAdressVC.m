@@ -10,7 +10,8 @@
 #import "ReLayoutButton.h"
 #import "AddAdressCell.h"
 #import "AddressModel.h"
-
+#import "ZRPickerView.h"
+#import "AreaModel.h"
 #import <ContactsUI/ContactsUI.h>
 
 
@@ -38,6 +39,16 @@
 @property (nonatomic,strong) NSString                   *area;   //县
 @property (nonatomic,strong) AddressModel               *Addressmodel;
 @property (nonatomic,strong) NSArray                    *areAry;   //县
+
+
+@property (nonatomic, strong) ZRPickerView      *zrPickerView;
+@property (nonatomic, strong) NSMutableArray    *areaArray;
+/// 当前选择省份信息
+@property (nonatomic, strong) AreaModel          *currentProvinceModel;
+/// 当前选择城市信息
+@property (nonatomic, strong) AreaModel          *currentCityModel;
+/// 当前选择县区信息
+@property (nonatomic, strong) AreaModel          *currentAreaModel;
 
 @end
 
@@ -93,9 +104,32 @@
         
     }
     
- 
-
+    self.areaArray = [self getAreaPlist];
+    [self.view addSubview:self.zrPickerView];
 }
+
+
+/// 获取省市县信息
+- (NSMutableArray *)getAreaPlist{
+    NSMutableArray * CityList = [[NSMutableArray alloc] initWithCapacity:35];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+     NSString *plistPath = [paths objectAtIndex:0];
+       //得到完整的文件名
+     NSString *filename=[plistPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.plist", @"Areaaaaaaaa"]];
+    NSMutableArray *data = [[NSMutableArray alloc] initWithContentsOfFile:filename];
+
+       for (NSInteger i = 0; i < data.count; i++) {
+           AreaModel * model = [[AreaModel alloc] init];
+           model.name = [data[i] objectForKey:@"name"];
+           model.ID = [data[i] objectForKey:@"id"];
+           model.second = [AreaModel mj_objectArrayWithKeyValuesArray:[data[i] objectForKey:@"second"]];
+           [CityList addObject:model];
+       }
+    return CityList;
+}
+
+
 
 #pragma mark -TableViewDelegate
 
@@ -210,6 +244,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     
+    
+    
 }
 #pragma mark - AddressPickerViewDelegate
 - (void)sureBtnClickReturnProvince:(NSString *)province City:(NSString *)city Area:(NSString *)area {
@@ -219,7 +255,9 @@
     self.area=area;
     self.addressStr = [NSString stringWithFormat:@"%@,%@,%@", province, city, area];
     [self.tableView reloadData];
-    [self.pickerView hide];
+//    [self.pickerView hide];
+    self.zrPickerView.frame = CGRectMake(0, ScreenHeight, ScreenWidth, 220);
+
 }
 #pragma mark - Function
 - (void)cancelBtnClick {
@@ -280,11 +318,33 @@
 
 - (void)addressBtnClick {
     [self.view endEditing:YES];
-    [[DZTools getAppWindow] addSubview:self.pickerView];
-    [self.pickerView show];
+//    [[DZTools getAppWindow] addSubview:self.pickerView];
+//    [self.pickerView show];
+    
+    self.zrPickerView.frame = CGRectMake(0, ScreenHeight - 220, ScreenWidth, 220);
 }
 
 #pragma mark – 懒加载
+
+- (ZRPickerView *)zrPickerView{
+ 
+//    @WeakObj(self);
+    if (!_zrPickerView) {
+        _zrPickerView = [[ZRPickerView alloc] initWithFrame:CGRectMake(0, ScreenHeight , ScreenWidth, 220) WithDataArray:self.areaArray];
+        _zrPickerView.pickerRow = 3;
+        _zrPickerView.backgroundColor = [MTool colorWithHexString:@"#E5E5E5"];
+        
+        _zrPickerView.didSelectRowBlock = ^(AreaModel * _Nonnull provinceModel, AreaModel * _Nonnull cityModel, AreaModel * _Nonnull areaModel) {
+            NSLog(@"%@,%@,%@",provinceModel.name,cityModel.name,areaModel.name);
+        };
+    }
+    
+    return _zrPickerView;
+    
+    
+}
+
+
 - (AddressPickerView *)pickerView {
     if (!_pickerView) {
         _pickerView = [[AddressPickerView alloc] init];
