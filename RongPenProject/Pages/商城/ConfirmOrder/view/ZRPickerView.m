@@ -119,7 +119,6 @@
     }else{
         AreaModel * shengModel = self.dataSouce[_proIndex];
         NSInteger cityIndex = [_pickerView selectedRowInComponent:1];
-        
         AreaModel * areaModel = shengModel.second[cityIndex];
         
         return areaModel.second.count;
@@ -155,9 +154,12 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
     if (component == 0) {
-        _proIndex = [pickerView selectedRowInComponent:0 ];
+        _proIndex = [pickerView selectedRowInComponent:0];
+        [pickerView selectRow:0 inComponent:1 animated:NO];
+        [pickerView selectRow:0 inComponent:2 animated:NO];
         [pickerView reloadAllComponents];
     }else if (component == 1){
+        [pickerView selectRow:0 inComponent:2 animated:NO];
         [pickerView reloadAllComponents];
     }
     //获取选中省会
