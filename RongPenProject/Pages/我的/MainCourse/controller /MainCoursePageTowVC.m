@@ -7,8 +7,6 @@
 
 #import "MainCoursePageTowVC.h"
 #import "CourseVideoCollCell.h"
-#import "CourseVideoModel.h"
-
 @interface MainCoursePageTowVC ()<NetManagerDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
 {
     UIView* NoDataView;
@@ -105,12 +103,12 @@
 // 选中某item
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    ShopIndexModel*model=self.datAry[indexPath.item];
-    //    ShopInfoVC*vc=[ShopInfoVC new];
-    //    vc.shopindexmodel=model;
-    //    [self.navigationController pushViewController:vc animated:YES];
-    
+    CourseVideoModel*model=self.datAry[indexPath.item];
+    self.tiemClickBlock(model);
+   
 }
+
+
 
 - (void)refresh {
     _page = 1;

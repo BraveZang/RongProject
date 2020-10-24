@@ -340,12 +340,24 @@ login_setgread
 - (void)Course_orderlistWithPage:(NSString *)page Uid:(NSString *)uid{
     
     NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
-    
     if (page)[mutabDic setObject:page forKey:@"page"];
     if (uid)[mutabDic setObject:uid forKey:@"uid"];
      [self sendPOSTRequestToServerWithURL:@"Course_orderlist" postData:mutabDic];
 }
 
+/**
+ 课程详情 参数Course_info
+ 参数：
+ id 课程id
+ type 类型 列表中返回的值 录播、直播
+ **/
+- (void)Course_infoWithId:(NSString *)id Type:(NSString *)type{
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (id)[mutabDic setObject:id forKey:@"id"];
+    if (type)[mutabDic setObject:type forKey:@"type"];
+     [self sendPOSTRequestToServerWithURL:@"Course_info" postData:mutabDic];
+    
+}
 /// 我的消息
 /// @param uid 用户id
 - (void)Message_indexWithUid:(NSString *)uid{

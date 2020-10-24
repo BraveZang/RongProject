@@ -10,6 +10,7 @@
 #import "MainCoursePageOneVC.h"
 #import "MainCoursePageThreeVC.h"
 #import "MainCoursePageTowVC.h"
+#import "WebViewViewController.h"
 
 @interface MainCourseVC ()
 
@@ -36,12 +37,24 @@
     
     NSMutableArray *titles = [NSMutableArray array];
     NSMutableArray *controllers = [NSMutableArray array];
-    [controllers addObject:[MainCoursePageOneVC new]];
+    
+    MainCoursePageOneVC*vc1=[MainCoursePageOneVC new];
+    [controllers addObject:vc1];
     [titles addObject:@"录播课程"];
-    [controllers addObject:[MainCoursePageTowVC new]];
+    
+    MainCoursePageTowVC*vc2=[MainCoursePageTowVC new];
+    vc2.tiemClickBlock = ^(CourseVideoModel * _Nonnull model) {
+        WebViewViewController *webVC = [[WebViewViewController alloc]init];
+        webVC.urlStr = model.videofm;
+        webVC.titleStr=model.name;
+        [self.navigationController pushViewController:webVC animated:YES];
+    };
+    [controllers addObject:vc2];
     [titles addObject:@"直播课程"];
     [controllers addObject:[MainCoursePageThreeVC new]];
     [titles addObject:@"已购课程"];
+    
+  
     
     self.PageView = [[MCPageView alloc]initWithFrame:CGRectMake(0, SafeAreaTopHeight, self.view.frame.size.width,ScreenHeight-SafeAreaTopHeight-SafeAreaBottomHeight) titles:titles controllers:controllers];
     self.PageView.titleButtonWidth = 60;

@@ -141,6 +141,8 @@
 		C6497C1A2531A4DB006463B4 /* ShopInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C6497C192531A4DB006463B4 /* ShopInfoVC.m */; };
 		C67920072544532D005822C0 /* MessageInfoDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C67920062544532D005822C0 /* MessageInfoDetailVC.m */; };
 		C679200A254455AC005822C0 /* MessageDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6792009254455AC005822C0 /* MessageDetailCell.m */; };
+		C679200D25445F46005822C0 /* MessageDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C679200C25445F46005822C0 /* MessageDetailModel.m */; };
+		C67920102544678B005822C0 /* MainCourseDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C679200F2544678B005822C0 /* MainCourseDetailVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -412,6 +414,10 @@
 		C67920062544532D005822C0 /* MessageInfoDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageInfoDetailVC.m; sourceTree = "<group>"; };
 		C6792008254455AC005822C0 /* MessageDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageDetailCell.h; sourceTree = "<group>"; };
 		C6792009254455AC005822C0 /* MessageDetailCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageDetailCell.m; sourceTree = "<group>"; };
+		C679200B25445F46005822C0 /* MessageDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageDetailModel.h; sourceTree = "<group>"; };
+		C679200C25445F46005822C0 /* MessageDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageDetailModel.m; sourceTree = "<group>"; };
+		C679200E2544678B005822C0 /* MainCourseDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainCourseDetailVC.h; sourceTree = "<group>"; };
+		C679200F2544678B005822C0 /* MainCourseDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainCourseDetailVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -688,6 +694,8 @@
 				C62DCC63253C275500410FCE /* MainCoursePageTowVC.m */,
 				C62DCC65253C278B00410FCE /* MainCoursePageThreeVC.h */,
 				C62DCC66253C278B00410FCE /* MainCoursePageThreeVC.m */,
+				C679200E2544678B005822C0 /* MainCourseDetailVC.h */,
+				C679200F2544678B005822C0 /* MainCourseDetailVC.m */,
 			);
 			path = "controller ";
 			sourceTree = "<group>";
@@ -1155,6 +1163,8 @@
 			children = (
 				C6497BC3251C3DC3006463B4 /* MessageModel.h */,
 				C6497BC2251C3DC3006463B4 /* MessageModel.m */,
+				C679200B25445F46005822C0 /* MessageDetailModel.h */,
+				C679200C25445F46005822C0 /* MessageDetailModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1551,7 +1561,9 @@
 				C62DCBF82535818900410FCE /* ShopInfoModel.m in Sources */,
 				C62DCC012535AC1B00410FCE /* ShopInfoCell.m in Sources */,
 				C6497BCB251C440D006463B4 /* DictationListVC.m in Sources */,
+				C67920102544678B005822C0 /* MainCourseDetailVC.m in Sources */,
 				04C098902543B197005685DA /* MainInfoSettingVC.m in Sources */,
+				C679200D25445F46005822C0 /* MessageDetailModel.m in Sources */,
 				C6473FB9250F4C6500BDE73F /* MainIndexVC.m in Sources */,
 				C6168BBB2519A54D001EF850 /* MainSetVC.m in Sources */,
 				C6168BC12519ADAA001EF850 /* MainFanKuiVC.m in Sources */,
@@ -1786,7 +1798,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2W93QV6U6C;
+				DEVELOPMENT_TEAM = BS2MU66C48;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RongPenProject/ThirdParts/Alipay",
@@ -1814,7 +1826,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2W93QV6U6C;
+				DEVELOPMENT_TEAM = BS2MU66C48;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RongPenProject/ThirdParts/Alipay",

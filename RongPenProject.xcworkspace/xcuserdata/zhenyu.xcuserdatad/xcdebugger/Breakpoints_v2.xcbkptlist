@@ -135,22 +135,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4EA5F288-C8BA-453F-A16C-8EA196E90E10"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RongPenProject/Pages/&#x6211;&#x7684;/MainCourse/controller /MainCoursePageTowVC.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "-requestDidFinished:result:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "033A6D52-F29D-43A6-8523-47B8624C6843"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -257,22 +241,6 @@
             startingLineNumber = "265"
             endingLineNumber = "265"
             landmarkName = "-zrPickerView"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7A529224-B5E5-4764-B03A-37A9E04D60D3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RongPenProject/Pages/&#x6211;&#x7684;/MainMessage/controller/MessageInfoDetailVC.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
-            landmarkName = "-requestDidFinished:result:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

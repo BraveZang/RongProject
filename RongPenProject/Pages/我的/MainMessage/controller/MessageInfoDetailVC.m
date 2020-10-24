@@ -7,14 +7,13 @@
 
 #import "MessageInfoDetailVC.h"
 #import "MessageDetailCell.h"
+#import "MessageDetailModel.h"
 
 @interface MessageInfoDetailVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
 
 @property(nonatomic, strong)   UITableView               *tableView;
 @property(nonatomic, strong)   NetManager                *net;
-@property(nonatomic, strong)   NSDictionary              *allDic;
-@property(nonatomic, strong)   NSArray                   *allAry;
-
+@property(nonatomic, strong)   NSMutableArray            *datAry;
 @end
 
 @implementation MessageInfoDetailVC
@@ -40,6 +39,7 @@
 - (void)initTableView {
     self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0,SafeAreaTopHeight, SCREEN_WIDTH, SCREEN_HEIGHT-SafeAreaBottomHeight) style:UITableViewStylePlain];
     self.tableView.backgroundColor=[MTool colorWithHexString:@"f8f8f8"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
     self.tableView.tableFooterView=[UIView new];
@@ -47,12 +47,8 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    if (self.allAry.count == 0) {
+   
+    if (self.datAry.count == 0) {
         self.noDataLab.text=@"暂无信息";
         UIView *backgroundImageView = self.noDataView;
         self.tableView.backgroundView = backgroundImageView;
@@ -60,7 +56,13 @@
     } else {
         self.tableView.backgroundView = nil;
     }
-    return self.allAry.count;
+    return self.datAry.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+   
+    return 1;
     
 }
 
@@ -70,13 +72,13 @@
     if (cell == nil) {
         cell = [[MessageDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-
+    cell.model=self.datAry[indexPath.section];
     return cell;
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    float cellH=120*SCREEN_WIDTH/750;
+    float cellH=180*SCREEN_WIDTH/750;
     if (IS_IPAD) {
         return cellH*2/3;
     }
@@ -89,32 +91,23 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSString*ketStr=self.allAry[indexPath.row];
-    NSString*typeStr;
-    if ([ketStr isEqualToString:@"buy"]) {
-        typeStr=@"1";
-    }
-    else if ([ketStr isEqualToString:@"class"]) {
-        typeStr=@"2";
-    }
-    else{
-        typeStr=@"3";
-
-    }
-    MessageInfoDetailVC*vc=[MessageInfoDetailVC new];
-    vc.typeStr=typeStr;
-    [self.navigationController pushViewController:vc animated:YES];
+  
     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0.01;
+    return 12;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     return 0;
 }
-
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor =[UIColor colorWithRed:243/255.0 green:245/255.0 blue:248/255.0 alpha:1.0];
+    return view;
+    
+}
 
 #pragma mark === NetManagerDelegate ===
 
@@ -133,7 +126,13 @@
     }
     else{
         if (self.net.requestId==1001) {
-            self.allAry=result[@"body"];
+            
+          NSArray*body=result[@"body"];
+            self.datAry=[NSMutableArray arrayWithCapacity:0];
+            for(NSDictionary*dic in body){
+                MessageDetailModel*model=[MessageDetailModel mj_objectWithKeyValues:dic];
+                [self.datAry addObject:model];
+            }
             [self.tableView reloadData];
         }
     }

@@ -190,10 +190,18 @@
     footBtn.borderWidth=0.5;
     [footBtn setTitleColor:[MTool colorWithHexString:@"#FF8181"] forState:UIControlStateNormal];
     [footBtn setTitle:@"退出登录" forState:UIControlStateNormal];
+    [footBtn addTarget:self action:@selector(footBtnClick) forControlEvents:UIControlEventTouchUpInside];
     footBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [self.footerView addSubview:footBtn];
 }
 #pragma mark buttonClick
+-(void)footBtnClick{
+    
+    [User deleUser];
+    LoginVC*vc=[LoginVC new];
+    [self presentViewController:vc animated:YES completion:nil];
+    
+}
 -(void)loginBtnClick{
     
     LoginVC*vc=[LoginVC new];

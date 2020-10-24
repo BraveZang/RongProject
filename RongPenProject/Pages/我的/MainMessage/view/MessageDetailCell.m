@@ -19,27 +19,39 @@
 }
 -(void)initView{
     
-    float viewH=200*SCREEN_WIDTH/750;
+    float viewH=180*SCREEN_WIDTH/750;
     if (IS_IPAD) {
         viewH=viewH*2/3;
     }
+    self.backgroundColor=[UIColor clearColor];
     UIView*bgView=[[UIView alloc]initWithFrame:CGRectMake(10, 0, ScreenWidth-20, viewH)];
     bgView.backgroundColor=[UIColor whiteColor];
     bgView.cornerRadius=4;
     [self addSubview:bgView];
     
-    self.contentLab=[[UILabel alloc]initWithFrame:CGRectMake(10,0, ScreenWidth-40,viewH/3*2)];
+    self.nameLab=[[UILabel alloc]initWithFrame:CGRectMake(LeftMargin,0, 300, viewH/3)];
+    self.nameLab.font=[UIFont systemFontOfSize:14];
+    self.nameLab.text=@"服务通知";
+    [bgView addSubview:self.nameLab];
+    
+    self.contentLab=[[UILabel alloc]initWithFrame:CGRectMake(LeftMargin, self.nameLab.bottom, ScreenWidth-LeftMargin*2,viewH/3*2)];
     self.contentLab.font=[UIFont systemFontOfSize:12];
     self.contentLab.numberOfLines=0;
     self.contentLab.textColor=[MTool colorWithHexString:@"333333"];
-    [self addSubview:self.contentLab];
+    [bgView addSubview:self.contentLab];
     
-    self.timeLab=[[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-30*SCREEN_WIDTH/750-200, self.contentLab.bottom, 200, viewH/3)];
+    self.timeLab=[[UILabel alloc]initWithFrame:CGRectMake(SCREEN_WIDTH-20-LeftMargin-200, 0, 200, viewH/3)];
     self.timeLab.font=[UIFont systemFontOfSize:12];
     self.timeLab.textAlignment=NSTextAlignmentRight;
     self.timeLab.textColor=[MTool colorWithHexString:@"666666"];
     self.timeLab.text=@"2020-5-28";
-    [self addSubview:self.timeLab];
+    [bgView addSubview:self.timeLab];
 }
-
+-(void)setModel:(MessageDetailModel *)model{
+    
+    self.contentLab.text=model.content;
+    self.timeLab.text=[MTool dateStringFromString:model.addtime toFormat:@"YYYY-MM-dd HH:mm"];
+    self.nameLab.text=model.title;
+    
+}
 @end

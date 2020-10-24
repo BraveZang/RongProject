@@ -206,6 +206,13 @@ login_setgread
  **/
 - (void)Course_orderlistWithPage:(NSString *)page Uid:(NSString *)uid;
 
+/**
+ 课程详情 参数
+ 参数：
+ id 课程id
+ type 类型 列表中返回的值 录播、直播
+ **/
+- (void)Course_infoWithId:(NSString *)id Type:(NSString *)type;
 
 /// 我的消息
 /// @param uid 用户id
