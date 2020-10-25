@@ -12,8 +12,12 @@
 #import "RightSlidingMenuView.h"
 #import "ReadInfoFooterView.h"
 #import "SDCycleScrollView.h"//广告轮播图
+#import "VoiceModel.h"
+#import <AVKit/AVKit.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface ReadInfoVC ()<NetManagerDelegate>
+
+@interface ReadInfoVC ()<NetManagerDelegate,SDCycleScrollViewDelegate>
 
 @property(nonatomic,strong)   RightSlidingMenuView              *rightslidingmenuview;
 
@@ -21,10 +25,26 @@
 
 @property (nonatomic,strong) SDCycleScrollView                *topAdScrollView;//广告轮播控件
 
+@property (nonatomic, assign) float scale;
+@property (nonatomic, assign) float mapViewW;
+@property (nonatomic, assign) float mapViewH;
+@property (nonatomic,strong) UIView                      *PointView;
+@property (nonatomic,strong) NSMutableArray              *pointArray;
+
+
+
 
 @property (nonatomic,strong)   NetManager                        *net;
 
+@property (nonatomic,strong)   NetManager                        *voiceNet;
+
+
 @property (nonatomic,strong) ReadInfoModel                  *currentModel;
+@property (nonatomic,strong) NSArray                        *voiceList;
+@property (nonatomic,assign) NSInteger                      currentPage;
+
+
+@property (nonatomic, strong) AVPlayer          *player;
 @end
 
 @implementation ReadInfoVC
@@ -36,21 +56,14 @@
     
     self.toptitle.hidden=NO;
     self.leftImgBtn.hidden=NO;
-    self.leftImgBtn.hidden=NO;
+    self.rightImgBtn.hidden=NO;
     [self.rightImgBtn setImage:[UIImage imageNamed:@"toprightbtnimg"] forState:UIControlStateNormal];
     self.rightImgBtn.frame=CGRectMake(ScreenWidth-30, SafeAreaTopHeight-64+(64-15)/2, 30, 30);
     [self.rightImgBtn addTarget:self action:@selector(showRightAction) forControlEvents:UIControlEventTouchUpInside];
     
-//    [self creatView];
+    self.currentPage = 0;
 }
 
-
-- (void)creatView{
-    UIView * bg = [[UIView alloc] initWithFrame:CGRectMake(0, SafeAreaTopHeight, KSCREEN_WIDTH, KSCREEN_HEIGHT - SafeAreaTopHeight - APP_HEIGHT_6S(56.0))];
-    bg.backgroundColor = [MTool colorWithHexString:@"#D3D3D3"];
-    [self.view addSubview:bg];
-
-}
 
 
 -(void)CreatcycleScrollView{
@@ -63,18 +76,18 @@
     float screenWidth = SCREEN_WIDTH - APP_WIDTH_6S(40.0);
     float screenHeight = SCREEN_HEIGHT - SafeAreaTopHeight - APP_HEIGHT_6S(56.0) - APP_HEIGHT_6S(60.0) - APP_HEIGHT_6S(20.0);
     
-    //计算宽高比例
-    float scaleWidth = _currentModel.width.floatValue/screenWidth;
-    float scaleHeight = _currentModel.heigth.floatValue/screenHeight;
+//    //计算宽高比例
+//    float scaleWidth = _currentModel.width.floatValue/screenWidth;
+//    float scaleHeight = _currentModel.heigth.floatValue/screenHeight;
     
     //执行比例
-    float scale = _currentModel.width.floatValue/screenWidth > _currentModel.heigth.floatValue/screenHeight?_currentModel.width.floatValue/screenWidth:_currentModel.heigth.floatValue/screenHeight;
+    self.scale = _currentModel.width.floatValue/screenWidth > _currentModel.heigth.floatValue/screenHeight?_currentModel.width.floatValue/screenWidth:_currentModel.heigth.floatValue/screenHeight;
 
 
     //根据宽高比例   计算地图在屏幕上的尺寸
     
-    float heardViewW = _currentModel.width.floatValue/scale;
-    float heardViewH = _currentModel.heigth.floatValue/scale;
+    self.mapViewW = _currentModel.width.floatValue/_scale;
+    self.mapViewH = _currentModel.heigth.floatValue/_scale;
 
    
     
@@ -86,30 +99,77 @@
         [imageArray addObject:model.ditu];
     }
     
+    if (_pointArray.count == 0) {
+        self.topAdScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(APP_WIDTH_6S(20.0),APP_HEIGHT_6S(20.0),_mapViewW,_mapViewH) imageNamesGroup:imageArray ];
+        self.topAdScrollView.autoScrollTimeInterval = 99999999.f;
+        self.topAdScrollView.autoScroll = NO;
+        self.topAdScrollView.infiniteLoop = NO;
+        self.topAdScrollView.pageControlStyle=SDCycleScrollViewPageContolStyleNone;
+        self.topAdScrollView.delegate = self;
+        self.topAdScrollView.bannerImageViewContentMode=UIViewContentModeScaleAspectFill;
+        [SDCycleScrollView clearImagesCache];
+        self.topAdScrollView.layer.masksToBounds = YES;
+        [bg addSubview:_topAdScrollView];
+    }
     
     
-    self.topAdScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(APP_WIDTH_6S(20.0),APP_HEIGHT_6S(20.0),heardViewW,heardViewH) imageNamesGroup:imageArray ];
+    self.topAdScrollView.imageURLStringsGroup = imageArray;
     
-    self.topAdScrollView.autoScrollTimeInterval = 99999999.f;
-    self.topAdScrollView.autoScroll = NO;
-    self.topAdScrollView.infiniteLoop = NO;
-    self.topAdScrollView.pageControlStyle=SDCycleScrollViewPageContolStyleNone;
-    self.topAdScrollView.bannerImageViewContentMode=UIViewContentModeScaleAspectFill;
-    [SDCycleScrollView clearImagesCache];
-    self.topAdScrollView.layer.masksToBounds = YES;
     
-    [bg addSubview:_topAdScrollView];
     
-    [self.topAdScrollView makeScrollViewScrollToIndex:7];
+}
 
+- (void)readClick:(UIButton *)sender{
+    MapModel * model1 = _currentModel.list[_currentPage];
+    MapDataModel * model2 = model1.data[sender.tag - 100];
+ 
+    for (VoiceModel * voiceModel in self.voiceList) {
+        NSString * voiceId = [voiceModel.name substringToIndex:[voiceModel.name rangeOfString:@"."].location];
+        if ([voiceId isEqualToString:model2.dianduid]) {
+            //播放音频
+            [[DDAVPlayer shareInstance] playWithUrlStr:voiceModel.url];
+            break;;
+        }
+    }
+    
     
 }
 
 
+
+- (void)updateMap{
+    
+//    [self.topAdScrollView removeAllSubviews];
+    
+    if (self.pointArray.count > 0) {
+        for (NSInteger i = 0; i < _pointArray.count; i++) {
+           UIButton * btn = [self.topAdScrollView viewWithTag:[self.pointArray[i]integerValue]];
+            [btn removeFromSuperview];
+        }
+    }
+    [self.pointArray removeAllObjects];
+    
+    
+    MapModel * mapModel = _currentModel.list[_currentPage];
+    for (NSInteger i = 0; i < mapModel.data.count; i++) {
+        MapDataModel * mapDataModel = mapModel.data[i];
+        UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        [btn addTarget:self action:@selector(readClick:) forControlEvents:UIControlEventTouchUpInside];
+        btn.frame = CGRectMake(mapDataModel.x.floatValue/_scale, mapDataModel.y.floatValue/_scale, mapDataModel.w.floatValue/_scale, mapDataModel.h.floatValue/_scale);
+        btn.tag = 100+i;
+        [self.pointArray addObject:[NSString stringWithFormat:@"%d",btn.tag]];
+        btn.backgroundColor = [UIColor colorWithRed:1 green:0.5 blue:1 alpha:0.5];
+        [self.topAdScrollView addSubview:btn];
+    }
+}
+
+
+
 - (void)setUnitModel:(UnitModel *)unitModel{
     _unitModel = unitModel;
-    //测试数据 待调整
-    [self.net getMain_jfinfoWithUid:[User getUserID] Unitid:unitModel.unitid andBookId:unitModel.bookid];
+
+    [self getUnitData];
+
 }
 
 - (void)setBookModel:(MainBookModel *)bookModel{
@@ -118,10 +178,25 @@
 }
 
 
+
+
+
+/// 获取单元数据及音频
+- (void)getUnitData{
+    [self.net getMain_jfinfoWithUid:[User getUserID] Unitid:_unitModel.unitid andBookId:_unitModel.bookid];
+    [self.voiceNet main_downMP3urlWithUnitid:_unitModel.unitid andBookId:_unitModel.bookid];
+}
+
 - (void)showRightAction
 {
     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
     [window addSubview:self.rightslidingmenuview];
+}
+
+/** 图片滚动回调 */
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didScrollToIndex:(NSInteger)index{
+    self.currentPage = index;
+    [self updateMap];
 }
 
 
@@ -135,10 +210,20 @@
         return;
     }
     else{
-        NSDictionary*body=result[@"body"];
-        self.currentModel = [ReadInfoModel mj_objectWithKeyValues:body];
-        self.footerView.infoModel = _currentModel;
-        [self CreatcycleScrollView];
+
+        if (request == _net) {
+            NSDictionary*body=result[@"body"];
+            self.currentModel = [ReadInfoModel mj_objectWithKeyValues:body];
+            self.currentPage = 0;
+            self.footerView.infoModel = _currentModel;
+            [self CreatcycleScrollView];
+            [self updateMap];
+        }else if (request == _voiceNet) {
+            NSArray * dataArray = result[@"body"];
+            self.voiceList = [VoiceModel mj_objectArrayWithKeyValuesArray:dataArray];
+        }
+        
+       
     }
     
 }
@@ -159,7 +244,7 @@
         _rightslidingmenuview.type = 2;
         _rightslidingmenuview.seletedUnitblock = ^(UnitModel * _Nonnull unitModel) {
             
-            [self.net getMain_jfinfoWithUid:[User getUserID] Unitid:unitModel.bookid andBookId:unitModel.unitid];
+            [self getUnitData];
         
         };
     }
@@ -184,6 +269,30 @@
     }
     return _net;
 }
+
+- (NetManager *)voiceNet{
+    if (!_voiceNet) {
+        _voiceNet = [[NetManager alloc] init];
+        _voiceNet.delegate = self;
+    }
+    return _voiceNet;
+}
+
+
+- (NSArray *)voiceList{
+    if (!_voiceList) {
+        _voiceList = [[NSArray alloc] init];
+    }
+    return _voiceList;
+}
+
+- (NSMutableArray *)pointArray{
+    if (!_pointArray) {
+        _pointArray = [[NSMutableArray alloc] init];
+    }
+    return _pointArray;
+}
+
 
 
 /*

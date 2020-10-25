@@ -10,6 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface VoiceModel : NSObject
+@property (nonatomic, strong) NSString      *name;
+@property (nonatomic, strong) NSString      *url;
 
 @end
 

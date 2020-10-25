@@ -32,6 +32,9 @@
     [self replaceCurrentItemWithPlayerItem:playerItem];
     // 添加观察者
 //    [self p_currentItemAddObserver];
+    
+    
+    [self play];
 }
 
 

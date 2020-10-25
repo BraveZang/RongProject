@@ -683,8 +683,10 @@ NSString * const ID = @"SDCycleScrollViewCell";
     }
     if (0 == _totalItemsCount) return;
     
-    [self scrollToIndex:(int)(_totalItemsCount * 0.5 + index)];
-    
+//    [self scrollToIndex:(int)(_totalItemsCount * 0.5 + index)];
+    [self scrollToIndex:(int)index];
+
+
     if (self.autoScroll) {
         [self setupTimer];
     }

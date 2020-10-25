@@ -130,6 +130,13 @@ login_setgread
 /// @param bookid 教辅id
 - (void)getMain_jfinfoWithUid:(NSString *)uid Unitid:(NSString *)unitid andBookId:(NSString *)bookid;
 
+#pragma mark - 点读
+
+
+/// 获取单元音频
+/// @param unitid 单元id
+/// @param bookid 教辅id
+- (void)main_downMP3urlWithUnitid:(NSString *)unitid andBookId:(NSString *)bookid;
 
 #pragma mark - 闯关听写
 

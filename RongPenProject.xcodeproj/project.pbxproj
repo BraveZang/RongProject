@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0442411F2542B00900E066FE /* AreaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 0442411E2542B00900E066FE /* AreaModel.m */; };
 		044241222542B02600E066FE /* ZRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 044241212542B02600E066FE /* ZRPickerView.m */; };
+		044495A225454973007BA4CA /* VoiceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044495A125454973007BA4CA /* VoiceModel.m */; };
 		044589C82544599C00C5AE74 /* gkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044589C72544599C00C5AE74 /* gkModel.m */; };
 		044589D0254459A600C5AE74 /* UnitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044589CD254459A500C5AE74 /* UnitModel.m */; };
 		044589D1254459A600C5AE74 /* MainBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044589CE254459A600C5AE74 /* MainBookModel.m */; };
@@ -186,6 +187,8 @@
 		0442411E2542B00900E066FE /* AreaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaModel.m; sourceTree = "<group>"; };
 		044241202542B02500E066FE /* ZRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZRPickerView.h; sourceTree = "<group>"; };
 		044241212542B02600E066FE /* ZRPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZRPickerView.m; sourceTree = "<group>"; };
+		044495A025454973007BA4CA /* VoiceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VoiceModel.h; sourceTree = "<group>"; };
+		044495A125454973007BA4CA /* VoiceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VoiceModel.m; sourceTree = "<group>"; };
 		044589C62544599C00C5AE74 /* gkModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gkModel.h; sourceTree = "<group>"; };
 		044589C72544599C00C5AE74 /* gkModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = gkModel.m; sourceTree = "<group>"; };
 		044589CC254459A500C5AE74 /* UnitModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitModel.h; sourceTree = "<group>"; };
@@ -1114,6 +1117,8 @@
 				044589FE2544A74C00C5AE74 /* MapModel.m */,
 				04458A062544A76400C5AE74 /* ReadInfoModel.h */,
 				04458A052544A76400C5AE74 /* ReadInfoModel.m */,
+				044495A025454973007BA4CA /* VoiceModel.h */,
+				044495A125454973007BA4CA /* VoiceModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1737,6 +1742,7 @@
 				C6168BC42519AE6F001EF850 /* MainFanKuiCell.m in Sources */,
 				C6473F25250F433200BDE73F /* LoadingView.m in Sources */,
 				04458A012544A74C00C5AE74 /* MapModel.m in Sources */,
+				044495A225454973007BA4CA /* VoiceModel.m in Sources */,
 				C62DCC4B253AD39C00410FCE /* AddressPickerView.m in Sources */,
 				C62DCC5E253C1D7E00410FCE /* CourseVideoCollCell.m in Sources */,
 				044241222542B02600E066FE /* ZRPickerView.m in Sources */,
@@ -1936,7 +1942,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BS2MU66C48;
+				DEVELOPMENT_TEAM = J8Z4RFGTV8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RongPenProject/ThirdParts/Alipay",
@@ -1964,7 +1970,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BS2MU66C48;
+				DEVELOPMENT_TEAM = J8Z4RFGTV8;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RongPenProject/ThirdParts/Alipay",

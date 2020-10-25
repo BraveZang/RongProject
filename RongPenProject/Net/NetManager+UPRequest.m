@@ -202,6 +202,22 @@ login_setgread
 }
 
 
+#pragma mark - 点读
+
+
+/// 获取单元音频
+/// @param unitid 单元id
+/// @param bookid 教辅id
+- (void)main_downMP3urlWithUnitid:(NSString *)unitid andBookId:(NSString *)bookid{
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (unitid)[mutabDic setObject:unitid forKey:@"unitid"];
+    if (bookid)[mutabDic setObject:bookid forKey:@"bookid"];
+
+    [self sendPOSTRequestToServerWithURL:@"main_downMP3url" postData:mutabDic];
+}
+
+
+
 
 #pragma mark - 闯关听写
 
