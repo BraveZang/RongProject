@@ -5,6 +5,7 @@
 //  Created by 路面机械网  on 2020/10/18.
 //
 
+
 #import "MainCourseVC.h"
 #import "MCPageView.h"
 #import "MainCoursePageOneVC.h"
@@ -72,5 +73,4 @@
     self.PageView.selectTitleColor = [UIColor redColor];
     [self.view addSubview:self.PageView];
 }
-
 @end

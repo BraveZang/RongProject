@@ -19,23 +19,21 @@
 }
 -(void)createUI{
     
-    self.nameLab=[[UILabel alloc]initWithFrame:CGRectMake(LeftMargin, 0, FitRealValue(88), FitRealValue(80))];
-    self.nameLab.backgroundColor=[MTool colorWithHexString:@"#FF6B6B"];
+    self.nameLab=[[UILabel alloc]initWithFrame:CGRectMake(LeftMargin, 0, FitRealValue(94), FitRealValue(80))];
+    self.nameLab.textColor=[MTool colorWithHexString:@"#121212"];
     self.nameLab.font=[UIFont systemFontOfSize:14];
-    self.nameLab.textAlignment=NSTextAlignmentCenter;
     self.nameLab.text=@"录播课";
     [self addSubview: self.nameLab];
     
-    self.titleLab=[[UILabel alloc]initWithFrame:CGRectMake(self.nameLab.right, 0, FitRealValue(360), FitRealValue(80))];
-    self.titleLab.backgroundColor=[MTool colorWithHexString:@"#FF6B6B"];
+    self.titleLab=[[UILabel alloc]initWithFrame:CGRectMake(self.nameLab.right+3, 0, FitRealValue(360), FitRealValue(80))];
+    self.titleLab.textColor=[MTool colorWithHexString:@"#121212"];
     self.titleLab.font=[UIFont systemFontOfSize:14];
-    self.titleLab.textAlignment=NSTextAlignmentCenter;
     self.titleLab.text=@"录播课";
     [self addSubview: self.titleLab];
     
     
     self.timeLab1=[[UILabel alloc]initWithFrame:CGRectMake(ScreenWidth-LeftMargin*2-FitRealValue(36)-FitRealValue(120), 0, FitRealValue(120), FitRealValue(80))];
-    self.timeLab1.backgroundColor=[MTool colorWithHexString:@"##888888"];
+    self.timeLab1.textColor=[MTool colorWithHexString:@"#888888"];
     self.timeLab1.font=[UIFont systemFontOfSize:12];
     self.timeLab1.textAlignment=NSTextAlignmentRight;
     self.timeLab1.text=@"试看5分钟";
@@ -61,5 +59,4 @@
         self.playImg.hidden=NO;
     }
 }
-
 @end

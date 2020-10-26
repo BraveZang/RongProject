@@ -489,6 +489,37 @@ login_setgread
     [self sendPOSTRequestToServerWithURL:@"Shop_qrorder" postData:mutabDic];
     
 }
+
+/**
+ 我的订单Order_index
+ 参数：
+ uid 会员id
+ page 分页 默认1
+ **/
+- (void)Order_indexWithUid:(NSString *)uid page:(NSString *)page{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (page)[mutabDic setObject:page forKey:@"page"];
+    [self sendPOSTRequestToServerWithURL:@"Order_index" postData:mutabDic];
+}
+
+/**
+ 参数 Order_info
+ 查看订单 参数
+ 参数：
+ uid 会员id
+ orderid 订单id
+ ordersn 订单号
+ **/
+- (void)Order_infoWithUid:(NSString *)uid orderid:(NSString *)orderid  ordersn:(NSString *)ordersn{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (orderid)[mutabDic setObject:orderid forKey:@"orderid"];
+    if (ordersn)[mutabDic setObject:ordersn forKey:@"ordersn"];
+    [self sendPOSTRequestToServerWithURL:@"Order_info" postData:mutabDic];
+}
 @end
 
 

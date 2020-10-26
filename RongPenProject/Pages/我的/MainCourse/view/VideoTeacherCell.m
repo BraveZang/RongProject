@@ -20,7 +20,9 @@
 -(void)createUI{
     float viewH=FitRealValue(280);
     float ImgH=FitRealValue(80);
-    
+    if (IS_IPAD) {
+        ImgH=ImgH/2;
+    }
     self.heardImg=[[UIImageView alloc]initWithFrame:CGRectMake(LeftMargin,10, ImgH, ImgH)];
     self.heardImg.layer.cornerRadius=ImgH/2;
     self.heardImg.layer.masksToBounds=YES;

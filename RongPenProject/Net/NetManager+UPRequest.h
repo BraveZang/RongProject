@@ -276,5 +276,22 @@ login_setgread
  **/
 - (void)Member_addresstjWithUid:(NSString *)uid Name:(NSString *)name  Mobile:(NSString *)mobile  Sheng:(NSString *)sheng  Shi:(NSString *)shi  Qu:(NSString *)qu  Address:(NSString *)address  Defaults:(NSString *)defaults;
 
+/**
+ 我的订单Order_index
+ 参数：
+ uid 会员id
+ page 分页 默认1
+ **/
+- (void)Order_indexWithUid:(NSString *)uid page:(NSString *)page;
+
+/**
+ 参数 Order_info
+ 查看订单 参数
+ 参数：
+ uid 会员id
+ orderid 订单id
+ ordersn 订单号
+ **/
+- (void)Order_infoWithUid:(NSString *)uid orderid:(NSString *)orderid  ordersn:(NSString *)ordersn;
 @end
 
