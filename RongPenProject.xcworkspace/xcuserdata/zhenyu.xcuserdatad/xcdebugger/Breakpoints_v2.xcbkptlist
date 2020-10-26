@@ -263,32 +263,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D16F7440-3E55-4A72-8252-10F35C97A49D"
+            uuid = "6BD1DA37-2ECD-4664-B43A-673B550783DB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RongPenProject/ThirdParts/VideoPlayer/PlayerView/WKPlayerView.m"
+            filePath = "RongPenProject/Pages/&#x6211;&#x7684;/MainCourse/controller /MainCourseDetailVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "494"
-            endingLineNumber = "494"
-            landmarkName = "-clickFullBtn:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F1570E5D-FBE4-4D6C-B01F-48B7C65FEAC9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RongPenProject/ThirdParts/VideoPlayer/PlayerView/WKPlayerView.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "521"
-            endingLineNumber = "521"
-            landmarkName = "-switchFullScreen:turnRight:"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "-requestDidFinished:result:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

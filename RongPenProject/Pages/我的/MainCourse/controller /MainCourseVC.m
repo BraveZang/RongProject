@@ -13,6 +13,7 @@
 #import "MainCoursePageTowVC.h"
 #import "WebViewViewController.h"
 #import "MainCourseDetailVC.h"
+#import "MyOrderListVC.h"
 
 @interface MainCourseVC ()
 
@@ -28,6 +29,7 @@
     self.rightImgBtn.hidden=NO;
     [self.rightImgBtn setTitle:@"订单管理" forState:UIControlStateNormal];
     [self.rightImgBtn setTitleColor:[MTool colorWithHexString:@"#3777DE"] forState:UIControlStateNormal];
+    [self.rightImgBtn  addTarget:self action:@selector(goMyOrderListVC) forControlEvents:UIControlEventTouchUpInside];
     self.topview.hidden=NO;
     self.toptitle.hidden=NO;
     self.toptitle.text=@"荣知课程";
@@ -72,5 +74,10 @@
     self.PageView.defaultTitleColor = [MTool colorWithHexString:@"#666666"];
     self.PageView.selectTitleColor = [UIColor redColor];
     [self.view addSubview:self.PageView];
+}
+-(void)goMyOrderListVC{
+    
+    MyOrderListVC*vc=[MyOrderListVC new];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

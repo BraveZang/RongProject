@@ -51,12 +51,12 @@
     self.nameLab.text=model.zjnum;
     self.titleLab.text=model.vname;
     if ([model.istry isEqualToString:@"1"]) {
-        self.timeLab1.hidden=YES;
-        self.playImg.hidden=YES;
-    }
-    else{
         self.timeLab1.hidden=NO;
         self.playImg.hidden=NO;
+    }
+    else{
+        self.timeLab1.hidden=YES;
+        self.playImg.hidden=YES;
     }
 }
 @end

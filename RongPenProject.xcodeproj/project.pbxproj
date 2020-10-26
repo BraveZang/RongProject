@@ -84,6 +84,8 @@
 		C645CD8A2546721C00AD8E4C /* MyorderDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD892546721C00AD8E4C /* MyorderDetailVC.m */; };
 		C645CD8D2546722900AD8E4C /* MyOrderListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD8B2546722900AD8E4C /* MyOrderListCell.m */; };
 		C645CD902546724C00AD8E4C /* UIAlertView+Block.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD8F2546724C00AD8E4C /* UIAlertView+Block.m */; };
+		C645CD9625467D9C00AD8E4C /* WKPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD9225467D9B00AD8E4C /* WKPlayerView.m */; };
+		C645CD9725467D9C00AD8E4C /* WKVideoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD9425467D9B00AD8E4C /* WKVideoListCell.m */; };
 		C6473F10250F3D5F00BDE73F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = C6473F0F250F3D5F00BDE73F /* Podfile */; };
 		C6473F1B250F416E00BDE73F /* NetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473F19250F416E00BDE73F /* NetManager.m */; };
 		C6473F1E250F425800BDE73F /* MTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C6473F1D250F425800BDE73F /* MTool.m */; };
@@ -166,9 +168,7 @@
 		C679201925446FE2005822C0 /* ReadTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C679201825446FE2005822C0 /* ReadTestVC.m */; };
 		C679201C2544765A005822C0 /* MainCourseDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C679201B2544765A005822C0 /* MainCourseDetailModel.m */; };
 		C679202825447812005822C0 /* WKVideoListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C679202025447812005822C0 /* WKVideoListItem.m */; };
-		C679202925447812005822C0 /* WKPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C679202225447812005822C0 /* WKPlayerView.m */; };
 		C679202A25447812005822C0 /* LVieoView.m in Sources */ = {isa = PBXBuildFile; fileRef = C679202325447812005822C0 /* LVieoView.m */; };
-		C679202B25447812005822C0 /* WKVideoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C679202725447812005822C0 /* WKVideoListCell.m */; };
 		C679202E2544919D005822C0 /* VideoTeacherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C679202D2544919D005822C0 /* VideoTeacherCell.m */; };
 		C679203125449357005822C0 /* VideoTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C679203025449357005822C0 /* VideoTitleCell.m */; };
 /* End PBXBuildFile section */
@@ -340,6 +340,10 @@
 		C645CD8C2546722900AD8E4C /* MyOrderListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyOrderListCell.h; sourceTree = "<group>"; };
 		C645CD8E2546724C00AD8E4C /* UIAlertView+Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Block.h"; sourceTree = "<group>"; };
 		C645CD8F2546724C00AD8E4C /* UIAlertView+Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Block.m"; sourceTree = "<group>"; };
+		C645CD9225467D9B00AD8E4C /* WKPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPlayerView.m; sourceTree = "<group>"; };
+		C645CD9325467D9B00AD8E4C /* WKVideoListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKVideoListCell.h; sourceTree = "<group>"; };
+		C645CD9425467D9B00AD8E4C /* WKVideoListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKVideoListCell.m; sourceTree = "<group>"; };
+		C645CD9525467D9B00AD8E4C /* WKPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPlayerView.h; sourceTree = "<group>"; };
 		C6473F0F250F3D5F00BDE73F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C6473F17250F40B300BDE73F /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefix.pch; sourceTree = "<group>"; };
 		C6473F19250F416E00BDE73F /* NetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetManager.m; sourceTree = "<group>"; };
@@ -492,12 +496,8 @@
 		C679201B2544765A005822C0 /* MainCourseDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainCourseDetailModel.m; sourceTree = "<group>"; };
 		C679201F25447812005822C0 /* WKVideoListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKVideoListItem.h; sourceTree = "<group>"; };
 		C679202025447812005822C0 /* WKVideoListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKVideoListItem.m; sourceTree = "<group>"; };
-		C679202225447812005822C0 /* WKPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKPlayerView.m; sourceTree = "<group>"; };
 		C679202325447812005822C0 /* LVieoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LVieoView.m; sourceTree = "<group>"; };
-		C679202425447812005822C0 /* WKVideoListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKVideoListCell.h; sourceTree = "<group>"; };
 		C679202525447812005822C0 /* LVieoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LVieoView.h; sourceTree = "<group>"; };
-		C679202625447812005822C0 /* WKPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKPlayerView.h; sourceTree = "<group>"; };
-		C679202725447812005822C0 /* WKVideoListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKVideoListCell.m; sourceTree = "<group>"; };
 		C679202C2544919D005822C0 /* VideoTeacherCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoTeacherCell.h; sourceTree = "<group>"; };
 		C679202D2544919D005822C0 /* VideoTeacherCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoTeacherCell.m; sourceTree = "<group>"; };
 		C679202F25449357005822C0 /* VideoTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoTitleCell.h; sourceTree = "<group>"; };
@@ -1550,12 +1550,12 @@
 		C679202125447812005822C0 /* PlayerView */ = {
 			isa = PBXGroup;
 			children = (
-				C679202625447812005822C0 /* WKPlayerView.h */,
-				C679202225447812005822C0 /* WKPlayerView.m */,
 				C679202525447812005822C0 /* LVieoView.h */,
 				C679202325447812005822C0 /* LVieoView.m */,
-				C679202725447812005822C0 /* WKVideoListCell.m */,
-				C679202425447812005822C0 /* WKVideoListCell.h */,
+				C645CD9525467D9B00AD8E4C /* WKPlayerView.h */,
+				C645CD9225467D9B00AD8E4C /* WKPlayerView.m */,
+				C645CD9325467D9B00AD8E4C /* WKVideoListCell.h */,
+				C645CD9425467D9B00AD8E4C /* WKVideoListCell.m */,
 			);
 			path = PlayerView;
 			sourceTree = "<group>";
@@ -1757,6 +1757,7 @@
 				C62DCC58253C1A0300410FCE /* MCPageView.m in Sources */,
 				04C0989A2543B313005685DA /* MainInfoCell.m in Sources */,
 				C62DCC042535CEB400410FCE /* ShopAdressCell..m in Sources */,
+				C645CD9725467D9C00AD8E4C /* WKVideoListCell.m in Sources */,
 				04C098A62543B7A7005685DA /* UIColor+Extend.m in Sources */,
 				C62DCC0B2535D0CF00410FCE /* ConfirmOrderVC.m in Sources */,
 				04C098A92543C380005685DA /* ZRInfoPickerView.m in Sources */,
@@ -1789,6 +1790,7 @@
 				C6497BBE251C3B49006463B4 /* MainMessageVC.m in Sources */,
 				C62DCC55253C17DA00410FCE /* MainCourseVC.m in Sources */,
 				C6473F93250F44C700BDE73F /* DZNavigationController.m in Sources */,
+				C645CD9625467D9C00AD8E4C /* WKPlayerView.m in Sources */,
 				C6497BD4251C7E45006463B4 /* CheckpointListCell.m in Sources */,
 				C64740512518BD6D00BDE73F /* RightSlidingMenuViewCell.m in Sources */,
 				C62DCBF82535818900410FCE /* ShopInfoModel.m in Sources */,
@@ -1841,7 +1843,6 @@
 				27271CE5250D129A00B4E382 /* AppDelegate.m in Sources */,
 				C6473F91250F44C700BDE73F /* DZNetworkingTool.m in Sources */,
 				C6473F9B250F45E700BDE73F /* LoginVC.m in Sources */,
-				C679202925447812005822C0 /* WKPlayerView.m in Sources */,
 				C6473F5A250F449B00BDE73F /* UIImage+CZHExtension.m in Sources */,
 				C645CD4D2544993300AD8E4C /* CourSerAngeModel.m in Sources */,
 				27271CF6250D129B00B4E382 /* main.m in Sources */,
@@ -1871,7 +1872,6 @@
 				C62DCC152535D96400410FCE /* PPNumberButton.m in Sources */,
 				C6473FCA250F531A00BDE73F /* AlipayManager.m in Sources */,
 				C6473F79250F44B800BDE73F /* UIButton+Code.m in Sources */,
-				C679202B25447812005822C0 /* WKVideoListCell.m in Sources */,
 				04458A002544A74C00C5AE74 /* MapDataModel.m in Sources */,
 				C6497C1025319458006463B4 /* ShopIndexCell.m in Sources */,
 				C6168BD12519B4A9001EF850 /* HDragItemListView.m in Sources */,
@@ -2055,6 +2055,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BS2MU66C48;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RongPenProject/ThirdParts/Alipay",
@@ -2083,6 +2084,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BS2MU66C48;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/RongPenProject/ThirdParts/Alipay",

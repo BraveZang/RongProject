@@ -23,6 +23,9 @@
 /// 设置数据
 @property (nonatomic, copy)   NSString *name;
 @property (nonatomic, strong) UIImage *coverImage;
+@property (nonatomic, assign)   BOOL     currentTime;//试看五分钟
+@property (nonatomic, strong) void(^Block)(void);
+
 
 /// 播放视频
 - (void)playWithViedeoUrl:(NSString *)videoUrl;

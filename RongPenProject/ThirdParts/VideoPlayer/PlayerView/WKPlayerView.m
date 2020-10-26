@@ -435,7 +435,10 @@
         self.cacheProgress.progress = totalBuffer / totalDuration;
     }
 }
-
+-(void)setCurrentTime:(BOOL)currentTime{
+    
+    _currentTime=currentTime;
+}
 // 进度监听
 - (void)addProgressObserver {
     __weak typeof(self) weakSelf = self;
@@ -445,9 +448,18 @@
                                          usingBlock:^(CMTime time) {
          // CMTime是表示视频时间信息的结构体，包含视频时间点、每秒帧数等信息
          // 获取当前播放到的秒数
-         float current = CMTimeGetSeconds(time);
+
+        
+        float current = CMTimeGetSeconds(time);
+        if (weakSelf.currentTime==YES) {
+            if (current>5*60) {
+                 [weakSelf.player pause];
+                weakSelf.Block();
+            }
+        }
          // 获取视频总播放秒数
          float total = CMTimeGetSeconds(item.duration);
+
          if (current && !weakSelf.activity.isAnimating) {
              weakSelf.slider.value = current/total;
              weakSelf.timeLab.text = [weakSelf timeFormatted:current];

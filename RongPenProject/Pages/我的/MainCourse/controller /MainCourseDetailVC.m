@@ -10,8 +10,10 @@
 #import "WKPlayerView.h"
 #import "VideoTeacherCell.h"
 #import "VideoTitleCell.h"
+#import "VideoCourseRangeCell.h"
+#import "UIAlertView+Block.h"
 
-@interface MainCourseDetailVC ()<WKPlayerViewDelegate,UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
+@interface MainCourseDetailVC ()<UIWebViewDelegate, WKPlayerViewDelegate,UITableViewDelegate,UITableViewDataSource,NetManagerDelegate,UIAlertViewDelegate>
 
 @property(nonatomic, strong)   UITableView               *tableView;
 @property(nonatomic, strong)   NetManager                *net;
@@ -19,6 +21,9 @@
 @property(nonatomic, strong)   MainCourseDetailModel     *model;
 @property(nonatomic, strong)   WKPlayerView              *palyerView;
 @property(nonatomic, strong)   NSArray                   *teacherInfoAry;
+@property(nonatomic, strong)   NSArray                   *courserangeInfoAry;
+@property(nonatomic, assign)   NSInteger                 currentIndex;
+@property(nonatomic, strong)   UIWebView                 *webView;
 
 @end
 
@@ -28,6 +33,7 @@
     [super viewDidLoad];
     self.leftImgBtn.hidden=NO;
     self.toptitle.hidden=NO;
+    self.currentIndex=10000;
     self.toptitle.text=@"荣知课程";
     [self initTableView];
     [self getVideoDetailUrl];
@@ -60,6 +66,12 @@
     self.tableView.delegate=self;
     self.tableView.tableFooterView=[UIView new];
     [self.view addSubview:self.tableView];
+    
+    
+    self.webView=[[UIWebView alloc]initWithFrame:CGRectMake(0,0, ScreenWidth, ScreenHeight-SafeAreaBottomHeight-SafeAreaTopHeight-100)];
+    self.webView.delegate=self;
+    self.webView.dataDetectorTypes = UIDataDetectorTypeAll;
+    self.webView.scalesPageToFit = YES;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -75,6 +87,11 @@
     return self.teacherInfoAry.count;
         
     }
+   else if (section==2) {
+          
+      return self.courserangeInfoAry.count;
+          
+      }
     return 1;
     
 }
@@ -88,48 +105,105 @@
             cell = [[VideoTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
         tableView.rowHeight=FitRealValue(250);
+        
+        if (IS_IPAD) {
+            tableView.rowHeight=FitRealValue(250)*2/3;
+        }
         cell.model=self.model;
         return cell;
     }
-    if (indexPath.section==1) {
+   else if (indexPath.section==1) {
         static NSString *cellIdentifier = @"VideoTeacherCell";
         VideoTeacherCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         if (cell == nil) {
             cell = [[VideoTeacherCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
-        tableView.rowHeight=FitRealValue(250);
         NSDictionary*dic=self.teacherInfoAry[indexPath.row];
-        cell.model=[TeacherInfoModel mj_objectWithKeyValues:dic];
-        tableView.rowHeight=cell.model.cellH;
+       TeacherInfoModel*model=[TeacherInfoModel mj_objectWithKeyValues:dic];
+        cell.model=model;
+        tableView.rowHeight=model.cellH+5;
         
         return cell;
     }
+   else  if (indexPath.section==2) {
+           static NSString *cellIdentifier = @"VideoCourseRangeCell";
+           VideoCourseRangeCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+           if (cell == nil) {
+               cell = [[VideoCourseRangeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+           }
+       tableView.rowHeight=FitRealValue(80);
+       NSDictionary*dic=self.courserangeInfoAry[indexPath.row];
+       cell.model=[CourSerAngeModel mj_objectWithKeyValues:dic];
+       if (self.currentIndex==indexPath.row) {
+           cell.nameLab.textColor=[MTool colorWithHexString:@"#FF6B6B"];
+           cell.titleLab.textColor=[MTool colorWithHexString:@"#FF6B6B"];
+           [cell.playImg setImage:[UIImage imageNamed:@"play_stop"]];
+       }
+       else{
+           cell.nameLab.textColor=[MTool colorWithHexString:@"121212"];
+           cell.titleLab.textColor=[MTool colorWithHexString:@"#121212"];
+           [cell.playImg setImage:[UIImage imageNamed:@"play_stop"]];
+           
+       }
+       if (self.currentIndex==10000) {
+           cell.nameLab.textColor=[MTool colorWithHexString:@"#121212"];
+           cell.titleLab.textColor=[MTool colorWithHexString:@"#121212"];
+           [cell.playImg setImage:[UIImage imageNamed:@"play_img"]];
+       }
+           return cell;
+       }
     else{
         static NSString *cellIdentifier = @"UITableViewCell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         }
+        tableView.rowHeight=ScreenHeight-SafeAreaBottomHeight-SafeAreaTopHeight-100;
+        [cell addSubview:self.webView];
         return cell;
     }
     
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-
-    float cellH=180*SCREEN_WIDTH/750;
-    if (IS_IPAD) {
-        return cellH*2/3;
-    }
-    else{
-        return cellH;
-    }
-
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//
+//    float cellH=180*SCREEN_WIDTH/750;
+//    if (IS_IPAD) {
+//        return cellH*2/3;
+//    }
+//    else{
+//        return cellH;
+//    }
+//
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-  
+    __weak typeof(self) weakSelf = self;
+    if (indexPath.section==2) {
+        
+     
+        self.currentIndex=indexPath.row;
+        NSDictionary*dic=self.courserangeInfoAry[indexPath.row];
+        CourSerAngeModel*model=[CourSerAngeModel mj_objectWithKeyValues:dic];
+        if ([model.istry isEqualToString:@"1"]) {
+        self.palyerView.currentTime=YES;
+        [self.palyerView playWithViedeoUrl:model.videolink];
+        self.palyerView .Block = ^{
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"当前课程需要购买，是否购买" delegate:weakSelf cancelButtonTitle:@"取消" otherButtonTitles:@"去购买", nil];
+            [alert showAlertViewWithCompleteBlock:^(NSInteger buttonIndex) {
+                if (buttonIndex == 1) {
+                }
+                else{
+                    weakSelf.palyerView.currentTime=NO;
+                    weakSelf.currentIndex=10000;
+                    [weakSelf.palyerView playWithViedeoUrl:weakSelf.model.videourl];
+                    [weakSelf.tableView reloadData];
+                }
+            }];
+        };
+    }
+    }
     
 }
 
@@ -208,6 +282,9 @@
             self.tableView.tableHeaderView=self.palyerView;
             [self.palyerView playWithViedeoUrl:self.model.videourl];
             self.teacherInfoAry=self.model.teacherinfo;
+            self.courserangeInfoAry=self.model.courserange;
+            NSURL *url =[NSURL URLWithString:[self.model.details stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+            [ self.webView loadRequest:[NSURLRequest requestWithURL:url]];
             [self.tableView reloadData];
         }
     }
