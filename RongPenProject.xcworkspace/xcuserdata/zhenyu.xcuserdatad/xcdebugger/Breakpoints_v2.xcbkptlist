@@ -327,22 +327,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5FD4A225-4F83-4D6B-89A2-FE21FC3DA9B6"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RongPenProject/Pages/&#x5546;&#x57ce;/ConfirmOrder/controller/AddAdressVC.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "421"
-            endingLineNumber = "421"
-            landmarkName = "-requestDidFinished:result:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "EF661278-F991-4B29-860B-6EFB2E5F6AF0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -359,32 +343,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "567075FA-9EB9-467D-96EF-440C08BFFC8A"
+            uuid = "1880BE68-D55F-4586-95CE-7C6CA63DEE3D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RongPenProject/Pages/&#x5546;&#x57ce;/ConfirmOrder/controller/AddAdressVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "413"
-            endingLineNumber = "413"
-            landmarkName = "-requestDidFinished:result:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B2F48DC9-B524-44B5-A625-C4F47D5605B2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RongPenProject/Pages/&#x5546;&#x57ce;/ConfirmOrder/controller/AddAdressVC.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "425"
-            endingLineNumber = "425"
-            landmarkName = "-requestDidFinished:result:"
+            startingLineNumber = "475"
+            endingLineNumber = "475"
+            landmarkName = "-setAddress_id:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

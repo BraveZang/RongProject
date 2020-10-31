@@ -65,7 +65,9 @@
     self.toptitle.hidden=NO;
     self.topview.hidden=NO;
     self.isSetdefaul=@"0";//新增地址初始状态为非默认
-    
+    [self.rightImgBtn setTitle:@"删除" forState:UIControlStateNormal];
+    self.rightImgBtn.titleLabel.font=[UIFont systemFontOfSize:14];
+    [self.rightImgBtn setTitleColor:[MTool colorWithHexString:@"#555555"] forState:UIControlStateNormal];
     
     self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0,SafeAreaTopHeight,  SCREEN_WIDTH, SCREEN_HEIGHT-SafeAreaBottomHeight-SafeAreaTopHeight-100*SCREEN_WIDTH/750) style:UITableViewStylePlain];
     self.tableView.delegate=self;
@@ -221,7 +223,7 @@
         cell.addressTV.hidden=NO;
         cell.phoneTF.hidden=YES;
         cell.textfieldStrBlock = ^(NSString * _Nonnull str) {
-            self. xiangxiaddressStr=str;
+            self.xiangxiaddressStr=str;
         };
         if (self.xiangxiaddressStr.length!=0) {
             cell.addressTV.text=self.xiangxiaddressStr;
@@ -299,13 +301,12 @@
     if (_VCtag==1) {//增加地址
         User*user=[User getUser];
         self.net.requestId=1001;
-        [self.net Member_addresstjWithUid:user.uid Name:self.namestr Mobile:self.phoneNumberstr Sheng:self.provinceId Shi:self.cityId Qu:self.areaId Address:self.addressStr Defaults:self.isSetdefaul];
+        [self.net Member_addresstjWithUid:user.uid Name:self.namestr Mobile:self.phoneNumberstr Sheng:self.provinceId Shi:self.cityId Qu:self.areaId Address:[NSString stringWithFormat:@"%@%@",self.addressStr,self.xiangxiaddressStr] Defaults:self.isSetdefaul];
         
     }
     else{//编辑地址
-        self.net.requestId=1002;
-        [self.net Member_addresseditWithUid:[User getUserID] Id:self.address_id];
-
+        self.net.requestId=1003;
+        [self.net Member_addresseditdoWithUid:[User getUserID] Id:self.address_id Name:self.namestr Mobile:self.phoneNumberstr Sheng:self.provinceId Shi:self.cityId Qu:self.areaId Address:[NSString stringWithFormat:@"%@%@",self.addressStr,self.xiangxiaddressStr]  Defaults:self.isSetdefaul];
     }
     
     
@@ -432,16 +433,12 @@
             
             NSDictionary*dic=result[@"body"];
             _Addressmodel=[AddressModel mj_objectWithKeyValues:dic];
-            //            self.namestr=_Addressmodel.name;
-            //            self.phoneNumberstr=_Addressmodel.phone;
-            //            self.addressStr=[NSString stringWithFormat:@"%@ %@ %@",_Addressmodel.province_id,_Addressmodel.city_id,_Addressmodel.region_id];
-            //            self.xiangxiaddressStr=_Addressmodel.detail;
-            //            self.markstr=_Addressmodel.marks;
-            //            self.isSetdefaul=_Addressmodel.isdefault;
-            //            self.province=_Addressmodel.province_id;
-            //            self.city=_Addressmodel.city_id;
-            //            self.area=_Addressmodel.region_id;
-            //            [self.tableView reloadData];
+            self.namestr=_Addressmodel.name;
+            self.phoneNumberstr=_Addressmodel.mobile;
+            self.isSetdefaul=_Addressmodel.moren;
+            self.addressStr=[NSString stringWithFormat:@"%@%@%@",_Addressmodel.sheng1,_Addressmodel.shi1,_Addressmodel.qu1];
+            self.xiangxiaddressStr=_Addressmodel.address;
+            [self.tableView reloadData];
         }
     }
     
@@ -468,17 +465,14 @@
     }
     else{
         self.toptitle.text = @"编辑地址";
+        self.rightImgBtn.hidden=NO;
     }
     
 }
-//-(void)setAddress_id:(NSInteger)address_id{
-//    _address_id=address_id;
-//    self.net.requestId=1002;
-    //    [self.net mycenter_addresseditWithuid:[User getUserID] address_id:[NSString stringWithFormat:@"%d",_address_id]];
-    //    [self.net mycenter_addresseditWithuid:@"119" address_id:@"35"];
-//}
 
 -(void)setAddress_id:(NSString *)address_id{
     _address_id=address_id;
+    self.net.requestId=1002;
+    [self.net Member_addresseditWithUid:[User getUserID] Id:self.address_id];
 }
 @end

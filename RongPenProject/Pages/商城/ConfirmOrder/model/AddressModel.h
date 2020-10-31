@@ -23,6 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString *sheng;
 @property(nonatomic,strong)NSString *qu;
 @property(nonatomic,strong)NSString *id;
+@property(nonatomic,strong)NSString *sheng1;
+@property(nonatomic,strong)NSString *shi1;
+@property(nonatomic,strong)NSString *qu1;
+
+
 
 
 @end

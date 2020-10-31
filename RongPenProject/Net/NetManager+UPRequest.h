@@ -314,6 +314,21 @@ login_setgread
 - (void)Member_addresstjWithUid:(NSString *)uid Name:(NSString *)name  Mobile:(NSString *)mobile  Sheng:(NSString *)sheng  Shi:(NSString *)shi  Qu:(NSString *)qu  Address:(NSString *)address  Defaults:(NSString *)defaults;
 
 /**
+ Member_addresseditdo
+ 地址编辑执行 参数
+ 参数：
+ uid 当前会员id
+ id 地址id
+ name 姓名
+ mobile 手机号
+ sheng 省份id
+ shi 市id
+ qu 区id
+ address 详细地址
+ defaults 不为空则为默认
+ **/
+- (void)Member_addresseditdoWithUid:(NSString *)uid Id:(NSString *)id Name:(NSString *)name  Mobile:(NSString *)mobile  Sheng:(NSString *)sheng  Shi:(NSString *)shi  Qu:(NSString *)qu  Address:(NSString *)address  Defaults:(NSString *)defaults;
+/**
  地址列表 Member_address
  参数：
  uid 当前会员id

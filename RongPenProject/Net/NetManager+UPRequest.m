@@ -554,6 +554,35 @@ login_setgread
 }
 
 /**
+ Member_addresseditdo
+ 地址编辑执行 参数
+ 参数：
+ uid 当前会员id
+ id 地址id
+ name 姓名
+ mobile 手机号
+ sheng 省份id
+ shi 市id
+ qu 区id
+ address 详细地址
+ defaults 不为空则为默认
+ **/
+- (void)Member_addresseditdoWithUid:(NSString *)uid Id:(NSString *)id Name:(NSString *)name  Mobile:(NSString *)mobile  Sheng:(NSString *)sheng  Shi:(NSString *)shi  Qu:(NSString *)qu  Address:(NSString *)address  Defaults:(NSString *)defaults{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (id)[mutabDic setObject:id forKey:@"id"];
+    if (name)[mutabDic setObject:name forKey:@"name"];
+    if (mobile)[mutabDic setObject:mobile forKey:@"mobile"];
+    if (sheng)[mutabDic setObject:sheng forKey:@"sheng"];
+    if (shi)[mutabDic setObject:shi forKey:@"shi"];
+    if (qu)[mutabDic setObject:qu forKey:@"qu"];
+    if (address)[mutabDic setObject:address forKey:@"address"];
+    if (defaults)[mutabDic setObject:defaults forKey:@"defaults"];
+    [self sendPOSTRequestToServerWithURL:@"Member_addresstj" postData:mutabDic];
+    
+}
+/**
  地址编辑 参数
  参数：
  uid 当前会员id
