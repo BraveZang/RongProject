@@ -477,7 +477,7 @@ NSString * const ID = @"SDCycleScrollViewCell";
 
 + (void)clearImagesCache
 {
-    [[[SDWebImageManager sharedManager] imageCache] clearDiskOnCompletion:nil];
+    [[[SDWebImageManager sharedManager] imageCache] clearWithCacheType:SDImageCacheTypeDisk completion:nil];
 }
 
 #pragma mark - life circles
@@ -683,10 +683,8 @@ NSString * const ID = @"SDCycleScrollViewCell";
     }
     if (0 == _totalItemsCount) return;
     
-//    [self scrollToIndex:(int)(_totalItemsCount * 0.5 + index)];
-    [self scrollToIndex:(int)index];
-
-
+    [self scrollToIndex:(int)(_totalItemsCount * 0.5 + index)];
+    
     if (self.autoScroll) {
         [self setupTimer];
     }

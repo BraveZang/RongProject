@@ -141,16 +141,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 5;
+    return 4;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    if (indexPath.row>2) {
-        return 156*SCREEN_WIDTH/750;
-    }
-    else{
-        return 84*SCREEN_WIDTH/750;
-        
-    }
+//    if (indexPath.row>2) {
+//        return 84*SCREEN_WIDTH/750;
+//    }
+//    else{
+//        return 84*SCREEN_WIDTH/750;
+//
+//    }
+    return 55;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -188,7 +189,7 @@
         
     }
     else if (indexPath.row==1) {
-        cell.textLabel.text=@"手机号码";
+        cell.textLabel.text=@"联系方式";
         cell.textfieldStrBlock = ^(NSString * _Nonnull str) {
             self.phoneNumberstr=str;
         };
@@ -219,14 +220,25 @@
         
     }
     else  if (indexPath.row==3) {
-        cell.titleLab.hidden=NO;
-        cell.addressTV.hidden=NO;
-        cell.phoneTF.hidden=YES;
+//        cell.titleLab.hidden=NO;
+//        cell.addressTV.hidden=NO;
+//        cell.phoneTF.hidden=YES;
+//        cell.textfieldStrBlock = ^(NSString * _Nonnull str) {
+//            self.xiangxiaddressStr=str;
+//        };
+//        if (self.xiangxiaddressStr.length!=0) {
+//            cell.addressTV.text=self.xiangxiaddressStr;
+//        }
+        cell.textLabel.text=@"详细地址";
         cell.textfieldStrBlock = ^(NSString * _Nonnull str) {
             self.xiangxiaddressStr=str;
         };
-        if (self.xiangxiaddressStr.length!=0) {
-            cell.addressTV.text=self.xiangxiaddressStr;
+        if (self.xiangxiaddressStr.length==0) {
+            cell.phoneTF.placeholder=@"街道 门牌号等";
+            
+        }
+        else{
+            cell.phoneTF.text=self.xiangxiaddressStr;
         }
         
     }

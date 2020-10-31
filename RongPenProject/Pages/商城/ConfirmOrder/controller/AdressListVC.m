@@ -41,11 +41,12 @@
     self.toptitle.hidden=NO;
     self.toptitle.text=@"地址管理";
     self.rightImgBtn.hidden=NO;
+    [self.rightImgBtn setImage:nil forState:UIControlStateNormal];
     [self.rightImgBtn setTitle:@"添加地址" forState:UIControlStateNormal];
     [self.rightImgBtn setTitleColor:[MTool colorWithHexString:@"#555555"] forState:UIControlStateNormal];
     [self.rightImgBtn addTarget:self action:@selector(rightBarButtonItemClicked) forControlEvents:UIControlEventTouchUpInside];
 
-    self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0,SafeAreaTopHeight,  SCREEN_WIDTH, SCREEN_HEIGHT-SafeAreaBottomHeight-SafeAreaTopHeight-100*SCREEN_WIDTH/750) style:UITableViewStylePlain];
+    self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0,SafeAreaTopHeight,  SCREEN_WIDTH, SCREEN_HEIGHT-SafeAreaBottomHeight-SafeAreaTopHeight) style:UITableViewStylePlain];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
     self.tableView.backgroundColor=[UIColor clearColor];

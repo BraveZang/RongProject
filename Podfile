@@ -11,9 +11,12 @@ pod 'MJRefresh'
 pod 'MJExtension'
 pod 'NJKWebViewProgress'
 pod 'KINWebBrowser'
-pod 'SDWebImage','~> 4.4.2'
+#pod 'SDWebImage','~> 4.4.2'
+pod 'SDWebImage','~> 5.5.0'
+
 pod 'IQKeyboardManager'
-pod 'SDCycleScrollView'
+#pod 'SDCycleScrollView'
+pod 'SDCycleScrollView','>= 1.80'
 pod 'NJKWebViewProgress'
 
 

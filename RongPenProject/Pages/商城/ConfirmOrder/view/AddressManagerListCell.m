@@ -40,7 +40,8 @@
     self.markLabel.textColor=[UIColor whiteColor];
     [self addSubview: self.markLabel];
     
-    self.addressLabel= [MTool quickCreateLabelWithleft:30*SCREEN_WIDTH/750 top:self.nameLabel.bottom+20*SCREEN_WIDTH/750 width:550*SCREEN_WIDTH/750 heigh:40*SCREEN_WIDTH/750 title:@""];
+    self.addressLabel= [MTool quickCreateLabelWithleft:30*SCREEN_WIDTH/750 top:self.nameLabel.bottom+20*SCREEN_WIDTH/750 width:550*SCREEN_WIDTH/750 heigh:60*SCREEN_WIDTH/750 title:@""];
+    self.addressLabel.numberOfLines=0;
     self.addressLabel.font=[UIFont systemFontOfSize:14];
     self.addressLabel.textColor=[MTool colorWithHexString:@"999999"];
     [self addSubview: self.addressLabel];

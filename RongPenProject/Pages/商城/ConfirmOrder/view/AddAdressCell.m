@@ -19,7 +19,7 @@
 }
 -(void)initView{
     self.btnAry=[NSMutableArray arrayWithCapacity:0];
-    self.phoneTF=[[UITextField alloc]initWithFrame:CGRectMake(180*SCREEN_WIDTH/750, 0, 380*SCREEN_WIDTH/750, 84*SCREEN_WIDTH/750)];
+    self.phoneTF=[[UITextField alloc]initWithFrame:CGRectMake(180*SCREEN_WIDTH/750, 0, 440*SCREEN_WIDTH/750, 55)];
     self.phoneTF.textColor=[MTool colorWithHexString:@"333333"];
     self.phoneTF.font=[UIFont systemFontOfSize:14];
     self.phoneTF.delegate=self;

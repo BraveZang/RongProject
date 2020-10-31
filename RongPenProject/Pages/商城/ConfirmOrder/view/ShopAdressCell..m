@@ -24,13 +24,15 @@
     [self.heardImg setImage:[UIImage imageNamed:@"adressimg"]];
     [self addSubview:self.heardImg];
     
-    self.adresslab=[MTool quickCreateLabelWithleft:self.heardImg.right+20*SCREEN_WIDTH/750 top:30*SCREEN_WIDTH/750 width:600*SCREEN_WIDTH/750 heigh:60*SCREEN_WIDTH/750 title:@"把爱奥奥哈或哈奥哈哈哈哈奥"];
+    self.adresslab=[MTool quickCreateLabelWithleft:self.heardImg.right+20*SCREEN_WIDTH/750 top:30*SCREEN_WIDTH/750 width:FitRealValue(600) heigh:60*SCREEN_WIDTH/750 title:@"把爱奥奥哈或哈奥哈哈哈哈奥"];
     self.adresslab.font=[UIFont systemFontOfSize:16];
     self.adresslab.textColor=[MTool colorWithHexString:@"333333"];
     [self addSubview:self.adresslab];
     
-    self.namelab=[MTool quickCreateLabelWithleft:self.heardImg.right+20*SCREEN_WIDTH/750 top:self.adresslab.bottom  width:600*SCREEN_WIDTH/750 heigh:30*SCREEN_WIDTH/750 title:@"把爱奥奥哈或哈奥哈哈哈哈奥"];
+    self.namelab=[MTool quickCreateLabelWithleft:self.heardImg.right+20*SCREEN_WIDTH/750 top:self.adresslab.bottom  width:500*SCREEN_WIDTH/750 heigh:50*SCREEN_WIDTH/750 title:@"把爱奥奥哈或哈奥哈哈哈哈奥"];
     self.namelab.font=[UIFont systemFontOfSize:12];
+    self.namelab.numberOfLines=0;
+
     self.namelab.textColor=[MTool colorWithHexString:@"7f8082"];
     [self addSubview:self.namelab];
     

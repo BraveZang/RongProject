@@ -726,9 +726,9 @@
 				C62DCC49253AD39C00410FCE /* AddressPickerView.h */,
 				C62DCC48253AD39C00410FCE /* AddressPickerView.m */,
 				C62DCC4D253AD43300410FCE /* AddAdressCell.h */,
+				C62DCC4C253AD43300410FCE /* AddAdressCell.m */,
 				C641DC26254D8D8500CB5731 /* AddressManagerListCell.h */,
 				C641DC27254D8D8500CB5731 /* AddressManagerListCell.m */,
-				C62DCC4C253AD43300410FCE /* AddAdressCell.m */,
 				044241202542B02500E066FE /* ZRPickerView.h */,
 				044241212542B02600E066FE /* ZRPickerView.m */,
 			);

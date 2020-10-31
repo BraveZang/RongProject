@@ -36,6 +36,7 @@
     [super viewDidLoad];
     self.leftImgBtn.hidden=NO;
     self.toptitle.hidden=NO;
+    self.rightImgBtn.hidden=NO;
     self.toptitle.text=@"确认订单";
     self.topview.hidden=NO;
     [self createTableView];
@@ -58,7 +59,7 @@
     footview.backgroundColor=[UIColor whiteColor];
     [self.view addSubview:footview];
     
-    self.moneyLab=[MTool quickCreateLabelWithleft:0 top:0 width:SCREEN_WIDTH-250*SCREEN_WIDTH/750 heigh:50 title:@"¥:1000"];
+    self.moneyLab=[MTool quickCreateLabelWithleft:LeftMargin top:0 width:SCREEN_WIDTH-250*SCREEN_WIDTH/750 heigh:50 title:@"¥:1000"];
     self.moneyLab.textColor=[MTool colorWithHexString:@"#FF403C"];
     self.moneyLab.font=[UIFont systemFontOfSize:16];
     [footview addSubview: self.moneyLab];
@@ -89,7 +90,7 @@
     //选中之后的cell的高度
     NSArray*listsAry=self.model.lists;
     if (indexPath.section==0) {
-        return 164*SCREEN_WIDTH/750;
+        return 180*SCREEN_WIDTH/750;
     }
     else if (indexPath.section==3+self.model.lists.count-1) {
         return FitRealValue(178);

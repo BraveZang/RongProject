@@ -70,10 +70,11 @@
     self.rightImgBtn.hidden=YES;
     [self.rightImgBtn setImage:[UIImage imageNamed:@"rightImg"] forState:UIControlStateNormal];
     self.rightImgBtn.titleLabel.font=[UIFont systemFontOfSize:14];
+    [self.rightImgBtn addTarget:self action:@selector(backItemClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.rightImgBtn];
     
     self.toptitle=[[UILabel alloc]initWithFrame:CGRectMake((ScreenWidth-240)/2, SafeAreaTopHeight-64+(64-15)/2, 240, 30)];
-    self.toptitle.font=[UIFont boldSystemFontOfSize:14];
+    self.toptitle.font=[UIFont boldSystemFontOfSize:16];
     self.toptitle.textAlignment=NSTextAlignmentCenter;
     [self.view addSubview:self.toptitle];
     self.toptitle.hidden=YES;
