@@ -116,7 +116,7 @@
 }
 -(void)setModel:(AddressModel *)model{
     _model=model;
-    if ([model.isdefault intValue]==0) {
+    if ([model.moren intValue]==0) {
         self.swi.on=NO;
     }
     else{

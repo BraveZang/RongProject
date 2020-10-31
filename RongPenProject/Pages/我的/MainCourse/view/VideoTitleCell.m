@@ -19,14 +19,14 @@
 }
 -(void)createUI{
 
-    UILabel*nameLab=[[UILabel alloc]initWithFrame:CGRectMake(LeftMargin, 10, FitRealValue(88), FitRealValue(36))];
-    nameLab.backgroundColor=rgb(253, 173, 70);
-    nameLab.font=[UIFont systemFontOfSize:9];
-    nameLab.textAlignment=NSTextAlignmentCenter;
-    nameLab.text=@"录播课";
-    [self addSubview:nameLab];
+    self.nameLab=[[UILabel alloc]initWithFrame:CGRectMake(LeftMargin, 10, FitRealValue(88), FitRealValue(36))];
+    self.nameLab.backgroundColor=rgb(253, 173, 70);
+    self.nameLab.font=[UIFont systemFontOfSize:9];
+    self.nameLab.textAlignment=NSTextAlignmentCenter;
+    self.nameLab.text=@"录播课";
+    [self addSubview:self.nameLab];
     
-    self.titleLab=[[UILabel alloc]initWithFrame:CGRectMake(nameLab.right+5, 10, ScreenWidth-(nameLab.right+5)-LeftMargin, FitRealValue(36))];
+    self.titleLab=[[UILabel alloc]initWithFrame:CGRectMake(self.nameLab.right+5, 10, ScreenWidth-(self.nameLab.right+5)-LeftMargin, FitRealValue(36))];
     self.titleLab.textColor=[UIColor blackColor];
     self.titleLab.font=[UIFont systemFontOfSize:16];
     [self addSubview: self.titleLab];

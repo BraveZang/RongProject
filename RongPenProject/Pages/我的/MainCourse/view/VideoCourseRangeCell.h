@@ -7,6 +7,8 @@
 
 #import <UIKit/UIKit.h>
 #import "CourSerAngeModel.h"
+#import "RecordeDetailModel.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UILabel                      *timeLab1;
 @property(nonatomic,strong)UIImageView                  *playImg;
 @property(nonatomic,strong)CourSerAngeModel             *model;
+@property(nonatomic,strong)RecordeDetailModel           *recordeModel;
 
 @end
 

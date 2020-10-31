@@ -34,9 +34,13 @@
 @property(nonatomic, strong) NSMutableArray             *dataArray;
 @property (nonatomic,strong) NSString                   *isSetdefaul; //是否默认地址
 @property (nonatomic,strong) NSString                   *markstr;   //标签
-@property (nonatomic,strong) NSString                   *province;   //省
-@property (nonatomic,strong) NSString                   *city;   //市
-@property (nonatomic,strong) NSString                   *area;   //县
+@property (nonatomic,strong) NSString                   *provinceId;   //省
+@property (nonatomic,strong) NSString                   *provinceName;   //省
+@property (nonatomic,strong) NSString                   *cityId;   //市
+@property (nonatomic,strong) NSString                   *cityName;   //市
+@property (nonatomic,strong) NSString                   *areaId;   //县
+@property (nonatomic,strong) NSString                   *areaName;   //县
+
 @property (nonatomic,strong) AddressModel               *Addressmodel;
 @property (nonatomic,strong) NSArray                    *areAry;   //县
 
@@ -250,9 +254,9 @@
 #pragma mark - AddressPickerViewDelegate
 - (void)sureBtnClickReturnProvince:(NSString *)province City:(NSString *)city Area:(NSString *)area {
     [self.quyuBtn setTitle:[NSString stringWithFormat:@"%@%@%@", province, city, area] forState:UIControlStateNormal];
-    self.province=province;
-    self.city=city;
-    self.area=area;
+    self.provinceName=province;
+    self.cityName=city;
+    self.areaName=area;
     self.addressStr = [NSString stringWithFormat:@"%@,%@,%@", province, city, area];
     [self.tableView reloadData];
 //    [self.pickerView hide];
@@ -295,13 +299,13 @@
     if (_VCtag==1) {//增加地址
         User*user=[User getUser];
         self.net.requestId=1001;
-//        self.net Member_addresstjWithUid:user.uid Name:self.namestr Mobile:self.phoneNumberstr Sheng:<#(NSString *)#> Shi:<#(NSString *)#> Qu:<#(NSString *)#> Address:<#(NSString *)#> Defaults:<#(NSString *)#>
+        [self.net Member_addresstjWithUid:user.uid Name:self.namestr Mobile:self.phoneNumberstr Sheng:self.provinceId Shi:self.cityId Qu:self.areaId Address:self.addressStr Defaults:self.isSetdefaul];
         
     }
     else{//编辑地址
-        self.net.requestId=1003;
-        
-        //         [self.net Mycenter_addresseditdoWithuid:@"119" address_id:@"35" name:self.namestr phone:self.phoneNumberstr province_id:self.province city_id:self.city region_id:self.area detail:_xiangxiaddressStr isdefault:_isSetdefaul marks:self.markstr];
+        self.net.requestId=1002;
+        [self.net Member_addresseditWithUid:[User getUserID] Id:self.address_id];
+
     }
     
     
@@ -333,9 +337,18 @@
         _zrPickerView = [[ZRPickerView alloc] initWithFrame:CGRectMake(0, ScreenHeight , ScreenWidth, 220) WithDataArray:self.areaArray];
         _zrPickerView.pickerRow = 3;
         _zrPickerView.backgroundColor = [MTool colorWithHexString:@"#E5E5E5"];
-        
+        __weak typeof(self) weakSelf = self;
         _zrPickerView.didSelectRowBlock = ^(AreaModel * _Nonnull provinceModel, AreaModel * _Nonnull cityModel, AreaModel * _Nonnull areaModel) {
             NSLog(@"%@,%@,%@",provinceModel.name,cityModel.name,areaModel.name);
+            weakSelf.provinceId=provinceModel.ID;
+            weakSelf.provinceName=provinceModel.name;
+            weakSelf.cityId=cityModel.ID;
+            weakSelf.cityName=cityModel.name;
+            weakSelf.areaId=areaModel.ID;
+            weakSelf.areaName=areaModel.name;
+            weakSelf.addressStr = [NSString stringWithFormat:@"%@%@%@", provinceModel.name, cityModel.name, areaModel.name];
+
+            [weakSelf.tableView reloadData];
         };
     }
     
@@ -458,11 +471,14 @@
     }
     
 }
--(void)setAddress_id:(NSInteger)address_id{
-    _address_id=address_id;
-    self.net.requestId=1002;
+//-(void)setAddress_id:(NSInteger)address_id{
+//    _address_id=address_id;
+//    self.net.requestId=1002;
     //    [self.net mycenter_addresseditWithuid:[User getUserID] address_id:[NSString stringWithFormat:@"%d",_address_id]];
     //    [self.net mycenter_addresseditWithuid:@"119" address_id:@"35"];
-}
+//}
 
+-(void)setAddress_id:(NSString *)address_id{
+    _address_id=address_id;
+}
 @end

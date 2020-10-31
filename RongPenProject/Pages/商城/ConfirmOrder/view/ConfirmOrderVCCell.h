@@ -21,11 +21,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) UIView              *bottomView;
 @property(strong,nonatomic) PPNumberButton      *numberBtn;
 @property(nonatomic,strong) NSDictionary        *dic;
+@property(nonatomic,strong) NSString            *fidStr;
+
 
 
 @property (nonatomic, copy) void(^colorBlock)(NSArray*ary);
 
-@property (nonatomic, copy) void(^numberBlock)(NSNumber* num);
+@property (nonatomic, copy) void(^numberBlock)(float num,NSString*fidStr);
 
 
 

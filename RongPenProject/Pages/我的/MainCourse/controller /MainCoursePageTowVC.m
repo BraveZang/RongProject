@@ -7,6 +7,7 @@
 
 #import "MainCoursePageTowVC.h"
 #import "CourseVideoCollCell.h"
+
 @interface MainCoursePageTowVC ()<NetManagerDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
 {
     UIView* NoDataView;

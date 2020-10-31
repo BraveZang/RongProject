@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)NSString   *goodsid;
 @property(nonatomic,strong)NSString   *goodsname;
 @property(nonatomic,strong)NSString   *type;
+@property(nonatomic,strong)NSString   *livelink;
 @property(nonatomic,strong)NSString   *ordersn;
 @property(nonatomic,strong)NSString   *range;
 @property(nonatomic,strong)NSString   *videofm;

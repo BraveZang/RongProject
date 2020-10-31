@@ -363,7 +363,37 @@ login_setgread
     if (uid)[mutabDic setObject:uid forKey:@"uid"];
      [self sendPOSTRequestToServerWithURL:@"Course_orderlist" postData:mutabDic];
 }
-
+/**
+ 立即购买 参数
+ 参数：
+ uid 会员id
+ id 课程id
+ type 类型 列表中返回的值 录播、直播
+ **/
+- (void)Course_buyWithType:(NSString *)type Uid:(NSString *)uid  Id:(NSString *)id{
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (type)[mutabDic setObject:type forKey:@"type"];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (id)[mutabDic setObject:id forKey:@"id"];
+     [self sendPOSTRequestToServerWithURL:@"Course_buy" postData:mutabDic];
+}
+/**
+ 播放课程（适用于录播课程,【直播课程请直接跳H5 请使用 已购课程 返回的 livelink】） 参数
+ 参数：
+ goodsid 课程id 已购课程返回的
+ uid 会员id
+ ordersn 订单号
+ type 类型 录播
+ **/
+- (void)Course_autoplayWithGoodsid:(NSString *)goodsid Uid:(NSString *)uid Ordersn:(NSString *)ordersn Type:(NSString *)type{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (goodsid)[mutabDic setObject:goodsid forKey:@"goodsid"];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (ordersn)[mutabDic setObject:ordersn forKey:@"ordersn"];
+    if (type)[mutabDic setObject:type forKey:@"type"];
+     [self sendPOSTRequestToServerWithURL:@"Course_autoplay" postData:mutabDic];
+}
 /**
  课程详情 参数Course_info
  参数：
@@ -377,6 +407,24 @@ login_setgread
      [self sendPOSTRequestToServerWithURL:@"Course_info" postData:mutabDic];
     
 }
+
+/**
+ 课程确认订单 参数
+ 参数：
+ uid 当前会员id
+ id 立即购买 返回的订单id
+ ordersn 订单号
+ **/
+- (void)Course_qrorderWithId:(NSString *)id Uid:(NSString *)uid Ordersn:(NSString *)ordersn{
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (id)[mutabDic setObject:id forKey:@"id"];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (ordersn)[mutabDic setObject:ordersn forKey:@"ordersn"];
+     [self sendPOSTRequestToServerWithURL:@"Course_qrorder" postData:mutabDic];
+    
+}
+
+
 /// 我的消息
 /// @param uid 用户id
 - (void)Message_indexWithUid:(NSString *)uid{
@@ -447,7 +495,22 @@ login_setgread
     [self sendPOSTRequestToServerWithURL:@"Shop_buy" postData:mutabDic];
     
 }
+/**
+ Shop_nums
+ 编辑数量 参数
+ 参数：
+ orderid 订单id
+ fid 订单附加表id 确认订单 返回的fid
+ num 数量 (传总数)
+ **/
+- (void)Shop_numsWithOrderid:(NSString *)orderid Fid:(NSString *)fid Num:(NSString *)num{
 
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (orderid)[mutabDic setObject:orderid forKey:@"orderid"];
+    if (fid)[mutabDic setObject:fid forKey:@"fid"];
+    if (num)[mutabDic setObject:num forKey:@"num"];
+    [self sendPOSTRequestToServerWithURL:@"Shop_nums" postData:mutabDic];
+}
 /**
  确认订单 Shop_qrorder
  uid 当前会员id
@@ -486,21 +549,50 @@ login_setgread
     if (qu)[mutabDic setObject:qu forKey:@"qu"];
     if (address)[mutabDic setObject:address forKey:@"address"];
     if (defaults)[mutabDic setObject:defaults forKey:@"defaults"];
-    [self sendPOSTRequestToServerWithURL:@"Shop_qrorder" postData:mutabDic];
+    [self sendPOSTRequestToServerWithURL:@"Member_addresstj" postData:mutabDic];
     
 }
 
+/**
+ 地址编辑 参数
+ 参数：
+ uid 当前会员id
+ id 地址id
+ **/
+- (void)Member_addresseditWithUid:(NSString *)uid Id:(NSString *)id{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (id)[mutabDic setObject:id forKey:@"id"];
+    [self sendPOSTRequestToServerWithURL:@"Member_addressedit" postData:mutabDic];
+    
+}
+
+/**
+ 地址列表 Member_address
+ 参数：
+ uid 当前会员id
+ **/
+- (void)Member_addressWithUid:(NSString *)uid{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    [self sendPOSTRequestToServerWithURL:@"Member_address" postData:mutabDic];
+    
+}
 /**
  我的订单Order_index
  参数：
  uid 会员id
  page 分页 默认1
+ type 1.我的课程 2.我的商城
  **/
-- (void)Order_indexWithUid:(NSString *)uid page:(NSString *)page{
+- (void)Order_indexWithUid:(NSString *)uid page:(NSString *)page type:(NSString *)type{
     
     NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
     if (uid)[mutabDic setObject:uid forKey:@"uid"];
     if (page)[mutabDic setObject:page forKey:@"page"];
+    if (type)[mutabDic setObject:type forKey:@"type"];
     [self sendPOSTRequestToServerWithURL:@"Order_index" postData:mutabDic];
 }
 

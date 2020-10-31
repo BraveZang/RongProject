@@ -214,12 +214,39 @@ login_setgread
 - (void)Course_orderlistWithPage:(NSString *)page Uid:(NSString *)uid;
 
 /**
+ 立即购买 参数
+ 参数：
+ uid 会员id
+ id 课程id
+ type 类型 列表中返回的值 录播、直播
+ **/
+- (void)Course_buyWithType:(NSString *)type Uid:(NSString *)uid  Id:(NSString *)id;
+/**
+ 播放课程（适用于录播课程,【直播课程请直接跳H5 请使用 已购课程 返回的 livelink】） 参数
+ 参数：
+ goodsid 课程id 已购课程返回的
+ uid 会员id
+ ordersn 订单号
+ type 类型 录播
+ **/
+- (void)Course_autoplayWithGoodsid:(NSString *)goodsid Uid:(NSString *)uid Ordersn:(NSString *)ordersn Type:(NSString *)type;
+
+/**
  课程详情 参数
  参数：
  id 课程id
  type 类型 列表中返回的值 录播、直播
  **/
 - (void)Course_infoWithId:(NSString *)id Type:(NSString *)type;
+
+/**
+ 课程确认订单 参数
+ 参数：
+ uid 当前会员id
+ id 立即购买 返回的订单id
+ ordersn 订单号
+ **/
+- (void)Course_qrorderWithId:(NSString *)id Uid:(NSString *)uid Ordersn:(NSString *)ordersn;
 
 /// 我的消息
 /// @param uid 用户id
@@ -256,6 +283,16 @@ login_setgread
 - (void)Shop_buyWithUid:(NSString *)uid Total:(NSString *)total Goods:(NSArray *)goods;
 
 /**
+ Shop_nums
+ 编辑数量 参数
+ 参数：
+ orderid 订单id
+ fid 订单附加表id 确认订单 返回的fid
+ num 数量 (传总数)
+ **/
+- (void)Shop_numsWithOrderid:(NSString *)orderid Fid:(NSString *)fid Num:(NSString *)num;
+
+/**
  确认订单 Shop_qrorder
  uid 当前会员id
  id 立即购买-确定 返回的订单id
@@ -277,12 +314,27 @@ login_setgread
 - (void)Member_addresstjWithUid:(NSString *)uid Name:(NSString *)name  Mobile:(NSString *)mobile  Sheng:(NSString *)sheng  Shi:(NSString *)shi  Qu:(NSString *)qu  Address:(NSString *)address  Defaults:(NSString *)defaults;
 
 /**
+ 地址列表 Member_address
+ 参数：
+ uid 当前会员id
+ **/
+- (void)Member_addressWithUid:(NSString *)uid;
+
+/**
+ 地址编辑 参数
+ 参数：
+ uid 当前会员id
+ id 地址id
+ **/
+- (void)Member_addresseditWithUid:(NSString *)uid Id:(NSString *)id;
+/**
  我的订单Order_index
  参数：
  uid 会员id
  page 分页 默认1
+ type 1.我的课程 2.我的商城
  **/
-- (void)Order_indexWithUid:(NSString *)uid page:(NSString *)page;
+- (void)Order_indexWithUid:(NSString *)uid page:(NSString *)page type:(NSString *)type;
 
 /**
  参数 Order_info

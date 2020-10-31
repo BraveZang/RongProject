@@ -1,11 +1,11 @@
 //
-//  ConfirmOrderVC.m
+//  SureCourSeOrderVC.m
 //  RongPenProject
 //
-//  Created by 路面机械网  on 2020/10/13.
+//  Created by 路面机械网  on 2020/10/31.
 //
 
-#import "ConfirmOrderVC.h"
+#import "SureCourSeOrderVC.h"
 #import "ShopAdressCell.h"
 #import "ConfirmOrderVCCell.h"
 #import "Shop_qrorderModel.h"
@@ -13,11 +13,9 @@
 #import "PayCell.h"
 #import "AddressModel.h"
 #import "AddAdressVC.h"
-#import "AdressListVC.h"
 
 
-
-@interface ConfirmOrderVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
+@interface SureCourSeOrderVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
 
 @property (nonatomic, strong) NetManager                  *net;
 @property (nonatomic, strong) UITableView                 *tableView;
@@ -25,12 +23,10 @@
 @property (nonatomic, strong) Shop_qrorderModel           *model;
 @property (nonatomic, strong) AddressModel                *adressModel;
 @property (nonatomic, strong) NSArray                     *guigeAry;
-@property (nonatomic, strong) NSString                    *numStr;
-@property (nonatomic, strong) NSString                    *fidStr;
 
 
 @end
-@implementation ConfirmOrderVC
+@implementation SureCourSeOrderVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -100,15 +96,14 @@
     
     else{
         NSDictionary*dic=listsAry[indexPath.section-1];
-        NSArray*guigeAry=dic[@"guige"];
-        if (guigeAry.count==0) {
+        NSString*tipStr=dic[@"tip"];
+        if ([tipStr isEqualToString:@"赠品"]) {
             
             return FitRealValue(260);
             
-        }else{
-            
+        }
+        else{
             return 368*SCREEN_WIDTH/750;
-            
         }
         
     }
@@ -126,7 +121,7 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         }
-            cell.adressmodel=self.adressModel;
+                cell.adressmodel=self.adressModel;
         return cell;
     }
     else if (indexPath.section==(self.model.lists.count+2)) {//支付方式
@@ -167,13 +162,6 @@
             self.guigeAry=ary;
             [self creatActionSheet];
         };
-        cell.numberBlock = ^(float num, NSString * _Nonnull fidStr) {
-            NSInteger numt=num;
-            self.numStr=[NSString stringWithFormat:@"%ld",(long)numt];
-            self.fidStr=fidStr;
-            [self getNumClickUrl];
-        };
-       
         NSDictionary*listDic=listsAry[indexPath.section-1];
         cell.dic=listDic;
         return cell;
@@ -195,19 +183,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
         if (indexPath.row==0) {
-            
-            AdressListVC*vc=[AdressListVC new];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-//            AddAdressVC*vc=[[AddAdressVC alloc]init];
-//            vc.hidesBottomBarWhenPushed=YES;
-//            vc.VCtag=1;
+            AddAdressVC*vc=[[AddAdressVC alloc]init];
+            vc.hidesBottomBarWhenPushed=YES;
+            vc.VCtag=1;
 //            vc.backBlock = ^(AddressModel * _Nonnull model) {
 //                self.adressmodel=model;
 //                [self.tableview reloadData];
 //            };
-//            [self.navigationController pushViewController:vc animated:YES];
-//        }
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     
 }
 
@@ -243,11 +227,7 @@
     
     self.net.requestId=1001;
     User*user=[User getUser];
-    [self.net Shop_qrorderWithUid:user.uid Id:_idStr Ordersn:_ordersnStr];
-}
--(void)getNumClickUrl{
-    self.net.requestId=1002;
-    [self.net Shop_numsWithOrderid:self.model.orderid Fid:self.fidStr Num:self.numStr];
+    [self.net Course_qrorderWithId:_idStr Uid:user.uid Ordersn:_ordersnStr];
 }
 
 - (void)requestDidFinished:(NetManager *)request result:(NSMutableDictionary *)result{
@@ -271,7 +251,6 @@
         }
         if (request.requestId==1002) {//
             
-
         }
     }
 }
@@ -292,3 +271,4 @@
 }
 
 @end
+

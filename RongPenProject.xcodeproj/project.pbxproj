@@ -73,6 +73,12 @@
 		C62DCC64253C275500410FCE /* MainCoursePageTowVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC63253C275500410FCE /* MainCoursePageTowVC.m */; };
 		C62DCC67253C278B00410FCE /* MainCoursePageThreeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC66253C278B00410FCE /* MainCoursePageThreeVC.m */; };
 		C62DCC6A253C2BBD00410FCE /* GoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C62DCC69253C2BBD00410FCE /* GoodsModel.m */; };
+		C641DC15254D3F6000CB5731 /* MainCourseTowDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC14254D3F6000CB5731 /* MainCourseTowDetailVC.m */; };
+		C641DC18254D439500CB5731 /* MainCourseThreeDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC17254D439500CB5731 /* MainCourseThreeDetailVC.m */; };
+		C641DC1F254D62FA00CB5731 /* RecordeDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC1E254D62FA00CB5731 /* RecordeDetailModel.m */; };
+		C641DC22254D741D00CB5731 /* SureCourSeOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC21254D741D00CB5731 /* SureCourSeOrderVC.m */; };
+		C641DC25254D89C100CB5731 /* AdressListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC24254D89C100CB5731 /* AdressListVC.m */; };
+		C641DC28254D8D8500CB5731 /* AddressManagerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC27254D8D8500CB5731 /* AddressManagerListCell.m */; };
 		C645CD4A254498D800AD8E4C /* TeacherInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD49254498D800AD8E4C /* TeacherInfoModel.m */; };
 		C645CD4D2544993300AD8E4C /* CourSerAngeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD4C2544993300AD8E4C /* CourSerAngeModel.m */; };
 		C645CD502544A15700AD8E4C /* VideoCourseRangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD4F2544A15700AD8E4C /* VideoCourseRangeCell.m */; };
@@ -318,6 +324,18 @@
 		C62DCC66253C278B00410FCE /* MainCoursePageThreeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainCoursePageThreeVC.m; sourceTree = "<group>"; };
 		C62DCC68253C2BBD00410FCE /* GoodsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GoodsModel.h; sourceTree = "<group>"; };
 		C62DCC69253C2BBD00410FCE /* GoodsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GoodsModel.m; sourceTree = "<group>"; };
+		C641DC13254D3F6000CB5731 /* MainCourseTowDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainCourseTowDetailVC.h; sourceTree = "<group>"; };
+		C641DC14254D3F6000CB5731 /* MainCourseTowDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainCourseTowDetailVC.m; sourceTree = "<group>"; };
+		C641DC16254D439500CB5731 /* MainCourseThreeDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainCourseThreeDetailVC.h; sourceTree = "<group>"; };
+		C641DC17254D439500CB5731 /* MainCourseThreeDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainCourseThreeDetailVC.m; sourceTree = "<group>"; };
+		C641DC1D254D62FA00CB5731 /* RecordeDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordeDetailModel.h; sourceTree = "<group>"; };
+		C641DC1E254D62FA00CB5731 /* RecordeDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordeDetailModel.m; sourceTree = "<group>"; };
+		C641DC20254D741D00CB5731 /* SureCourSeOrderVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SureCourSeOrderVC.h; sourceTree = "<group>"; };
+		C641DC21254D741D00CB5731 /* SureCourSeOrderVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SureCourSeOrderVC.m; sourceTree = "<group>"; };
+		C641DC23254D89C100CB5731 /* AdressListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdressListVC.h; sourceTree = "<group>"; };
+		C641DC24254D89C100CB5731 /* AdressListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdressListVC.m; sourceTree = "<group>"; };
+		C641DC26254D8D8500CB5731 /* AddressManagerListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressManagerListCell.h; sourceTree = "<group>"; };
+		C641DC27254D8D8500CB5731 /* AddressManagerListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressManagerListCell.m; sourceTree = "<group>"; };
 		C645CD48254498D800AD8E4C /* TeacherInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherInfoModel.h; sourceTree = "<group>"; };
 		C645CD49254498D800AD8E4C /* TeacherInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherInfoModel.m; sourceTree = "<group>"; };
 		C645CD4B2544993300AD8E4C /* CourSerAngeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourSerAngeModel.h; sourceTree = "<group>"; };
@@ -674,6 +692,8 @@
 				C62DCC0A2535D0CF00410FCE /* ConfirmOrderVC.m */,
 				C62DCC44253AD2B600410FCE /* AddAdressVC.h */,
 				C62DCC45253AD2B600410FCE /* AddAdressVC.m */,
+				C641DC23254D89C100CB5731 /* AdressListVC.h */,
+				C641DC24254D89C100CB5731 /* AdressListVC.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -706,6 +726,8 @@
 				C62DCC49253AD39C00410FCE /* AddressPickerView.h */,
 				C62DCC48253AD39C00410FCE /* AddressPickerView.m */,
 				C62DCC4D253AD43300410FCE /* AddAdressCell.h */,
+				C641DC26254D8D8500CB5731 /* AddressManagerListCell.h */,
+				C641DC27254D8D8500CB5731 /* AddressManagerListCell.m */,
 				C62DCC4C253AD43300410FCE /* AddAdressCell.m */,
 				044241202542B02500E066FE /* ZRPickerView.h */,
 				044241212542B02600E066FE /* ZRPickerView.m */,
@@ -780,6 +802,10 @@
 				C62DCC66253C278B00410FCE /* MainCoursePageThreeVC.m */,
 				C679200E2544678B005822C0 /* MainCourseDetailVC.h */,
 				C679200F2544678B005822C0 /* MainCourseDetailVC.m */,
+				C641DC13254D3F6000CB5731 /* MainCourseTowDetailVC.h */,
+				C641DC14254D3F6000CB5731 /* MainCourseTowDetailVC.m */,
+				C641DC16254D439500CB5731 /* MainCourseThreeDetailVC.h */,
+				C641DC17254D439500CB5731 /* MainCourseThreeDetailVC.m */,
 			);
 			path = "controller ";
 			sourceTree = "<group>";
@@ -797,6 +823,10 @@
 				C645CD49254498D800AD8E4C /* TeacherInfoModel.m */,
 				C645CD4B2544993300AD8E4C /* CourSerAngeModel.h */,
 				C645CD4C2544993300AD8E4C /* CourSerAngeModel.m */,
+				C641DC1D254D62FA00CB5731 /* RecordeDetailModel.h */,
+				C641DC1E254D62FA00CB5731 /* RecordeDetailModel.m */,
+				C641DC20254D741D00CB5731 /* SureCourSeOrderVC.h */,
+				C641DC21254D741D00CB5731 /* SureCourSeOrderVC.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1825,6 +1855,8 @@
 				C62DCBFE25359B7F00410FCE /* HaveBuyCell.m in Sources */,
 				C6473F6B250F44B200BDE73F /* UIButton+Code.m in Sources */,
 				C6497C1325319C67006463B4 /* ShopIndexModel.m in Sources */,
+				C641DC28254D8D8500CB5731 /* AddressManagerListCell.m in Sources */,
+				C641DC22254D741D00CB5731 /* SureCourSeOrderVC.m in Sources */,
 				C679203125449357005822C0 /* VideoTitleCell.m in Sources */,
 				C645CD4A254498D800AD8E4C /* TeacherInfoModel.m in Sources */,
 				C62DCC6A253C2BBD00410FCE /* GoodsModel.m in Sources */,
@@ -1845,6 +1877,7 @@
 				C6473F9B250F45E700BDE73F /* LoginVC.m in Sources */,
 				C6473F5A250F449B00BDE73F /* UIImage+CZHExtension.m in Sources */,
 				C645CD4D2544993300AD8E4C /* CourSerAngeModel.m in Sources */,
+				C641DC1F254D62FA00CB5731 /* RecordeDetailModel.m in Sources */,
 				27271CF6250D129B00B4E382 /* main.m in Sources */,
 				C6497BC1251C3D55006463B4 /* MainMessageCell.m in Sources */,
 				C6473FA4250F4B7E00BDE73F /* ReadIndexVC.m in Sources */,
@@ -1854,15 +1887,18 @@
 				04458A012544A74C00C5AE74 /* MapModel.m in Sources */,
 				044495A225454973007BA4CA /* VoiceModel.m in Sources */,
 				C62DCC4B253AD39C00410FCE /* AddressPickerView.m in Sources */,
+				C641DC25254D89C100CB5731 /* AdressListVC.m in Sources */,
 				C62DCC5E253C1D7E00410FCE /* CourseVideoCollCell.m in Sources */,
 				044241222542B02600E066FE /* ZRPickerView.m in Sources */,
 				C645CD502544A15700AD8E4C /* VideoCourseRangeCell.m in Sources */,
 				C6473F5D250F449B00BDE73F /* MKSearchBar.m in Sources */,
+				C641DC15254D3F6000CB5731 /* MainCourseTowDetailVC.m in Sources */,
 				04458A0A2544A78000C5AE74 /* UIView+ST.m in Sources */,
 				C6473F97250F453400BDE73F /* NetManager+UPRequest.m in Sources */,
 				C64740022514823100BDE73F /* swift.swift in Sources */,
 				C6497BD8251C828E006463B4 /* HYBStarEvaluationView.m in Sources */,
 				C645CD872546720D00AD8E4C /* MyorderDetailCell.m in Sources */,
+				C641DC18254D439500CB5731 /* MainCourseThreeDetailVC.m in Sources */,
 				C6168BBE2519A617001EF850 /* MainSetCell.m in Sources */,
 				C647400B25188DB600BDE73F /* UIViewController+Present.m in Sources */,
 				04C098A02543B436005685DA /* InfoModel.m in Sources */,

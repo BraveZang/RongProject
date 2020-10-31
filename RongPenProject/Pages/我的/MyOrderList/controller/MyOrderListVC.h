@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MyOrderListVC : DZBaseViewController
 
+@property (nonatomic, strong)  NSString                    *typeStr;
+
 @end
 
 NS_ASSUME_NONNULL_END

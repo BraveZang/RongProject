@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UILabel                      *npriceLab;
 @property(nonatomic,strong)UILabel                      *contentLab1;
 @property(nonatomic,strong)UILabel                      *contentLab2;
+@property(nonatomic,strong)UILabel                      *nameLab;
 @property(nonatomic,strong)MainCourseDetailModel        *model;
 
 

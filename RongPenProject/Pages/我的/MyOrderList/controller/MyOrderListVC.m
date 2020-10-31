@@ -36,7 +36,9 @@
     [self refresh];
     
 }
-
+-(void)setTypeStr:(NSString *)typeStr{
+    _typeStr=typeStr;
+}
 
 - (void)initTableView {
     self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0, SafeAreaTopHeight, SCREEN_WIDTH, SCREEN_HEIGHT-SafeAreaBottomHeight-SafeAreaTopHeight) style:UITableViewStylePlain];
@@ -130,7 +132,7 @@
 - (void)getDataArrayFromServerIsRefresh:(BOOL)isRefresh {
     self.isfresh=isRefresh;
     self.net.requestId=1001;
-    [self.net Order_indexWithUid:[User getUserID] page:[NSString stringWithFormat:@"%ld", self.page]];
+    [self.net Order_indexWithUid:[User getUserID] page:[NSString stringWithFormat:@"%ld", self.page] type:self.typeStr];
 }
 #pragma mark === NetManagerDelegate ===
 

@@ -54,8 +54,8 @@
         self.tishilab.hidden=YES;
         
     }
-    self.adresslab.text=_adressmodel.detail;
-    self.namelab.text=[NSString stringWithFormat:@"%@ %@",_adressmodel.name,_adressmodel.phone];
+    self.namelab.text=_adressmodel.address;
+    self.adresslab.text=[NSString stringWithFormat:@"%@ %@",_adressmodel.name,_adressmodel.mobile];
 }
 
 @end

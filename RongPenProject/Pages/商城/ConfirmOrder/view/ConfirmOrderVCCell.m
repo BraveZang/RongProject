@@ -39,7 +39,7 @@
     self.heardImg=[[UIImageView alloc]initWithFrame:CGRectMake(LeftMargin, FitRealValue(50), imgW, imgH)];
     [bgView addSubview:self.heardImg];
     
-    self.markLab=[[UILabel alloc]initWithFrame:CGRectMake(self.heardImg.right+5, FitRealValue(50), FitRealValue(40), FitRealValue(20))];
+    self.markLab=[[UILabel alloc]initWithFrame:CGRectMake(self.heardImg.right+5, FitRealValue(70), FitRealValue(40), FitRealValue(20))];
     self.markLab.textColor=[UIColor whiteColor];
     self.markLab.font=[UIFont systemFontOfSize:10];
     self.markLab.textAlignment=NSTextAlignmentCenter;
@@ -71,7 +71,7 @@
     [bgView addSubview:self.numberBtn];
     self.numberBtn.resultBlock = ^(PPNumberButton *ppBtn, CGFloat number, BOOL increaseStatus) {
         
-//        self.numBlock(number);
+        self.numberBlock(number,self.fidStr);
     };
 
     self.bottomView=[[UIView alloc]initWithFrame:CGRectMake(0, bgView.bottom, viewW, bottomViewH)];
@@ -83,7 +83,7 @@
     [self.bottomView addSubview:lineView];
     
     UILabel*coloLab=[[UILabel alloc]initWithFrame:CGRectMake(LeftMargin, 0, 300, bottomViewH)];
-    coloLab.text=@"颜色选择";
+    coloLab.text=@"选择规格";
     coloLab.font=[UIFont systemFontOfSize:14];
     coloLab.textColor=[MTool colorWithHexString:@"#212121"];
     [self.bottomView addSubview:coloLab];
@@ -116,12 +116,22 @@
         self.bottomView.hidden=NO;
         self.markLab.text=dic[@"type"];
     }
+    NSArray*guigeAry=dic[@"guige"];
+    if (guigeAry.count==0) {
+        
+    self.bottomView.hidden=YES;
+
+    }else{
+        
+    self.bottomView.hidden=NO;
+
+    }
     self.numberBtn.currentNumber=[dic[@"num"] floatValue];
     self.nameLab.text=dic[@"goodsname"];
     self.gradeLab.hidden=YES;
     self.subjectsLab.hidden=YES;
     self.moneyLab.text=[NSString stringWithFormat:@"￥%@",dic[@"price"]];
-
+    self.fidStr=[NSString stringWithFormat:@"%@",dic[@"fid"]];
 }
 -(void)bottomBtnClick{
     

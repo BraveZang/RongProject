@@ -7,8 +7,6 @@
 
 #import "MainCoursePageThreeVC.h"
 #import "CourseVideoCollCell.h"
-#import "CourseVideoModel.h"
-#import "GoodsModel.h"
 
 @interface MainCoursePageThreeVC ()<NetManagerDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
 {
@@ -106,10 +104,8 @@
 // 选中某item
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    ShopIndexModel*model=self.datAry[indexPath.item];
-    //    ShopInfoVC*vc=[ShopInfoVC new];
-    //    vc.shopindexmodel=model;
-    //    [self.navigationController pushViewController:vc animated:YES];
+    GoodsModel*model=self.datAry[indexPath.item];
+    self.tiemClickBlock(model);
     
 }
 
@@ -125,7 +121,7 @@
     self.isfresh=isRefresh;
     self.net.requestId=1001;
     User*user=[User getUser];
-    [self.net  Course_orderlistWithPage:[NSString stringWithFormat:@"%ld",(long)_page] Uid:@"1"];
+    [self.net  Course_orderlistWithPage:[NSString stringWithFormat:@"%ld",(long)_page] Uid:user.uid];
     
 }
 #pragma mark === NetManagerDelegate ===

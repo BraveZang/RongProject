@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 @property(nonatomic,assign)NSInteger  VCtag;
-@property(nonatomic,assign)NSInteger  address_id;
+@property(nonatomic,strong)NSString   *address_id;
 
 @end
 

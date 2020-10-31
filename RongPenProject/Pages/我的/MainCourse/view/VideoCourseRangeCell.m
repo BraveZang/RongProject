@@ -59,4 +59,10 @@
         self.playImg.hidden=YES;
     }
 }
+-(void)setRecordeModel:(RecordeDetailModel *)recordeModel{
+    
+    _recordeModel=recordeModel;
+    self.nameLab.text=recordeModel.zjnum;
+    self.titleLab.text=recordeModel.vname;
+}
 @end

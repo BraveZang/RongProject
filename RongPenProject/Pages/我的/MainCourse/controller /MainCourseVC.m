@@ -14,6 +14,8 @@
 #import "WebViewViewController.h"
 #import "MainCourseDetailVC.h"
 #import "MyOrderListVC.h"
+#import "MainCourseTowDetailVC.h"
+#import "MainCourseThreeDetailVC.h"
 
 @interface MainCourseVC ()
 
@@ -54,17 +56,36 @@
     
     MainCoursePageTowVC*vc2=[MainCoursePageTowVC new];
     vc2.tiemClickBlock = ^(CourseVideoModel * _Nonnull model) {
-        WebViewViewController *webVC = [[WebViewViewController alloc]init];
-        webVC.urlStr = model.videofm;
-        webVC.titleStr=model.name;
-        [self.navigationController pushViewController:webVC animated:YES];
+        
+        MainCourseTowDetailVC*vc=[MainCourseTowDetailVC new];
+        vc.idStr=model.id;
+        vc.typeStr=model.type;
+        [self.navigationController pushViewController:vc animated:YES];
+        
     };
     [controllers addObject:vc2];
     [titles addObject:@"直播课程"];
-    [controllers addObject:[MainCoursePageThreeVC new]];
+    
+    MainCoursePageThreeVC*vc3=[MainCoursePageThreeVC new];
+    vc3.tiemClickBlock = ^(GoodsModel * _Nonnull model) {
+        if ([model.type isEqualToString:@"直播"]) {
+            WebViewViewController*vc=[WebViewViewController new];
+            vc.titleStr=model.goodsname;
+            vc.urlStr=model.livelink;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else{
+            MainCourseThreeDetailVC*vc=[MainCourseThreeDetailVC new];
+            vc.goodsIdStr=model.goodsid;
+            vc.ordersnStr=model.ordersn;
+            vc.typeStr=model.type;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    };
+    [controllers addObject:vc3];
     [titles addObject:@"已购课程"];
     
-  
+    
     
     self.PageView = [[MCPageView alloc]initWithFrame:CGRectMake(0, SafeAreaTopHeight, self.view.frame.size.width,ScreenHeight-SafeAreaTopHeight-SafeAreaBottomHeight) titles:titles controllers:controllers];
     self.PageView.titleButtonWidth = 60;
