@@ -68,6 +68,7 @@
     self.rightImgBtn=[UIButton buttonWithType:UIButtonTypeCustom];
     self.rightImgBtn.frame=CGRectMake(ScreenWidth-65-10, SafeAreaTopHeight-64+(64-15)/2, 65, 30);
     self.rightImgBtn.hidden=YES;
+    [self.rightImgBtn setImage:[UIImage imageNamed:@"rightImg"] forState:UIControlStateNormal];
     self.rightImgBtn.titleLabel.font=[UIFont systemFontOfSize:14];
     [self.view addSubview:self.rightImgBtn];
     
