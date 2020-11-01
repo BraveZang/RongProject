@@ -29,6 +29,7 @@
     [super viewDidLoad];
     self.leftImgBtn.hidden=NO;
     self.rightImgBtn.hidden=NO;
+    [self.rightImgBtn setImage:nil forState:UIControlStateNormal];
     [self.rightImgBtn setTitle:@"订单管理" forState:UIControlStateNormal];
     [self.rightImgBtn setTitleColor:[MTool colorWithHexString:@"#3777DE"] forState:UIControlStateNormal];
     [self.rightImgBtn  addTarget:self action:@selector(goMyOrderListVC) forControlEvents:UIControlEventTouchUpInside];

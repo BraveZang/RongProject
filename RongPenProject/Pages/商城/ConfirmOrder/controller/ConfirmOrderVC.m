@@ -14,6 +14,7 @@
 #import "AddressModel.h"
 #import "AddAdressVC.h"
 #import "AdressListVC.h"
+#import <AlipaySDK/AlipaySDK.h>
 
 
 
@@ -65,8 +66,10 @@
     [footview addSubview: self.moneyLab];
     
     UIButton*payBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    payBtn.frame=CGRectMake(self.moneyLab.right, 0,250*SCREEN_WIDTH/750,50);
-    [payBtn setBackgroundColor:[MTool colorWithHexString:@"#FF9B9B"]];
+    payBtn.frame=CGRectMake(ScreenWidth-150-LeftMargin,5,150,40);
+//    [payBtn setBackgroundColor:[MTool colorWithHexString:@"#FF9B9B"]];
+//    [payBtn setImage:[UIImage imageNamed:@"payBtn_img"] forState:UIControlStateNormal];
+    [payBtn setBackgroundImage:[UIImage imageNamed:@"payBtn_img"]  forState:UIControlStateNormal];
     [payBtn setTitle:@"去付款" forState:UIControlStateNormal];
     [payBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     payBtn.titleLabel.font=[UIFont systemFontOfSize:16];
@@ -211,7 +214,12 @@
 //        }
     
 }
-
+-(void)payBtnclick{
+    
+    self.net.requestId=1003;
+    [self.net Pay_buyWithUid:[User getUserID] Ordersn:self.ordersnStr];
+    
+}
 -(void)creatActionSheet {
     
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"选择规格" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
@@ -267,13 +275,23 @@
             self.model=[Shop_qrorderModel mj_objectWithKeyValues:bodyDic];
             NSDictionary*adressDic=self.model.shouhuo;
             self.adressModel=[AddressModel mj_objectWithKeyValues:adressDic];
-            
+            self.moneyLab.text=[NSString stringWithFormat:@"¥:%@",self.model.total];
+
             [self.tableView reloadData];
         }
         if (request.requestId==1002) {//
             
 
         }
+        if (request.requestId==1003) {//
+             NSString*bodyStr=result[@"body"];
+            [[AlipaySDK defaultService] payOrder:bodyStr
+                                                        fromScheme:@"none.RongPenProject1"
+                                                          callback:^(NSDictionary *resultDic) {
+                                                              NSLog(@"-------%@", resultDic);
+                                                          }];
+
+         }
     }
 }
 - (void)requestError:(NetManager *)request error:(NSError*)error{

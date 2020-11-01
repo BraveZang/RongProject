@@ -32,6 +32,7 @@
     self.toptitle.hidden=NO;
     self.toptitle.text=@"我的订单";
     self.leftImgBtn.hidden=NO;
+    self.rightImgBtn.hidden=NO;
     [self initTableView];
     [self getOrderDetailInfoUrl];
 }
@@ -42,8 +43,8 @@
     _ordersnStr=ordersnStr;
 }
 - (void)initTableView {
-    float btnW=FitRealValue(300);
-    float btnH=FitRealValue(80);
+    float btnW=FitRealValue(200);
+    float btnH=FitRealValue(60);
     float bottonH=FitRealValue(120);
     float space=(ScreenWidth-btnW*2)/3;
 
@@ -163,7 +164,13 @@
     
     
 }
+#pragma mark === click ===
 
+-(void)tuikuanClick{
+    
+    
+    
+}
 - (void)getOrderDetailInfoUrl {
     self.net.requestId=1001;
     [self.net Order_infoWithUid:[User getUserID] orderid:self.orderidStr ordersn:self.ordersnStr];
@@ -182,8 +189,20 @@
     }
     else{
         //辅材列表
+        float btnW=FitRealValue(200);
+        float btnH=FitRealValue(60);
+        float bottonH=FitRealValue(120);
         NSDictionary * bodyDic = result[@"body"];
         self.model=[MyorderDetailModel mj_objectWithKeyValues:bodyDic];
+        if ([self.model.orderstatus isEqualToString:@"已失效"]) {
+            self.bottomView.hidden=YES;
+        }
+        if ([self.model.orderstatus isEqualToString:@"订单成功"]) {
+            self.bottomView.hidden=NO;
+            self.bottomBtn1.frame=CGRectMake(ScreenWidth-LeftMargin*2-btnW, (bottonH-btnH)/2, btnW, btnH);
+            [self.bottomBtn1 setTitle:@"申请退款" forState:UIControlStateNormal];
+            [self.bottomBtn1 addTarget:self action:@selector(tuikuanClick) forControlEvents:UIControlEventTouchUpInside];
+              }
         [self.tableView reloadData];
         
         

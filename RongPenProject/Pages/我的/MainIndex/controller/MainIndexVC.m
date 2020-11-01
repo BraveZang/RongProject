@@ -13,6 +13,7 @@
 #import "MainCourseVC.h"
 #import "MainInfoSettingVC.h"
 #import "WebViewViewController.h"
+#import "ShopIndexVC.h"
 
 
 @interface MainIndexVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
@@ -142,6 +143,8 @@
     [myShop setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [myShop setImage:[UIImage imageNamed:@"myShop"] forState:UIControlStateNormal];
     myShop.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    [myShop addTarget:self action:@selector(myShopBtnClick) forControlEvents:UIControlEventTouchUpInside];
+
     [myShop setTitleEdgeInsets:UIEdgeInsetsMake(myShop.imageView.frame.size.height ,-myShop.imageView.frame.size.width, 0.0,0.0)];
     if (@available(iOS 13.0, *)) {
         
@@ -207,6 +210,12 @@
     LoginVC*vc=[LoginVC new];
     vc.hidesBottomBarWhenPushed=YES;
     [self presentViewController:vc animated:YES completion:nil];
+}
+-(void)myShopBtnClick{
+    
+    ShopIndexVC*vc=[ShopIndexVC new];
+    vc.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 -(void)messageBtnClick{
     

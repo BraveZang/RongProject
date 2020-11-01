@@ -79,6 +79,7 @@
 		C641DC22254D741D00CB5731 /* SureCourSeOrderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC21254D741D00CB5731 /* SureCourSeOrderVC.m */; };
 		C641DC25254D89C100CB5731 /* AdressListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC24254D89C100CB5731 /* AdressListVC.m */; };
 		C641DC28254D8D8500CB5731 /* AddressManagerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC27254D8D8500CB5731 /* AddressManagerListCell.m */; };
+		C641DC2B254EBAD000CB5731 /* SureCourseDeatilodel.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC2A254EBAD000CB5731 /* SureCourseDeatilodel.m */; };
 		C645CD4A254498D800AD8E4C /* TeacherInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD49254498D800AD8E4C /* TeacherInfoModel.m */; };
 		C645CD4D2544993300AD8E4C /* CourSerAngeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD4C2544993300AD8E4C /* CourSerAngeModel.m */; };
 		C645CD502544A15700AD8E4C /* VideoCourseRangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD4F2544A15700AD8E4C /* VideoCourseRangeCell.m */; };
@@ -336,6 +337,8 @@
 		C641DC24254D89C100CB5731 /* AdressListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdressListVC.m; sourceTree = "<group>"; };
 		C641DC26254D8D8500CB5731 /* AddressManagerListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressManagerListCell.h; sourceTree = "<group>"; };
 		C641DC27254D8D8500CB5731 /* AddressManagerListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressManagerListCell.m; sourceTree = "<group>"; };
+		C641DC29254EBAD000CB5731 /* SureCourseDeatilodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SureCourseDeatilodel.h; sourceTree = "<group>"; };
+		C641DC2A254EBAD000CB5731 /* SureCourseDeatilodel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SureCourseDeatilodel.m; sourceTree = "<group>"; };
 		C645CD48254498D800AD8E4C /* TeacherInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherInfoModel.h; sourceTree = "<group>"; };
 		C645CD49254498D800AD8E4C /* TeacherInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherInfoModel.m; sourceTree = "<group>"; };
 		C645CD4B2544993300AD8E4C /* CourSerAngeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourSerAngeModel.h; sourceTree = "<group>"; };
@@ -806,6 +809,8 @@
 				C641DC14254D3F6000CB5731 /* MainCourseTowDetailVC.m */,
 				C641DC16254D439500CB5731 /* MainCourseThreeDetailVC.h */,
 				C641DC17254D439500CB5731 /* MainCourseThreeDetailVC.m */,
+				C641DC29254EBAD000CB5731 /* SureCourseDeatilodel.h */,
+				C641DC2A254EBAD000CB5731 /* SureCourseDeatilodel.m */,
 			);
 			path = "controller ";
 			sourceTree = "<group>";
@@ -1796,6 +1801,7 @@
 				C6473F62250F44A400BDE73F /* NSObject+AutoProperty.m in Sources */,
 				C6497BD1251C7E17006463B4 /* CheckpointListVC.m in Sources */,
 				C6473F22250F42B700BDE73F /* User.m in Sources */,
+				C641DC2B254EBAD000CB5731 /* SureCourseDeatilodel.m in Sources */,
 				C62DCC61253C268500410FCE /* CourseVideoModel.m in Sources */,
 				C679200A254455AC005822C0 /* MessageDetailCell.m in Sources */,
 				C6473FDE2511A6A000BDE73F /* NSString+Font.m in Sources */,
@@ -2087,7 +2093,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B3E854C642D402E917025C5 /* Pods-RongPenProject.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BS2MU66C48;
@@ -2116,7 +2122,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4F016F8EAF0DEAAB1D7AECE0 /* Pods-RongPenProject.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BS2MU66C48;

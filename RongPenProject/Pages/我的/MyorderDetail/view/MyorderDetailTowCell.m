@@ -81,8 +81,8 @@
     cell.textLabel.font=[UIFont systemFontOfSize:14];
     [cell addSubview:self.contentLab];
     if (indexPath.row==0) {
-        cell.textLabel.text=@"订单信息:";
-        
+        cell.textLabel.text=@"订单信息";
+        cell.textLabel.font=[UIFont systemFontOfSize:16];
         
     }
     if (indexPath.row==1) {
@@ -105,6 +105,8 @@
             [cell addSubview:contentLab];
             contentLab.text=self.str2;
         }
+
+
     }
     if (indexPath.row==3) {
         cell.textLabel.text=@"付款时间:";

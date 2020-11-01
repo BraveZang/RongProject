@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) UIButton            *bottomBtn4;
 @property(nonatomic,strong) UIButton            *bottomBtn5;
 @property(nonatomic,strong) UIButton            *bottomBtn6;
+@property(nonatomic,strong) UIButton            *bottomBtn7;
 
 
 

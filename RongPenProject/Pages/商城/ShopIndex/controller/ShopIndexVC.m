@@ -9,6 +9,7 @@
 #import "ShopIndexCell.h"
 #import "ShopIndexModel.h"
 #import "ShopInfoVC.h"
+#import "MyOrderListVC.h"
 
 @interface ShopIndexVC ()<NetManagerDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -23,11 +24,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor=[MTool colorWithHexString:@"#F3F5F8"];
-    self.leftImgBtn.hidden=NO;
-    [self.leftImgBtn setImage:nil forState:UIControlStateNormal];
-    [self.leftImgBtn setTitle:@"订单管理" forState:UIControlStateNormal];
-    [self.leftImgBtn setTitleColor:[MTool colorWithHexString:@"#3777DE"] forState:UIControlStateNormal];
-    self.leftImgBtn.frame=CGRectMake(10, SafeAreaTopHeight-64+(64-15)/2, 60, 30);
+    self.leftImgBtn.hidden=YES;
+    UIButton*lefgBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    [lefgBtn setImage:nil forState:UIControlStateNormal];
+    [lefgBtn setTitle:@"订单管理" forState:UIControlStateNormal];
+    lefgBtn.titleLabel.font=[UIFont systemFontOfSize:14];
+    [lefgBtn setTitleColor:[MTool colorWithHexString:@"#3777DE"] forState:UIControlStateNormal];
+    lefgBtn.frame=CGRectMake(10, SafeAreaTopHeight-64+(64-15)/2, 60, 30);
+    [lefgBtn addTarget:self action:@selector(leftBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:lefgBtn];
 
     [self.rightImgBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
     self.rightImgBtn.hidden=NO;
@@ -38,7 +43,11 @@
     [self createCollectionView];
     [self getUrlData];
 }
-
+-(void)leftBtnClick{
+    
+    MyOrderListVC*vc=[MyOrderListVC new];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 -(void)createCollectionView{
     
     float viewH=FitRealValue(212*2);

@@ -39,7 +39,7 @@
     self.heardImg=[[UIImageView alloc]initWithFrame:CGRectMake(LeftMargin, FitRealValue(50), imgW, imgH)];
     [bgView addSubview:self.heardImg];
     
-    self.markLab=[[UILabel alloc]initWithFrame:CGRectMake(self.heardImg.right+5, FitRealValue(70), FitRealValue(40), FitRealValue(20))];
+    self.markLab=[[UILabel alloc]initWithFrame:CGRectMake(self.heardImg.right+5, FitRealValue(50), FitRealValue(60), FitRealValue(25))];
     self.markLab.textColor=[UIColor whiteColor];
     self.markLab.font=[UIFont systemFontOfSize:10];
     self.markLab.textAlignment=NSTextAlignmentCenter;
@@ -82,19 +82,19 @@
     lineView.backgroundColor=[MTool colorWithHexString:@"#F3F3F3"];
     [self.bottomView addSubview:lineView];
     
-    UILabel*coloLab=[[UILabel alloc]initWithFrame:CGRectMake(LeftMargin, 0, 300, bottomViewH)];
-    coloLab.text=@"选择规格";
-    coloLab.font=[UIFont systemFontOfSize:14];
-    coloLab.textColor=[MTool colorWithHexString:@"#212121"];
-    [self.bottomView addSubview:coloLab];
+    self.coloLab=[[UILabel alloc]initWithFrame:CGRectMake(LeftMargin, 0, 300, bottomViewH)];
+    self.coloLab.text=@"选择规格";
+    self.coloLab.font=[UIFont systemFontOfSize:14];
+    self.coloLab.textColor=[MTool colorWithHexString:@"#212121"];
+    [self.bottomView addSubview:self.coloLab];
     
-    UIButton*bottomBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    bottomBtn.frame=CGRectMake(viewW-LeftMargin-btnW, 0, btnW, bottomViewH);
-    [bottomBtn setTitle:@"选择" forState:UIControlStateNormal];
-    [bottomBtn setImage:[UIImage imageNamed:@"buy_rightimg"] forState:UIControlStateNormal];
-    [bottomBtn layoutButtonWithEdgeInsetsStyle:TYButtonEdgeInsetsStyleRight imageTitleSpace:3];
-    [bottomBtn addTarget:self action:@selector(bottomBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.bottomView addSubview:bottomBtn];
+    self.bottomBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    self.bottomBtn.frame=CGRectMake(viewW-LeftMargin-btnW, 0, btnW, bottomViewH);
+    [ self.bottomBtn setTitle:@"选择" forState:UIControlStateNormal];
+    [ self.bottomBtn setImage:[UIImage imageNamed:@"buy_rightimg"] forState:UIControlStateNormal];
+    [ self.bottomBtn layoutButtonWithEdgeInsetsStyle:TYButtonEdgeInsetsStyleRight imageTitleSpace:3];
+    [ self.bottomBtn addTarget:self action:@selector(bottomBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [self. self.bottomBtn addSubview:self.bottomBtn];
     
 }
 -(void)setDic:(NSDictionary *)dic{
@@ -116,6 +116,7 @@
         self.bottomView.hidden=NO;
         self.markLab.text=dic[@"type"];
     }
+   
     NSArray*guigeAry=dic[@"guige"];
     if (guigeAry.count==0) {
         
@@ -126,12 +127,36 @@
     self.bottomView.hidden=NO;
 
     }
+    if ([dic[@"tip"] isEqualToString:@"录播"]==YES) {
+        
+        self.markLab.backgroundColor=[MTool colorWithHexString:@"#FF8989"];
+        self.numberBtn.hidden=YES;
+        self.markLab.text=dic[@"type"];
+        self.bottomView.hidden=NO;
+        self.coloLab.text=dic[@"zengpin"];
+        self.bottomBtn.hidden=YES;
+        
+    }
+    if ([dic[@"tip"] isEqualToString:@"直播"]==YES) {
+        
+        self.markLab.backgroundColor=[MTool colorWithHexString:@"#FFA500"];
+        self.numberBtn.hidden=YES;
+        self.numberBtn.editing=YES;
+        self.bottomView.hidden=NO;
+        self.markLab.text=dic[@"type"];
+        self.bottomView.hidden=NO;
+        self.coloLab.text=dic[@"zengpin"];
+        self.bottomBtn.hidden=YES;
+        
+        
+    }
     self.numberBtn.currentNumber=[dic[@"num"] floatValue];
     self.nameLab.text=dic[@"goodsname"];
     self.gradeLab.hidden=YES;
     self.subjectsLab.hidden=YES;
     self.moneyLab.text=[NSString stringWithFormat:@"￥%@",dic[@"price"]];
     self.fidStr=[NSString stringWithFormat:@"%@",dic[@"fid"]];
+  
 }
 -(void)bottomBtnClick{
     

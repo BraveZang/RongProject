@@ -342,6 +342,22 @@ login_setgread
  id 地址id
  **/
 - (void)Member_addresseditWithUid:(NSString *)uid Id:(NSString *)id;
+
+/**
+ 地址删除 参数
+ 参数：
+ uid 当前会员id
+ id 地址id
+ **/
+- (void)Member_addressdelWithUid:(NSString *)uid Id:(NSString *)id;
+
+/**
+ 设置默认 参数
+ 参数：
+ uid 当前会员id
+ id 地址id
+ **/
+- (void)Member_setdefaultWithUid:(NSString *)uid Id:(NSString *)id;
 /**
  我的订单Order_index
  参数：
@@ -360,5 +376,13 @@ login_setgread
  ordersn 订单号
  **/
 - (void)Order_infoWithUid:(NSString *)uid orderid:(NSString *)orderid  ordersn:(NSString *)ordersn;
+
+/**
+ 支付（通用） 参数
+ 参数：
+ uid 当前会员id
+ ordersn 订单号
+ **/
+- (void)Pay_buyWithUid:(NSString *)uid Ordersn:(NSString *)ordersn;
 @end
 

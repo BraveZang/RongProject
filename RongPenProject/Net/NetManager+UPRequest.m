@@ -579,7 +579,7 @@ login_setgread
     if (qu)[mutabDic setObject:qu forKey:@"qu"];
     if (address)[mutabDic setObject:address forKey:@"address"];
     if (defaults)[mutabDic setObject:defaults forKey:@"defaults"];
-    [self sendPOSTRequestToServerWithURL:@"Member_addresstj" postData:mutabDic];
+    [self sendPOSTRequestToServerWithURL:@"Member_addresseditdo" postData:mutabDic];
     
 }
 /**
@@ -594,6 +594,35 @@ login_setgread
     if (uid)[mutabDic setObject:uid forKey:@"uid"];
     if (id)[mutabDic setObject:id forKey:@"id"];
     [self sendPOSTRequestToServerWithURL:@"Member_addressedit" postData:mutabDic];
+    
+}
+
+/**
+ 地址删除 参数
+ 参数：
+ uid 当前会员id
+ id 地址id
+ **/
+- (void)Member_addressdelWithUid:(NSString *)uid Id:(NSString *)id{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (id)[mutabDic setObject:id forKey:@"id"];
+    [self sendPOSTRequestToServerWithURL:@"Member_addressdel" postData:mutabDic];
+    
+}
+/**
+ 设置默认 参数
+ 参数：
+ uid 当前会员id
+ id 地址id
+ **/
+- (void)Member_setdefaultWithUid:(NSString *)uid Id:(NSString *)id{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (id)[mutabDic setObject:id forKey:@"id"];
+    [self sendPOSTRequestToServerWithURL:@"Member_setdefault" postData:mutabDic];
     
 }
 
@@ -640,6 +669,19 @@ login_setgread
     if (orderid)[mutabDic setObject:orderid forKey:@"orderid"];
     if (ordersn)[mutabDic setObject:ordersn forKey:@"ordersn"];
     [self sendPOSTRequestToServerWithURL:@"Order_info" postData:mutabDic];
+}
+
+/**
+ 支付（通用） 参数
+ 参数：
+ uid 当前会员id
+ ordersn 订单号
+ **/
+- (void)Pay_buyWithUid:(NSString *)uid Ordersn:(NSString *)ordersn{
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (ordersn)[mutabDic setObject:ordersn forKey:@"ordersn"];
+    [self sendPOSTRequestToServerWithURL:@"Pay_buy" postData:mutabDic];
 }
 @end
 

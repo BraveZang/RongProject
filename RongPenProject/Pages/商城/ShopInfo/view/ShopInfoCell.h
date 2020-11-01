@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ShopInfoCell : UITableViewCell
 @property (nonatomic, strong) UILabel         *nameLab;
+@property (nonatomic, strong) UILabel         *infoLab;
 @property (nonatomic, strong) UILabel         *moneyLab;
 @end
 

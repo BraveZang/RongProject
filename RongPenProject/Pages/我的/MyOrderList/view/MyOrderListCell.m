@@ -58,7 +58,7 @@
     self.heardImg=[[UIImageView alloc]initWithFrame:CGRectMake(LeftMargin,LeftMargin+lineview.bottom, imgW, imgH)];
     [bgView addSubview:self.heardImg];
     
-    self.markLab=[[UILabel alloc]initWithFrame:CGRectMake(self.heardImg.right+5,LeftMargin+lineview.bottom, FitRealValue(40), FitRealValue(20))];
+    self.markLab=[[UILabel alloc]initWithFrame:CGRectMake(self.heardImg.right+5,LeftMargin+lineview.bottom, FitRealValue(60), FitRealValue(25))];
     self.markLab.textColor=[UIColor whiteColor];
     self.markLab.font=[UIFont systemFontOfSize:10];
     self.markLab.textAlignment=NSTextAlignmentCenter;
@@ -92,6 +92,8 @@
     
     self.bottomBtn2=[UIButton buttonWithType:UIButtonTypeCustom];
     self.bottomBtn2.frame=CGRectMake(viewW-LeftMargin-btnW,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
+    self.bottomBtn2.titleLabel.font=[UIFont systemFontOfSize:14];
+    self.bottomBtn2.cornerRadius=3;
     [self.bottomBtn2 setTitle:@"查看物流" forState:UIControlStateNormal];
     [self.bottomBtn2 setTitleColor:[MTool colorWithHexString:@"#FF6B6B"] forState:UIControlStateNormal];
     self.bottomBtn2.borderWidth=1;
@@ -104,6 +106,8 @@
     
     self.bottomBtn1=[UIButton buttonWithType:UIButtonTypeCustom];
     self.bottomBtn1.frame=CGRectMake(viewW-LeftMargin-btnW,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
+    self.bottomBtn1.titleLabel.font=[UIFont systemFontOfSize:14];
+    self.bottomBtn1.cornerRadius=3;
     [self.bottomBtn1 setTitle:@"查看订单" forState:UIControlStateNormal];
     [self.bottomBtn1 setTitleColor:[MTool colorWithHexString:@"#FF6B6B"] forState:UIControlStateNormal];
     self.bottomBtn1.borderWidth=1;
@@ -115,6 +119,8 @@
     
     self.bottomBtn3=[UIButton buttonWithType:UIButtonTypeCustom];
     self.bottomBtn3.frame=CGRectMake(viewW-LeftMargin-btnW,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
+    self.bottomBtn3.titleLabel.font=[UIFont systemFontOfSize:14];
+    self.bottomBtn3.cornerRadius=3;
     [self.bottomBtn3 setTitle:@"确认收货" forState:UIControlStateNormal];
     [self.bottomBtn3 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.bottomBtn3 setBackgroundColor:[MTool colorWithHexString:@"#FF6B6B"]];
@@ -125,6 +131,8 @@
     
     self.bottomBtn4=[UIButton buttonWithType:UIButtonTypeCustom];
     self.bottomBtn4.frame=CGRectMake(viewW-LeftMargin-btnW,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
+    self.bottomBtn4.titleLabel.font=[UIFont systemFontOfSize:14];
+    self.bottomBtn4.cornerRadius=3;
     [self.bottomBtn4 setTitle:@"确认收货" forState:UIControlStateNormal];
     [self.bottomBtn4 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.bottomBtn4 setBackgroundColor:[MTool colorWithHexString:@"#FF6B6B"]];
@@ -136,6 +144,8 @@
     
     self.bottomBtn5=[UIButton buttonWithType:UIButtonTypeCustom];
     self.bottomBtn5.frame=CGRectMake(viewW-LeftMargin-btnW,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
+    self.bottomBtn5.titleLabel.font=[UIFont systemFontOfSize:14];
+    self.bottomBtn5.cornerRadius=3;
     [self.bottomBtn5 setTitle:@"退  款" forState:UIControlStateNormal];
     [self.bottomBtn5 setTitleColor:[MTool colorWithHexString:@"#FF6B6B"] forState:UIControlStateNormal];
     self.bottomBtn5.borderWidth=1;
@@ -147,6 +157,8 @@
     
     self.bottomBtn6=[UIButton buttonWithType:UIButtonTypeCustom];
     self.bottomBtn6.frame=CGRectMake(viewW-LeftMargin-btnW,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
+    self.bottomBtn6.titleLabel.font=[UIFont systemFontOfSize:14];
+    self.bottomBtn6.cornerRadius=3;
     [self.bottomBtn6 setTitle:@"退  款" forState:UIControlStateNormal];
     [self.bottomBtn6 setTitleColor:[MTool colorWithHexString:@"#FF6B6B"] forState:UIControlStateNormal];
     self.bottomBtn6.borderWidth=1;
@@ -155,6 +167,21 @@
     [self.bottomBtn6 addTarget:self action:@selector(bottomBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     self.bottomBtn6.borderColor=[MTool colorWithHexString:@"#FF6B6B"];
     [bgView addSubview:self.bottomBtn6];
+    
+    
+    self.bottomBtn7=[UIButton buttonWithType:UIButtonTypeCustom];
+    self.bottomBtn7.frame=CGRectMake(viewW-LeftMargin-btnW,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
+    self.bottomBtn7.titleLabel.font=[UIFont systemFontOfSize:14];
+    self.bottomBtn7.cornerRadius=3;
+    [self.bottomBtn7 setTitle:@"取消订单" forState:UIControlStateNormal];
+    [self.bottomBtn7 setTitleColor:[MTool colorWithHexString:@"#FF6B6B"] forState:UIControlStateNormal];
+    self.bottomBtn7.borderWidth=1;
+    self.bottomBtn7.borderColor=[MTool colorWithHexString:@"#FF6B6B"];
+    self.bottomBtn7.hidden=YES;
+    self.bottomBtn7.tag=700;
+    [self.bottomBtn7 addTarget:self action:@selector(bottomBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    self.bottomBtn6.borderColor=[MTool colorWithHexString:@"#FF6B6B"];
+    [bgView addSubview:self.bottomBtn7];
     
 }
 -(void)setModel:(MyOrderListModel *)model{
@@ -194,6 +221,8 @@
         [self.bottomBtn4 setTitle:@"去付款" forState:UIControlStateNormal];
         self.bottomBtn1.frame=CGRectMake(viewW-(LeftMargin+btnW)*2,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
         self.bottomBtn1.hidden=NO;
+        self.bottomBtn7.frame=CGRectMake(viewW-(LeftMargin+btnW)*3,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
+        self.bottomBtn7.hidden=NO;
         
     }
     if ([model.orderstatus isEqualToString:@"已付款"]) {
@@ -278,6 +307,9 @@
     if (sender.tag==600) {
         self.Block(@"提交物流信息");
     }
+    if (sender.tag==700) {
+         self.Block(@"取消订单");
+     }
     
 }
 @end

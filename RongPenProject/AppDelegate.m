@@ -30,9 +30,9 @@
    
     
     //下面两行代码主要是防止加载大分辨率图片时内存暴涨crash
-    [SDImageCache sharedImageCache].config.shouldCacheImagesInMemory = NO;//缓存图片不放入内存
+//    [SDImageCache sharedImageCache].config.shouldCacheImagesInMemory = NO;//缓存图片不放入内存
       //sd中可点击diskCacheReadingOptions跳转到这个属性，提示设置为NSDataReadingMappedIfSafe可提高性能
-    [SDImageCache sharedImageCache].config.diskCacheReadingOptions = NSDataReadingMappedIfSafe;
+//    [SDImageCache sharedImageCache].config.diskCacheReadingOptions = NSDataReadingMappedIfSafe;
     
 //    [self getAreaUrlData];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

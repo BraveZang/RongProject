@@ -14,7 +14,6 @@
 #import "AreaModel.h"
 #import <ContactsUI/ContactsUI.h>
 
-
 @interface AddAdressVC () <AddressPickerViewDelegate, CNContactPickerDelegate,UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate,NetManagerDelegate>
 @property (nonatomic, strong) NetManager                *net;
 @property (nonatomic, strong) AddressPickerView         *pickerView;
@@ -27,6 +26,8 @@
 @property (strong, nonatomic)  ReLayoutButton           *quyuBtn;
 @property (strong, nonatomic)  UITableView              *tableView;
 @property (nonatomic, strong)  UIButton                 *addadressBtn;
+@property (nonatomic, strong)  UIButton                 *delbtn;
+@property (nonatomic, strong)  UIButton                 *defualbtn;
 
 //通讯录姓名电话
 @property (nonatomic,strong) NSString                   *namestr;   //姓名
@@ -61,15 +62,16 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.view.backgroundColor=[UIColor colorWithRed:243/255.0 green:245/255.0 blue:248/255.0 alpha:1.0];
     self.leftImgBtn.hidden=NO;
     self.toptitle.hidden=NO;
     self.topview.hidden=NO;
     self.isSetdefaul=@"0";//新增地址初始状态为非默认
-    [self.rightImgBtn setTitle:@"删除" forState:UIControlStateNormal];
-    self.rightImgBtn.titleLabel.font=[UIFont systemFontOfSize:14];
-    [self.rightImgBtn setTitleColor:[MTool colorWithHexString:@"#555555"] forState:UIControlStateNormal];
+//    [self.rightImgBtn setTitle:@"删除" forState:UIControlStateNormal];
+//    self.rightImgBtn.titleLabel.font=[UIFont systemFontOfSize:14];
+//    [self.rightImgBtn setTitleColor:[MTool colorWithHexString:@"#555555"] forState:UIControlStateNormal];
     
-    self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0,SafeAreaTopHeight,  SCREEN_WIDTH, SCREEN_HEIGHT-SafeAreaBottomHeight-SafeAreaTopHeight-100*SCREEN_WIDTH/750) style:UITableViewStylePlain];
+    self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0,SafeAreaTopHeight,  SCREEN_WIDTH, 4*55+12) style:UITableViewStylePlain];
     self.tableView.delegate=self;
     self.tableView.dataSource=self;
     self.tableView.backgroundColor=[UIColor clearColor];
@@ -78,35 +80,46 @@
     self.tableView.scrollEnabled=NO;
     [self.view addSubview:self.tableView];
     
+    self.addressTV.layer.cornerRadius = 8;
+    self.addressTV.layer.borderColor = UIColorFromRGB(0xDDDDDD).CGColor;
+    self.addressTV.layer.borderWidth = 1;
+    
+    self.delbtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.delbtn.frame = CGRectMake(ScreenWidth-LeftMargin-60,SafeAreaTopHeight-64+(64-15)/2, 60, 30);
+    [self.delbtn setTitle:@"删除" forState:UIControlStateNormal];
+    self.delbtn.titleLabel.font=[UIFont systemFontOfSize:14];
+    [self.delbtn setTitleColor:[MTool colorWithHexString:@"#555555"] forState:UIControlStateNormal];
+    [self.delbtn addTarget:self action:@selector(delbtnclick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.delbtn];
+    
+    self.defualbtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.defualbtn.frame = CGRectMake(10,self.tableView.bottom+15, 90, 30);
+    [self.defualbtn setTitle:@"默认地址" forState:UIControlStateNormal];
+    [self.defualbtn setImage:[UIImage imageNamed:@"quan_btn"] forState:UIControlStateNormal];
+    [self.defualbtn setTitleColor:[MTool colorWithHexString:@"#555555"] forState:UIControlStateNormal];
+    self.defualbtn.titleLabel.font=[UIFont systemFontOfSize:14];
+    [self.defualbtn addTarget:self action:@selector(defualbtnclick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.defualbtn];
+    
     self.addadressBtn=[UIButton buttonWithType:UIButtonTypeCustom];
-    self.addadressBtn.frame=CGRectMake(0, SCREEN_HEIGHT-100*SCREEN_WIDTH/750-SafeAreaBottomHeight,SCREEN_WIDTH,100*SCREEN_WIDTH/750);
+    self.addadressBtn.frame=CGRectMake(20, self.defualbtn.bottom+30,SCREEN_WIDTH-40,80*SCREEN_WIDTH/750);
     [self.addadressBtn addTarget:self action:@selector(commitBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    self.addadressBtn.cornerRadius=20;
     [self.addadressBtn setTitle:@"确定" forState:UIControlStateNormal];
     [self.addadressBtn setBackgroundColor:[MTool colorWithHexString:@"#FF4E4E"]];
     [self.addadressBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     self.addadressBtn.titleLabel.font=[UIFont systemFontOfSize:18];
     [self.view addSubview: self.addadressBtn];
-    
-    
-    self.addressTV.layer.cornerRadius = 8;
-    self.addressTV.layer.borderColor = UIColorFromRGB(0xDDDDDD).CGColor;
-    self.addressTV.layer.borderWidth = 1;
-    
-    UIButton *delbtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    delbtn.frame = CGRectMake(0,0, 30, 30);
-    [delbtn setTitle:@"删除" forState:UIControlStateNormal];
-    [delbtn setTitleColor:[MTool colorWithHexString:@"333333"] forState:UIControlStateNormal];
-    [delbtn addTarget:self action:@selector(delbtnclick) forControlEvents:UIControlEventTouchUpInside];
-    self.rightImgBtn=delbtn;
+       
     
     if (_VCtag==1) {
         self.toptitle.text = @"新增地址";
-        self.rightImgBtn.hidden=NO;
+        self.rightImgBtn.hidden=YES;
         
     }
     else{
         self.toptitle.text = @"编辑地址";
-        self.rightImgBtn.hidden=NO;
+        self.rightImgBtn.hidden=YES;
         
     }
     
@@ -148,14 +161,20 @@
 //        return 84*SCREEN_WIDTH/750;
 //    }
 //    else{
-//        return 84*SCREEN_WIDTH/750;
+//        return 84*SCREEN_WIDTH/750; return 12;
 //
 //    }
     return 55;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 0.01;
+    return 12;
+}
+-(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor =[UIColor colorWithRed:243/255.0 green:245/255.0 blue:248/255.0 alpha:1.0];
+    return view;
+    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
@@ -286,22 +305,22 @@
 
 //确认添加
 - (void)commitBtnClicked {
-    if (self.namestr.length == 0) {
-        [DZTools showNOHud:@"名字不能为空" delay:2];
-        return;
-    }
-    if (self.phoneNumberstr.length == 0) {
-        [DZTools showNOHud:@"电话不能为空" delay:2];
-        return;
-    }
-    if (self.xiangxiaddressStr.length == 0) {
-        [DZTools showNOHud:@"详细地址不能为空" delay:2];
-        return;
-    }
-    if (self.addressStr.length == 0) {
-        [DZTools showNOHud:@"所在区域不能为空" delay:2];
-        return;
-    }
+//    if (self.namestr.length == 0) {
+//        [DZTools showNOHud:@"名字不能为空" delay:2];
+//        return;
+//    }
+//    if (self.phoneNumberstr.length == 0) {
+//        [DZTools showNOHud:@"电话不能为空" delay:2];
+//        return;
+//    }
+//    if (self.xiangxiaddressStr.length == 0) {
+//        [DZTools showNOHud:@"详细地址不能为空" delay:2];
+//        return;
+//    }
+//    if (self.addressStr.length == 0) {
+//        [DZTools showNOHud:@"所在区域不能为空" delay:2];
+//        return;
+//    }
     NSString *regex = @"^((13[0-9])|(14[0-9])|(17[0-9])|(15[^4,\\D])|(18[0-9])|(19[0-9])|(16[0-9])|(17[0-9]))\\d{8}$";
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
     BOOL isMatch = [pred evaluateWithObject:self.phoneNumberstr];
@@ -327,11 +346,25 @@
 -(void)delbtnclick{
     
     self.net.requestId=1004;
-    
-    //    [self.net mycenter_addressdelWithuid:@"119" address_id:@"35"];
+    [self.net Member_addressdelWithUid:[User getUserID] Id:self.address_id];
     
 }
-
+-(void)defualbtnclick:(UIButton*)btn{
+    
+    btn.selected = !btn.selected;
+    if (btn.selected==YES) {
+        [self.defualbtn setImage:[UIImage imageNamed:@"quan_btn_s"] forState:UIControlStateNormal];
+        self.isSetdefaul=@"1";
+        self.net.requestId=1005;
+        [self.net Member_setdefaultWithUid:[User getUserID] Id:self.address_id];
+    }
+    else{
+        [self.defualbtn setImage:[UIImage imageNamed:@"quan_btn"] forState:UIControlStateNormal];
+        self.isSetdefaul=@"0";
+        
+       
+    }
+}
 
 - (void)addressBtnClick {
     [self.view endEditing:YES];
@@ -367,7 +400,6 @@
     
     return _zrPickerView;
     
-    
 }
 
 
@@ -393,8 +425,6 @@
     
     // 3. 模态弹出
     [self presentViewController:peoplePickVC animated:YES completion:nil];
-    
-    
 }
 -(void)contactPicker:(CNContactPickerViewController *)picker didSelectContact:(CNContact *)contact
 {
@@ -439,15 +469,33 @@
             [self.navigationController popViewControllerAnimated:YES];
         }
         if (self.net.requestId==1004) {//删除地址
+            
             [self.navigationController popViewControllerAnimated:YES];
+        }
+        if (self.net.requestId==1005) {//设置默认
+            
+            self.defualbtn.enabled=NO;
         }
         if (self.net.requestId==1002) {
             
             NSDictionary*dic=result[@"body"];
             _Addressmodel=[AddressModel mj_objectWithKeyValues:dic];
+            if ([_Addressmodel.moren isEqualToString:@"0"]) {
+                
+            [self.defualbtn setImage:[UIImage imageNamed:@"quan_btn"] forState:UIControlStateNormal];
+
+            }
+            else{
+            [self.defualbtn setImage:[UIImage imageNamed:@"quan_btn_s"] forState:UIControlStateNormal];
+            self.defualbtn.enabled=NO;
+
+            }
             self.namestr=_Addressmodel.name;
             self.phoneNumberstr=_Addressmodel.mobile;
             self.isSetdefaul=_Addressmodel.moren;
+            self.provinceId=_Addressmodel.sheng;
+            self.cityId=_Addressmodel.shi;
+            self.areaId=_Addressmodel.qu;
             self.addressStr=[NSString stringWithFormat:@"%@%@%@",_Addressmodel.sheng1,_Addressmodel.shi1,_Addressmodel.qu1];
             self.xiangxiaddressStr=_Addressmodel.address;
             [self.tableView reloadData];
@@ -477,7 +525,7 @@
     }
     else{
         self.toptitle.text = @"编辑地址";
-        self.rightImgBtn.hidden=NO;
+        self.rightImgBtn.hidden=YES;
     }
     
 }

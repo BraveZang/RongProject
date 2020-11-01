@@ -40,11 +40,14 @@
     self.leftImgBtn.hidden=NO;
     self.toptitle.hidden=NO;
     self.toptitle.text=@"地址管理";
-    self.rightImgBtn.hidden=NO;
-    [self.rightImgBtn setImage:nil forState:UIControlStateNormal];
-    [self.rightImgBtn setTitle:@"添加地址" forState:UIControlStateNormal];
-    [self.rightImgBtn setTitleColor:[MTool colorWithHexString:@"#555555"] forState:UIControlStateNormal];
-    [self.rightImgBtn addTarget:self action:@selector(rightBarButtonItemClicked) forControlEvents:UIControlEventTouchUpInside];
+
+    UIButton*addBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    addBtn.frame = CGRectMake(ScreenWidth-LeftMargin-60,SafeAreaTopHeight-64+(64-15)/2, 60, 30);
+    [addBtn setTitle:@"添加地址" forState:UIControlStateNormal];
+    addBtn.titleLabel.font=[UIFont systemFontOfSize:14];
+    [addBtn setTitleColor:[MTool colorWithHexString:@"#555555"] forState:UIControlStateNormal];
+    [addBtn addTarget:self action:@selector(rightBarButtonItemClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:addBtn];
 
     self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0,SafeAreaTopHeight,  SCREEN_WIDTH, SCREEN_HEIGHT-SafeAreaBottomHeight-SafeAreaTopHeight) style:UITableViewStylePlain];
     self.tableView.delegate=self;

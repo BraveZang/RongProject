@@ -13,6 +13,7 @@
 #import "PayCell.h"
 #import "AddressModel.h"
 #import "AddAdressVC.h"
+#import "SureCourseDeatilodel.h"
 
 
 @interface SureCourSeOrderVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
@@ -20,9 +21,10 @@
 @property (nonatomic, strong) NetManager                  *net;
 @property (nonatomic, strong) UITableView                 *tableView;
 @property (nonatomic, strong) UILabel                     *moneyLab;
-@property (nonatomic, strong) Shop_qrorderModel           *model;
+@property (nonatomic, strong) SureCourseDeatilodel        *model;
 @property (nonatomic, strong) AddressModel                *adressModel;
 @property (nonatomic, strong) NSArray                     *guigeAry;
+@property (nonatomic, strong) NSArray                     *timeAry;
 
 
 @end
@@ -34,6 +36,7 @@
     self.toptitle.hidden=NO;
     self.toptitle.text=@"确认订单";
     self.topview.hidden=NO;
+    self.timeAry=[NSArray array];
     [self createTableView];
     [self getUrlData];
     
@@ -72,39 +75,56 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-
-        return 1;
-}
     
+    return 1;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 3+self.model.lists.count;
-    
+    if (self.timeAry.count==0) {
+        return 4;
+    }
+    else{
+        return 5;
+    }
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     //选中之后的cell的高度
-    NSArray*listsAry=self.model.lists;
-    if (indexPath.section==0) {
-        return 164*SCREEN_WIDTH/750;
-    }
-    else if (indexPath.section==3+self.model.lists.count-1) {
-        return FitRealValue(178);
-    }
-    else if (indexPath.section==3+self.model.lists.count-2) {
-        return FitRealValue(84)*2;
-    }
     
-    else{
-        NSDictionary*dic=listsAry[indexPath.section-1];
-        NSString*tipStr=dic[@"tip"];
-        if ([tipStr isEqualToString:@"赠品"]) {
-            
-            return FitRealValue(260);
-            
+    if (self.timeAry.count==0) {
+        if (indexPath.section==0) {
+            return 164*SCREEN_WIDTH/750;
+        }
+        else if (indexPath.section==1) {
+            return 368*SCREEN_WIDTH/750;
+            return FitRealValue(178);
+        }
+        else if (indexPath.section==2) {
+            return FitRealValue(254);
         }
         else{
-            return 368*SCREEN_WIDTH/750;
+            return FitRealValue(84)*2;
         }
+    }
+    else{
+        
+        if (indexPath.section==0) {
+            return 164*SCREEN_WIDTH/750;
+        }
+        else if (indexPath.section==1) {
+            return 368*SCREEN_WIDTH/750;
+            return FitRealValue(178);
+        }
+        else if (indexPath.section==2) {
+            return FitRealValue(260);
+        }
+        else if (indexPath.section==3) {
+            return FitRealValue(254);
+        }
+        else{
+            return FitRealValue(84)*2;
+        }
+        
         
     }
     
@@ -112,31 +132,32 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSArray*listsAry=self.model.lists;
-    if (indexPath.section==0) {
-        static NSString *CellIdentifier = @"ShopAdressCell";
-        ShopAdressCell*cell = [tableView cellForRowAtIndexPath:indexPath];
-        if (!cell) {
-            cell = [[ShopAdressCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    if (self.timeAry.count==0) {
+        if (indexPath.section==0) {
+            static NSString *CellIdentifier = @"ShopAdressCell";
+            ShopAdressCell*cell = [tableView cellForRowAtIndexPath:indexPath];
+            if (!cell) {
+                cell = [[ShopAdressCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+            }
+                
+            cell.adressmodel=self.adressModel;
+            return cell;
         }
-                cell.adressmodel=self.adressModel;
-        return cell;
-    }
-    else if (indexPath.section==(self.model.lists.count+2)) {//支付方式
-        
-        static NSString *CellIdentifier = @"PayCell";
-        PayCell*cell = [tableView cellForRowAtIndexPath:indexPath];
-        if (!cell) {
-            cell = [[PayCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        else if (indexPath.section==(1+2)) {//支付方式
+            
+            static NSString *CellIdentifier = @"PayCell";
+            PayCell*cell = [tableView cellForRowAtIndexPath:indexPath];
+            if (!cell) {
+                cell = [[PayCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            
+            return cell;
         }
-        
-        return cell;
-    }
-    else if (indexPath.section==(self.model.lists.count+1)) {//运费
-   
+        else if (indexPath.section==(1+1)) {//运费
+            
             NSString *CellIdentifier =@"PriceCell2";
             PriceCell*cell = [tableView cellForRowAtIndexPath:indexPath];
             if (!cell) {
@@ -149,22 +170,81 @@
             cell.moneyLab1.text=self.model.kdprice;
             
             return cell;
-    }
-    
-    else{
-        NSString *CellIdentifier =[NSString stringWithFormat:@"ConfirmOrder%ld",indexPath.section];
-        ConfirmOrderVCCell*cell = [tableView cellForRowAtIndexPath:indexPath];
-        if (!cell) {
-            cell = [[ConfirmOrderVCCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
-        cell.colorBlock = ^(NSArray * _Nonnull ary) {
-            self.guigeAry=ary;
-            [self creatActionSheet];
-        };
-        NSDictionary*listDic=listsAry[indexPath.section-1];
-        cell.dic=listDic;
-        return cell;
+        
+        else{
+            
+            NSString *CellIdentifier =[NSString stringWithFormat:@"ConfirmOrder%ld",indexPath.section];
+            ConfirmOrderVCCell*cell = [tableView cellForRowAtIndexPath:indexPath];
+            if (!cell) {
+                cell = [[ConfirmOrderVCCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            cell.colorBlock = ^(NSArray * _Nonnull ary) {
+//                self.guigeAry=ary;
+//                [self creatActionSheet];
+            };
+            NSDictionary*listDic=self.model.lists;
+            cell.dic=listDic;
+            return cell;
+        }
+    }else{
+        if (indexPath.section==0) {
+            static NSString *CellIdentifier = @"ShopAdressCell111";
+            ShopAdressCell*cell = [tableView cellForRowAtIndexPath:indexPath];
+            if (!cell) {
+                cell = [[ShopAdressCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+            }
+            cell.adressmodel=self.adressModel;
+            return cell;
+        }
+        else if (indexPath.section==(1+2)) {//支付方式
+            
+            static NSString *CellIdentifier = @"PayCell1111";
+            PayCell*cell = [tableView cellForRowAtIndexPath:indexPath];
+            if (!cell) {
+                cell = [[PayCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            
+            return cell;
+        }
+        else if (indexPath.section==(1+1)) {//运费
+            
+            NSString *CellIdentifier =@"PriceCell211111";
+            PriceCell*cell = [tableView cellForRowAtIndexPath:indexPath];
+            if (!cell) {
+                cell = [[PriceCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            cell.nameLab.text=@"商品价格";
+            cell.moneyLab.text=self.model.total;
+            cell.nameLab1.text=@"运费";
+            cell.moneyLab1.text=self.model.kdprice;
+            
+            return cell;
+        }
+        
+        else{
+            
+            NSString *CellIdentifier =[NSString stringWithFormat:@"ConfirmOrder1111%ld",indexPath.section];
+            ConfirmOrderVCCell*cell = [tableView cellForRowAtIndexPath:indexPath];
+            if (!cell) {
+                cell = [[ConfirmOrderVCCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            cell.colorBlock = ^(NSArray * _Nonnull ary) {
+                self.guigeAry=ary;
+                [self creatActionSheet];
+            };
+            NSDictionary*listDic=self.model.lists;
+            cell.dic=listDic;
+            return cell;
+        }
+        
+        
     }
 }
 
@@ -182,16 +262,16 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-        if (indexPath.row==0) {
-            AddAdressVC*vc=[[AddAdressVC alloc]init];
-            vc.hidesBottomBarWhenPushed=YES;
-            vc.VCtag=1;
-//            vc.backBlock = ^(AddressModel * _Nonnull model) {
-//                self.adressmodel=model;
-//                [self.tableview reloadData];
-//            };
-            [self.navigationController pushViewController:vc animated:YES];
-        }
+    if (indexPath.row==0) {
+        AddAdressVC*vc=[[AddAdressVC alloc]init];
+        vc.hidesBottomBarWhenPushed=YES;
+        vc.VCtag=1;
+        //            vc.backBlock = ^(AddressModel * _Nonnull model) {
+        //                self.adressmodel=model;
+        //                [self.tableview reloadData];
+        //            };
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     
 }
 
@@ -243,10 +323,11 @@
     else{
         if (request.requestId==1001) {//
             
-            self.model=[Shop_qrorderModel mj_objectWithKeyValues:bodyDic];
+            self.model=[SureCourseDeatilodel mj_objectWithKeyValues:bodyDic];
             NSDictionary*adressDic=self.model.shouhuo;
             self.adressModel=[AddressModel mj_objectWithKeyValues:adressDic];
-            
+            NSDictionary*timediC=self.model.lists;
+            self.timeAry=[NSArray arrayWithObject:timediC[@"timelist"]];
             [self.tableView reloadData];
         }
         if (request.requestId==1002) {//

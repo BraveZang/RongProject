@@ -13,6 +13,8 @@
 #import "VideoCourseRangeCell.h"
 #import "UIAlertView+Block.h"
 #import "RecordeDetailModel.h"
+#import "SureCourseDeatilodel.h"
+
 @interface MainCourseThreeDetailVC ()<WKPlayerViewDelegate,UITableViewDelegate,UITableViewDataSource,NetManagerDelegate,UIAlertViewDelegate>
 
 @property(nonatomic, strong)   UITableView               *tableView;

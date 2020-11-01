@@ -30,6 +30,7 @@
     [super viewDidLoad];
     self.datAry=[NSMutableArray arrayWithCapacity:0];
     self.toptitle.hidden=NO;
+    self.rightImgBtn.hidden=NO;
     self.toptitle.text=@"我的订单";
     self.leftImgBtn.hidden=NO;
     [self initTableView];

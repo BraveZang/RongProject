@@ -58,7 +58,7 @@
     self.heardImg=[[UIImageView alloc]initWithFrame:CGRectMake(LeftMargin,LeftMargin+lineview.bottom, imgW, imgH)];
     [bgView addSubview:self.heardImg];
     
-    self.markLab=[[UILabel alloc]initWithFrame:CGRectMake(self.heardImg.right+8,LeftMargin+lineview.bottom+5, FitRealValue(40), FitRealValue(20))];
+    self.markLab=[[UILabel alloc]initWithFrame:CGRectMake(self.heardImg.right+8,LeftMargin+lineview.bottom, FitRealValue(60), FitRealValue(30))];
     self.markLab.textColor=[UIColor whiteColor];
     self.markLab.font=[UIFont systemFontOfSize:10];
     self.markLab.textAlignment=NSTextAlignmentCenter;
@@ -138,7 +138,10 @@
     self.nameLab.text=dic[@"goodsname"];
     self.moneyLab.text=dic[@"price"];
     self.yunfeiLab.text=model.kdprice;
-    self.totaleMoneyLab.text=[NSString stringWithFormat:@"实付款:%@", model.total];
     
+    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"实付款:%@", model.total]];
+    [placeholder addAttribute:NSForegroundColorAttributeName value:[MTool colorWithHexString:@"#FF8D8D"] range:NSMakeRange(4,model.total.length)];
+     [placeholder addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:17] range:NSMakeRange(4,model.total.length)];
+    self.totaleMoneyLab.attributedText = placeholder;
 }
 @end
