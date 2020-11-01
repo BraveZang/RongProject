@@ -141,6 +141,18 @@
     [self.bottomBtn4 addTarget:self action:@selector(bottomBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [bgView addSubview:self.bottomBtn4];
     
+    self.bottomBtn10=[UIButton buttonWithType:UIButtonTypeCustom];
+    self.bottomBtn10.frame=CGRectMake(viewW-LeftMargin-btnW,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
+    self.bottomBtn10.titleLabel.font=[UIFont systemFontOfSize:14];
+    self.bottomBtn10.cornerRadius=3;
+    [self.bottomBtn10 setTitle:@"去付款" forState:UIControlStateNormal];
+    [self.bottomBtn10 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.bottomBtn10 setBackgroundColor:[MTool colorWithHexString:@"#FF6B6B"]];
+    self.bottomBtn10.hidden=YES;
+    self.bottomBtn10.tag=400;
+    [self.bottomBtn10 addTarget:self action:@selector(bottomBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [bgView addSubview:self.bottomBtn10];
+    
     
     self.bottomBtn5=[UIButton buttonWithType:UIButtonTypeCustom];
     self.bottomBtn5.frame=CGRectMake(viewW-LeftMargin-btnW,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
@@ -216,13 +228,18 @@
     self.moneyLab.text=[NSString stringWithFormat:@"¥%@",model.price];
     self.statusLab.text=model.orderstatus;
     if ([model.orderstatus isEqualToString:@"待付款"]) {
-        self.bottomBtn4.frame=CGRectMake(viewW-LeftMargin-btnW,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
-        self.bottomBtn4.hidden=NO;
-        [self.bottomBtn4 setTitle:@"去付款" forState:UIControlStateNormal];
+        self.bottomBtn10.frame=CGRectMake(viewW-LeftMargin-btnW,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
+        self.bottomBtn10.hidden=NO;
         self.bottomBtn1.frame=CGRectMake(viewW-(LeftMargin+btnW)*2,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
         self.bottomBtn1.hidden=NO;
         self.bottomBtn7.frame=CGRectMake(viewW-(LeftMargin+btnW)*3,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
         self.bottomBtn7.hidden=NO;
+        
+        
+        self.bottomBtn2.hidden=YES;
+        self.bottomBtn3.hidden=YES;
+        self.bottomBtn4.hidden=YES;
+        self.bottomBtn6.hidden=YES;
         
     }
     if ([model.orderstatus isEqualToString:@"已付款"]) {
@@ -232,6 +249,13 @@
         self.bottomBtn5.frame=CGRectMake(viewW-(LeftMargin+btnW)*2,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
         self.bottomBtn5.hidden=NO;
         
+        self.bottomBtn2.hidden=YES;
+        self.bottomBtn3.hidden=YES;
+        self.bottomBtn4.hidden=YES;
+        self.bottomBtn6.hidden=YES;
+        self.bottomBtn7.hidden=YES;
+        self.bottomBtn10.hidden=YES;
+        
     }
     if ([model.orderstatus isEqualToString:@"“已完成"]) {
         self.bottomBtn1.frame=CGRectMake(viewW-LeftMargin-btnW,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
@@ -240,10 +264,24 @@
         self.bottomBtn5.frame=CGRectMake(viewW-(LeftMargin+btnW)*2,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
         self.bottomBtn5.hidden=NO;
         
+        self.bottomBtn2.hidden=YES;
+        self.bottomBtn3.hidden=YES;
+        self.bottomBtn4.hidden=YES;
+        self.bottomBtn6.hidden=YES;
+        self.bottomBtn7.hidden=YES;
+        self.bottomBtn10.hidden=YES;
+        
     }
     if ([model.orderstatus isEqualToString:@"已失效"]) {
         self.bottomBtn1.frame=CGRectMake(viewW-LeftMargin-btnW,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
         
+        self.bottomBtn2.hidden=YES;
+        self.bottomBtn3.hidden=YES;
+        self.bottomBtn4.hidden=YES;
+        self.bottomBtn5.hidden=YES;
+        self.bottomBtn6.hidden=YES;
+        self.bottomBtn7.hidden=YES;
+        self.bottomBtn10.hidden=YES;
         self.bottomBtn1.hidden=NO;
         
     }
@@ -256,10 +294,24 @@
         self.bottomBtn1.frame=CGRectMake(viewW-(LeftMargin+btnW)*3,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
         self.bottomBtn1.hidden=NO;
         
+        
+        self.bottomBtn3.hidden=YES;
+        self.bottomBtn5.hidden=YES;
+        self.bottomBtn6.hidden=YES;
+        self.bottomBtn7.hidden=YES;
+        self.bottomBtn10.hidden=YES;
+        
     }
     if ([model.orderstatus isEqualToString:@"退款申请中"]) {
         self.bottomBtn1.frame=CGRectMake(viewW-(LeftMargin+btnW),viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
         self.bottomBtn1.hidden=NO;
+        self.bottomBtn2.hidden=YES;
+        self.bottomBtn3.hidden=YES;
+        self.bottomBtn4.hidden=YES;
+        self.bottomBtn5.hidden=YES;
+        self.bottomBtn6.hidden=YES;
+        self.bottomBtn7.hidden=YES;
+        self.bottomBtn10.hidden=YES;
         
     }
     if ([model.orderstatus isEqualToString:@"“退款审核通过"]) {
@@ -270,21 +322,47 @@
         self.bottomBtn1.frame=CGRectMake(viewW-(LeftMargin+btnW)*2,viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
         self.bottomBtn1.hidden=NO;
         
+        self.bottomBtn3.hidden=YES;
+        self.bottomBtn4.hidden=YES;
+        self.bottomBtn5.hidden=YES;
+        self.bottomBtn6.hidden=YES;
+        self.bottomBtn7.hidden=YES;
+        self.bottomBtn10.hidden=YES;
+        
     }
     if ([model.orderstatus isEqualToString:@"拒绝退款"]) {
         self.bottomBtn1.frame=CGRectMake(viewW-(LeftMargin+btnW),viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
         self.bottomBtn1.hidden=NO;
+        self.bottomBtn2.hidden=YES;
+        self.bottomBtn3.hidden=YES;
+        self.bottomBtn4.hidden=YES;
+        self.bottomBtn5.hidden=YES;
+        self.bottomBtn6.hidden=YES;
+        self.bottomBtn7.hidden=YES;
+        self.bottomBtn10.hidden=YES;
         
     }
     if ([model.orderstatus isEqualToString:@"退款中"]) {
         self.bottomBtn1.frame=CGRectMake(viewW-(LeftMargin+btnW),viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
         self.bottomBtn1.hidden=NO;
-        
+        self.bottomBtn2.hidden=YES;
+        self.bottomBtn3.hidden=YES;
+        self.bottomBtn4.hidden=YES;
+        self.bottomBtn5.hidden=YES;
+        self.bottomBtn6.hidden=YES;
+        self.bottomBtn7.hidden=YES;
+        self.bottomBtn10.hidden=YES;
     }
     if ([model.orderstatus isEqualToString:@"退款完成"]) {
         self.bottomBtn1.frame=CGRectMake(viewW-(LeftMargin+btnW),viewH-FitRealValue(98)+(FitRealValue(98)-btnH)/2 , btnW, btnH);
         self.bottomBtn1.hidden=NO;
-        
+        self.bottomBtn2.hidden=YES;
+        self.bottomBtn3.hidden=YES;
+        self.bottomBtn4.hidden=YES;
+        self.bottomBtn5.hidden=YES;
+        self.bottomBtn6.hidden=YES;
+        self.bottomBtn7.hidden=YES;
+        self.bottomBtn10.hidden=YES;
     }
 }
 -(void)bottomBtnClick:(UIButton*)sender{
@@ -308,8 +386,8 @@
         self.Block(@"提交物流信息");
     }
     if (sender.tag==700) {
-         self.Block(@"取消订单");
-     }
+        self.Block(@"取消订单");
+    }
     
 }
 @end

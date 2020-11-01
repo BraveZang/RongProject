@@ -596,7 +596,38 @@ login_setgread
     [self sendPOSTRequestToServerWithURL:@"Member_addressedit" postData:mutabDic];
     
 }
+/**
+ 设置收货地址 参数
+ 参数：
+ uid 当前会员id
+ orderid 确认订单 返回的orderid
+ addressid 地址id
+ **/
+- (void)Shop_xzaddressWithUid:(NSString *)uid Orderid:(NSString *)orderid Addressid:(NSString *)addressid{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (orderid)[mutabDic setObject:orderid forKey:@"orderid"];
+    if (addressid)[mutabDic setObject:addressid forKey:@"addressid"];
+    [self sendPOSTRequestToServerWithURL:@"Shop_xzaddress" postData:mutabDic];
+}
 
+/**
+ 参数Course_settime
+ 设置上课时间（直播课程确认订单页面）有修改 参数
+ 参数：
+ uid 当前会员id
+ orderid 确认订单 返回的orderid
+ time 时间 确认订单接口 中的 Timelist 中的id
+ **/
+- (void)Course_settimeWithUid:(NSString *)uid Id:(NSString *)id Time:(NSString *)time{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (id)[mutabDic setObject:id forKey:@"id"];
+    if (time)[mutabDic setObject:time forKey:@"time"];
+    [self sendPOSTRequestToServerWithURL:@"Course_settime" postData:mutabDic];
+}
 /**
  地址删除 参数
  参数：
@@ -670,6 +701,89 @@ login_setgread
     if (ordersn)[mutabDic setObject:ordersn forKey:@"ordersn"];
     [self sendPOSTRequestToServerWithURL:@"Order_info" postData:mutabDic];
 }
+/**
+ 申请退款 参数
+ 参数：
+ uid 会员id
+ orderid 订单id
+ yunyin 原因 1.时间长没有发货 2.产品购买重复 3.产品破损 4.其他原因
+ pic 截图
+ mobile 手机号
+ **/
+- (void)Order_refundWithUid:(NSString *)uid orderid:(NSString *)orderid yunyin:(NSString *)yunyin mobile:(NSString *)mobile pic:(NSArray *)pic{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (orderid)[mutabDic setObject:orderid forKey:@"orderid"];
+    if (yunyin)[mutabDic setObject:yunyin forKey:@"yunyin"];
+    if (mobile)[mutabDic setObject:mobile forKey:@"mobile"];
+    if (pic)[mutabDic setObject:pic forKey:@"pic"];
+    [self sendPOSTRequestToServerWithURL:@"Order_refund" postData:mutabDic];
+}
+/**
+ 确认收货 参数
+ 参数：
+ uid 会员id
+ orderid 订单id
+ **/
+- (void)Order_confirmWithUid:(NSString *)uid orderid:(NSString *)orderid {
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (orderid)[mutabDic setObject:orderid forKey:@"orderid"];
+    [self sendPOSTRequestToServerWithURL:@"Order_confirm" postData:mutabDic];
+}
+/**
+收货地址(退款专用)
+ **/
+- (void)Order_tuiaddressWithNoParam{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    [self sendPOSTRequestToServerWithURL:@"Order_tuiaddress" postData:mutabDic];
+}
+
+/**
+快递公司
+ **/
+- (void)Order_kdcompanyWithNoParam{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    [self sendPOSTRequestToServerWithURL:@"Order_kdcompany" postData:mutabDic];
+}
+/**
+ 提交快递单号 参数
+ 参数：
+ uid 会员id
+ orderid 订单id
+ tkorderid 退款订单id 我的订单返回的
+ companyid 快递公司id
+ kdorder 快递单号
+ pic 凭证照片
+ **/
+- (void)Order_submitorderWithUid:(NSString *)uid orderid:(NSString *)orderid tkorderid:(NSString *)tkorderid companyid:(NSString *)companyid kdorder:(NSString *)kdorder{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (orderid)[mutabDic setObject:orderid forKey:@"orderid"];
+    if (tkorderid)[mutabDic setObject:tkorderid forKey:@"tkorderid"];
+    if (companyid)[mutabDic setObject:companyid forKey:@"companyid"];
+    if (kdorder)[mutabDic setObject:kdorder forKey:@"kdorder"];
+    [self sendPOSTRequestToServerWithURL:@"Order_submitorder" postData:mutabDic];
+}
+/**
+ 参数
+ 取消订单新增 参数Order_cancel
+ 参数：
+ uid 会员id
+ orderid 订单id
+ **/
+- (void)Order_cancelWithUid:(NSString *)uid orderid:(NSString *)orderid{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (orderid)[mutabDic setObject:orderid forKey:@"orderid"];
+    [self sendPOSTRequestToServerWithURL:@"Order_cancel" postData:mutabDic];
+}
 
 /**
  支付（通用） 参数
@@ -682,6 +796,20 @@ login_setgread
     if (uid)[mutabDic setObject:uid forKey:@"uid"];
     if (ordersn)[mutabDic setObject:ordersn forKey:@"ordersn"];
     [self sendPOSTRequestToServerWithURL:@"Pay_buy" postData:mutabDic];
+}
+
+/**
+ 参数Pay_zbpay
+ 支付（直播课程专用） 参数
+ 参数：
+ uid 当前会员id
+ ordersn 订单号
+ **/
+- (void)Pay_zbpayUid:(NSString *)uid Ordersn:(NSString *)ordersn{
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (uid)[mutabDic setObject:uid forKey:@"uid"];
+    if (ordersn)[mutabDic setObject:ordersn forKey:@"ordersn"];
+    [self sendPOSTRequestToServerWithURL:@"Pay_zbpay" postData:mutabDic];
 }
 @end
 

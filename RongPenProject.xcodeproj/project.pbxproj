@@ -81,6 +81,10 @@
 		C641DC28254D8D8500CB5731 /* AddressManagerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC27254D8D8500CB5731 /* AddressManagerListCell.m */; };
 		C641DC2B254EBAD000CB5731 /* SureCourseDeatilodel.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC2A254EBAD000CB5731 /* SureCourseDeatilodel.m */; };
 		C641DC2E254ECC0200CB5731 /* CourseTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC2D254ECC0200CB5731 /* CourseTimeCell.m */; };
+		C641DC31254EEDDC00CB5731 /* TuiKuanView.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC30254EEDDC00CB5731 /* TuiKuanView.m */; };
+		C641DC34254F037300CB5731 /* TuiKuandetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC33254F037300CB5731 /* TuiKuandetailVC.m */; };
+		C641DC37254F092900CB5731 /* danhaoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC36254F092900CB5731 /* danhaoCell.m */; };
+		C641DC3A254F13E000CB5731 /* wuliuListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC39254F13E000CB5731 /* wuliuListVC.m */; };
 		C645CD4A254498D800AD8E4C /* TeacherInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD49254498D800AD8E4C /* TeacherInfoModel.m */; };
 		C645CD4D2544993300AD8E4C /* CourSerAngeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD4C2544993300AD8E4C /* CourSerAngeModel.m */; };
 		C645CD502544A15700AD8E4C /* VideoCourseRangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD4F2544A15700AD8E4C /* VideoCourseRangeCell.m */; };
@@ -342,6 +346,14 @@
 		C641DC2A254EBAD000CB5731 /* SureCourseDeatilodel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SureCourseDeatilodel.m; sourceTree = "<group>"; };
 		C641DC2C254ECC0200CB5731 /* CourseTimeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseTimeCell.h; sourceTree = "<group>"; };
 		C641DC2D254ECC0200CB5731 /* CourseTimeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseTimeCell.m; sourceTree = "<group>"; };
+		C641DC2F254EEDDC00CB5731 /* TuiKuanView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TuiKuanView.h; sourceTree = "<group>"; };
+		C641DC30254EEDDC00CB5731 /* TuiKuanView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TuiKuanView.m; sourceTree = "<group>"; };
+		C641DC32254F037300CB5731 /* TuiKuandetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TuiKuandetailVC.h; sourceTree = "<group>"; };
+		C641DC33254F037300CB5731 /* TuiKuandetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TuiKuandetailVC.m; sourceTree = "<group>"; };
+		C641DC35254F092900CB5731 /* danhaoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = danhaoCell.h; sourceTree = "<group>"; };
+		C641DC36254F092900CB5731 /* danhaoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = danhaoCell.m; sourceTree = "<group>"; };
+		C641DC38254F13E000CB5731 /* wuliuListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = wuliuListVC.h; sourceTree = "<group>"; };
+		C641DC39254F13E000CB5731 /* wuliuListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = wuliuListVC.m; sourceTree = "<group>"; };
 		C645CD48254498D800AD8E4C /* TeacherInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherInfoModel.h; sourceTree = "<group>"; };
 		C645CD49254498D800AD8E4C /* TeacherInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherInfoModel.m; sourceTree = "<group>"; };
 		C645CD4B2544993300AD8E4C /* CourSerAngeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourSerAngeModel.h; sourceTree = "<group>"; };
@@ -912,6 +924,10 @@
 			children = (
 				C645CD7A254671CE00AD8E4C /* MyOrderListVC.h */,
 				C645CD79254671CE00AD8E4C /* MyOrderListVC.m */,
+				C641DC32254F037300CB5731 /* TuiKuandetailVC.h */,
+				C641DC33254F037300CB5731 /* TuiKuandetailVC.m */,
+				C641DC38254F13E000CB5731 /* wuliuListVC.h */,
+				C641DC39254F13E000CB5731 /* wuliuListVC.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -930,6 +946,10 @@
 			children = (
 				C645CD8C2546722900AD8E4C /* MyOrderListCell.h */,
 				C645CD8B2546722900AD8E4C /* MyOrderListCell.m */,
+				C641DC35254F092900CB5731 /* danhaoCell.h */,
+				C641DC36254F092900CB5731 /* danhaoCell.m */,
+				C641DC2F254EEDDC00CB5731 /* TuiKuanView.h */,
+				C641DC30254EEDDC00CB5731 /* TuiKuanView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1866,6 +1886,7 @@
 				C6168BD82519B4A9001EF850 /* HDragItem.m in Sources */,
 				C62DCBFE25359B7F00410FCE /* HaveBuyCell.m in Sources */,
 				C6473F6B250F44B200BDE73F /* UIButton+Code.m in Sources */,
+				C641DC37254F092900CB5731 /* danhaoCell.m in Sources */,
 				C6497C1325319C67006463B4 /* ShopIndexModel.m in Sources */,
 				C641DC28254D8D8500CB5731 /* AddressManagerListCell.m in Sources */,
 				C641DC22254D741D00CB5731 /* SureCourSeOrderVC.m in Sources */,
@@ -1892,6 +1913,7 @@
 				C641DC1F254D62FA00CB5731 /* RecordeDetailModel.m in Sources */,
 				27271CF6250D129B00B4E382 /* main.m in Sources */,
 				C6497BC1251C3D55006463B4 /* MainMessageCell.m in Sources */,
+				C641DC31254EEDDC00CB5731 /* TuiKuanView.m in Sources */,
 				C6473FA4250F4B7E00BDE73F /* ReadIndexVC.m in Sources */,
 				C645CD842546720200AD8E4C /* MyorderDetailTowCell.m in Sources */,
 				C6168BC42519AE6F001EF850 /* MainFanKuiCell.m in Sources */,
@@ -1899,6 +1921,7 @@
 				04458A012544A74C00C5AE74 /* MapModel.m in Sources */,
 				044495A225454973007BA4CA /* VoiceModel.m in Sources */,
 				C62DCC4B253AD39C00410FCE /* AddressPickerView.m in Sources */,
+				C641DC34254F037300CB5731 /* TuiKuandetailVC.m in Sources */,
 				C641DC25254D89C100CB5731 /* AdressListVC.m in Sources */,
 				C62DCC5E253C1D7E00410FCE /* CourseVideoCollCell.m in Sources */,
 				044241222542B02600E066FE /* ZRPickerView.m in Sources */,
@@ -1909,6 +1932,7 @@
 				C6473F97250F453400BDE73F /* NetManager+UPRequest.m in Sources */,
 				C64740022514823100BDE73F /* swift.swift in Sources */,
 				C6497BD8251C828E006463B4 /* HYBStarEvaluationView.m in Sources */,
+				C641DC3A254F13E000CB5731 /* wuliuListVC.m in Sources */,
 				C645CD872546720D00AD8E4C /* MyorderDetailCell.m in Sources */,
 				C641DC18254D439500CB5731 /* MainCourseThreeDetailVC.m in Sources */,
 				C6168BBE2519A617001EF850 /* MainSetCell.m in Sources */,

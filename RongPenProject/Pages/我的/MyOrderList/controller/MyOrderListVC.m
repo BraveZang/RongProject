@@ -9,6 +9,9 @@
 #import "MyOrderListCell.h"
 #import "MyOrderListModel.h"
 #import "MyorderDetailVC.h"
+#import <AlipaySDK/AlipaySDK.h>
+#import "TuiKuanView.h"
+#import "TuiKuandetailVC.h"
 
 
 @interface MyOrderListVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
@@ -48,13 +51,13 @@
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^(void) {
-           NSLog(@"下拉刷新");
-           [self refresh];
-       }];
-       self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-           NSLog(@"上拉加载更多");
-           [self loadMore];
-       }];
+        NSLog(@"下拉刷新");
+        [self refresh];
+    }];
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        NSLog(@"上拉加载更多");
+        [self loadMore];
+    }];
     float cellH=FitRealValue(436);
     if (IS_IPAD) {
         cellH=cellH*2/3;
@@ -101,6 +104,7 @@
     }
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     cell.model=self.datAry[indexPath.section];
+    MyOrderListModel*model=self.datAry[indexPath.section];
     cell.Block = ^(NSString * _Nonnull str) {
         if ([str isEqualToString:@"查看订单"]) {
             MyOrderListModel*model=self.datAry[indexPath.section];
@@ -109,17 +113,55 @@
             vc.orderidStr=model.orderid;
             [self.navigationController pushViewController: vc animated:YES];
         }
+        if ([str isEqualToString:@"取消订单"]) {
+            
+            self.net.requestId=1010;
+            [self.net Order_cancelWithUid:[User getUserID] orderid:model.orderid];
+            
+        }
+        if ([str isEqualToString:@"去付款"]) {
+            if ([model.type isEqualToString:@"直播"]) {
+                self.net.requestId=1011;
+                [self.net Pay_zbpayUid:[User getUserID] Ordersn:model.ordersn];
+            }
+            else{
+                
+                self.net.requestId=1011;
+                [self.net Pay_buyWithUid:[User getUserID] Ordersn:model.ordersn];
+            }
+        }
+        if ([str isEqualToString:@"退款"]) {
+            TuiKuanView*postVC=[TuiKuanView new];
+            postVC.orderidStr=model.orderid;
+            postVC.modalPresentationStyle = UIModalPresentationOverCurrentContext;
+            [self presentViewController:postVC animated:YES completion:nil];
+            
+            
+        }
+        if ([str isEqualToString:@"提交物流信息"]) {
+            TuiKuandetailVC*vc=[TuiKuandetailVC new];
+            vc.tkorderidStr=model.tkorderid;
+            vc.orderidStr=model.orderid;
+            [self.navigationController pushViewController: vc animated:YES];
+        }
+        if ([str isEqualToString:@"确认收货"]) {
+                    
+            self.net.requestId=1012;
+            [self.net Order_confirmWithUid:[User getUserID] orderid:model.orderid];
+             
+            }
+        
     };
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-//    MyOrderListModel*model=self.datAry[indexPath.section];
-//    MyorderDetailVC*vc=[MyorderDetailVC new];
-//    vc.ordersnStr=model.ordersn;
-//    vc.orderidStr=model.orderid;
-//    [self.navigationController pushViewController: vc animated:YES];
-  
+    //    MyOrderListModel*model=self.datAry[indexPath.section];
+    //    MyorderDetailVC*vc=[MyorderDetailVC new];
+    //    vc.ordersnStr=model.ordersn;
+    //    vc.orderidStr=model.orderid;
+    //    [self.navigationController pushViewController: vc animated:YES];
+    
     
 }
 - (void)refresh {
@@ -148,19 +190,35 @@
         return;
     }
     else{
-        if (self.isfresh==YES) {
-            self.datAry=[NSMutableArray arrayWithCapacity:0];
+        if (request.requestId==1001) {
+            if (self.isfresh==YES) {
+                self.datAry=[NSMutableArray arrayWithCapacity:0];
+            }
+            //辅材列表
+            NSArray * dataArray = result[@"body"];
+            for(NSDictionary *dic in dataArray){
+                MyOrderListModel*model=[MyOrderListModel mj_objectWithKeyValues:dic];
+                [self.datAry addObject:model];
+            }
+            [self.tableView reloadData];
         }
-        //辅材列表
-        NSArray * dataArray = result[@"body"];
-        for(NSDictionary *dic in dataArray){
-            MyOrderListModel*model=[MyOrderListModel mj_objectWithKeyValues:dic];
-            [self.datAry addObject:model];
+       if (request.requestId==1010){
+            [self refresh];
+            
         }
-        
-        [self.tableView reloadData];
-        
-        
+        if (request.requestId==1010){
+            
+            [self refresh];
+        }
+        if (request.requestId==1011) {//
+            NSString*bodyStr=result[@"body"];
+            [[AlipaySDK defaultService] payOrder:bodyStr
+                                      fromScheme:@"none.RongPenProject1"
+                                        callback:^(NSDictionary *resultDic) {
+                NSLog(@"-------%@", resultDic);
+            }];
+            
+        }
     }
     
 }

@@ -28,15 +28,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.leftImgBtn.hidden=NO;
-    self.rightImgBtn.hidden=NO;
-    [self.rightImgBtn setImage:nil forState:UIControlStateNormal];
-    [self.rightImgBtn setTitle:@"订单管理" forState:UIControlStateNormal];
-    [self.rightImgBtn setTitleColor:[MTool colorWithHexString:@"#3777DE"] forState:UIControlStateNormal];
-    [self.rightImgBtn  addTarget:self action:@selector(goMyOrderListVC) forControlEvents:UIControlEventTouchUpInside];
+
     self.topview.hidden=NO;
     self.toptitle.hidden=NO;
     self.toptitle.text=@"荣知课程";
     self.lineview.hidden=NO;
+    self.leftImgBtn.hidden=YES;
+    UIButton*lefgBtn=[UIButton buttonWithType:UIButtonTypeCustom];
+    [lefgBtn setImage:nil forState:UIControlStateNormal];
+    [lefgBtn setTitle:@"订单管理" forState:UIControlStateNormal];
+    lefgBtn.titleLabel.font=[UIFont systemFontOfSize:14];
+    [lefgBtn setTitleColor:[MTool colorWithHexString:@"#3777DE"] forState:UIControlStateNormal];
+    lefgBtn.frame=CGRectMake(10, SafeAreaTopHeight-64+(64-15)/2, 60, 30);
+    [lefgBtn addTarget:self action:@selector(goMyOrderListVC) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:lefgBtn];
+    
+    [self.rightImgBtn setImage:[UIImage imageNamed:@"delete"] forState:UIControlStateNormal];
+    self.rightImgBtn.hidden=NO;
     [self createTopView];
 }
 
@@ -100,6 +108,7 @@
 -(void)goMyOrderListVC{
     
     MyOrderListVC*vc=[MyOrderListVC new];
+    vc.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end

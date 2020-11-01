@@ -12,8 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface PayCell : UITableViewCell
 
 @property(nonatomic,strong) UILabel             *nameLab;
-
-
+@property(nonatomic,strong) UILabel             *payTitleLab;
+@property(nonatomic,strong) UIImageView         *iconImg;
+@property(nonatomic,strong) UILabel             *rightLab;
+@property(nonatomic,strong) UIView              *lineView;
+@property(nonatomic,strong) UIView              *bgView;
 @end
 
 NS_ASSUME_NONNULL_END

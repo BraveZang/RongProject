@@ -201,25 +201,24 @@
         if (indexPath.row==0) {
             
             AdressListVC*vc=[AdressListVC new];
+            vc.Block = ^(AddressModel * _Nonnull model) {
+                self.adressModel=model;
+                self.net.requestId=1004;
+                [self.net Shop_xzaddressWithUid:[User getUserID] Orderid:self.idStr Addressid:model.id];
+            };
             [self.navigationController pushViewController:vc animated:YES];
         }
-//            AddAdressVC*vc=[[AddAdressVC alloc]init];
-//            vc.hidesBottomBarWhenPushed=YES;
-//            vc.VCtag=1;
-//            vc.backBlock = ^(AddressModel * _Nonnull model) {
-//                self.adressmodel=model;
-//                [self.tableview reloadData];
-//            };
-//            [self.navigationController pushViewController:vc animated:YES];
-//        }
     
 }
 -(void)payBtnclick{
     
+   
     self.net.requestId=1003;
     [self.net Pay_buyWithUid:[User getUserID] Ordersn:self.ordersnStr];
     
+  
 }
+
 -(void)creatActionSheet {
     
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"选择规格" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
@@ -292,6 +291,11 @@
                                                           }];
 
          }
+        if (request.requestId==1004) {//
+            
+            [self.tableView reloadData];
+
+               }
     }
 }
 - (void)requestError:(NetManager *)request error:(NSError*)error{

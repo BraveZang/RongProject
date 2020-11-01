@@ -14,6 +14,10 @@
 #import "AddressModel.h"
 #import "AddAdressVC.h"
 #import "SureCourseDeatilodel.h"
+#import "CourseTimeCell.h"
+#import "AdressListVC.h"
+
+
 #import <AlipaySDK/AlipaySDK.h>
 
 
@@ -26,6 +30,7 @@
 @property (nonatomic, strong) AddressModel                *adressModel;
 @property (nonatomic, strong) NSArray                     *guigeAry;
 @property (nonatomic, strong) NSArray                     *timeAry;
+@property (nonatomic, assign) NSInteger                   IndextimeSelect;
 
 
 @end
@@ -37,6 +42,7 @@
     self.toptitle.hidden=NO;
     self.toptitle.text=@"确认订单";
     self.topview.hidden=NO;
+    self.IndextimeSelect=1000;
     self.timeAry=[NSArray array];
     [self createTableView];
     [self getUrlData];
@@ -78,8 +84,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    
-    return 1;
+    if (self.timeAry.count==0) {
+        return 1;
+    }
+    else{
+        if (section==2) {
+            return self.timeAry.count+1;
+        }
+        else{
+            return 1;
+        }
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -115,12 +130,14 @@
         }
         else if (indexPath.section==1) {
             return 368*SCREEN_WIDTH/750;
-            return FitRealValue(178);
         }
         else if (indexPath.section==2) {
-            return FitRealValue(260);
+            return FitRealValue(84);
         }
         else if (indexPath.section==3) {
+            return FitRealValue(260);
+        }
+        else if (indexPath.section==4) {
             return FitRealValue(254);
         }
         else{
@@ -209,7 +226,40 @@
             cell.adressmodel=self.adressModel;
             return cell;
         }
-        else if (indexPath.section==(1+2)) {//支付方式
+        else if (indexPath.section==(1+1)) {//选择上课时间
+            
+            static NSString *CellIdentifier = @"PayCell1111";
+            CourseTimeCell*cell = [tableView cellForRowAtIndexPath:indexPath];
+            if (!cell) {
+                cell = [[CourseTimeCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            }
+            if (indexPath.row==0) {
+                cell.nameLab.text=@"选择上课时间";
+                cell.selectBtn.hidden=YES;
+            }
+            else{
+                NSDictionary*dic=self.timeAry[indexPath.row-1];
+                cell.nameLab.text=dic[@"weeks"];
+            }
+            if (self.IndextimeSelect+1==indexPath.row) {
+                [cell.selectBtn setImage:[UIImage imageNamed:@"quan_btn_s"] forState:UIControlStateNormal];
+            }
+            else{
+                [cell.selectBtn setImage:[UIImage imageNamed:@"quan_btn"] forState:UIControlStateNormal];
+                
+            }
+            cell.Block = ^{
+                self.IndextimeSelect=indexPath.row-1;
+                NSDictionary*dic=self.timeAry[indexPath.row-1];
+
+                self.net.requestId=1007;
+                [self.net Course_settimeWithUid:[User getUserID] Id:self.idStr Time:[NSString stringWithFormat:@"%@",dic[@"id"]]];
+            };
+            
+            return cell;
+        }
+        else if (indexPath.section==(1+3)) {//支付方式
             
             static NSString *CellIdentifier = @"PayCell1111";
             PayCell*cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -220,7 +270,7 @@
             
             return cell;
         }
-        else if (indexPath.section==(1+1)) {//运费
+        else if (indexPath.section==(1+2)) {//运费
             
             NSString *CellIdentifier =@"PriceCell211111";
             PriceCell*cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -233,6 +283,10 @@
             cell.nameLab1.text=@"运费";
             cell.moneyLab1.text=self.model.kdprice;
             
+            NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString: [NSString stringWithFormat:@"共计:%@", self.model.total]];
+            [placeholder addAttribute:NSForegroundColorAttributeName value:[MTool colorWithHexString:@"#FF8D8D"] range:NSMakeRange(3,self.model.total.length)];
+            [placeholder addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:17] range:NSMakeRange(3,self.model.total.length)];
+            cell.totalmoneyLab.attributedText = placeholder;
             return cell;
         }
         
@@ -272,16 +326,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.row==0) {
-        AddAdressVC*vc=[[AddAdressVC alloc]init];
-        vc.hidesBottomBarWhenPushed=YES;
-        vc.VCtag=1;
-        //            vc.backBlock = ^(AddressModel * _Nonnull model) {
-        //                self.adressmodel=model;
-        //                [self.tableview reloadData];
-        //            };
+        
+        AdressListVC*vc=[AdressListVC new];
+        vc.Block = ^(AddressModel * _Nonnull model) {
+            self.adressModel=model;
+            self.net.requestId=1004;
+            [self.net Shop_xzaddressWithUid:[User getUserID] Orderid:self.idStr Addressid:model.id];
+        };
         [self.navigationController pushViewController:vc animated:YES];
     }
-    
 }
 
 -(void)creatActionSheet {
@@ -315,9 +368,14 @@
 
 -(void)payBtnclick{
     
-    self.net.requestId=1003;
-    [self.net Pay_buyWithUid:[User getUserID] Ordersn:self.ordersnStr];
-    
+    if (self.timeAry.count==0) {
+        self.net.requestId=1003;
+        [self.net Pay_buyWithUid:[User getUserID] Ordersn:self.ordersnStr];
+    }
+    else{
+        self.net.requestId=1003;
+        [self.net Pay_zbpayUid:[User getUserID] Ordersn:self.ordersnStr];
+    }
 }
 -(void)getUrlData{
     
@@ -338,12 +396,12 @@
     }
     else{
         if (request.requestId==1001) {//
-            
             self.model=[SureCourseDeatilodel mj_objectWithKeyValues:bodyDic];
             NSDictionary*adressDic=self.model.shouhuo;
             self.adressModel=[AddressModel mj_objectWithKeyValues:adressDic];
             NSDictionary*timediC=self.model.lists;
             self.timeAry=timediC[@"timelist"];
+            self.moneyLab.text=[NSString stringWithFormat:@"¥:%@",self.model.total];
             [self.tableView reloadData];
         }
         if (request.requestId==1002) {//
@@ -358,6 +416,16 @@
             }];
             
         }
+        if (request.requestId==1004) {//
+            
+            [self.tableView reloadData];
+            
+        }
+        if (request.requestId==1007) {//
+                   
+            [self.tableView reloadData];
+                   
+               }
     }
 }
 - (void)requestError:(NetManager *)request error:(NSError*)error{

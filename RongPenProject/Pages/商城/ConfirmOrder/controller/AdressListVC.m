@@ -6,7 +6,6 @@
 //
 
 #import "AdressListVC.h"
-#import "AddressModel.h"
 #import "ShopAdressCell.h"
 #import "AddressManagerListCell.h"
 #import "AddAdressVC.h"
@@ -131,12 +130,9 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    if (_vctag==100) {
-//        AddressModel *model=self.dataArray[indexPath.row];
-//        self.backBlock(model);
-//        [self.navigationController popViewControllerAnimated:YES];
-//    }
-//
+    AddressModel *model=self.dataArray[indexPath.row];
+    self.Block(model);
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 -(void)setVctag:(NSInteger)vctag{

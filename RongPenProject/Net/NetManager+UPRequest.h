@@ -343,6 +343,26 @@ login_setgread
  **/
 - (void)Member_addresseditWithUid:(NSString *)uid Id:(NSString *)id;
 
+
+/**
+ 设置收货地址 参数
+ 参数：
+ uid 当前会员id
+ orderid 确认订单 返回的orderid
+ addressid 地址id
+ **/
+- (void)Shop_xzaddressWithUid:(NSString *)uid Orderid:(NSString *)orderid Addressid:(NSString *)addressid;
+
+/**
+ 参数Course_settime
+ 设置上课时间（直播课程确认订单页面）有修改 参数
+ 参数：
+ uid 当前会员id
+ orderid 确认订单 返回的orderid
+ time 时间 确认订单接口 中的 Timelist 中的id
+ **/
+- (void)Course_settimeWithUid:(NSString *)uid Id:(NSString *)id Time:(NSString *)time;
+
 /**
  地址删除 参数
  参数：
@@ -377,6 +397,55 @@ login_setgread
  **/
 - (void)Order_infoWithUid:(NSString *)uid orderid:(NSString *)orderid  ordersn:(NSString *)ordersn;
 
+
+/**
+ 申请退款 参数
+ 参数：
+ uid 会员id
+ orderid 订单id
+ yunyin 原因 1.时间长没有发货 2.产品购买重复 3.产品破损 4.其他原因
+ pic 截图
+ mobile 手机号
+ **/
+- (void)Order_refundWithUid:(NSString *)uid orderid:(NSString *)orderid yunyin:(NSString *)yunyin mobile:(NSString *)mobile pic:(NSArray *)pic;
+
+/**
+ 确认收货 参数
+ 参数：
+ uid 会员id
+ orderid 订单id
+ **/
+- (void)Order_confirmWithUid:(NSString *)uid orderid:(NSString *)orderid;
+/**
+收货地址(退款专用)
+ **/
+- (void)Order_tuiaddressWithNoParam;
+
+/**
+快递公司
+ **/
+- (void)Order_kdcompanyWithNoParam;
+
+/**
+ 提交快递单号 参数
+ 参数：
+ uid 会员id
+ orderid 订单id
+ tkorderid 退款订单id 我的订单返回的
+ companyid 快递公司id
+ kdorder 快递单号
+ pic 凭证照片
+ **/
+- (void)Order_submitorderWithUid:(NSString *)uid orderid:(NSString *)orderid tkorderid:(NSString *)tkorderid companyid:(NSString *)companyid kdorder:(NSString *)kdorder;
+/**
+ 参数
+ 取消订单新增 参数Order_cancel
+ 参数：
+ uid 会员id
+ orderid 订单id
+ **/
+- (void)Order_cancelWithUid:(NSString *)uid orderid:(NSString *)orderid;
+
 /**
  支付（通用） 参数
  参数：
@@ -384,5 +453,15 @@ login_setgread
  ordersn 订单号
  **/
 - (void)Pay_buyWithUid:(NSString *)uid Ordersn:(NSString *)ordersn;
+
+/**
+ 参数Pay_zbpay
+ 支付（直播课程专用） 参数
+ 参数：
+ uid 当前会员id
+ ordersn 订单号
+ **/
+- (void)Pay_zbpayUid:(NSString *)uid Ordersn:(NSString *)ordersn;
+
 @end
 

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong)UILabel                      *nameLab;
 @property(nonatomic,strong)UIButton                     *selectBtn;
+@property (nonatomic, strong) void(^Block)(void);
 
 @end
 

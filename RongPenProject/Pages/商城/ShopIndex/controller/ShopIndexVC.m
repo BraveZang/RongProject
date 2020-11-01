@@ -46,6 +46,7 @@
 -(void)leftBtnClick{
     
     MyOrderListVC*vc=[MyOrderListVC new];
+    vc.hidesBottomBarWhenPushed=YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 -(void)createCollectionView{

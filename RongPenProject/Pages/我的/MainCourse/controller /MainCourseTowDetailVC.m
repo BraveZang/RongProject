@@ -12,6 +12,7 @@
 #import "VideoTitleCell.h"
 #import "VideoCourseRangeCell.h"
 #import "UIAlertView+Block.h"
+#import "SureCourSeOrderVC.h"
 
 @interface MainCourseTowDetailVC ()<UIWebViewDelegate, WKPlayerViewDelegate,UITableViewDelegate,UITableViewDataSource,NetManagerDelegate,UIAlertViewDelegate>
 
@@ -89,10 +90,15 @@
     [buyBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     buyBtn.titleLabel.font=[UIFont systemFontOfSize:16];
     buyBtn.cornerRadius=22;
-    //    [buyBtn addTarget:self action:@selector(sureClick) forControlEvents:UIControlEventTouchUpInside];
+   [buyBtn addTarget:self action:@selector(sureClick) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:buyBtn];
 }
+-(void)sureClick
+{
+    
+    [self getButUrl];
 
+}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
     
@@ -280,6 +286,10 @@
     self.net.requestId=1001;
     [self.net Course_infoWithId:self.idStr Type:self.typeStr];
 }
+-(void)getButUrl{
+    self.net.requestId=1002;
+    [self.net Course_buyWithType:self.typeStr Uid:[User getUserID] Id:self.idStr];
+}
 - (void)requestDidFinished:(NetManager *)request result:(NSMutableDictionary *)result{
     
     NSDictionary*code=result[@"head"];
@@ -306,6 +316,15 @@
             NSURL *url =[NSURL URLWithString:[self.model.details stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
             [ self.webView loadRequest:[NSURLRequest requestWithURL:url]];
             [self.tableView reloadData];
+        }
+        
+        if (self.net.requestId==1002) {
+            
+            NSDictionary*body=result[@"body"];
+            SureCourSeOrderVC*vc=[SureCourSeOrderVC new];
+            vc.idStr=body[@"id"];
+            vc.ordersnStr=body[@"ordersn"];
+            [self.navigationController pushViewController:vc animated:YES];
         }
     }
     
