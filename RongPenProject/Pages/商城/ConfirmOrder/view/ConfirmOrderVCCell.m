@@ -94,7 +94,7 @@
     [ self.bottomBtn setImage:[UIImage imageNamed:@"buy_rightimg"] forState:UIControlStateNormal];
     [ self.bottomBtn layoutButtonWithEdgeInsetsStyle:TYButtonEdgeInsetsStyleRight imageTitleSpace:3];
     [ self.bottomBtn addTarget:self action:@selector(bottomBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [self. self.bottomBtn addSubview:self.bottomBtn];
+    [self.bottomView addSubview:self.bottomBtn];
     
 }
 -(void)setDic:(NSDictionary *)dic{

@@ -80,6 +80,7 @@
 		C641DC25254D89C100CB5731 /* AdressListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC24254D89C100CB5731 /* AdressListVC.m */; };
 		C641DC28254D8D8500CB5731 /* AddressManagerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC27254D8D8500CB5731 /* AddressManagerListCell.m */; };
 		C641DC2B254EBAD000CB5731 /* SureCourseDeatilodel.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC2A254EBAD000CB5731 /* SureCourseDeatilodel.m */; };
+		C641DC2E254ECC0200CB5731 /* CourseTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DC2D254ECC0200CB5731 /* CourseTimeCell.m */; };
 		C645CD4A254498D800AD8E4C /* TeacherInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD49254498D800AD8E4C /* TeacherInfoModel.m */; };
 		C645CD4D2544993300AD8E4C /* CourSerAngeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD4C2544993300AD8E4C /* CourSerAngeModel.m */; };
 		C645CD502544A15700AD8E4C /* VideoCourseRangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD4F2544A15700AD8E4C /* VideoCourseRangeCell.m */; };
@@ -339,6 +340,8 @@
 		C641DC27254D8D8500CB5731 /* AddressManagerListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressManagerListCell.m; sourceTree = "<group>"; };
 		C641DC29254EBAD000CB5731 /* SureCourseDeatilodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SureCourseDeatilodel.h; sourceTree = "<group>"; };
 		C641DC2A254EBAD000CB5731 /* SureCourseDeatilodel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SureCourseDeatilodel.m; sourceTree = "<group>"; };
+		C641DC2C254ECC0200CB5731 /* CourseTimeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourseTimeCell.h; sourceTree = "<group>"; };
+		C641DC2D254ECC0200CB5731 /* CourseTimeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CourseTimeCell.m; sourceTree = "<group>"; };
 		C645CD48254498D800AD8E4C /* TeacherInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherInfoModel.h; sourceTree = "<group>"; };
 		C645CD49254498D800AD8E4C /* TeacherInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherInfoModel.m; sourceTree = "<group>"; };
 		C645CD4B2544993300AD8E4C /* CourSerAngeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourSerAngeModel.h; sourceTree = "<group>"; };
@@ -809,8 +812,8 @@
 				C641DC14254D3F6000CB5731 /* MainCourseTowDetailVC.m */,
 				C641DC16254D439500CB5731 /* MainCourseThreeDetailVC.h */,
 				C641DC17254D439500CB5731 /* MainCourseThreeDetailVC.m */,
-				C641DC29254EBAD000CB5731 /* SureCourseDeatilodel.h */,
-				C641DC2A254EBAD000CB5731 /* SureCourseDeatilodel.m */,
+				C641DC20254D741D00CB5731 /* SureCourSeOrderVC.h */,
+				C641DC21254D741D00CB5731 /* SureCourSeOrderVC.m */,
 			);
 			path = "controller ";
 			sourceTree = "<group>";
@@ -830,8 +833,8 @@
 				C645CD4C2544993300AD8E4C /* CourSerAngeModel.m */,
 				C641DC1D254D62FA00CB5731 /* RecordeDetailModel.h */,
 				C641DC1E254D62FA00CB5731 /* RecordeDetailModel.m */,
-				C641DC20254D741D00CB5731 /* SureCourSeOrderVC.h */,
-				C641DC21254D741D00CB5731 /* SureCourSeOrderVC.m */,
+				C641DC29254EBAD000CB5731 /* SureCourseDeatilodel.h */,
+				C641DC2A254EBAD000CB5731 /* SureCourseDeatilodel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -849,6 +852,8 @@
 				C679203025449357005822C0 /* VideoTitleCell.m */,
 				C645CD4E2544A15700AD8E4C /* VideoCourseRangeCell.h */,
 				C645CD4F2544A15700AD8E4C /* VideoCourseRangeCell.m */,
+				C641DC2C254ECC0200CB5731 /* CourseTimeCell.h */,
+				C641DC2D254ECC0200CB5731 /* CourseTimeCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1847,6 +1852,7 @@
 				C62DCC46253AD2B600410FCE /* AddAdressVC.m in Sources */,
 				C6473FBC250F4CB300BDE73F /* TabarVC.m in Sources */,
 				C645CD8D2546722900AD8E4C /* MyOrderListCell.m in Sources */,
+				C641DC2E254ECC0200CB5731 /* CourseTimeCell.m in Sources */,
 				044589D1254459A600C5AE74 /* MainBookModel.m in Sources */,
 				C647400A25188DB600BDE73F /* UIViewController+NoSlideBack.m in Sources */,
 				C6473F7D250F44B800BDE73F /* UIView+IDCard.m in Sources */,

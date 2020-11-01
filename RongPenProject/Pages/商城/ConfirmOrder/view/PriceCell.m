@@ -15,7 +15,7 @@
     if (self) {
         [self initView];
     }
-    self.backgroundColor=[MTool colorWithHexString:@"f8f8f8"];
+//    self.backgroundColor=[MTool colorWithHexString:@"f8f8f8"];
     return self;
 }
 -(void)initView{
@@ -48,6 +48,12 @@
     self.moneyLab1.textAlignment=NSTextAlignmentRight;
     self.moneyLab1.textColor=[MTool colorWithHexString:@"#FF665B"];
     [bgView addSubview:self.moneyLab1];
+    
+    self.totalmoneyLab=[[UILabel alloc]initWithFrame:CGRectMake(viewW-LeftMargin-300,self.moneyLab1.bottom,300,viewH)];
+    self.totalmoneyLab.font=[UIFont systemFontOfSize:14];
+    self.totalmoneyLab.textAlignment=NSTextAlignmentRight;
+    self.totalmoneyLab.textColor=[MTool colorWithHexString:@"#121212"];
+    [bgView addSubview:self.totalmoneyLab];
 }
 
 @end

@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) UILabel             *moneyLab;
 @property(nonatomic,strong) UILabel             *nameLab1;
 @property(nonatomic,strong) UILabel             *moneyLab1;
+@property(nonatomic,strong) UILabel             *totalmoneyLab;
 
 
 @end
