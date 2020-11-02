@@ -1,229 +1,278 @@
 //
-//  ReadInfoVC.m
+//  readIndexVC.m
 //  RongPenProject
 //
-//  Created by 路面机械网  on 2020/10/24.
+//  Created by zanghui  on 2020/9/14.
 //
 
-#import "ReadInfoVC.h"
-#import "ReadInfoModel.h"
-#import "MapModel.h"
-#import "MapDataModel.h"
-#import "RightSlidingMenuView.h"
-#import "ReadInfoFooterView.h"
+#import "ReadIndexVC.h"
+#import "LoginVC.h"
 #import "SDCycleScrollView.h"//广告轮播图
-#import "VoiceModel.h"
-#import <AVKit/AVKit.h>
-#import <AVFoundation/AVFoundation.h>
-#import "ReadInfoItemView.h"
-#import "ReadTestVC.h"
-@interface ReadInfoVC ()<NetManagerDelegate,SDCycleScrollViewDelegate>
-
-@property(nonatomic,strong)   RightSlidingMenuView              *rightslidingmenuview;
-
-
-@property(nonatomic,strong)   ReadInfoItemView                *itemView;
-
-@property(nonatomic,strong)   ReadInfoFooterView              *footerView;
+#import "ShopIndexVC.h"
+#import "MainBookModel.h"
+#import "UnitModel.h"
+#import "BannerModel.h"
+#import "ReadInfoVC.h"
+@interface ReadIndexVC ()<NetManagerDelegate,SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) SDCycleScrollView                *topAdScrollView;//广告轮播控件
+@property (nonatomic,strong) UITableView                      *tableView;
+@property (nonatomic,strong) UIView                           *heardView;
+@property (nonatomic,strong) NSArray                          *titleTestArray;//分组
+@property (nonatomic,strong) NSMutableArray                   *selectedArr;//存储需要展开的cell组
+@property (nonatomic,strong) NSMutableArray                   *listDataAry;//存储需要展开的cell组
+@property (nonatomic,strong) UIButton                         *cellRightBtn;
 
-@property (nonatomic, assign) float scale;
-@property (nonatomic, assign) float mapViewW;
-@property (nonatomic, assign) float mapViewH;
-@property (nonatomic,strong) UIView                      *PointView;
-@property (nonatomic,strong) NSMutableArray              *pointArray;
-
-
-
-
-@property (nonatomic,strong)   NetManager                        *net;
-
-@property (nonatomic,strong)   NetManager                        *voiceNet;
-
-
-@property (nonatomic,strong) ReadInfoModel                  *currentModel;
-@property (nonatomic,strong) MapDataModel                   *currentMapModel;
-
-@property (nonatomic,strong) NSArray                        *voiceList;
-@property (nonatomic,strong) NSMutableArray                        *voiceUrlList;
-
-@property (nonatomic,assign) NSInteger                      currentPage;
+@property(nonatomic,strong)   NetManager                        *net;
+@property(nonatomic,strong)   NetManager                        *bannerNet;
 
 
 
-@property (nonatomic, strong) AVPlayer          *player;
+@property (nonatomic, strong) NSArray                           *bookList;
+@property (nonatomic, strong) NSArray                           *bannerList;
+
 @end
 
-@implementation ReadInfoVC
+@implementation ReadIndexVC
+
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.toptitle.text=@"点读";
     
+    self.topview.hidden=NO;
     self.toptitle.hidden=NO;
-    self.leftImgBtn.hidden=NO;
     self.rightImgBtn.hidden=NO;
-    [self.rightImgBtn setImage:[UIImage imageNamed:@"toprightbtnimg"] forState:UIControlStateNormal];
-    self.rightImgBtn.frame=CGRectMake(ScreenWidth-30, SafeAreaTopHeight-64+(64-15)/2, 30, 30);
-    [self.rightImgBtn addTarget:self action:@selector(showRightAction) forControlEvents:UIControlEventTouchUpInside];
+    self.leftImgBtn.hidden=NO;
+    self.leftImgBtn.frame=CGRectMake(0, SafeAreaTopHeight-64+(64-15)/2, 80, 30);
+    [self.leftImgBtn setTitle:@" 智能笔" forState:UIControlStateNormal];
+    [self.leftImgBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.leftImgBtn addTarget:self action:@selector(leftAction) forControlEvents:UIControlEventTouchUpInside];
     
-    self.currentPage = 0;
+    
+    [self.leftImgBtn setImage:[UIImage imageNamed:@"pen_s"] forState:UIControlStateNormal];
+    [self.rightImgBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.rightImgBtn setImage:[UIImage imageNamed:@"shopimg"] forState:UIControlStateNormal];
+    self.rightImgBtn.frame=CGRectMake(ScreenWidth-60, SafeAreaTopHeight-64+(64-15)/2, 60, 30);
+    [self.rightImgBtn setTitle:@"商城" forState:UIControlStateNormal];
+    [self.rightImgBtn layoutButtonWithEdgeInsetsStyle:TYButtonEdgeInsetsStyleRight imageTitleSpace:2];
+    [self.rightImgBtn addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
+    
+//    [self CreatcycleScrollView];
+    [self initableviewView];
+    
+    
+    
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self getData];
+}
+
+- (void)getData{
+    self.net.requestId = 1001;
+    [self.net getMain_buybookWithUid:[User getUserID]];
+    
+    //
+    [self.bannerNet main_banner];
+}
+
+
+#pragma mark - tableview
+-(void)initableviewView{
+    
+    self.selectedArr =[NSMutableArray arrayWithCapacity:0];
+    self.listDataAry =[NSMutableArray arrayWithCapacity:0];
+    
+    self.tableView=[[UITableView alloc]initWithFrame:CGRectMake(0,SafeAreaTopHeight,  ScreenWidth, ScreenHeight-SafeAreaBottomHeight-SafeAreaTopHeight-49) style:UITableViewStylePlain];
+    self.tableView.delegate=self;
+    self.tableView.dataSource=self;
+    self.tableView.backgroundColor=[UIColor whiteColor];
+    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    self.tableView.tableHeaderView=self.topAdScrollView;
+    [self.view addSubview:self.tableView];
+    
+    //    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^(void) {
+    //        NSLog(@"下拉刷新");
+    //        [self  updataurldata];
+    //    }];
+    //    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^(void) {
+    //        [self  uprefreshurldata];
+    //    }];
+    
 }
 
 
 
+#pragma mark - buttonClick
+
+-(void)rightAction{
+    
+    ShopIndexVC*vc=[ShopIndexVC new];
+    vc.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - CreatcycleScrollView
 -(void)CreatcycleScrollView{
     
-    UIView * bg = [[UIView alloc] initWithFrame:CGRectMake(0, SafeAreaTopHeight, KSCREEN_WIDTH, KSCREEN_HEIGHT - SafeAreaTopHeight - APP_HEIGHT_6S(56.0))];
-    bg.backgroundColor = [MTool colorWithHexString:@"#D3D3D3"];
-    [self.view addSubview:bg];
-    
-    //计算屏幕宽高
-    float screenWidth = SCREEN_WIDTH - APP_WIDTH_6S(40.0);
-    float screenHeight = SCREEN_HEIGHT - SafeAreaTopHeight - APP_HEIGHT_6S(56.0) - APP_HEIGHT_6S(60.0) - APP_HEIGHT_6S(20.0);
-    
-//    //计算宽高比例
-//    float scaleWidth = _currentModel.width.floatValue/screenWidth;
-//    float scaleHeight = _currentModel.heigth.floatValue/screenHeight;
-    
-    //执行比例
-    self.scale = _currentModel.width.floatValue/screenWidth > _currentModel.heigth.floatValue/screenHeight?_currentModel.width.floatValue/screenWidth:_currentModel.heigth.floatValue/screenHeight;
-
-
-    //根据宽高比例   计算地图在屏幕上的尺寸
-    
-    self.mapViewW = _currentModel.width.floatValue/_scale;
-    self.mapViewH = _currentModel.heigth.floatValue/_scale;
-
-   
-    
-    
-    //组装图片数组
-    NSMutableArray * imageArray = [[NSMutableArray alloc] initWithCapacity:_currentModel.list.count];
-    for (NSInteger i = 0; i < _currentModel.list.count; i++) {
-        MapModel * model = _currentModel.list[i];
-        [imageArray addObject:model.ditu];
+    float heardViewH=FitRealValue(360);
+    if (IS_IPAD) {
+        heardViewH=heardViewH*2/3;
     }
-    
-    if (_pointArray.count == 0) {
-        self.topAdScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(APP_WIDTH_6S(20.0),APP_HEIGHT_6S(20.0),_mapViewW,_mapViewH) imageNamesGroup:imageArray ];
-        self.topAdScrollView.autoScrollTimeInterval = 99999999.f;
-        self.topAdScrollView.autoScroll = NO;
-        self.topAdScrollView.infiniteLoop = NO;
-        self.topAdScrollView.pageControlStyle=SDCycleScrollViewPageContolStyleNone;
-        self.topAdScrollView.delegate = self;
-        self.topAdScrollView.bannerImageViewContentMode=UIViewContentModeScaleAspectFill;
-        [SDCycleScrollView clearImagesCache];
-        self.topAdScrollView.layer.masksToBounds = YES;
-        [bg addSubview:_topAdScrollView];
-    }
-    
-    if (self.itemView == nil) {
-        self.itemView = [[ReadInfoItemView alloc] initWithFrame:CGRectMake(0, bg.height - APP_HEIGHT_6S(60.0), KSCREEN_WIDTH, APP_HEIGHT_6S(60.0))];
-        _itemView.playBtnblock = ^{
-            [[DDAVPlayer shareInstance] playWithUrlStr:@"http://39.98.227.235/Uploads/mp3/5.mp3"];
-
-        };
-        _itemView.helpBtnblock = ^{
-
-        };
-        
-        _itemView.readBtnblock = ^{
-            ReadTestVC *testVC = [[ReadTestVC alloc] init];
-            testVC.unitModel = _unitModel;
-            testVC.mapModel = _currentMapModel;
-            [self.navigationController pushViewController:testVC animated:YES];
-        };
-        
-        [bg addSubview:_itemView];
-    }
-    
-    self.topAdScrollView.imageURLStringsGroup = imageArray;
-    
-    
+    NSArray*imgary=@[@"detailViewDefaultGaussImage",@"detailViewDefaultGaussImage"];
+    self.topAdScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(LeftMargin,0,ScreenWidth-LeftMargin*2,heardViewH) imageNamesGroup:imgary ];
+    self.topAdScrollView.delegate = self;
+    self.topAdScrollView.autoScrollTimeInterval = 3.f;
+    self.topAdScrollView.showPageControl = YES;
+    self.topAdScrollView.pageControlStyle=SDCycleScrollViewPageContolStyleNone;
+    self.topAdScrollView.bannerImageViewContentMode=UIViewContentModeScaleAspectFill;
+    [SDCycleScrollView clearImagesCache];
+    self.topAdScrollView.layer.masksToBounds = YES;
     
 }
-
-- (void)readClick:(UIButton *)sender{
-    MapModel * model1 = _currentModel.list[_currentPage];
-    self.currentMapModel = model1.data[sender.tag - 100];
- 
-    for (VoiceModel * voiceModel in self.voiceList) {
-        NSString * voiceId = [voiceModel.name substringToIndex:[voiceModel.name rangeOfString:@"."].location];
-        if ([voiceId isEqualToString:_currentMapModel.dianduid]) {
-            //播放音频
-            [[DDAVPlayer shareInstance] playWithUrlStr:voiceModel.url];
-            break;;
-        }
-    }
-    
-    
-}
-
-
-
-- (void)updateMap{
-    
-//    [self.topAdScrollView removeAllSubviews];
-    
-    if (self.pointArray.count > 0) {
-        for (NSInteger i = 0; i < _pointArray.count; i++) {
-           UIButton * btn = [self.topAdScrollView viewWithTag:[self.pointArray[i]integerValue]];
-            [btn removeFromSuperview];
-        }
-    }
-    [self.pointArray removeAllObjects];
-    
-    
-    MapModel * mapModel = _currentModel.list[_currentPage];
-    for (NSInteger i = 0; i < mapModel.data.count; i++) {
-        MapDataModel * mapDataModel = mapModel.data[i];
-        UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [btn addTarget:self action:@selector(readClick:) forControlEvents:UIControlEventTouchUpInside];
-        btn.frame = CGRectMake(mapDataModel.x.floatValue/_scale, mapDataModel.y.floatValue/_scale, mapDataModel.w.floatValue/_scale, mapDataModel.h.floatValue/_scale);
-        btn.tag = 100+i;
-        [self.pointArray addObject:[NSString stringWithFormat:@"%d",btn.tag]];
-        btn.backgroundColor = [UIColor colorWithRed:1 green:0.5 blue:1 alpha:0.5];
-        [self.topAdScrollView addSubview:btn];
-    }
-}
-
-
-
-- (void)setUnitModel:(UnitModel *)unitModel{
-    _unitModel = unitModel;
-
-    [self getUnitData];
-
-}
-
-- (void)setBookModel:(MainBookModel *)bookModel{
-    _bookModel = bookModel;
-    self.rightslidingmenuview.unitList = bookModel.unitlist;
-}
-
-
-
-
-
-/// 获取单元数据及音频
-- (void)getUnitData{
-    [self.net getMain_jfinfoWithUid:[User getUserID] Unitid:_unitModel.unitid andBookId:_unitModel.bookid];
-    [self.voiceNet main_downMP3urlWithUnitid:_unitModel.unitid andBookId:_unitModel.bookid];
-}
-
-- (void)showRightAction
+/** 点击图片回调 */
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
 {
-    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
-    [window addSubview:self.rightslidingmenuview];
+    //    NSDictionary *dict = self.AdAry[index];
+    //    WebViewViewController *viewController=[[WebViewViewController alloc]init];
+    //    viewController.urlStr = dict[@"appurl"];
+    //    viewController.titleStr = dict[@"title"];
+    //    viewController.hidesBottomBarWhenPushed=YES;
+    //    [self.navigationController pushViewController:viewController animated:YES];
+}
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    
+    return self.bookList.count;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    NSString *sectionStr = [NSString stringWithFormat:@"%ld",(long)section];
+    NSInteger num ;
+    //如果selectedArr不包含section，该分组返回number为0；
+    if ([self.selectedArr containsObject:sectionStr]) {
+        MainBookModel * model = self.bookList[section];
+
+        self.listDataAry = [NSMutableArray arrayWithArray:model.unitlist];
+        num = self.listDataAry.count ;
+    }else{
+        num = 0;
+    }
+    return num;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (IS_IPAD) {
+        return FitRealValue(100)*2/3;
+    }
+    else{
+        return FitRealValue(100);
+    }
+    
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    
+    return 0.01;
+    
+}
+- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    float topViewH=FitRealValue(100);
+    if (IS_IPAD) {
+        topViewH= FitRealValue(100)*2/3;
+    }
+    UIView*topView=[[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH,topViewH)];
+    topView.backgroundColor=[UIColor whiteColor];
+    
+    UILabel*nameLab=[MTool quickCreateLabelWithleft:30*SCREEN_WIDTH/750 top:0 width:30 heigh:topViewH title:@"英语"];
+    nameLab.font=[UIFont systemFontOfSize:14];
+    nameLab.textColor=[MTool colorWithHexString:@"#212121"];
+    [topView addSubview:nameLab];
+    
+    UILabel*titleLab=[MTool quickCreateLabelWithleft:nameLab.right+20*SCREEN_WIDTH/750 top:0 width:SCREEN_WIDTH/750*200 heigh:topViewH title:@""];
+    titleLab.font=[UIFont systemFontOfSize:12];
+    MainBookModel * model = self.bookList[section];
+    titleLab.text = model.goodsname;
+    titleLab.textColor=[MTool colorWithHexString:@"#888888"];
+    [topView addSubview:titleLab];
+    //添加点击事件
+    self.cellRightBtn= [UIButton buttonWithType:UIButtonTypeCustom];
+    self.cellRightBtn.frame = CGRectMake(0, 0, SCREEN_WIDTH, topViewH);
+    self.cellRightBtn.tag = 100+section;
+    [self.cellRightBtn setImageEdgeInsets:UIEdgeInsetsMake(10, SCREEN_WIDTH-(30+34)*SCREEN_WIDTH/750, FitRealValue(30), FitRealValue(30))];
+    [self.cellRightBtn setImage:[UIImage imageNamed:@"cellright"] forState:UIControlStateNormal];
+    [self.cellRightBtn addTarget:self action:@selector(viewBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [topView addSubview:self.cellRightBtn];
+    //分割线
+    UIView*lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 1)];
+    lineView.backgroundColor = [MTool colorWithHexString:@"#edeff2"];
+    [topView addSubview:lineView];
+    return topView;
+    
 }
 
-/** 图片滚动回调 */
-- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didScrollToIndex:(NSInteger)index{
-    self.currentPage = index;
-    [self updateMap];
+- (void)viewBtnClick:(UIButton *)btn{
+    NSString *string = [NSString stringWithFormat:@"%ld",btn.tag - 100];//点击哪个section
+    //    [btn setImage:[UIImage imageNamed:@"attend_ico_up"] forState:UIControlStateNormal];
+    
+    if (self.selectedArr.count==0){
+        
+        [self.selectedArr addObject:string];//为空添加展示cell
+        self.tableView.scrollEnabled=YES;
+    }
+    else if (self.selectedArr.count !=0){
+        
+        if ([self.selectedArr firstObject]==string ){
+            [self.selectedArr removeObjectAtIndex:0];//不为空收回本次cell
+            self.tableView.scrollEnabled=NO;
+            
+        }else{
+            [self.selectedArr replaceObjectAtIndex:0 withObject:string];//不为空展示cell
+            self.tableView.scrollEnabled=YES;
+            
+        }
+    }
+    
+    NSLog(@"selectedArr:%@",self.selectedArr);
+    [self.tableView reloadData];
+    
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    //选中之后的cell的高度
+    
+    
+    return FitRealValue(80);
+    
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *CellIdentifier = @"UITableViewCell";
+    
+    UITableViewCell*cell = [tableView cellForRowAtIndexPath:indexPath];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+    }
+    cell.backgroundColor = [UIColor colorWithHexColorString:@"F3F5F8"];
+    UnitModel * unitModel = self.listDataAry[indexPath.row];
+
+    cell.textLabel.text=unitModel.name;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    ReadInfoVC*vc=[ReadInfoVC new];
+    vc.unitModel = self.listDataAry[indexPath.row];
+    NSInteger seletedSection = [self.selectedArr[0] intValue];
+    vc.bookModel = self.bookList[seletedSection];
+    vc.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 
@@ -237,26 +286,29 @@
         return;
     }
     else{
-
-        if (request == _net) {
-            NSDictionary*body=result[@"body"];
-            self.currentModel = [ReadInfoModel mj_objectWithKeyValues:body];
-            self.currentPage = 0;
-            MapModel * model1 = _currentModel.list[0];
-            self.currentMapModel = model1.data[0];
-            self.footerView.infoModel = _currentModel;
-            [self CreatcycleScrollView];
-            [self updateMap];
-        }else if (request == _voiceNet) {
+        
+        if (request == _bannerNet) {
+            //轮播图
             NSArray * dataArray = result[@"body"];
-            self.voiceList = [VoiceModel mj_objectArrayWithKeyValuesArray:dataArray];
-            self.voiceUrlList = [[NSMutableArray alloc] initWithCapacity:_voiceList.count];
-            for (VoiceModel * model in self.voiceList) {
-                [self.voiceUrlList addObject:model.url];
+            self.bannerList = [BannerModel mj_objectArrayWithKeyValuesArray:dataArray];
+            //组装图片数组
+            NSMutableArray * imageArray = [[NSMutableArray alloc] initWithCapacity:_bannerList.count];
+            for (NSInteger i = 0; i < _bannerList.count; i++) {
+                BannerModel * model = _bannerList[i];
+                [imageArray addObject:model.imgurl];
             }
+            self.topAdScrollView.imageURLStringsGroup = imageArray;
+        }else if (request == _net) {
+//            if (self.net.requestId==1001) {
+                //辅材列表
+                NSArray * dataArray = result[@"body"];
+                self.bookList = [MainBookModel mj_objectArrayWithKeyValuesArray:dataArray];
+                [self.tableView reloadData];
+//            }
         }
         
-       
+        
+        
     }
     
 }
@@ -270,31 +322,6 @@
 }
 
 #pragma mark  -lazy
-
-- (RightSlidingMenuView *)rightslidingmenuview {
-    if (!_rightslidingmenuview) {
-        _rightslidingmenuview = [[RightSlidingMenuView alloc] initWithFrame:CGRectMake(0, 0, ScreenWidth, ScreenHeight)];
-        _rightslidingmenuview.type = 2;
-        _rightslidingmenuview.seletedUnitblock = ^(UnitModel * _Nonnull unitModel) {
-            
-            [self getUnitData];
-        
-        };
-    }
-    return _rightslidingmenuview;
-}
-
-- (ReadInfoFooterView *)footerView{
-    if (!_footerView) {
-        _footerView = [[ReadInfoFooterView alloc] initWithFrame:CGRectMake(0, KSCREEN_HEIGHT - APP_HEIGHT_6S(56.0), KSCREEN_WIDTH, APP_HEIGHT_6S(56.0))];
-        _footerView.seletedUnitblock = ^(NSInteger index) {
-            [self.topAdScrollView makeScrollViewScrollToIndex:index];
-        };
-        [self.view addSubview:_footerView];
-    }
-    return _footerView;
-}
-
 - (NetManager *)net{
     if (!_net) {
         self.net = [[NetManager alloc] init];
@@ -303,39 +330,22 @@
     return _net;
 }
 
-- (NetManager *)voiceNet{
-    if (!_voiceNet) {
-        _voiceNet = [[NetManager alloc] init];
-        _voiceNet.delegate = self;
+- (NetManager *)bannerNet{
+    if (!_bannerNet) {
+        _bannerNet = [[NetManager alloc] init];
+        _bannerNet.delegate = self;
     }
-    return _voiceNet;
+    return _bannerNet;
 }
 
-
-- (NSArray *)voiceList{
-    if (!_voiceList) {
-        _voiceList = [[NSArray alloc] init];
+- (NSArray *)bookList{
+    if (!_bookList) {
+        _bookList = [[NSArray alloc] init];
     }
-    return _voiceList;
-}
-
-- (NSMutableArray *)pointArray{
-    if (!_pointArray) {
-        _pointArray = [[NSMutableArray alloc] init];
-    }
-    return _pointArray;
+    return _bookList;
 }
 
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
