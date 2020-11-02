@@ -14,8 +14,8 @@
 #import "MainInfoSettingVC.h"
 #import "WebViewViewController.h"
 #import "ShopIndexVC.h"
-
-
+#import "TabarVC.h"
+#import "DZNavigationController.h"
 @interface MainIndexVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
 
 @property (nonatomic, strong)  UITableView          *tableView;
@@ -201,8 +201,12 @@
 -(void)footBtnClick{
     
     [User deleUser];
-    LoginVC*vc=[LoginVC new];
-    [self presentViewController:vc animated:YES completion:nil];
+    LoginVC *loginVC = [[LoginVC alloc] init];
+    DZNavigationController*navi = [[DZNavigationController alloc] initWithRootViewController:loginVC];
+    AppDelegate * delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    delegate.window.rootViewController = navi;
+//    LoginVC*vc=[LoginVC new];
+//    [self presentViewController:vc animated:YES completion:nil];
     
 }
 -(void)loginBtnClick{

@@ -60,7 +60,7 @@
     [self.rightImgBtn layoutButtonWithEdgeInsetsStyle:TYButtonEdgeInsetsStyleRight imageTitleSpace:2];
     [self.rightImgBtn addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
     
-//    [self CreatcycleScrollView];
+    [self CreatcycleScrollView];
     [self initableviewView];
     
     

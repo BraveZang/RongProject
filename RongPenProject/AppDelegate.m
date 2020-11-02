@@ -11,7 +11,8 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import <UMShare/UMShare.h>
 #import "TabarVC.h"
-
+#import "LoginVC.h"
+#import "DZNavigationController.h"
 @interface AppDelegate ()<NetManagerDelegate>
 
 @property (nonatomic, strong) NetManager                  *net;
@@ -37,8 +38,15 @@
 //    [self getAreaUrlData];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    TabarVC *vc=[[TabarVC alloc]init];
-    self.window.rootViewController = vc;
+    
+    
+    if ([User getUser]) {
+        self.window.rootViewController = [TabarVC sharedManager];
+    }else{
+        LoginVC *loginVC=[[LoginVC alloc]init];
+        DZNavigationController*navi = [[DZNavigationController alloc] initWithRootViewController:loginVC];
+        [self.window setRootViewController:navi];
+    }
     [self.window makeKeyAndVisible];
     
 

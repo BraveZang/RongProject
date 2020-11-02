@@ -9,7 +9,7 @@
 #import "UIButton+Code.h"
 #import "forgetPassVC.h"
 #import "WebViewViewController.h"
-
+#import "TabarVC.h"
 typedef enum : NSUInteger{
     Accountlogin,//账号登录
     Accountsmscaptcha,//获取验证码
@@ -403,7 +403,10 @@ typedef enum : NSUInteger{
                 [DZTools showOKHud:headDic[@"res_msg"] delay:2];
                 User *user = [User mj_objectWithKeyValues:bodyDic];
                 [User saveUser:user];
-                [self dismissViewControllerAnimated:YES completion:nil];
+//                [self dismissViewControllerAnimated:YES completion:nil];
+                
+                AppDelegate * delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+                delegate.window.rootViewController = [TabarVC sharedManager];
 
             }
                 break;
@@ -417,7 +420,11 @@ typedef enum : NSUInteger{
                 [DZTools showOKHud:headDic[@"res_msg"] delay:2];
                 User *user = [User mj_objectWithKeyValues:bodyDic];
                 [User saveUser:user];
-                [self dismissViewControllerAnimated:YES completion:nil];
+                
+                AppDelegate * delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+                delegate.window.rootViewController = [TabarVC sharedManager];
+                
+//                [self dismissViewControllerAnimated:YES completion:nil];
 
             }
                 break;
