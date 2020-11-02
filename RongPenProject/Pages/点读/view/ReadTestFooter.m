@@ -27,13 +27,13 @@
     
     self.helpBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_helpBtn addTarget:self action:@selector(helpBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [_helpBtn setImage:[UIImage imageNamed:@"Read_guide_Icon"] forState:UIControlStateNormal];
+    [_helpBtn setImage:[UIImage imageNamed:@"Read_btnBG_Icon"] forState:UIControlStateNormal];
     _helpBtn.frame = CGRectMake(APP_WIDTH_6S(15.0), APP_HEIGHT_6S(7.0), APP_HEIGHT_6S(166.0), APP_HEIGHT_6S(42.0));
     [self addSubview:_helpBtn];
     
     self.playBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_playBtn addTarget:self action:@selector(playBtnClick) forControlEvents:UIControlEventTouchUpInside];
-    [_playBtn setImage:[UIImage imageNamed:@"Read_play_Icon"] forState:UIControlStateNormal];
+    [_playBtn setImage:[UIImage imageNamed:@"Read_btnBG_Icon"] forState:UIControlStateNormal];
     _playBtn.frame = CGRectMake(APP_WIDTH_6S(13.0) + _helpBtn.right, APP_HEIGHT_6S(7.0), APP_HEIGHT_6S(166.0), APP_HEIGHT_6S(42.0));
     [self addSubview:_playBtn];
     

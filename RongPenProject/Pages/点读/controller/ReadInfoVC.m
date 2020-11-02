@@ -15,11 +15,14 @@
 #import "VoiceModel.h"
 #import <AVKit/AVKit.h>
 #import <AVFoundation/AVFoundation.h>
-
-
+#import "ReadInfoItemView.h"
+#import "ReadTestVC.h"
 @interface ReadInfoVC ()<NetManagerDelegate,SDCycleScrollViewDelegate>
 
 @property(nonatomic,strong)   RightSlidingMenuView              *rightslidingmenuview;
+
+
+@property(nonatomic,strong)   ReadInfoItemView                *itemView;
 
 @property(nonatomic,strong)   ReadInfoFooterView              *footerView;
 
@@ -40,8 +43,13 @@
 
 
 @property (nonatomic,strong) ReadInfoModel                  *currentModel;
+@property (nonatomic,strong) MapDataModel                   *currentMapModel;
+
 @property (nonatomic,strong) NSArray                        *voiceList;
+@property (nonatomic,strong) NSMutableArray                        *voiceUrlList;
+
 @property (nonatomic,assign) NSInteger                      currentPage;
+
 
 
 @property (nonatomic, strong) AVPlayer          *player;
@@ -112,6 +120,25 @@
         [bg addSubview:_topAdScrollView];
     }
     
+    if (self.itemView == nil) {
+        self.itemView = [[ReadInfoItemView alloc] initWithFrame:CGRectMake(0, bg.height - APP_HEIGHT_6S(60.0), KSCREEN_WIDTH, APP_HEIGHT_6S(60.0))];
+        _itemView.playBtnblock = ^{
+            [[DDAVPlayer shareInstance] playWithUrlStr:@"http://39.98.227.235/Uploads/mp3/5.mp3"];
+
+        };
+        _itemView.helpBtnblock = ^{
+
+        };
+        
+        _itemView.readBtnblock = ^{
+            ReadTestVC *testVC = [[ReadTestVC alloc] init];
+            testVC.unitModel = _unitModel;
+            testVC.mapModel = _currentMapModel;
+            [self.navigationController pushViewController:testVC animated:YES];
+        };
+        
+        [bg addSubview:_itemView];
+    }
     
     self.topAdScrollView.imageURLStringsGroup = imageArray;
     
@@ -121,11 +148,11 @@
 
 - (void)readClick:(UIButton *)sender{
     MapModel * model1 = _currentModel.list[_currentPage];
-    MapDataModel * model2 = model1.data[sender.tag - 100];
+    self.currentMapModel = model1.data[sender.tag - 100];
  
     for (VoiceModel * voiceModel in self.voiceList) {
         NSString * voiceId = [voiceModel.name substringToIndex:[voiceModel.name rangeOfString:@"."].location];
-        if ([voiceId isEqualToString:model2.dianduid]) {
+        if ([voiceId isEqualToString:_currentMapModel.dianduid]) {
             //播放音频
             [[DDAVPlayer shareInstance] playWithUrlStr:voiceModel.url];
             break;;
@@ -214,12 +241,18 @@
             NSDictionary*body=result[@"body"];
             self.currentModel = [ReadInfoModel mj_objectWithKeyValues:body];
             self.currentPage = 0;
+            MapModel * model1 = _currentModel.list[0];
+            self.currentMapModel = model1.data[0];
             self.footerView.infoModel = _currentModel;
             [self CreatcycleScrollView];
             [self updateMap];
         }else if (request == _voiceNet) {
             NSArray * dataArray = result[@"body"];
             self.voiceList = [VoiceModel mj_objectArrayWithKeyValuesArray:dataArray];
+            self.voiceUrlList = [[NSMutableArray alloc] initWithCapacity:_voiceList.count];
+            for (VoiceModel * model in self.voiceList) {
+                [self.voiceUrlList addObject:model.url];
+            }
         }
         
        
