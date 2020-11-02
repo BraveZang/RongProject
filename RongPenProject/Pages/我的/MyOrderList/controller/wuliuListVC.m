@@ -73,6 +73,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
    NSDictionary*dic=self.ary[indexPath.row];
+   [self.navigationController popoverPresentationController];
     self.ItemBlock(dic);
 
 }

@@ -786,6 +786,19 @@ login_setgread
     [self sendPOSTRequestToServerWithURL:@"Order_submitorder" postData:mutabDic];
 }
 /**
+ 查看物流 参数
+ 参数：
+ wlordersn 物流单号
+ ordersn 订单号
+ **/
+- (void)Order_logisticsWithWlordersn:(NSString *)wlordersn rdersn:(NSString *)ordersn{
+    
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (wlordersn)[mutabDic setObject:wlordersn forKey:@"wlordersn"];
+    if (ordersn)[mutabDic setObject:ordersn forKey:@"ordersn"];
+    [self sendPOSTRequestToServerWithURL:@"Order_logistics" postData:mutabDic];
+}
+/**
  参数
  取消订单新增 参数Order_cancel
  参数：

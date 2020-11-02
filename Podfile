@@ -13,6 +13,7 @@ pod 'NJKWebViewProgress'
 pod 'KINWebBrowser'
 #pod 'SDWebImage','~> 4.4.2'
 pod 'SDWebImage','~> 5.5.0'
+pod 'YYKit'
 
 pod 'IQKeyboardManager'
 #pod 'SDCycleScrollView'

@@ -43,6 +43,9 @@ PODS:
   - UMCShare/UI (6.9.10):
     - UMCCommon
     - UMCShare/Core
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
   - ZIPFoundation (0.9.11)
 
 DEPENDENCIES:
@@ -60,6 +63,7 @@ DEPENDENCIES:
   - UMCCommonLog
   - UMCSecurityPlugins
   - UMCShare/UI
+  - YYKit
 
 SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
@@ -79,6 +83,7 @@ SPEC REPOS:
     - UMCCommonLog
     - UMCSecurityPlugins
     - UMCShare
+    - YYKit
     - ZIPFoundation
 
 SPEC CHECKSUMS:
@@ -98,8 +103,9 @@ SPEC CHECKSUMS:
   UMCCommonLog: 9b7ddde5d14a52fc1986ba5ac3121b8b2f433638
   UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
   UMCShare: a4a95fbdd61ecce5b6751d8c9ed9b519e80fcbc9
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
   ZIPFoundation: b1f0de4eed33e74a676f76e12559ab6b75990197
 
-PODFILE CHECKSUM: 8858de0167d046fd482d56e0307243875a90bb46
+PODFILE CHECKSUM: f90b56eea3449e7d829d1f90789bfecbba5ca8a5
 
 COCOAPODS: 1.9.2

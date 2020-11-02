@@ -445,6 +445,14 @@ login_setgread
  pic 凭证照片
  **/
 - (void)Order_submitorderWithUid:(NSString *)uid orderid:(NSString *)orderid tkorderid:(NSString *)tkorderid companyid:(NSString *)companyid kdorder:(NSString *)kdorder;
+
+/**
+ 查看物流 参数
+ 参数：
+ wlordersn 物流单号
+ ordersn 订单号
+ **/
+- (void)Order_logisticsWithWlordersn:(NSString *)wlordersn rdersn:(NSString *)ordersn;
 /**
  参数
  取消订单新增 参数Order_cancel

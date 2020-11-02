@@ -12,6 +12,7 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "TuiKuanView.h"
 #import "TuiKuandetailVC.h"
+#import "OrderLogisticsVC.h"
 
 
 @interface MyOrderListVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
@@ -97,7 +98,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *cellIdentifier = @"MyOrderListCell";
+    NSString *cellIdentifier =[NSString stringWithFormat:@"MyOrderListCell%ld",indexPath.section];
     MyOrderListCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (cell == nil) {
         cell = [[MyOrderListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
@@ -107,11 +108,11 @@
     MyOrderListModel*model=self.datAry[indexPath.section];
     cell.Block = ^(NSString * _Nonnull str) {
         if ([str isEqualToString:@"查看订单"]) {
-            MyOrderListModel*model=self.datAry[indexPath.section];
-            MyorderDetailVC*vc=[MyorderDetailVC new];
-            vc.ordersnStr=model.ordersn;
-            vc.orderidStr=model.orderid;
-            [self.navigationController pushViewController: vc animated:YES];
+//            MyOrderListModel*model=self.datAry[indexPath.section];
+//            MyorderDetailVC*vc=[MyorderDetailVC new];
+//            vc.ordersnStr=model.ordersn;
+//            vc.orderidStr=model.orderid;
+//            [self.navigationController pushViewController: vc animated:YES];
         }
         if ([str isEqualToString:@"取消订单"]) {
             
@@ -150,6 +151,14 @@
             [self.net Order_confirmWithUid:[User getUserID] orderid:model.orderid];
              
             }
+//        if ([str isEqualToString:@"查看物流"]) {
+        if ([str isEqualToString:@"查看订单"]) {
+
+            OrderLogisticsVC*vc=[OrderLogisticsVC new];
+            vc.ordersnStr=model.ordersn;
+            vc.wlordersnStr=model.wlordersn;
+            [self.navigationController pushViewController: vc animated:YES];
+        }
         
     };
     return cell;
