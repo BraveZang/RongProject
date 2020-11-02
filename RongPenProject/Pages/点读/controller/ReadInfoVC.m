@@ -158,7 +158,6 @@
         btn.frame = CGRectMake(mapDataModel.x.floatValue/_scale, mapDataModel.y.floatValue/_scale, mapDataModel.w.floatValue/_scale, mapDataModel.h.floatValue/_scale);
         btn.tag = 100+i;
         [self.pointArray addObject:[NSString stringWithFormat:@"%d",btn.tag]];
-        btn.backgroundColor = [UIColor colorWithRed:1 green:0.5 blue:1 alpha:0.5];
         [self.topAdScrollView addSubview:btn];
     }
 }
