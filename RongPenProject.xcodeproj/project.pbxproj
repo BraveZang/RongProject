@@ -27,6 +27,11 @@
 		04C098A32543B67A005685DA /* ZRAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098A12543B67A005685DA /* ZRAlertController.m */; };
 		04C098A62543B7A7005685DA /* UIColor+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098A52543B7A7005685DA /* UIColor+Extend.m */; };
 		04C098A92543C380005685DA /* ZRInfoPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098A82543C380005685DA /* ZRInfoPickerView.m */; };
+		04E8B005254F99CF003D2806 /* ReadInfoItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8AFFF254F99CE003D2806 /* ReadInfoItemView.m */; };
+		04E8B006254F99CF003D2806 /* ReadTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8B000254F99CE003D2806 /* ReadTestCell.m */; };
+		04E8B007254F99CF003D2806 /* ReadTestHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8B001254F99CE003D2806 /* ReadTestHeader.m */; };
+		04E8B008254F99CF003D2806 /* ReadTestFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8B002254F99CE003D2806 /* ReadTestFooter.m */; };
+		04E8B00B254F99D8003D2806 /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8B009254F99D7003D2806 /* TestModel.m */; };
 		27271CE5250D129A00B4E382 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27271CE4250D129A00B4E382 /* AppDelegate.m */; };
 		27271CEB250D129A00B4E382 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27271CEA250D129A00B4E382 /* ViewController.m */; };
 		27271CEE250D129A00B4E382 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27271CEC250D129A00B4E382 /* Main.storyboard */; };
@@ -243,6 +248,16 @@
 		04C098A52543B7A7005685DA /* UIColor+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extend.m"; sourceTree = "<group>"; };
 		04C098A72543C380005685DA /* ZRInfoPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZRInfoPickerView.h; sourceTree = "<group>"; };
 		04C098A82543C380005685DA /* ZRInfoPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZRInfoPickerView.m; sourceTree = "<group>"; };
+		04E8AFFD254F99CD003D2806 /* ReadTestFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadTestFooter.h; sourceTree = "<group>"; };
+		04E8AFFE254F99CE003D2806 /* ReadInfoItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadInfoItemView.h; sourceTree = "<group>"; };
+		04E8AFFF254F99CE003D2806 /* ReadInfoItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadInfoItemView.m; sourceTree = "<group>"; };
+		04E8B000254F99CE003D2806 /* ReadTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadTestCell.m; sourceTree = "<group>"; };
+		04E8B001254F99CE003D2806 /* ReadTestHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadTestHeader.m; sourceTree = "<group>"; };
+		04E8B002254F99CE003D2806 /* ReadTestFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadTestFooter.m; sourceTree = "<group>"; };
+		04E8B003254F99CF003D2806 /* ReadTestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadTestCell.h; sourceTree = "<group>"; };
+		04E8B004254F99CF003D2806 /* ReadTestHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadTestHeader.h; sourceTree = "<group>"; };
+		04E8B009254F99D7003D2806 /* TestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
+		04E8B00A254F99D8003D2806 /* TestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestModel.h; sourceTree = "<group>"; };
 		27271CE0250D129A00B4E382 /* RongPenProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RongPenProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27271CE3250D129A00B4E382 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		27271CE4250D129A00B4E382 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -1264,6 +1279,14 @@
 			children = (
 				04458A032544A75800C5AE74 /* ReadInfoFooterView.h */,
 				04458A022544A75800C5AE74 /* ReadInfoFooterView.m */,
+				04E8AFFE254F99CE003D2806 /* ReadInfoItemView.h */,
+				04E8AFFF254F99CE003D2806 /* ReadInfoItemView.m */,
+				04E8B003254F99CF003D2806 /* ReadTestCell.h */,
+				04E8B000254F99CE003D2806 /* ReadTestCell.m */,
+				04E8AFFD254F99CD003D2806 /* ReadTestFooter.h */,
+				04E8B002254F99CE003D2806 /* ReadTestFooter.m */,
+				04E8B004254F99CF003D2806 /* ReadTestHeader.h */,
+				04E8B001254F99CE003D2806 /* ReadTestHeader.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1281,6 +1304,8 @@
 				04458A052544A76400C5AE74 /* ReadInfoModel.m */,
 				044495A025454973007BA4CA /* VoiceModel.h */,
 				044495A125454973007BA4CA /* VoiceModel.m */,
+				04E8B00A254F99D8003D2806 /* TestModel.h */,
+				04E8B009254F99D7003D2806 /* TestModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -1835,6 +1860,7 @@
 				C62DCC37253A8BF900410FCE /* ShopQROrderVC.m in Sources */,
 				C6473F90250F44C700BDE73F /* DZTools.m in Sources */,
 				C62DCC43253AA4A000410FCE /* PayCell.m in Sources */,
+				04E8B005254F99CF003D2806 /* ReadInfoItemView.m in Sources */,
 				C6473FC8250F531A00BDE73F /* APOrderInfo.m in Sources */,
 				C6473FDF2511A6A000BDE73F /* NullSafe.m in Sources */,
 				C647404E2518B17C00BDE73F /* RightSlidingMenuView.m in Sources */,
@@ -1842,10 +1868,12 @@
 				C645CD7E254671E300AD8E4C /* MyOrderListModel.m in Sources */,
 				C62DCC40253AA3C100410FCE /* PriceCell.m in Sources */,
 				27271CEB250D129A00B4E382 /* ViewController.m in Sources */,
+				04E8B00B254F99D8003D2806 /* TestModel.m in Sources */,
 				C62DCC67253C278B00410FCE /* MainCoursePageThreeVC.m in Sources */,
 				C679201C2544765A005822C0 /* MainCourseDetailModel.m in Sources */,
 				C62DCC64253C275500410FCE /* MainCoursePageTowVC.m in Sources */,
 				C6473F7E250F44B800BDE73F /* ReLayoutButton.m in Sources */,
+				04E8B008254F99CF003D2806 /* ReadTestFooter.m in Sources */,
 				C679202A25447812005822C0 /* LVieoView.m in Sources */,
 				C6497BDB251C8701006463B4 /* CheckpointResultVC.m in Sources */,
 				C6497BBE251C3B49006463B4 /* MainMessageVC.m in Sources */,
@@ -1927,12 +1955,14 @@
 				044241222542B02600E066FE /* ZRPickerView.m in Sources */,
 				C645CD502544A15700AD8E4C /* VideoCourseRangeCell.m in Sources */,
 				C6473F5D250F449B00BDE73F /* MKSearchBar.m in Sources */,
+				04E8B007254F99CF003D2806 /* ReadTestHeader.m in Sources */,
 				C641DC15254D3F6000CB5731 /* MainCourseTowDetailVC.m in Sources */,
 				04458A0A2544A78000C5AE74 /* UIView+ST.m in Sources */,
 				C6473F97250F453400BDE73F /* NetManager+UPRequest.m in Sources */,
 				C64740022514823100BDE73F /* swift.swift in Sources */,
 				C6497BD8251C828E006463B4 /* HYBStarEvaluationView.m in Sources */,
 				C641DC3A254F13E000CB5731 /* wuliuListVC.m in Sources */,
+				04E8B006254F99CF003D2806 /* ReadTestCell.m in Sources */,
 				C645CD872546720D00AD8E4C /* MyorderDetailCell.m in Sources */,
 				C641DC18254D439500CB5731 /* MainCourseThreeDetailVC.m in Sources */,
 				C6168BBE2519A617001EF850 /* MainSetCell.m in Sources */,

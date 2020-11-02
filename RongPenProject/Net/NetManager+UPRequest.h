@@ -138,6 +138,14 @@ login_setgread
 /// @param bookid 教辅id
 - (void)main_downMP3urlWithUnitid:(NSString *)unitid andBookId:(NSString *)bookid;
 
+
+/// 目录
+/// @param bookid 教辅id
+/// @param unitid 单元id
+/// @param zspage 页码
+
+- (void)main_assessWithUnitid:(NSString *)unitid BookId:(NSString *)bookid andZspage:(NSString *)zspage;
+
 #pragma mark - 闯关听写
 
 

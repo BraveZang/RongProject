@@ -217,6 +217,21 @@ login_setgread
 }
 
 
+/// 目录
+/// @param bookid 教辅id
+/// @param unitid 单元id
+/// @param zspage 页码
+
+- (void)main_assessWithUnitid:(NSString *)unitid BookId:(NSString *)bookid andZspage:(NSString *)zspage{
+    NSMutableDictionary *mutabDic = [NSMutableDictionary dictionary];
+    if (unitid)[mutabDic setObject:unitid forKey:@"unitid"];
+    if (bookid)[mutabDic setObject:bookid forKey:@"bookid"];
+    if (zspage)[mutabDic setObject:zspage forKey:@"zspage"];
+
+    [self sendPOSTRequestToServerWithURL:@"main_assess" postData:mutabDic];
+}
+
+
 
 
 #pragma mark - 闯关听写
