@@ -109,6 +109,11 @@
 		C641DE152550620F00CB5731 /* OKLogisticsView.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DE0B2550620E00CB5731 /* OKLogisticsView.m */; };
 		C641DE162550620F00CB5731 /* NSString+phone.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DE0D2550620E00CB5731 /* NSString+phone.m */; };
 		C641DE172550620F00CB5731 /* OKTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DE0E2550620E00CB5731 /* OKTableHeaderView.m */; };
+		C641DE372551B10E00CB5731 /* PracticeIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DE362551B10E00CB5731 /* PracticeIndexCell.m */; };
+		C641DE3D2551B1CF00CB5731 /* XFCalendarTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DE392551B1CF00CB5731 /* XFCalendarTool.m */; };
+		C641DE3E2551B1CF00CB5731 /* XFCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DE3C2551B1CF00CB5731 /* XFCalendarView.m */; };
+		C641DE412551C7E700CB5731 /* PracticeIndex1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DE402551C7E700CB5731 /* PracticeIndex1Cell.m */; };
+		C641DE442551CCA400CB5731 /* PracticeIndex2Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DE432551CCA400CB5731 /* PracticeIndex2Cell.m */; };
 		C645CD4A254498D800AD8E4C /* TeacherInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD49254498D800AD8E4C /* TeacherInfoModel.m */; };
 		C645CD4D2544993300AD8E4C /* CourSerAngeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD4C2544993300AD8E4C /* CourSerAngeModel.m */; };
 		C645CD502544A15700AD8E4C /* VideoCourseRangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD4F2544A15700AD8E4C /* VideoCourseRangeCell.m */; };
@@ -432,6 +437,16 @@
 		C641DE0E2550620E00CB5731 /* OKTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OKTableHeaderView.m; sourceTree = "<group>"; };
 		C641DE0F2550620E00CB5731 /* OKLogisticModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OKLogisticModel.h; sourceTree = "<group>"; };
 		C641DE102550620E00CB5731 /* NCLookLogisticsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NCLookLogisticsVC.h; sourceTree = "<group>"; };
+		C641DE352551B10E00CB5731 /* PracticeIndexCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PracticeIndexCell.h; sourceTree = "<group>"; };
+		C641DE362551B10E00CB5731 /* PracticeIndexCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PracticeIndexCell.m; sourceTree = "<group>"; };
+		C641DE392551B1CF00CB5731 /* XFCalendarTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFCalendarTool.m; sourceTree = "<group>"; };
+		C641DE3A2551B1CF00CB5731 /* XFCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFCalendarView.h; sourceTree = "<group>"; };
+		C641DE3B2551B1CF00CB5731 /* XFCalendarTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XFCalendarTool.h; sourceTree = "<group>"; };
+		C641DE3C2551B1CF00CB5731 /* XFCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XFCalendarView.m; sourceTree = "<group>"; };
+		C641DE3F2551C7E700CB5731 /* PracticeIndex1Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PracticeIndex1Cell.h; sourceTree = "<group>"; };
+		C641DE402551C7E700CB5731 /* PracticeIndex1Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PracticeIndex1Cell.m; sourceTree = "<group>"; };
+		C641DE422551CCA400CB5731 /* PracticeIndex2Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PracticeIndex2Cell.h; sourceTree = "<group>"; };
+		C641DE432551CCA400CB5731 /* PracticeIndex2Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PracticeIndex2Cell.m; sourceTree = "<group>"; };
 		C645CD48254498D800AD8E4C /* TeacherInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherInfoModel.h; sourceTree = "<group>"; };
 		C645CD49254498D800AD8E4C /* TeacherInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherInfoModel.m; sourceTree = "<group>"; };
 		C645CD4B2544993300AD8E4C /* CourSerAngeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourSerAngeModel.h; sourceTree = "<group>"; };
@@ -1002,6 +1017,17 @@
 			path = logisticsView;
 			sourceTree = "<group>";
 		};
+		C641DE382551B1CF00CB5731 /* XFCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				C641DE392551B1CF00CB5731 /* XFCalendarTool.m */,
+				C641DE3A2551B1CF00CB5731 /* XFCalendarView.h */,
+				C641DE3B2551B1CF00CB5731 /* XFCalendarTool.h */,
+				C641DE3C2551B1CF00CB5731 /* XFCalendarView.m */,
+			);
+			path = XFCalendar;
+			sourceTree = "<group>";
+		};
 		C645CD712546719100AD8E4C /* MyorderDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -1339,6 +1365,13 @@
 		C6473FA6250F4B9500BDE73F /* view */ = {
 			isa = PBXGroup;
 			children = (
+				C641DE382551B1CF00CB5731 /* XFCalendar */,
+				C641DE352551B10E00CB5731 /* PracticeIndexCell.h */,
+				C641DE362551B10E00CB5731 /* PracticeIndexCell.m */,
+				C641DE3F2551C7E700CB5731 /* PracticeIndex1Cell.h */,
+				C641DE402551C7E700CB5731 /* PracticeIndex1Cell.m */,
+				C641DE422551CCA400CB5731 /* PracticeIndex2Cell.h */,
+				C641DE432551CCA400CB5731 /* PracticeIndex2Cell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1997,6 +2030,7 @@
 				C62DCC67253C278B00410FCE /* MainCoursePageThreeVC.m in Sources */,
 				C679201C2544765A005822C0 /* MainCourseDetailModel.m in Sources */,
 				C641DE112550620F00CB5731 /* OKTableCellContentView.m in Sources */,
+				C641DE3D2551B1CF00CB5731 /* XFCalendarTool.m in Sources */,
 				C62DCC64253C275500410FCE /* MainCoursePageTowVC.m in Sources */,
 				C6473F7E250F44B800BDE73F /* ReLayoutButton.m in Sources */,
 				04E8B008254F99CF003D2806 /* ReadTestFooter.m in Sources */,
@@ -2015,6 +2049,7 @@
 				04C098902543B197005685DA /* MainInfoSettingVC.m in Sources */,
 				C679201325446863005822C0 /* BannerModel.m in Sources */,
 				C679200D25445F46005822C0 /* MessageDetailModel.m in Sources */,
+				C641DE3E2551B1CF00CB5731 /* XFCalendarView.m in Sources */,
 				C6473FB9250F4C6500BDE73F /* MainIndexVC.m in Sources */,
 				C679201925446FE2005822C0 /* ReadTestVC.m in Sources */,
 				C6168BBB2519A54D001EF850 /* MainSetVC.m in Sources */,
@@ -2049,6 +2084,7 @@
 				C641DC37254F092900CB5731 /* danhaoCell.m in Sources */,
 				C6497C1325319C67006463B4 /* ShopIndexModel.m in Sources */,
 				C641DC28254D8D8500CB5731 /* AddressManagerListCell.m in Sources */,
+				C641DE372551B10E00CB5731 /* PracticeIndexCell.m in Sources */,
 				C641DC22254D741D00CB5731 /* SureCourSeOrderVC.m in Sources */,
 				C679203125449357005822C0 /* VideoTitleCell.m in Sources */,
 				C645CD4A254498D800AD8E4C /* TeacherInfoModel.m in Sources */,
@@ -2081,10 +2117,12 @@
 				C641DC31254EEDDC00CB5731 /* TuiKuanView.m in Sources */,
 				C6473FA4250F4B7E00BDE73F /* ReadIndexVC.m in Sources */,
 				C645CD842546720200AD8E4C /* MyorderDetailTowCell.m in Sources */,
+				C641DE442551CCA400CB5731 /* PracticeIndex2Cell.m in Sources */,
 				C6168BC42519AE6F001EF850 /* MainFanKuiCell.m in Sources */,
 				C6473F25250F433200BDE73F /* LoadingView.m in Sources */,
 				C641DCF52550607D00CB5731 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				04458A012544A74C00C5AE74 /* MapModel.m in Sources */,
+				C641DE412551C7E700CB5731 /* PracticeIndex1Cell.m in Sources */,
 				044495A225454973007BA4CA /* VoiceModel.m in Sources */,
 				C62DCC4B253AD39C00410FCE /* AddressPickerView.m in Sources */,
 				C641DC34254F037300CB5731 /* TuiKuandetailVC.m in Sources */,
