@@ -114,6 +114,8 @@
 		C641DE3E2551B1CF00CB5731 /* XFCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DE3C2551B1CF00CB5731 /* XFCalendarView.m */; };
 		C641DE412551C7E700CB5731 /* PracticeIndex1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DE402551C7E700CB5731 /* PracticeIndex1Cell.m */; };
 		C641DE442551CCA400CB5731 /* PracticeIndex2Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DE432551CCA400CB5731 /* PracticeIndex2Cell.m */; };
+		C641DE472552FDE200CB5731 /* AnswerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DE452552FDE200CB5731 /* AnswerModel.m */; };
+		C641DE4A2552FDF700CB5731 /* CheckpointVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DE492552FDF700CB5731 /* CheckpointVC.m */; };
 		C645CD4A254498D800AD8E4C /* TeacherInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD49254498D800AD8E4C /* TeacherInfoModel.m */; };
 		C645CD4D2544993300AD8E4C /* CourSerAngeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD4C2544993300AD8E4C /* CourSerAngeModel.m */; };
 		C645CD502544A15700AD8E4C /* VideoCourseRangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD4F2544A15700AD8E4C /* VideoCourseRangeCell.m */; };
@@ -447,6 +449,10 @@
 		C641DE402551C7E700CB5731 /* PracticeIndex1Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PracticeIndex1Cell.m; sourceTree = "<group>"; };
 		C641DE422551CCA400CB5731 /* PracticeIndex2Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PracticeIndex2Cell.h; sourceTree = "<group>"; };
 		C641DE432551CCA400CB5731 /* PracticeIndex2Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PracticeIndex2Cell.m; sourceTree = "<group>"; };
+		C641DE452552FDE200CB5731 /* AnswerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerModel.m; sourceTree = "<group>"; };
+		C641DE462552FDE200CB5731 /* AnswerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerModel.h; sourceTree = "<group>"; };
+		C641DE482552FDF700CB5731 /* CheckpointVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckpointVC.h; sourceTree = "<group>"; };
+		C641DE492552FDF700CB5731 /* CheckpointVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckpointVC.m; sourceTree = "<group>"; };
 		C645CD48254498D800AD8E4C /* TeacherInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherInfoModel.h; sourceTree = "<group>"; };
 		C645CD49254498D800AD8E4C /* TeacherInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherInfoModel.m; sourceTree = "<group>"; };
 		C645CD4B2544993300AD8E4C /* CourSerAngeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourSerAngeModel.h; sourceTree = "<group>"; };
@@ -1640,6 +1646,8 @@
 		C6497BC6251C43BB006463B4 /* controller  */ = {
 			isa = PBXGroup;
 			children = (
+				C641DE482552FDF700CB5731 /* CheckpointVC.h */,
+				C641DE492552FDF700CB5731 /* CheckpointVC.m */,
 				C6497BC9251C440D006463B4 /* DictationListVC.h */,
 				C6497BCA251C440D006463B4 /* DictationListVC.m */,
 				C6497BCF251C7E17006463B4 /* CheckpointListVC.h */,
@@ -1666,6 +1674,8 @@
 			children = (
 				044589C62544599C00C5AE74 /* gkModel.h */,
 				044589C72544599C00C5AE74 /* gkModel.m */,
+				C641DE462552FDE200CB5731 /* AnswerModel.h */,
+				C641DE452552FDE200CB5731 /* AnswerModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -2076,6 +2086,7 @@
 				C6473F94250F44C700BDE73F /* DZBaseWebViewController.m in Sources */,
 				0442411F2542B00900E066FE /* AreaModel.m in Sources */,
 				C641DCFB2550607D00CB5731 /* View+MASAdditions.m in Sources */,
+				C641DE472552FDE200CB5731 /* AnswerModel.m in Sources */,
 				C6473F4C250F442200BDE73F /* MAlertView.m in Sources */,
 				C6473F5C250F449B00BDE73F /* NSString+CZHExtension.m in Sources */,
 				C6168BD82519B4A9001EF850 /* HDragItem.m in Sources */,
@@ -2114,6 +2125,7 @@
 				C641DCD725505C4500CB5731 /* OrderLogisticsVC.m in Sources */,
 				27271CF6250D129B00B4E382 /* main.m in Sources */,
 				C6497BC1251C3D55006463B4 /* MainMessageCell.m in Sources */,
+				C641DE4A2552FDF700CB5731 /* CheckpointVC.m in Sources */,
 				C641DC31254EEDDC00CB5731 /* TuiKuanView.m in Sources */,
 				C6473FA4250F4B7E00BDE73F /* ReadIndexVC.m in Sources */,
 				C645CD842546720200AD8E4C /* MyorderDetailTowCell.m in Sources */,

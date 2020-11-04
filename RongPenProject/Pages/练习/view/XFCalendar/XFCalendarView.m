@@ -339,7 +339,6 @@
     [btn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
 }
 
-
 //今日已签到
 - (void)setStyle_Today_Signed:(UIButton *)btn
 {

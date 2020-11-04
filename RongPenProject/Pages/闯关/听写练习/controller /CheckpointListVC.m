@@ -9,6 +9,7 @@
 #import "CheckpointListCell.h"
 #import "CheckpointResultVC.h"
 #import "gkModel.h"
+#import "CheckpointVC.h"
 @interface CheckpointListVC ()<UITableViewDelegate,UITableViewDataSource,NetManagerDelegate>
 
 @property (nonatomic, strong)  UITableView          *tableView;
@@ -22,16 +23,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.toptitle.hidden=NO;
-    self.toptitle.text=@"听写练习";
     self.leftImgBtn.hidden=NO;
     [self initTableView];
 }
 
+- (void)setConfirmType:(NSInteger)confirmType{
+    _confirmType = confirmType;
+    if (confirmType == 0) {
+        self.toptitle.text=@"听写练习";
+    }else{
+        self.toptitle.text=@"中英互译";
+    }
+}
 
 - (void)setUnitModel:(UnitModel *)unitModel{
     _unitModel = unitModel;
-    //测试数据 待调整
-    [self.net Pass_gqlistWithUid:[User getUserID] andBookId:unitModel.bookid andUnitid:unitModel.unitid];
+    
+    
+    if (_confirmType == 0) {
+        //听写闯关
+        [self.net Pass_gqlistWithUid:[User getUserID] andBookId:unitModel.bookid andUnitid:unitModel.unitid];
+    }else{
+        //中英互译
+        [self.net Pass_cntoenlistWithUid:[User getUserID] andBookId:unitModel.bookid andUnitid:unitModel.unitid];
+    }
+    
+    
 }
 
 
@@ -92,7 +109,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
-    CheckpointResultVC*vc=[CheckpointResultVC new];
+    CheckpointVC*vc=[CheckpointVC new];
+    vc.model = self.gkList[indexPath.section];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

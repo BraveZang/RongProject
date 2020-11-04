@@ -18,6 +18,9 @@
 
 @property (nonatomic, strong) NSArray                           *unitList;
 
+@property (nonatomic, strong) NSString                          *bookId;
+
+
 @end
 
 @implementation DictationListVC
@@ -25,17 +28,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.toptitle.hidden=NO;
-    self.toptitle.text=@"听写练习";
+    
     self.leftImgBtn.hidden=NO;
     [self initTableView];
 }
 
-
+- (void)setConfirmType:(NSInteger)confirmType{
+    _confirmType = confirmType;
+    if (confirmType == 0) {
+        self.toptitle.text=@"听写练习";
+    }else{
+        self.toptitle.text=@"中英互译";
+    }
+}
 
 - (void)setBookModel:(MainBookModel *)bookModel{
     _bookModel = bookModel;
-    //测试数据 待调整
-    [self.net Pass_txWithUid:[User getUserID] andBookId:@"3"];
+    UnitModel * unitModel = bookModel.unitlist[0];
+    self.bookId = unitModel.bookid;
+    
+    if (_confirmType == 0) {
+        //听写闯关
+        [self.net Pass_txWithUid:[User getUserID] andBookId:_bookId];
+    }else{
+        //中英互译
+        [self.net Pass_cntoenWithUid:[User getUserID] andBookId:_bookId];
+    }
+    
 }
 
 - (void)initTableView {
@@ -95,6 +114,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     CheckpointListVC*vc=[CheckpointListVC new];
+    vc.confirmType = _confirmType;
     vc.unitModel = self.unitList[indexPath.section];
     [self.navigationController pushViewController:vc animated:YES];
     

@@ -11,7 +11,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DictationListVC : DZBaseViewController
 
+
+
 @property (nonatomic, strong) MainBookModel     *bookModel;
+
+/// 闯关类型 0=闯关听写  1=中英互译
+@property (nonatomic, assign) NSInteger         confirmType;
 
 @end
 

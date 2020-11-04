@@ -176,13 +176,11 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.section==0) {
-        DictationListVC*vc=[DictationListVC new];
-        vc.bookModel = self.currentBookModel;
-        vc.hidesBottomBarWhenPushed=YES;
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    
+    DictationListVC*vc=[DictationListVC new];
+    vc.confirmType = indexPath.section;
+    vc.bookModel = self.currentBookModel;
+    vc.hidesBottomBarWhenPushed=YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark === NetManagerDelegate ===
