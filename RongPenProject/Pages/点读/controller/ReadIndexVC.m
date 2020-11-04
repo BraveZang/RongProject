@@ -35,12 +35,8 @@
 
 @implementation ReadIndexVC
 
-
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     self.topview.hidden=NO;
     self.toptitle.hidden=NO;

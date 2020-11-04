@@ -115,7 +115,6 @@
 		C641DE412551C7E700CB5731 /* PracticeIndex1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DE402551C7E700CB5731 /* PracticeIndex1Cell.m */; };
 		C641DE442551CCA400CB5731 /* PracticeIndex2Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DE432551CCA400CB5731 /* PracticeIndex2Cell.m */; };
 		C641DE472552FDE200CB5731 /* AnswerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DE452552FDE200CB5731 /* AnswerModel.m */; };
-		C641DE4A2552FDF700CB5731 /* CheckpointVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C641DE492552FDF700CB5731 /* CheckpointVC.m */; };
 		C645CD4A254498D800AD8E4C /* TeacherInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD49254498D800AD8E4C /* TeacherInfoModel.m */; };
 		C645CD4D2544993300AD8E4C /* CourSerAngeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD4C2544993300AD8E4C /* CourSerAngeModel.m */; };
 		C645CD502544A15700AD8E4C /* VideoCourseRangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C645CD4F2544A15700AD8E4C /* VideoCourseRangeCell.m */; };
@@ -2125,7 +2124,6 @@
 				C641DCD725505C4500CB5731 /* OrderLogisticsVC.m in Sources */,
 				27271CF6250D129B00B4E382 /* main.m in Sources */,
 				C6497BC1251C3D55006463B4 /* MainMessageCell.m in Sources */,
-				C641DE4A2552FDF700CB5731 /* CheckpointVC.m in Sources */,
 				C641DC31254EEDDC00CB5731 /* TuiKuanView.m in Sources */,
 				C6473FA4250F4B7E00BDE73F /* ReadIndexVC.m in Sources */,
 				C645CD842546720200AD8E4C /* MyorderDetailTowCell.m in Sources */,
