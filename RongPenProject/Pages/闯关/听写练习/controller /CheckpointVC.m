@@ -18,6 +18,9 @@
 @property (nonatomic,strong) UIProgressView                      *progressView;
 @property (nonatomic,strong) UILabel                             *numlab;
 @property (nonatomic,strong) UIImageView                         *ximg;
+@property (nonatomic,strong) UILabel                             *totallab;
+
+
 @end
 
 @implementation CheckpointVC
@@ -25,6 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self creatUI];
+    [self getUrlData];
 }
 
 - (void)creatUI{
@@ -58,16 +62,17 @@
     //    self.topAdScrollView.layer.masksToBounds = YES;
     [bg addSubview:_topAdScrollView];
     [bg addSubview:self.subBtn];
-   
+    
     
     _progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(30,50,ScreenWidth-60-50, 14)];
     //滑轮左边颜色，如果设置了左边的图片就不会显示
     _progressView.progressTintColor = [MTool colorWithHexString:@"#FF5757"];
     //滑轮右边颜色，如果设置了左边的图片就不会显示
-    _progressView.trackTintColor = [MTool colorWithHexString:@"#FFDDCF"];
+    [_progressView setTrackTintColor:[MTool colorWithHexString:@"#FFDDCF"]];
     _progressView.progressViewStyle = UIProgressViewStyleBar;
+    _progressView.progress=0.1;
     [self.topAdScrollView addSubview:self.progressView];
-
+    
     self.ximg=[[UIImageView alloc]initWithFrame:CGRectMake(30+_progressView.size.width/5-24, 40, 24, 24)];
     [ self.ximg setImage:[UIImage imageNamed:@"ximg"]];
     [self.topAdScrollView addSubview: self.ximg];
@@ -77,24 +82,35 @@
     self.numlab.font=[UIFont systemFontOfSize:17];
     self.numlab.textAlignment=NSTextAlignmentCenter;
     [self.topAdScrollView addSubview: self.numlab];
+    
+//    self.totallab=[[UILabel alloc]initWithFrame:CGRectMake(30, self.numlab.bottom+10, self.topAdScrollView.size.width-60, 0)];
+//    self.totallab.numberOfLines=0;
+//    self.totallab.textColor=[MTool colorWithHexString:@"#9A4304"];
+//    self.totallab.font=[UIFont systemFontOfSize:26];
+//    [self.topAdScrollView addSubview: self.totallab];
 
 }
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didScrollToIndex:(NSInteger)index
 {
-    if (index==1) {
-        self.numlab.text=[NSString stringWithFormat:@"%ld/%ld",index+1,self.answerList.count];
-        _progressView.progress =1+index/self.answerList.count;
-        
-    }
+    
+    self.numlab.text=[NSString stringWithFormat:@"%ld/%ld",index+1,self.answerList.count];
+    _progressView.progress =1+index/self.answerList.count;
+    self.ximg.frame=CGRectMake(30+_progressView.size.width/self.answerList.count*(index+1)-24, 40, 24, 24);
+    NSString*str1=[NSString stringWithFormat:@"%0.1ld",index+1];
+    NSString*str2=[NSString stringWithFormat:@"%ld",self.answerList.count];
+    _progressView.progress=str1.floatValue/str2.floatValue;
     
 }
 -(void)setModel:(gkModel *)model{
     _model = model;
     
     //    [self.net Pass_cntoeninfoWithUid:[User getUserID] andBookId:model.bookid Unitid:model.unitid andGqid:model.gqid];
+    
+}
+-(void)getUrlData{
+    
     [self.net Pass_cntoeninfoWithUid:@"1" andBookId:@"3" Unitid:@"1" andGqid:@"6"];
 }
-
 #pragma mark === NetManagerDelegate ===
 
 - (void)requestDidFinished:(NetManager *)request result:(NSMutableDictionary *)result{
@@ -111,12 +127,36 @@
         self.answerList = [AnswerModel mj_objectArrayWithKeyValuesArray:dataArray];
         NSMutableArray * imageArray = [[NSMutableArray alloc] initWithCapacity:self.answerList.count];
         for (NSInteger i = 0; i < self.answerList.count; i++) {
-            //        UIImage * image = [UIImage imageNamed:@"answerBG"];
             [imageArray addObject:@"answerBG"];
+            AnswerModel*model=self.answerList[i];
+           UILabel*totallab=[[UILabel alloc]initWithFrame:CGRectMake(30, self.numlab.bottom+10, self.topAdScrollView.size.width-60, 0)];
+            totallab.numberOfLines=0;
+            totallab.textColor=[MTool colorWithHexString:@"#9A4304"];
+            totallab.font=[UIFont systemFontOfSize:26];
+            [self.topAdScrollView addSubview: self.totallab];
+            float height=[model.en heightWithText:model.en font:[UIFont systemFontOfSize:26] width:self.topAdScrollView.size.width-60];
+            totallab.frame=CGRectMake(30, self.numlab.bottom+10, self.topAdScrollView.size.width-60, height);
+            totallab.text=model.en;
+            
         }
         self.topAdScrollView.imageURLStringsGroup=imageArray;
-        _progressView.progress =1/imageArray.count;
+        //        _progressView.progress =1.0/[imageArray.count float] ;
+        NSString*str1=@"1";
+        NSString*str2=[NSString stringWithFormat:@"%ld",imageArray.count];
+        _progressView.progress=str1.floatValue/str2.floatValue;
         self.numlab.text=[NSString stringWithFormat:@"1/%ld",imageArray.count];
+        
+     
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
     
 }

@@ -638,9 +638,23 @@
             filePath = "RongPenProject/Pages/&#x95ef;&#x5173;/&#x542c;&#x5199;&#x7ec3;&#x4e60;/controller /CheckpointVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "-cycleScrollView:didScrollToIndex:"
+            startingLineNumber = "197"
+            endingLineNumber = "197">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1ECF9F20-5498-4A2D-A28E-F960722D44F6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RongPenProject/Pages/&#x95ef;&#x5173;/&#x542c;&#x5199;&#x7ec3;&#x4e60;/controller /CheckpointVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "-requestDidFinished:result:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

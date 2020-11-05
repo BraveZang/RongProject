@@ -201,6 +201,7 @@
 		C6497C1025319458006463B4 /* ShopIndexCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6497C0F25319458006463B4 /* ShopIndexCell.m */; };
 		C6497C1325319C67006463B4 /* ShopIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6497C1225319C67006463B4 /* ShopIndexModel.m */; };
 		C6497C1A2531A4DB006463B4 /* ShopInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C6497C192531A4DB006463B4 /* ShopInfoVC.m */; };
+		C65581E3255313670011D7E9 /* CheckpointVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C65581E2255313670011D7E9 /* CheckpointVC.m */; };
 		C67920072544532D005822C0 /* MessageInfoDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C67920062544532D005822C0 /* MessageInfoDetailVC.m */; };
 		C679200A254455AC005822C0 /* MessageDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6792009254455AC005822C0 /* MessageDetailCell.m */; };
 		C679200D25445F46005822C0 /* MessageDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C679200C25445F46005822C0 /* MessageDetailModel.m */; };
@@ -450,8 +451,6 @@
 		C641DE432551CCA400CB5731 /* PracticeIndex2Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PracticeIndex2Cell.m; sourceTree = "<group>"; };
 		C641DE452552FDE200CB5731 /* AnswerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnswerModel.m; sourceTree = "<group>"; };
 		C641DE462552FDE200CB5731 /* AnswerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnswerModel.h; sourceTree = "<group>"; };
-		C641DE482552FDF700CB5731 /* CheckpointVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckpointVC.h; sourceTree = "<group>"; };
-		C641DE492552FDF700CB5731 /* CheckpointVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckpointVC.m; sourceTree = "<group>"; };
 		C645CD48254498D800AD8E4C /* TeacherInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeacherInfoModel.h; sourceTree = "<group>"; };
 		C645CD49254498D800AD8E4C /* TeacherInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeacherInfoModel.m; sourceTree = "<group>"; };
 		C645CD4B2544993300AD8E4C /* CourSerAngeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CourSerAngeModel.h; sourceTree = "<group>"; };
@@ -612,6 +611,8 @@
 		C6497C1225319C67006463B4 /* ShopIndexModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopIndexModel.m; sourceTree = "<group>"; };
 		C6497C182531A4DB006463B4 /* ShopInfoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShopInfoVC.h; sourceTree = "<group>"; };
 		C6497C192531A4DB006463B4 /* ShopInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopInfoVC.m; sourceTree = "<group>"; };
+		C65581E1255313670011D7E9 /* CheckpointVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckpointVC.h; sourceTree = "<group>"; };
+		C65581E2255313670011D7E9 /* CheckpointVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckpointVC.m; sourceTree = "<group>"; };
 		C67920052544532D005822C0 /* MessageInfoDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageInfoDetailVC.h; sourceTree = "<group>"; };
 		C67920062544532D005822C0 /* MessageInfoDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageInfoDetailVC.m; sourceTree = "<group>"; };
 		C6792008254455AC005822C0 /* MessageDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageDetailCell.h; sourceTree = "<group>"; };
@@ -1645,14 +1646,14 @@
 		C6497BC6251C43BB006463B4 /* controller  */ = {
 			isa = PBXGroup;
 			children = (
-				C641DE482552FDF700CB5731 /* CheckpointVC.h */,
-				C641DE492552FDF700CB5731 /* CheckpointVC.m */,
 				C6497BC9251C440D006463B4 /* DictationListVC.h */,
 				C6497BCA251C440D006463B4 /* DictationListVC.m */,
 				C6497BCF251C7E17006463B4 /* CheckpointListVC.h */,
 				C6497BD0251C7E17006463B4 /* CheckpointListVC.m */,
 				C6497BD9251C8701006463B4 /* CheckpointResultVC.h */,
 				C6497BDA251C8701006463B4 /* CheckpointResultVC.m */,
+				C65581E1255313670011D7E9 /* CheckpointVC.h */,
+				C65581E2255313670011D7E9 /* CheckpointVC.m */,
 			);
 			path = "controller ";
 			sourceTree = "<group>";
@@ -2124,6 +2125,7 @@
 				C641DCD725505C4500CB5731 /* OrderLogisticsVC.m in Sources */,
 				27271CF6250D129B00B4E382 /* main.m in Sources */,
 				C6497BC1251C3D55006463B4 /* MainMessageCell.m in Sources */,
+				C65581E3255313670011D7E9 /* CheckpointVC.m in Sources */,
 				C641DC31254EEDDC00CB5731 /* TuiKuanView.m in Sources */,
 				C6473FA4250F4B7E00BDE73F /* ReadIndexVC.m in Sources */,
 				C645CD842546720200AD8E4C /* MyorderDetailTowCell.m in Sources */,
