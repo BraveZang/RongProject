@@ -27,6 +27,8 @@ pod 'UMCSecurityPlugins'
 pod 'UMCCommonLog'
 pod 'iOSDFULibrary'
 
+pod 'QuestionInputUI'
+
 
 
 end

@@ -638,23 +638,39 @@
             filePath = "RongPenProject/Pages/&#x95ef;&#x5173;/&#x542c;&#x5199;&#x7ec3;&#x4e60;/controller /CheckpointVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197">
+            startingLineNumber = "217"
+            endingLineNumber = "217">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1ECF9F20-5498-4A2D-A28E-F960722D44F6"
+            uuid = "787B618D-9221-4DAE-80FE-5D78B8B32138"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RongPenProject/Pages/&#x95ef;&#x5173;/&#x542c;&#x5199;&#x7ec3;&#x4e60;/controller /CheckpointVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "-requestDidFinished:result:"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "-scrollViewWillEndDragging:withVelocity:targetContentOffset:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "306BC7B3-BD50-4543-96D2-3AEAAF0D4AA9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RongPenProject/Pages/&#x95ef;&#x5173;/&#x542c;&#x5199;&#x7ec3;&#x4e60;/view/CheckpointCollCell.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "-setModel:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

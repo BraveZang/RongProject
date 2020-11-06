@@ -202,6 +202,9 @@
 		C6497C1325319C67006463B4 /* ShopIndexModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C6497C1225319C67006463B4 /* ShopIndexModel.m */; };
 		C6497C1A2531A4DB006463B4 /* ShopInfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C6497C192531A4DB006463B4 /* ShopInfoVC.m */; };
 		C65581E3255313670011D7E9 /* CheckpointVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C65581E2255313670011D7E9 /* CheckpointVC.m */; };
+		C65581ED255454700011D7E9 /* CheckpointCollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C65581EC255454700011D7E9 /* CheckpointCollCell.m */; };
+		C65581F325545EF30011D7E9 /* QuestionInputUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C65581F225545EF30011D7E9 /* QuestionInputUI.framework */; };
+		C65581F525545F7B0011D7E9 /* QuestionInputUI.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C65581F225545EF30011D7E9 /* QuestionInputUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C67920072544532D005822C0 /* MessageInfoDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C67920062544532D005822C0 /* MessageInfoDetailVC.m */; };
 		C679200A254455AC005822C0 /* MessageDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6792009254455AC005822C0 /* MessageDetailCell.m */; };
 		C679200D25445F46005822C0 /* MessageDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C679200C25445F46005822C0 /* MessageDetailModel.m */; };
@@ -232,6 +235,28 @@
 			remoteInfo = RongPenProject;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C65581F025545E870011D7E9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C65581F525545F7B0011D7E9 /* QuestionInputUI.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C65581F425545F1C0011D7E9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0442411D2542B00900E066FE /* AreaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaModel.h; sourceTree = "<group>"; };
@@ -613,6 +638,9 @@
 		C6497C192531A4DB006463B4 /* ShopInfoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShopInfoVC.m; sourceTree = "<group>"; };
 		C65581E1255313670011D7E9 /* CheckpointVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckpointVC.h; sourceTree = "<group>"; };
 		C65581E2255313670011D7E9 /* CheckpointVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckpointVC.m; sourceTree = "<group>"; };
+		C65581EB255454700011D7E9 /* CheckpointCollCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckpointCollCell.h; sourceTree = "<group>"; };
+		C65581EC255454700011D7E9 /* CheckpointCollCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckpointCollCell.m; sourceTree = "<group>"; };
+		C65581F225545EF30011D7E9 /* QuestionInputUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QuestionInputUI.framework; sourceTree = "<group>"; };
 		C67920052544532D005822C0 /* MessageInfoDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageInfoDetailVC.h; sourceTree = "<group>"; };
 		C67920062544532D005822C0 /* MessageInfoDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageInfoDetailVC.m; sourceTree = "<group>"; };
 		C6792008254455AC005822C0 /* MessageDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageDetailCell.h; sourceTree = "<group>"; };
@@ -647,6 +675,7 @@
 				C6473FE1251232C900BDE73F /* SmartPenSDK.framework in Frameworks */,
 				C6473FD9250F55D600BDE73F /* SystemConfiguration.framework in Frameworks */,
 				C6473FD7250F55CE00BDE73F /* CoreTelephony.framework in Frameworks */,
+				C65581F325545EF30011D7E9 /* QuestionInputUI.framework in Frameworks */,
 				C6473FD5250F55C300BDE73F /* CFNetwork.framework in Frameworks */,
 				C6473FD3250F55BA00BDE73F /* CoreMotion.framework in Frameworks */,
 				C6473FD1250F55AE00BDE73F /* Security.framework in Frameworks */,
@@ -1665,6 +1694,8 @@
 				C6497BCD251C71BE006463B4 /* DictationListCell.m */,
 				C6497BD2251C7E45006463B4 /* CheckpointListCell.h */,
 				C6497BD3251C7E45006463B4 /* CheckpointListCell.m */,
+				C65581EB255454700011D7E9 /* CheckpointCollCell.h */,
+				C65581EC255454700011D7E9 /* CheckpointCollCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -1672,6 +1703,8 @@
 		C6497BC8251C43D5006463B4 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C65581F125545EF30011D7E9 /* x86 */,
+				C65581E4255452730011D7E9 /* framework */,
 				044589C62544599C00C5AE74 /* gkModel.h */,
 				044589C72544599C00C5AE74 /* gkModel.m */,
 				C641DE462552FDE200CB5731 /* AnswerModel.h */,
@@ -1778,6 +1811,21 @@
 			path = model;
 			sourceTree = "<group>";
 		};
+		C65581E4255452730011D7E9 /* framework */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = framework;
+			sourceTree = "<group>";
+		};
+		C65581F125545EF30011D7E9 /* x86 */ = {
+			isa = PBXGroup;
+			children = (
+				C65581F225545EF30011D7E9 /* QuestionInputUI.framework */,
+			);
+			path = x86;
+			sourceTree = "<group>";
+		};
 		C679201D25447812005822C0 /* VideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1823,6 +1871,8 @@
 				27271CDD250D129A00B4E382 /* Frameworks */,
 				27271CDE250D129A00B4E382 /* Resources */,
 				7F433F4F9AE3F840F912182A /* [CP] Copy Pods Resources */,
+				C65581F025545E870011D7E9 /* CopyFiles */,
+				C65581F425545F1C0011D7E9 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -2115,6 +2165,7 @@
 				04458A072544A76400C5AE74 /* ReadInfoModel.m in Sources */,
 				C6473F1B250F416E00BDE73F /* NetManager.m in Sources */,
 				C6497BC4251C3DC3006463B4 /* MessageModel.m in Sources */,
+				C65581ED255454700011D7E9 /* CheckpointCollCell.m in Sources */,
 				C6473FC9250F531A00BDE73F /* APAuthInfo.m in Sources */,
 				27271CE5250D129A00B4E382 /* AppDelegate.m in Sources */,
 				C6473F91250F44C700BDE73F /* DZNetworkingTool.m in Sources */,
@@ -2354,6 +2405,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/RongPenProject/ThirdParts/Alipay",
 					"$(PROJECT_DIR)/RongPenProject/ThirdParts",
+					"$(PROJECT_DIR)/RongPenProject/Pages/闯关/听写练习/model/framework/x86",
+					"$(PROJECT_DIR)/RongPenProject/Pages/闯关/听写练习/model/framework/arm",
+					"$(PROJECT_DIR)/RongPenProject/Pages/闯关/听写练习/model",
+					"$(PROJECT_DIR)/RongPenProject/Pages/闯关/听写练习/model/x86",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RongPenProject/prefix.pch";
 				INFOPLIST_FILE = RongPenProject/Info.plist;
@@ -2383,6 +2438,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/RongPenProject/ThirdParts/Alipay",
 					"$(PROJECT_DIR)/RongPenProject/ThirdParts",
+					"$(PROJECT_DIR)/RongPenProject/Pages/闯关/听写练习/model/framework/x86",
+					"$(PROJECT_DIR)/RongPenProject/Pages/闯关/听写练习/model/framework/arm",
+					"$(PROJECT_DIR)/RongPenProject/Pages/闯关/听写练习/model",
+					"$(PROJECT_DIR)/RongPenProject/Pages/闯关/听写练习/model/x86",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/RongPenProject/prefix.pch";
 				INFOPLIST_FILE = RongPenProject/Info.plist;

@@ -1,0 +1,6 @@
+framework module QuestionInputUI {
+  umbrella header "QuestionInputUI.h"
+
+  export *
+  module * { export * }
+}
