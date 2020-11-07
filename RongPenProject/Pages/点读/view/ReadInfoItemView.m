@@ -39,7 +39,7 @@
     
     self.playBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [_playBtn addTarget:self action:@selector(playBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    [_playBtn setImage:[UIImage imageNamed:@"Read_play_Icon"] forState:UIControlStateNormal];
+    [_playBtn setImage:[UIImage imageNamed:@"Read_pause_Icon"] forState:UIControlStateNormal];
     _playBtn.frame = CGRectMake(APP_WIDTH_6S(20.0) + _helpBtn.right, 0, APP_HEIGHT_6S(46.0), APP_HEIGHT_6S(46.0));
     [self addSubview:_playBtn];
     
@@ -66,17 +66,16 @@
 - (void)playBtnClick:(UIButton *)sender{
     sender.selected = !sender.selected;
     if (sender.selected) {
-        [_playBtn setImage:[UIImage imageNamed:@"Read_pause_Icon"] forState:UIControlStateNormal];
-        
-        if (self.playBtnblock) {
-            self.playBtnblock();
-        }
-    }else{
         [_playBtn setImage:[UIImage imageNamed:@"Read_play_Icon"] forState:UIControlStateNormal];
-
         if (self.pauseBtnblock) {
             self.pauseBtnblock();
         }
+    }else{
+        [_playBtn setImage:[UIImage imageNamed:@"Read_pause_Icon"] forState:UIControlStateNormal];
+        if (self.playBtnblock) {
+            self.playBtnblock();
+        }
+        
     }
     
     

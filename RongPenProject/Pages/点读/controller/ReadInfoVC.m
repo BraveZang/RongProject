@@ -18,6 +18,7 @@
 #import "ReadInfoItemView.h"
 #import "ReadTestVC.h"
 #import "SHBQueuePlayer.h"
+#import "VideoPlayerManage.h"
 @interface ReadInfoVC ()<NetManagerDelegate,SDCycleScrollViewDelegate>
 
 @property(nonatomic,strong)   RightSlidingMenuView              *rightslidingmenuview;
@@ -47,7 +48,9 @@
 @property (nonatomic,strong) MapDataModel                   *currentMapModel;
 
 @property (nonatomic,strong) NSArray                        *voiceList;
-@property (nonatomic,strong) NSMutableArray                        *voiceUrlList;
+@property (nonatomic,strong) NSMutableArray                 *voiceUrlList;
+@property (nonatomic,strong) NSMutableArray                 *currentMapVoiceList;
+
 
 @property (nonatomic,assign) NSInteger                      currentPage;
 
@@ -73,6 +76,13 @@
     self.currentPage = 0;
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [[VideoPlayerManage instance] pause];
+    [[VideoPlayerManage instance].playerListArray removeAllObjects];
+    [VideoPlayerManage instance].queuePlayer = nil ;
+
+}
 
 
 -(void)CreatcycleScrollView{
@@ -131,21 +141,24 @@
         
         _itemView.pauseBtnblock = ^{
           ///暂停
-            [player pause];
+            [[VideoPlayerManage instance] pause];
         };
         _itemView.playBtnblock = ^{
 
-            if (player.isPlaying) {
-                [player play];
-            }else{
-                NSMutableArray *items = [NSMutableArray arrayWithCapacity:self.voiceUrlList.count];
-                for (NSInteger i = 0; i < self.voiceUrlList.count; i++) {
-
-                    [items addObject:[NSURL URLWithString:self.voiceUrlList[i]]];
-                }
-                [player setUrls:items index:player.itemIndex];
-                [player play];
-            }
+           
+//            [self.playerView.playerLayer setPlayer:[VideoPlayerManage instance].queuePlayer];
+            [[VideoPlayerManage instance] play];
+            //            if (player.isPlaying) {
+//                [player play];
+//            }else{
+//                NSMutableArray *items = [NSMutableArray arrayWithCapacity:self.voiceUrlList.count];
+//                for (NSInteger i = 0; i < self.voiceUrlList.count; i++) {
+//
+//                    [items addObject:[NSURL URLWithString:self.voiceUrlList[i]]];
+//                }
+//                [player setUrls:items index:player.itemIndex];
+//                [player play];
+//            }
             
             
 
@@ -180,7 +193,8 @@
         NSString * voiceId = [voiceModel.name substringToIndex:[voiceModel.name rangeOfString:@"."].location];
         if ([voiceId isEqualToString:_currentMapModel.dianduid]) {
             //播放音频
-            [[DDAVPlayer shareInstance] playWithUrlStr:voiceModel.url];
+//            [[DDAVPlayer shareInstance] playWithUrlStr:voiceModel.url];
+            [[VideoPlayerManage instance] playItemWithItemUrl:voiceModel.url];
             break;;
         }
     }
@@ -194,6 +208,7 @@
     
 //    [self.topAdScrollView removeAllSubviews];
     
+    
     if (self.pointArray.count > 0) {
         for (NSInteger i = 0; i < _pointArray.count; i++) {
            UIButton * btn = [self.topAdScrollView viewWithTag:[self.pointArray[i]integerValue]];
@@ -201,10 +216,11 @@
         }
     }
     [self.pointArray removeAllObjects];
-    
+    [self.currentMapVoiceList removeAllObjects];
     
     MapModel * mapModel = _currentModel.list[_currentPage];
     for (NSInteger i = 0; i < mapModel.data.count; i++) {
+        //添加点读区域
         MapDataModel * mapDataModel = mapModel.data[i];
         UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
         [btn addTarget:self action:@selector(readClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -212,7 +228,20 @@
         btn.tag = 100+i;
         [self.pointArray addObject:[NSString stringWithFormat:@"%d",btn.tag]];
         [self.topAdScrollView addSubview:btn];
+        
+        //查找本页音频 并加入数组中
+        for (VoiceModel * voiceModel in self.voiceList) {
+            NSString * voiceId = [voiceModel.name substringToIndex:[voiceModel.name rangeOfString:@"."].location];
+            if ([voiceId isEqualToString:mapDataModel.dianduid]) {
+                //播放音频
+                [self.currentMapVoiceList addObject:voiceModel.url];
+                break;;
+            }
+        }
     }
+    
+    [[VideoPlayerManage instance] setPlayerDataSourceWithURLArray:self.currentMapVoiceList];
+    [[VideoPlayerManage instance] play];
 }
 
 
@@ -268,11 +297,14 @@
             NSDictionary*body=result[@"body"];
             self.currentModel = [ReadInfoModel mj_objectWithKeyValues:body];
             self.currentPage = 0;
-            MapModel * model1 = _currentModel.list[0];
-            self.currentMapModel = model1.data[0];
-            self.footerView.infoModel = _currentModel;
+            if (_currentModel.list.count > 0) {
+                MapModel * model1 = _currentModel.list[0];
+                self.currentMapModel = model1.data[0];
+                self.footerView.infoModel = _currentModel;
+                [self updateMap];
+            }
             [self CreatcycleScrollView];
-            [self updateMap];
+            
         }else if (request == _voiceNet) {
             NSArray * dataArray = result[@"body"];
             self.voiceList = [VoiceModel mj_objectArrayWithKeyValuesArray:dataArray];
@@ -280,6 +312,7 @@
             for (VoiceModel * model in self.voiceList) {
                 [self.voiceUrlList addObject:model.url];
             }
+            
         }
         
        
@@ -352,6 +385,12 @@
     return _pointArray;
 }
 
+- (NSMutableArray *)currentMapVoiceList{
+    if (!_currentMapVoiceList) {
+        _currentMapVoiceList = [[NSMutableArray alloc] init];
+    }
+    return _currentMapVoiceList;
+}
 
 
 /*

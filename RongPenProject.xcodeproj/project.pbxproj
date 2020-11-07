@@ -18,6 +18,7 @@
 		04458A042544A75800C5AE74 /* ReadInfoFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04458A022544A75800C5AE74 /* ReadInfoFooterView.m */; };
 		04458A072544A76400C5AE74 /* ReadInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04458A052544A76400C5AE74 /* ReadInfoModel.m */; };
 		04458A0A2544A78000C5AE74 /* UIView+ST.m in Sources */ = {isa = PBXBuildFile; fileRef = 04458A092544A78000C5AE74 /* UIView+ST.m */; };
+		046578682556DAC300E16B12 /* VideoPlayerManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 046578672556DAC300E16B12 /* VideoPlayerManage.m */; };
 		04C098902543B197005685DA /* MainInfoSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0988F2543B197005685DA /* MainInfoSettingVC.m */; };
 		04C098942543B289005685DA /* MainInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098932543B289005685DA /* MainInfoModel.m */; };
 		04C098972543B2E2005685DA /* MainInfoHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098962543B2E2005685DA /* MainInfoHeadCell.m */; };
@@ -282,6 +283,8 @@
 		04458A062544A76400C5AE74 /* ReadInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadInfoModel.h; sourceTree = "<group>"; };
 		04458A082544A78000C5AE74 /* UIView+ST.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ST.h"; sourceTree = "<group>"; };
 		04458A092544A78000C5AE74 /* UIView+ST.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ST.m"; sourceTree = "<group>"; };
+		046578662556DAC300E16B12 /* VideoPlayerManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerManage.h; sourceTree = "<group>"; };
+		046578672556DAC300E16B12 /* VideoPlayerManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerManage.m; sourceTree = "<group>"; };
 		04C0988E2543B197005685DA /* MainInfoSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainInfoSettingVC.h; sourceTree = "<group>"; };
 		04C0988F2543B197005685DA /* MainInfoSettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainInfoSettingVC.m; sourceTree = "<group>"; };
 		04C098922543B289005685DA /* MainInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainInfoModel.h; sourceTree = "<group>"; };
@@ -1162,6 +1165,8 @@
 				04C098A52543B7A7005685DA /* UIColor+Extend.m */,
 				04458A082544A78000C5AE74 /* UIView+ST.h */,
 				04458A092544A78000C5AE74 /* UIView+ST.m */,
+				046578662556DAC300E16B12 /* VideoPlayerManage.h */,
+				046578672556DAC300E16B12 /* VideoPlayerManage.m */,
 				04C098A22543B67A005685DA /* ZRAlertController.h */,
 				04C098A12543B67A005685DA /* ZRAlertController.m */,
 				C6168BC52519B4A9001EF850 /* HDragView */,
@@ -2089,6 +2094,7 @@
 				C647404E2518B17C00BDE73F /* RightSlidingMenuView.m in Sources */,
 				C6473F1E250F425800BDE73F /* MTool.m in Sources */,
 				C645CD7E254671E300AD8E4C /* MyOrderListModel.m in Sources */,
+				046578682556DAC300E16B12 /* VideoPlayerManage.m in Sources */,
 				C62DCC40253AA3C100410FCE /* PriceCell.m in Sources */,
 				27271CEB250D129A00B4E382 /* ViewController.m in Sources */,
 				04E8B00B254F99D8003D2806 /* TestModel.m in Sources */,
