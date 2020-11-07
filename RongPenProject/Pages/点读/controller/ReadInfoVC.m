@@ -301,9 +301,10 @@
                 MapModel * model1 = _currentModel.list[0];
                 self.currentMapModel = model1.data[0];
                 self.footerView.infoModel = _currentModel;
+                [self CreatcycleScrollView];
+
                 [self updateMap];
             }
-            [self CreatcycleScrollView];
             
         }else if (request == _voiceNet) {
             NSArray * dataArray = result[@"body"];
