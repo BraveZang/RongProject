@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) void(^helpBtnblock)(void);
 @property (nonatomic, copy) void(^playBtnblock)(void);
+@property (nonatomic, copy) void(^pauseBtnblock)(void);
+
 @property (nonatomic, copy) void(^readBtnblock)(void);
 
 @property (nonatomic, copy) void(^connectBtnblock)(void);

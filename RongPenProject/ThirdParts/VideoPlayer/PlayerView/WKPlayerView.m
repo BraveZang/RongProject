@@ -11,7 +11,7 @@
 
 @interface WKPlayerView ()
 
-@property (nonatomic, copy) NSString *videoUrl;
+@property (nonatomic,   copy) NSString *videoUrl;
 @property (nonatomic, strong) AVPlayerItem *playerItem;
 @property (nonatomic, strong) AVPlayerLayer *playerLayer;
 @property (nonatomic, strong) AVPlayer *player;

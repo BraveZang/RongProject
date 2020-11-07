@@ -205,6 +205,8 @@
 		C65581ED255454700011D7E9 /* CheckpointCollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C65581EC255454700011D7E9 /* CheckpointCollCell.m */; };
 		C65581F325545EF30011D7E9 /* QuestionInputUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C65581F225545EF30011D7E9 /* QuestionInputUI.framework */; };
 		C65581F525545F7B0011D7E9 /* QuestionInputUI.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C65581F225545EF30011D7E9 /* QuestionInputUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C655821525563D790011D7E9 /* DDAVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C655821425563D780011D7E9 /* DDAVPlayer.m */; };
+		C655821825563D870011D7E9 /* SHBQueuePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C655821725563D860011D7E9 /* SHBQueuePlayer.m */; };
 		C67920072544532D005822C0 /* MessageInfoDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C67920062544532D005822C0 /* MessageInfoDetailVC.m */; };
 		C679200A254455AC005822C0 /* MessageDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6792009254455AC005822C0 /* MessageDetailCell.m */; };
 		C679200D25445F46005822C0 /* MessageDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C679200C25445F46005822C0 /* MessageDetailModel.m */; };
@@ -641,6 +643,10 @@
 		C65581EB255454700011D7E9 /* CheckpointCollCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckpointCollCell.h; sourceTree = "<group>"; };
 		C65581EC255454700011D7E9 /* CheckpointCollCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckpointCollCell.m; sourceTree = "<group>"; };
 		C65581F225545EF30011D7E9 /* QuestionInputUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QuestionInputUI.framework; sourceTree = "<group>"; };
+		C655821325563D780011D7E9 /* DDAVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAVPlayer.h; sourceTree = "<group>"; };
+		C655821425563D780011D7E9 /* DDAVPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAVPlayer.m; sourceTree = "<group>"; };
+		C655821625563D860011D7E9 /* SHBQueuePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHBQueuePlayer.h; sourceTree = "<group>"; };
+		C655821725563D860011D7E9 /* SHBQueuePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHBQueuePlayer.m; sourceTree = "<group>"; };
 		C67920052544532D005822C0 /* MessageInfoDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageInfoDetailVC.h; sourceTree = "<group>"; };
 		C67920062544532D005822C0 /* MessageInfoDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageInfoDetailVC.m; sourceTree = "<group>"; };
 		C6792008254455AC005822C0 /* MessageDetailCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageDetailCell.h; sourceTree = "<group>"; };
@@ -1477,6 +1483,10 @@
 				04E8B002254F99CE003D2806 /* ReadTestFooter.m */,
 				04E8B004254F99CF003D2806 /* ReadTestHeader.h */,
 				04E8B001254F99CE003D2806 /* ReadTestHeader.m */,
+				C655821325563D780011D7E9 /* DDAVPlayer.h */,
+				C655821425563D780011D7E9 /* DDAVPlayer.m */,
+				C655821625563D860011D7E9 /* SHBQueuePlayer.h */,
+				C655821725563D860011D7E9 /* SHBQueuePlayer.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -2152,6 +2162,7 @@
 				C62DCC6A253C2BBD00410FCE /* GoodsModel.m in Sources */,
 				C6473F66250F44A900BDE73F /* NSString+URL.m in Sources */,
 				C641DCF82550607D00CB5731 /* MASConstraintMaker.m in Sources */,
+				C655821525563D790011D7E9 /* DDAVPlayer.m in Sources */,
 				C6497C1A2531A4DB006463B4 /* ShopInfoVC.m in Sources */,
 				C6473F5B250F449B00BDE73F /* UIView+CZHExtension.m in Sources */,
 				C6473F5E250F449B00BDE73F /* CZHTagsView.m in Sources */,
@@ -2183,6 +2194,7 @@
 				C641DE442551CCA400CB5731 /* PracticeIndex2Cell.m in Sources */,
 				C6168BC42519AE6F001EF850 /* MainFanKuiCell.m in Sources */,
 				C6473F25250F433200BDE73F /* LoadingView.m in Sources */,
+				C655821825563D870011D7E9 /* SHBQueuePlayer.m in Sources */,
 				C641DCF52550607D00CB5731 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				04458A012544A74C00C5AE74 /* MapModel.m in Sources */,
 				C641DE412551C7E700CB5731 /* PracticeIndex1Cell.m in Sources */,

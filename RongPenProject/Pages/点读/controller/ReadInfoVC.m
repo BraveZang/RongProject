@@ -17,6 +17,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ReadInfoItemView.h"
 #import "ReadTestVC.h"
+#import "SHBQueuePlayer.h"
 @interface ReadInfoVC ()<NetManagerDelegate,SDCycleScrollViewDelegate>
 
 @property(nonatomic,strong)   RightSlidingMenuView              *rightslidingmenuview;
@@ -120,10 +121,33 @@
         [bg addSubview:_topAdScrollView];
     }
     
+    
     if (self.itemView == nil) {
+        SHBQueuePlayer *player = [SHBQueuePlayer defaultManager];
+        player.delegate = self;
+
         self.itemView = [[ReadInfoItemView alloc] initWithFrame:CGRectMake(0, bg.height - APP_HEIGHT_6S(60.0), KSCREEN_WIDTH, APP_HEIGHT_6S(60.0))];
+        
+        
+        _itemView.pauseBtnblock = ^{
+          ///暂停
+            [player pause];
+        };
         _itemView.playBtnblock = ^{
-            [[DDAVPlayer shareInstance] playWithUrlStr:@"http://39.98.227.235/Uploads/mp3/5.mp3"];
+
+            if (player.isPlaying) {
+                [player play];
+            }else{
+                NSMutableArray *items = [NSMutableArray arrayWithCapacity:self.voiceUrlList.count];
+                for (NSInteger i = 0; i < self.voiceUrlList.count; i++) {
+
+                    [items addObject:[NSURL URLWithString:self.voiceUrlList[i]]];
+                }
+                [player setUrls:items index:player.itemIndex];
+                [player play];
+            }
+            
+            
 
         };
         _itemView.helpBtnblock = ^{
@@ -145,6 +169,8 @@
     
     
 }
+
+
 
 - (void)readClick:(UIButton *)sender{
     MapModel * model1 = _currentModel.list[_currentPage];
@@ -222,6 +248,7 @@
 /** 图片滚动回调 */
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didScrollToIndex:(NSInteger)index{
     self.currentPage = index;
+    [SHBQueuePlayer defaultManager].itemIndex = 0;
     [self updateMap];
 }
 
