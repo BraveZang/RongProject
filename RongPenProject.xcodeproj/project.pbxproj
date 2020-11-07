@@ -13,7 +13,6 @@
 		044589C82544599C00C5AE74 /* gkModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044589C72544599C00C5AE74 /* gkModel.m */; };
 		044589D0254459A600C5AE74 /* UnitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044589CD254459A500C5AE74 /* UnitModel.m */; };
 		044589D1254459A600C5AE74 /* MainBookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044589CE254459A600C5AE74 /* MainBookModel.m */; };
-		044589FB2544A73A00C5AE74 /* DDAVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 044589FA2544A73A00C5AE74 /* DDAVPlayer.m */; };
 		04458A002544A74C00C5AE74 /* MapDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044589FC2544A74B00C5AE74 /* MapDataModel.m */; };
 		04458A012544A74C00C5AE74 /* MapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 044589FE2544A74C00C5AE74 /* MapModel.m */; };
 		04458A042544A75800C5AE74 /* ReadInfoFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04458A022544A75800C5AE74 /* ReadInfoFooterView.m */; };
@@ -273,8 +272,6 @@
 		044589CD254459A500C5AE74 /* UnitModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitModel.m; sourceTree = "<group>"; };
 		044589CE254459A600C5AE74 /* MainBookModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainBookModel.m; sourceTree = "<group>"; };
 		044589CF254459A600C5AE74 /* MainBookModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainBookModel.h; sourceTree = "<group>"; };
-		044589F92544A73A00C5AE74 /* DDAVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAVPlayer.h; sourceTree = "<group>"; };
-		044589FA2544A73A00C5AE74 /* DDAVPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAVPlayer.m; sourceTree = "<group>"; };
 		044589FC2544A74B00C5AE74 /* MapDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapDataModel.m; sourceTree = "<group>"; };
 		044589FD2544A74B00C5AE74 /* MapModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapModel.h; sourceTree = "<group>"; };
 		044589FE2544A74C00C5AE74 /* MapModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapModel.m; sourceTree = "<group>"; };
@@ -1161,8 +1158,6 @@
 		C6473F16250F3F6C00BDE73F /* Tool */ = {
 			isa = PBXGroup;
 			children = (
-				044589F92544A73A00C5AE74 /* DDAVPlayer.h */,
-				044589FA2544A73A00C5AE74 /* DDAVPlayer.m */,
 				04C098A42543B7A6005685DA /* UIColor+Extend.h */,
 				04C098A52543B7A7005685DA /* UIColor+Extend.m */,
 				04458A082544A78000C5AE74 /* UIView+ST.h */,
@@ -2232,7 +2227,6 @@
 				C6497C1025319458006463B4 /* ShopIndexCell.m in Sources */,
 				C6168BD12519B4A9001EF850 /* HDragItemListView.m in Sources */,
 				C62DCC072535CF7B00410FCE /* AddressModel.m in Sources */,
-				044589FB2544A73A00C5AE74 /* DDAVPlayer.m in Sources */,
 				C647400F25188F3700BDE73F /* forgetPassVC.m in Sources */,
 				C641DCFD2550607D00CB5731 /* MASViewConstraint.m in Sources */,
 				04C098942543B289005685DA /* MainInfoModel.m in Sources */,
