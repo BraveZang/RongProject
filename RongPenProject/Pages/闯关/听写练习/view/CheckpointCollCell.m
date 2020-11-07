@@ -6,18 +6,20 @@
 //
 
 #import "CheckpointCollCell.h"
-#import <QuestionInputUI/QuestionInputUI.h>
 
 @interface CheckpointCollCell()<UITextFieldDelegate>
 
 @property (nonatomic,strong)UIImageView    *img;
 @property (nonatomic,strong)UILabel        *titleLab;
+@property (nonatomic,strong)UIView         *bgView;
+
 @property (nonatomic,strong)UILabel        *Lab1;
 @property (nonatomic,strong)UILabel        *Lab2;
+@property (nonatomic,strong)UILabel        *Lab3;
+
 @property (nonatomic,strong)UIImageView    *bgImg;
 
 @property (nonatomic,strong)NSArray         *ary;
-@property (nonatomic,strong)InputQuestionContentView *questionView;
 
 
 @end
@@ -40,47 +42,55 @@
     [self.bgImg setImage:[UIImage imageNamed:@"answerBG"]];
     [self addSubview:self.bgImg];
     
+    self.bgView=[[UIView alloc]initWithFrame:CGRectMake(0, 0,viewW,viewH)];
+    self.bgView.backgroundColor=[UIColor clearColor];
+    [self addSubview:self.bgView];
+    
 }
 -(void)setModel:(AnswerModel *)model{
-    
+    float viewW=ScreenWidth-20;
     _model=model;
     NSString*str=model.en;
-//    self.ary=[self calculateSubStringCount:str str:@"_"];
-//    [self setUI];
-
+    [self.bgView removeAllSubviews];
+  
     self.ary= [str componentsSeparatedByString:@" "];
 
         for (int i = 0; i < self.ary.count; i ++)
        {
-           
+           model.hsaRead=YES;
            NSString *name = self.ary[i];
            
            static UITextField *recordfield =nil;
-           UITextField *field = [[UITextField alloc]initWithFrame:CGRectMake(20, 60, 0, 0)];
+           UITextField *field = [[UITextField alloc]initWithFrame:CGRectMake(20, 70, 0, 0)];
+           field.enabled=NO;
            field.font = [UIFont systemFontOfSize:26];
-           CGRect rect = [name boundingRectWithSize:CGSizeMake(self.frame.size.width -20, 30) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:field.font} context:nil];
+           CGRect rect = [name boundingRectWithSize:CGSizeMake(viewW -40, 50) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:field.font} context:nil];
            
-           CGFloat BtnW = rect.size.width+10 ;
-           CGFloat BtnH = rect.size.height+10;
+           CGFloat BtnW = rect.size.width;
+           CGFloat BtnH = 50;
            if ([name isEqualToString:@""]) {
                BtnW=0;
                BtnH=0;
            }
+           if ([name isEqualToString:@"_"]) {
+               BtnW=50;
+               BtnH=50;
+           }
            
            if (i == 0)
            {
-               field.frame =CGRectMake(30, 70, BtnW, BtnH);
+               field.frame =CGRectMake(20, 70, BtnW, BtnH);
                
            }else{
                
-               CGFloat yuWidth = self.frame.size.width - 30 -recordfield.frame.origin.x -recordfield.frame.size.width;
+               CGFloat yuWidth = viewW - 30 -recordfield.right;
                
-               if (yuWidth >= rect.size.width) {
+               if (yuWidth >= BtnW) {
                    
-                   field.frame =CGRectMake(recordfield.frame.origin.x +recordfield.frame.size.width + 10, recordfield.frame.origin.y, BtnW, BtnH);
+                   field.frame =CGRectMake(recordfield.right+10, recordfield.frame.origin.y, BtnW, BtnH);
                }else{
                    
-                   field.frame =CGRectMake(30, recordfield.frame.origin.y+recordfield.frame.size.height+10, BtnW, BtnH);
+                   field.frame =CGRectMake(20, recordfield.frame.origin.y+recordfield.frame.size.height+10, BtnW, BtnH);
                }
                
            }
@@ -88,18 +98,19 @@
            if ([name isEqualToString:@"_"]) {
                field.text=@"";
                field.backgroundColor=[MTool colorWithHexString:@"#F9BBA3"];
-               field.frame=CGRectMake(field.origin.x+BtnW, field.origin.y, 50, 50);
+               field.enabled=YES;
+               field.textAlignment=NSTextAlignmentCenter;
+               field.borderWidth=2;
+               field.borderColor=[UIColor whiteColor];
+               uii
            }
            field.textColor=[MTool colorWithHexString:@"#9A4304"];
-           [self addSubview:field];
+           [self.bgView addSubview:field];
            
-//           self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y,self.frame.size.width,CGRectGetMaxY(field.frame)+10);
            recordfield = field;
+           
            field.tag = i;
            
-           
-//         }  [field addTarget:self action:@selector(BtnClick:) forControlEvents:UIControlEventTouchUpInside];
-       
        }
 }
 
@@ -130,21 +141,5 @@
     return locationArr;
     
 }
--(void)setUI{
-    
-    float viewW=ScreenWidth-20;
-    NSMutableArray*inputLocationAry=[NSMutableArray arrayWithCapacity:0];
-    for (NSString*str in self.ary) {
-        NSInteger location=[str intValue];
-        InputLocationInfoObject*obj=[[InputLocationInfoObject alloc] initWithInputSize:CGSizeMake(70.0f, 30.0f) locationIndex:location];
-        [inputLocationAry addObject:obj];
-    }
-    NSString *string = [self.model.en stringByReplacingOccurrencesOfString:@"_" withString:@""];
-    if ( self.questionView==nil) {
-    self.questionView = [[InputQuestionContentView alloc]initWithStartPoint:CGPointMake(40.0f, 70.0f) contentWidth:viewW - 80.0f text:string font:[UIFont boldSystemFontOfSize:26.0f] textColor:[MTool colorWithHexString:@"#9A4304"] lineGap:4.0f wordGap:1.0f inputLocations:inputLocationAry];
-    [self addSubview:self.questionView];
-    }
-    
-    
-}
+
 @end

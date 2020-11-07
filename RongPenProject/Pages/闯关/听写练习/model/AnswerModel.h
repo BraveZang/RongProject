@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString      *Id;
 @property (nonatomic, strong) NSString      *unitid;
 @property (nonatomic, strong) NSString      *zh;
+@property (nonatomic, assign) BOOL          hsaRead;
 
 
 

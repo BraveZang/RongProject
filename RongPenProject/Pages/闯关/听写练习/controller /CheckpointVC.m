@@ -107,7 +107,6 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
-        
     CheckpointCollCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CheckpointCollCell" forIndexPath:indexPath];
   
     cell.model=self.answerList[indexPath.row];
@@ -141,7 +140,7 @@
 
     self.numlab.text=[NSString stringWithFormat:@"%ld/%ld",self.currentIndex+1,self.answerList.count];
        _progressView.progress =1+self.currentIndex/self.answerList.count;
-       self.ximg.frame=CGRectMake(30+_progressView.size.width/self.answerList.count*(self.currentIndex+1)-24, 40, 24, 24);
+       self.ximg.frame=CGRectMake(30+_progressView.size.width/self.answerList.count*(self.currentIndex+1)-24,_progressView.origin.y-10, 24, 24);
        NSString*str1=[NSString stringWithFormat:@"%0.1ld",self.currentIndex+1];
        NSString*str2=[NSString stringWithFormat:@"%ld",self.answerList.count];
        _progressView.progress=str1.floatValue/str2.floatValue;

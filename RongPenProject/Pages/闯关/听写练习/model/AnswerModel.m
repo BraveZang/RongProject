@@ -9,4 +9,8 @@
 
 @implementation AnswerModel
 
+-(void)setHsaRead:(BOOL)hsaRead{
+    
+    _hsaRead=hsaRead;
+}
 @end

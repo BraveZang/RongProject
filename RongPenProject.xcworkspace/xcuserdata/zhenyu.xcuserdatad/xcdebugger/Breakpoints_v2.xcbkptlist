@@ -638,38 +638,22 @@
             filePath = "RongPenProject/Pages/&#x95ef;&#x5173;/&#x542c;&#x5199;&#x7ec3;&#x4e60;/controller /CheckpointVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217">
+            startingLineNumber = "216"
+            endingLineNumber = "216">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "787B618D-9221-4DAE-80FE-5D78B8B32138"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RongPenProject/Pages/&#x95ef;&#x5173;/&#x542c;&#x5199;&#x7ec3;&#x4e60;/controller /CheckpointVC.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "-scrollViewWillEndDragging:withVelocity:targetContentOffset:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "306BC7B3-BD50-4543-96D2-3AEAAF0D4AA9"
+            uuid = "D623BF81-7BA4-4FFE-98A1-D6FF8C8029A9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RongPenProject/Pages/&#x95ef;&#x5173;/&#x542c;&#x5199;&#x7ec3;&#x4e60;/view/CheckpointCollCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "-setModel:"
             landmarkType = "7">
          </BreakpointContent>
