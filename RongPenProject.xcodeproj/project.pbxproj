@@ -19,6 +19,10 @@
 		04458A072544A76400C5AE74 /* ReadInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04458A052544A76400C5AE74 /* ReadInfoModel.m */; };
 		04458A0A2544A78000C5AE74 /* UIView+ST.m in Sources */ = {isa = PBXBuildFile; fileRef = 04458A092544A78000C5AE74 /* UIView+ST.m */; };
 		046578682556DAC300E16B12 /* VideoPlayerManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 046578672556DAC300E16B12 /* VideoPlayerManage.m */; };
+		046578752556F85600E16B12 /* ConnectPenResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0465786C2556F85600E16B12 /* ConnectPenResultVC.m */; };
+		046578762556F85600E16B12 /* ConnectPenGuideVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0465786D2556F85600E16B12 /* ConnectPenGuideVC.m */; };
+		046578772556F85600E16B12 /* ConnectPenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0465786E2556F85600E16B12 /* ConnectPenVC.m */; };
+		046578782556F85600E16B12 /* PenGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 046578722556F85600E16B12 /* PenGuideView.m */; };
 		04C098902543B197005685DA /* MainInfoSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C0988F2543B197005685DA /* MainInfoSettingVC.m */; };
 		04C098942543B289005685DA /* MainInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098932543B289005685DA /* MainInfoModel.m */; };
 		04C098972543B2E2005685DA /* MainInfoHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098962543B2E2005685DA /* MainInfoHeadCell.m */; };
@@ -285,6 +289,14 @@
 		04458A092544A78000C5AE74 /* UIView+ST.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ST.m"; sourceTree = "<group>"; };
 		046578662556DAC300E16B12 /* VideoPlayerManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerManage.h; sourceTree = "<group>"; };
 		046578672556DAC300E16B12 /* VideoPlayerManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerManage.m; sourceTree = "<group>"; };
+		0465786C2556F85600E16B12 /* ConnectPenResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectPenResultVC.m; sourceTree = "<group>"; };
+		0465786D2556F85600E16B12 /* ConnectPenGuideVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectPenGuideVC.m; sourceTree = "<group>"; };
+		0465786E2556F85600E16B12 /* ConnectPenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectPenVC.m; sourceTree = "<group>"; };
+		0465786F2556F85600E16B12 /* ConnectPenGuideVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectPenGuideVC.h; sourceTree = "<group>"; };
+		046578702556F85600E16B12 /* ConnectPenResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectPenResultVC.h; sourceTree = "<group>"; };
+		046578722556F85600E16B12 /* PenGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PenGuideView.m; sourceTree = "<group>"; };
+		046578732556F85600E16B12 /* PenGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PenGuideView.h; sourceTree = "<group>"; };
+		046578742556F85600E16B12 /* ConnectPenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectPenVC.h; sourceTree = "<group>"; };
 		04C0988E2543B197005685DA /* MainInfoSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainInfoSettingVC.h; sourceTree = "<group>"; };
 		04C0988F2543B197005685DA /* MainInfoSettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainInfoSettingVC.m; sourceTree = "<group>"; };
 		04C098922543B289005685DA /* MainInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainInfoModel.h; sourceTree = "<group>"; };
@@ -709,6 +721,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0465786B2556F85600E16B12 /* 智能笔 */ = {
+			isa = PBXGroup;
+			children = (
+				0465786C2556F85600E16B12 /* ConnectPenResultVC.m */,
+				0465786D2556F85600E16B12 /* ConnectPenGuideVC.m */,
+				0465786E2556F85600E16B12 /* ConnectPenVC.m */,
+				0465786F2556F85600E16B12 /* ConnectPenGuideVC.h */,
+				046578702556F85600E16B12 /* ConnectPenResultVC.h */,
+				046578712556F85600E16B12 /* View */,
+				046578742556F85600E16B12 /* ConnectPenVC.h */,
+			);
+			path = "智能笔";
+			sourceTree = "<group>";
+		};
+		046578712556F85600E16B12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				046578722556F85600E16B12 /* PenGuideView.m */,
+				046578732556F85600E16B12 /* PenGuideView.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		04C098912543B260005685DA /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1343,6 +1378,7 @@
 		C6473F9D250F484F00BDE73F /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				0465786B2556F85600E16B12 /* 智能笔 */,
 				C6497C0625318DAD006463B4 /* 商城 */,
 				C6473F9E250F4B2000BDE73F /* 点读 */,
 				C6473F9F250F4B3000BDE73F /* 闯关 */,
@@ -2066,6 +2102,7 @@
 				C62DCC5B253C1C9800410FCE /* MainCoursePageOneVC.m in Sources */,
 				04C098972543B2E2005685DA /* MainInfoHeadCell.m in Sources */,
 				C62DCC58253C1A0300410FCE /* MCPageView.m in Sources */,
+				046578762556F85600E16B12 /* ConnectPenGuideVC.m in Sources */,
 				04C0989A2543B313005685DA /* MainInfoCell.m in Sources */,
 				C62DCC042535CEB400410FCE /* ShopAdressCell..m in Sources */,
 				C645CD9725467D9C00AD8E4C /* WKVideoListCell.m in Sources */,
@@ -2073,6 +2110,7 @@
 				C62DCC0B2535D0CF00410FCE /* ConfirmOrderVC.m in Sources */,
 				04C098A92543C380005685DA /* ZRInfoPickerView.m in Sources */,
 				C679202825447812005822C0 /* WKVideoListItem.m in Sources */,
+				046578772556F85600E16B12 /* ConnectPenVC.m in Sources */,
 				C62DCC4E253AD43300410FCE /* AddAdressCell.m in Sources */,
 				C6473F62250F44A400BDE73F /* NSObject+AutoProperty.m in Sources */,
 				C6497BD1251C7E17006463B4 /* CheckpointListVC.m in Sources */,
@@ -2169,6 +2207,7 @@
 				C6473F5E250F449B00BDE73F /* CZHTagsView.m in Sources */,
 				C645CD8A2546721C00AD8E4C /* MyorderDetailVC.m in Sources */,
 				C641DE152550620F00CB5731 /* OKLogisticsView.m in Sources */,
+				046578752556F85600E16B12 /* ConnectPenResultVC.m in Sources */,
 				C6473F7C250F44B800BDE73F /* UIView+.m in Sources */,
 				04C098A32543B67A005685DA /* ZRAlertController.m in Sources */,
 				C6473F7A250F44B800BDE73F /* UIView+UIViewRect.m in Sources */,
@@ -2181,6 +2220,7 @@
 				C6473FC9250F531A00BDE73F /* APAuthInfo.m in Sources */,
 				27271CE5250D129A00B4E382 /* AppDelegate.m in Sources */,
 				C6473F91250F44C700BDE73F /* DZNetworkingTool.m in Sources */,
+				046578782556F85600E16B12 /* PenGuideView.m in Sources */,
 				C6473F9B250F45E700BDE73F /* LoginVC.m in Sources */,
 				C6473F5A250F449B00BDE73F /* UIImage+CZHExtension.m in Sources */,
 				C645CD4D2544993300AD8E4C /* CourSerAngeModel.m in Sources */,
