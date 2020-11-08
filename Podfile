@@ -28,6 +28,7 @@ pod 'UMCCommonLog'
 pod 'iOSDFULibrary'
 
 pod 'QuestionInputUI'
+pod 'FMDB'
 
 
 

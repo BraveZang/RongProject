@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ConnectPenGuideVC : DZBaseViewController
 
+@property (nonatomic, strong) NSString          *Mac;
+
 @end
 
 NS_ASSUME_NONNULL_END

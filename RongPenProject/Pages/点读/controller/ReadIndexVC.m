@@ -13,6 +13,7 @@
 #import "UnitModel.h"
 #import "BannerModel.h"
 #import "ReadInfoVC.h"
+#import "ConnectPenGuideVC.h"
 @interface ReadIndexVC ()<NetManagerDelegate,SDCycleScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic,strong) SDCycleScrollView                *topAdScrollView;//广告轮播控件
@@ -103,6 +104,12 @@
 
 
 #pragma mark - buttonClick
+
+- (void)leftAction{
+    ConnectPenGuideVC *target = [[ConnectPenGuideVC alloc] init];
+    target.hidesBottomBarWhenPushed= YES;
+    [self.navigationController pushViewController:target animated:YES];
+}
 
 -(void)rightAction{
     

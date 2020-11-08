@@ -31,6 +31,9 @@
 		04C098A32543B67A005685DA /* ZRAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098A12543B67A005685DA /* ZRAlertController.m */; };
 		04C098A62543B7A7005685DA /* UIColor+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098A52543B7A7005685DA /* UIColor+Extend.m */; };
 		04C098A92543C380005685DA /* ZRInfoPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C098A82543C380005685DA /* ZRInfoPickerView.m */; };
+		04D01F362557CFCD009D4CF9 /* PenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D01F352557CFCD009D4CF9 /* PenModel.m */; };
+		04D01F392557CFD6009D4CF9 /* PenCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D01F382557CFD6009D4CF9 /* PenCell.m */; };
+		04D01F3D2557D0B7009D4CF9 /* PenManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D01F3C2557D0B7009D4CF9 /* PenManage.m */; };
 		04E8B005254F99CF003D2806 /* ReadInfoItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8AFFF254F99CE003D2806 /* ReadInfoItemView.m */; };
 		04E8B006254F99CF003D2806 /* ReadTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8B000254F99CE003D2806 /* ReadTestCell.m */; };
 		04E8B007254F99CF003D2806 /* ReadTestHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E8B001254F99CE003D2806 /* ReadTestHeader.m */; };
@@ -313,6 +316,12 @@
 		04C098A52543B7A7005685DA /* UIColor+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extend.m"; sourceTree = "<group>"; };
 		04C098A72543C380005685DA /* ZRInfoPickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZRInfoPickerView.h; sourceTree = "<group>"; };
 		04C098A82543C380005685DA /* ZRInfoPickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZRInfoPickerView.m; sourceTree = "<group>"; };
+		04D01F342557CFCD009D4CF9 /* PenModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PenModel.h; sourceTree = "<group>"; };
+		04D01F352557CFCD009D4CF9 /* PenModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PenModel.m; sourceTree = "<group>"; };
+		04D01F372557CFD5009D4CF9 /* PenCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PenCell.h; sourceTree = "<group>"; };
+		04D01F382557CFD6009D4CF9 /* PenCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PenCell.m; sourceTree = "<group>"; };
+		04D01F3B2557D0B7009D4CF9 /* PenManage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PenManage.h; sourceTree = "<group>"; };
+		04D01F3C2557D0B7009D4CF9 /* PenManage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PenManage.m; sourceTree = "<group>"; };
 		04E8AFFD254F99CD003D2806 /* ReadTestFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadTestFooter.h; sourceTree = "<group>"; };
 		04E8AFFE254F99CE003D2806 /* ReadInfoItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadInfoItemView.h; sourceTree = "<group>"; };
 		04E8AFFF254F99CE003D2806 /* ReadInfoItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadInfoItemView.m; sourceTree = "<group>"; };
@@ -724,11 +733,13 @@
 		0465786B2556F85600E16B12 /* 智能笔 */ = {
 			isa = PBXGroup;
 			children = (
+				04D01F3A2557D083009D4CF9 /* Manage */,
 				0465786C2556F85600E16B12 /* ConnectPenResultVC.m */,
 				0465786D2556F85600E16B12 /* ConnectPenGuideVC.m */,
 				0465786E2556F85600E16B12 /* ConnectPenVC.m */,
 				0465786F2556F85600E16B12 /* ConnectPenGuideVC.h */,
 				046578702556F85600E16B12 /* ConnectPenResultVC.h */,
+				04D01F332557CFBF009D4CF9 /* Model */,
 				046578712556F85600E16B12 /* View */,
 				046578742556F85600E16B12 /* ConnectPenVC.h */,
 			);
@@ -738,6 +749,8 @@
 		046578712556F85600E16B12 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				04D01F372557CFD5009D4CF9 /* PenCell.h */,
+				04D01F382557CFD6009D4CF9 /* PenCell.m */,
 				046578722556F85600E16B12 /* PenGuideView.m */,
 				046578732556F85600E16B12 /* PenGuideView.h */,
 			);
@@ -753,6 +766,24 @@
 				04C098932543B289005685DA /* MainInfoModel.m */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		04D01F332557CFBF009D4CF9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04D01F342557CFCD009D4CF9 /* PenModel.h */,
+				04D01F352557CFCD009D4CF9 /* PenModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04D01F3A2557D083009D4CF9 /* Manage */ = {
+			isa = PBXGroup;
+			children = (
+				04D01F3B2557D0B7009D4CF9 /* PenManage.h */,
+				04D01F3C2557D0B7009D4CF9 /* PenManage.m */,
+			);
+			path = Manage;
 			sourceTree = "<group>";
 		};
 		27271CD7250D129A00B4E382 = {
@@ -2109,6 +2140,7 @@
 				04C098A62543B7A7005685DA /* UIColor+Extend.m in Sources */,
 				C62DCC0B2535D0CF00410FCE /* ConfirmOrderVC.m in Sources */,
 				04C098A92543C380005685DA /* ZRInfoPickerView.m in Sources */,
+				04D01F3D2557D0B7009D4CF9 /* PenManage.m in Sources */,
 				C679202825447812005822C0 /* WKVideoListItem.m in Sources */,
 				046578772556F85600E16B12 /* ConnectPenVC.m in Sources */,
 				C62DCC4E253AD43300410FCE /* AddAdressCell.m in Sources */,
@@ -2163,6 +2195,7 @@
 				C679201925446FE2005822C0 /* ReadTestVC.m in Sources */,
 				C6168BBB2519A54D001EF850 /* MainSetVC.m in Sources */,
 				C641DCFA2550607D00CB5731 /* NSArray+MASAdditions.m in Sources */,
+				04D01F392557CFD6009D4CF9 /* PenCell.m in Sources */,
 				C6168BC12519ADAA001EF850 /* MainFanKuiVC.m in Sources */,
 				C679202E2544919D005822C0 /* VideoTeacherCell.m in Sources */,
 				C62DCC3D253AA10900410FCE /* Shop_qrorderModel.m in Sources */,
@@ -2214,6 +2247,7 @@
 				C641DE142550620F00CB5731 /* OKLogisticModel.m in Sources */,
 				C641DCDA25505F3100CB5731 /* OrderLogisticsModel.m in Sources */,
 				04458A072544A76400C5AE74 /* ReadInfoModel.m in Sources */,
+				04D01F362557CFCD009D4CF9 /* PenModel.m in Sources */,
 				C6473F1B250F416E00BDE73F /* NetManager.m in Sources */,
 				C6497BC4251C3DC3006463B4 /* MessageModel.m in Sources */,
 				C65581ED255454700011D7E9 /* CheckpointCollCell.m in Sources */,
@@ -2451,7 +2485,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BS2MU66C48;
+				DEVELOPMENT_TEAM = F2F8SHW7QP;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2468,7 +2502,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = none.RongPenProject1;
+				PRODUCT_BUNDLE_IDENTIFIER = none.RongPenProject218;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RongPenProject/RongPenProject-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2484,7 +2518,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = BS2MU66C48;
+				DEVELOPMENT_TEAM = F2F8SHW7QP;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2501,7 +2535,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = none.RongPenProject1;
+				PRODUCT_BUNDLE_IDENTIFIER = none.RongPenProject218;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "RongPenProject/RongPenProject-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

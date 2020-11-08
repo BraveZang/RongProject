@@ -50,7 +50,7 @@
     [self addSubview:_readBtn];
     
     self.connectBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [_connectBtn addTarget:self action:@selector(readBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    [_connectBtn addTarget:self action:@selector(connectBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [_connectBtn setImage:[UIImage imageNamed:@"Read_connect_Icon"] forState:UIControlStateNormal];
     _connectBtn.frame = CGRectMake(KSCREEN_WIDTH - APP_WIDTH_6S(65.0), 0, APP_WIDTH_6S(70.0), APP_HEIGHT_6S(46.0));
     [self addSubview:_connectBtn];
@@ -88,6 +88,12 @@
     }
 }
 
+
+- (void)connectBtnClick{
+    if (self.connectBtnblock) {
+        self.connectBtnblock();
+    }
+}
 
 
 /*

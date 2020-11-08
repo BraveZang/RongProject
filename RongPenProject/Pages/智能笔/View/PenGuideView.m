@@ -23,27 +23,22 @@
 - (void)creatPenGuideView{
     self.titleLab = [[UILabel alloc] init];
     _titleLab.frame = CGRectMake(15,44,ScreenWidth-30,25);
-    _titleLab.backgroundColor =[UIColor orangeColor];
+    _titleLab.textColor = hexColor(212121);
+    _titleLab.font = [UIFont systemFontOfSize:22];
     [self addSubview:_titleLab];
 
-    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:@"1.打开荣知智能笔开关"attributes: @{NSFontAttributeName: [UIFont fontWithName:@"PingFangSC" size: 22],NSForegroundColorAttributeName: [UIColor colorWithRed:33/255.0 green:33/255.0 blue:33/255.0 alpha:1.0]}];
-    _titleLab.attributedText = string;
+    _titleLab.text = @"1.打开荣知智能笔开关";
     
     
     self.explainLab = [[UILabel alloc] init];
-    _explainLab.frame = CGRectMake(28,_titleLab.bottom,255,22);
-    _explainLab.numberOfLines = 0;
+    _explainLab.frame = CGRectMake(28,_titleLab.bottom+10,ScreenWidth-28,22);
+    _explainLab.font = [UIFont systemFontOfSize:16];
+
     [self addSubview:_explainLab];
-
-    NSMutableAttributedString *string1 = [[NSMutableAttributedString alloc] initWithString:@"长按尾部开关，直至LED指示灯闪烁"attributes: @{NSFontAttributeName: [UIFont fontWithName:@"PingFangSC" size: 16],NSForegroundColorAttributeName: [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1.0]}];
-
-    [string1 addAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1.000000]} range:NSMakeRange(0, 9)];
-
-    [string1 addAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:209/255.0 green:46/255.0 blue:46/255.0 alpha:1.000000]} range:NSMakeRange(9, 6)];
-
-    [string1 addAttributes:@{NSForegroundColorAttributeName: [UIColor colorWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1.000000]} range:NSMakeRange(15, 2)];
-
-    _explainLab.attributedText = string1;
+    _explainLab.textColor = hexColor(666666);
+    NSMutableAttributedString *placeholder = [[NSMutableAttributedString alloc] initWithString: @"长按尾部开关，直至LED指示灯闪烁"];
+    [placeholder addAttribute:NSForegroundColorAttributeName value:[MTool colorWithHexString:@"#D12E2E"] range:NSMakeRange(9,6)];
+    _explainLab.attributedText = placeholder;
 }
 
 /*
